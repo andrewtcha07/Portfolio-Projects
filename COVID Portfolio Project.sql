@@ -95,7 +95,7 @@ order by total_death_count desc
 
 -- "LET'S BREAK THINGS DOWN BY CONTINENT"
 
--- "Showing Contintent with the Highest Death Count per Population"
+-- "Showing Continent with the Highest Death Count per Population"
 
 select 
     continent
