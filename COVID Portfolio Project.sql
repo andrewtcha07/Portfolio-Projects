@@ -45,7 +45,7 @@ order by 1,2
 
 
 -- "Looking at Total Cases vs. Percentage"
-    -- Shows what percentage of population got 
+    -- Shows what percentage of population got covid
 
 select
     location
