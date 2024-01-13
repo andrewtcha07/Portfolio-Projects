@@ -86,7 +86,8 @@ These queries provide a comprehensive exploration of COVID-19 data, offering val
 
 ## Visuals
 
-![Dashboard 1 (1)](https://github.com/andrewtcha07/Portfolio-Projects/assets/154933301/6d179ac5-3106-47c9-9322-3acabed646c0)
+
+![Dashboard 1 (2)](https://github.com/andrewtcha07/Portfolio-Projects/assets/154933301/9e8c3c29-4328-4dbf-8bd9-fcb7cef129a4)
 
 
 ## License, Authors, Acknowledgements
