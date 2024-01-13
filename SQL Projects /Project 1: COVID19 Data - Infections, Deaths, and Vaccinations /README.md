@@ -80,6 +80,12 @@ These queries provide a comprehensive exploration of COVID-19 data, offering val
 
 ## Dataset(s)
 
+`CovidDeath.csv`
+
+`CovidVaccinations.csv`
+
 ## Visuals
 
 ## License, Authors, Acknowledgements
+
+[Alex The Analysts](https://www.alextheanalyst.com/)
