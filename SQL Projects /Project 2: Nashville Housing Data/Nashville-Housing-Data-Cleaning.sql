@@ -1,39 +1,28 @@
 /* Cleaning Data in Nashville Housing */
 
-
 select *
 from PortfolioProject.dbo.NashvilleHousing
 
+    
+-- Standardized Date Format
 
-select saledateconverted
-from PortfolioProject.dbo.NashvilleHousing
-
-
--- Standarizerd Date Format
-
-
-select saledateconverted
-    , convert(date,saledate)
-from PortfolioProject.dbo.NashvilleHousing
-
-update NashvilleHousing
-set saledate = convert(date,saledate)
-
-alter table NashvilleHousing
+alter table PortfolioProject.dbo.NashvilleHousing
 add saledateconverted date;
 
-update NashvilleHousing
+update PortfolioProject.dbo.NashvilleHousing
 set saledateconverted = convert(date,saledate)
+
+select saledatecoverted
+    , saledate
+from PortfolioProject.dbo.NashvilleHousing
 
 
 -- Renaming a Column
-
 
 EXEC sp_rename 'dbo.NashvilleHousing.saledateconverted', 'NewSaleDate', 'COLUMN';
 
 
 -- Populate Property Address Data
-
 
 select *
 from PortfolioProject.dbo.NashvilleHousing
@@ -64,10 +53,9 @@ join PortfolioProject.dbo.NashvilleHousing b
 where a.propertyaddress is null
 
 
-
 -- Breaking out Address into Individual Columns (Address, City, State)
 
--- Separate Property Address
+    -- Property Address
 
 select propertyaddress
 from PortfolioProject.dbo.NashvilleHousing
@@ -92,8 +80,7 @@ update NashvilleHousing
 set PropertySplitCity = substring(propertyaddress, charindex(',', propertyaddress) +1, len(propertyaddress))
 
 
--- Separate Owner Property
-
+    -- Owner Property
 
 select owneraddress
 from PortfolioProject.dbo.NashvilleHousing
@@ -123,8 +110,7 @@ update NashvilleHousing
 set OwnerSplitState = parsename(replace(owneraddress, ',', '.') ,1)
 
 
--- Change Y and N to Yes and No in "Sold as Vacant" field
-
+-- Change Y and N to Yes and No in the "Sold as Vacant" field
 
 select distinct(soldasvacant)
     , count(soldasvacant)
@@ -147,7 +133,6 @@ set soldasvacant = case when soldasvacant = 'Y' then 'Yes'
 
 
 -- Remove Duplicates
-
 
 with RomNumCTE as(
 select *
@@ -188,7 +173,6 @@ where row_num > 1
 
 
 -- Delete unused Columns
-
 
 select *
 from PortfolioProject.dbo.NashvilleHousing
