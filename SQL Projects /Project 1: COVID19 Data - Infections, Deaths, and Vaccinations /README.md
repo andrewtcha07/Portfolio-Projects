@@ -52,7 +52,7 @@ Creation of a temporary table to store and analyze the relationship between popu
 
 ### 12. View for Later Visualizations:
 
-Creation of a view named "PercentPopulationVaccinated" that encapsulates relevant data for potential later visualizations and insights.
+Creation of a visual.
 
 These queries provide a comprehensive exploration of COVID-19 data, offering valuable perspectives on infection rates, mortality, and vaccination progress at both the country and continent levels. The results obtained from these queries can be utilized for further analysis, reporting, and visualization to enhance our understanding of the global impact of the COVID-19 pandemic.
 
