@@ -1,4 +1,4 @@
-# Cyclistic Bike-Share: Case Study
+# 🚲 Cyclistic Bike-Share: Case Study
 
 ## Scenario
 + I am a Junior Data Analyst in the Marketing Analyst Team at Cyclistic, a bike-share company in Chicago.
