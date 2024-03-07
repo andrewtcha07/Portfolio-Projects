@@ -42,18 +42,36 @@ The analysis will address these key questions:
 
 ### Data Acquisition
 + The downloaded dataset comprises 12 CSV files, each corresponding to one of the 12 months (January to December) in 2023, with a total file size of 1.15 GB.
-+ Metadata
-++| File Name | Data Size |
-++| --- | --- |
-++| 202301-divvy-tripdata.csv | 38.5 MB |
-++| 202303-divvy-tripdata.csv | 52.3 MB |
-++| 202304-divvy-tripdata.csv | 85.8 MB |
-++| 202305-divvy-tripdata.csv | 121.8 MB |
-++| 202306-divvy-tripdata.csv | 144.4 MB |
-++| 202307-divvy-tripdata.csv | 153.9 MB |
-++| 202308-divvy-tripdata.csv | 155.1 MB |
-++| 202309-divvy-tripdata.csv | 134.2 MB |
-++| 202310-divvy-tripdata.csv | 107.9 MB |
-++| 202311-divvy-tripdata.csv | 73 MB |
-++| 202312-divvy-tripdata.csv | 45 MB |
+
+### Metadata
+| File Name | Data Size |
+| --- | --- |
+| 202301-divvy-tripdata.csv | 38.5 MB |
+| 202303-divvy-tripdata.csv | 52.3 MB |
+| 202304-divvy-tripdata.csv | 85.8 MB |
+| 202305-divvy-tripdata.csv | 121.8 MB |
+| 202306-divvy-tripdata.csv | 144.4 MB |
+| 202307-divvy-tripdata.csv | 153.9 MB |
+| 202308-divvy-tripdata.csv | 155.1 MB |
+| 202309-divvy-tripdata.csv | 134.2 MB |
+| 202310-divvy-tripdata.csv | 107.9 MB |
+| 202311-divvy-tripdata.csv | 73 MB |
+| 202312-divvy-tripdata.csv | 45 MB |
+
+### Credibility (ROCCC)
++ The data was taken directly from the Divvy public dataset, which concludes it is reliable, original, comprehensive, current, and cited.
+
+### Licensing, Privacy, Security, and Accessibility
++ **Licensing**: The public dataset was made available by Motivate International Inc. under this [license](https://divvybikes-marketing-staging.lyft.net/system-data). This ensures that the usage of the data follows the specified terms and conditions.
++ **Privacy**: The Divvy public dataset adheres to [data privacy regulations](https://www.lyft.com/privacy#privacy-how-we-use-your-information), by anonymizing all data to protect personally identifiable information. This safeguards the privacy of individuals' information while analyzing the dataset.
++ **Security**: The security of the analysis will ensure that the downloaded data is securely stored in a protected location.
++ **Accessibility**: The analysis will ensure that the findings and presentation formats are accessible to all stakeholders with varying abilities, adhering to established accessibility standards and guidelines.
+
+### Data Integrity
++ Data integrity will be maintained through validation and assessment of data quality during the exploratory data analysis process, which entails identifying inconsistencies, missing values, outliers, and duplicate entries.
+
+
+
+
+
 
