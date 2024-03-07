@@ -15,19 +15,49 @@
 + The Director of Marketing aims to maximize annual memberships for future growth by converting casual riders into members, leveraging their existing awareness of the Cyclistic program.
 + To achieve this goal, the team plans to analyze historical bike trip data to understand the differences between annual members and casual riders, motivations for purchasing memberships, and the impact of digital media on marketing tactics.
 
-## The 'Ask' Phase
+## 🖐️ The 'Ask' Phase
 
-### ✍️ Business Task
+### Business Task
 Utilize Cyclistic's historical bike trip data for a comprehensive analysis of the distinct usage behaviors between casual riders and annual members. Employ these insights to craft an effective marketing strategy geared towards converting casual riders into annual members for Cyclistic, thereby driving future growth and profitability.
 
-### 🔑 Key Stakeholders
+### Key Stakeholders
 + **Lily Moreno**: Director of Marketing and your manager, responsible for developing campaigns and initiatives to promote the bike-share program across various channels.
 + **Cyclistic Marketing Analytics Team**: The Data Analysts Team is responsible for collecting, analyzing, and reporting data to guide Cyclistic's marketing strategy.
 + **Cyclistic Executive Team**: A detail-oriented executive team responsible for approving the recommended marketing program.
 
-### ❓ Key Questions
+### Key Questions
 The analysis will address these key questions:
 1. How do annual members and casual riders use Cyclistic bikes differently?
 2. Why would casual riders buy Cyclistic annual memberships?
 3. How can Cyclisitc use digital media to influence casual riders to become members?
+
+## 🛠️ The 'Prepare' Phase
+
+### Data Location
++ Cyclistic’s Historical Trip Data is sourced from [Divvy Trip Data](https://divvy-tripdata.s3.amazonaws.com/index.html), a public dataset provided by Motivate International Inc., a bike-sharing company operating in Chicago under the name of Divvy (owned by Lyft). 
+
+### Organization
++ The Divvy Trip dataset is organized by year and month, with each month's data formatted as a separate zip file.
++ In each zip file, the data is formatted as CSV files.
+
+### Data Acquisition
++ The downloaded dataset comprises 12 CSV files, each corresponding to one of the 12 months (January to December) in 2023, with a total file size of 1.15 GB.
+
+#### Metadata
+| File | Data Size |
+| --- | --- |
+| 202301-divvy-tripdata.csv | 38.5 MB |
+| 202303-divvy-tripdata.csv - 52.3 MB |
+| 202304-divvy-tripdata.csv - 85.8 MB |
+| 202305-divvy-tripdata.csv - 121.8 MB |
+| 202301-divvy-tripdata.csv | 38.5 MB |
+| 202301-divvy-tripdata.csv | 38.5 MB |
+| 202301-divvy-tripdata.csv | 38.5 MB |
+| 202301-divvy-tripdata.csv | 38.5 MB |
+| 202301-divvy-tripdata.csv | 38.5 MB |
+| 202301-divvy-tripdata.csv | 38.5 MB |
+| 202301-divvy-tripdata.csv | 38.5 MB |
+| 202301-divvy-tripdata.csv | 38.5 MB |
+| 202301-divvy-tripdata.csv | 38.5 MB |
+| 202301-divvy-tripdata.csv | 38.5 MB |
 
