@@ -43,21 +43,18 @@ The analysis will address these key questions:
 ### Data Acquisition
 + The downloaded dataset comprises 12 CSV files, each corresponding to one of the 12 months (January to December) in 2023, with a total file size of 1.15 GB.
 
-#### Metadata
+### Metadata
 | File | Data Size |
 | --- | --- |
 | 202301-divvy-tripdata.csv | 38.5 MB |
-| 202303-divvy-tripdata.csv - 52.3 MB |
-| 202304-divvy-tripdata.csv - 85.8 MB |
-| 202305-divvy-tripdata.csv - 121.8 MB |
-| 202301-divvy-tripdata.csv | 38.5 MB |
-| 202301-divvy-tripdata.csv | 38.5 MB |
-| 202301-divvy-tripdata.csv | 38.5 MB |
-| 202301-divvy-tripdata.csv | 38.5 MB |
-| 202301-divvy-tripdata.csv | 38.5 MB |
-| 202301-divvy-tripdata.csv | 38.5 MB |
-| 202301-divvy-tripdata.csv | 38.5 MB |
-| 202301-divvy-tripdata.csv | 38.5 MB |
-| 202301-divvy-tripdata.csv | 38.5 MB |
-| 202301-divvy-tripdata.csv | 38.5 MB |
+| 202303-divvy-tripdata.csv | 52.3 MB |
+| 202304-divvy-tripdata.csv | 85.8 MB |
+| 202305-divvy-tripdata.csv | 121.8 MB |
+| 202306-divvy-tripdata.csv | 144.4 MB |
+| 202307-divvy-tripdata.csv | 153.9 MB |
+| 202308-divvy-tripdata.csv | 155.1 MB |
+| 202309-divvy-tripdata.csv | 134.2 MB |
+| 202310-divvy-tripdata.csv | 107.9 MB |
+| 202311-divvy-tripdata.csv | 73 MB |
+| 202312-divvy-tripdata.csv | 45 MB |
 
