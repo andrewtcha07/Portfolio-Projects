@@ -1,4 +1,5 @@
 # Cyclistic Bike-Share: Case Study 🚲
+>*Following the Six-Step Data Analysis Process: **Ask**, **Prepare**, **Process**, **Analyze**, **Share**, and **Act**.*
 
 ## 🎭 Scenario
 + I am a Junior Data Analyst in the Marketing Analyst Team at Cyclistic, a bike-share company in Chicago.
