@@ -73,7 +73,7 @@ The analysis will address these key questions:
 ## 🔄 The 'Process' Phase
 
 ### Tools
-
+To see the remaining steps of the process, please visit the following pages:
 + **Microsoft Excel / Power Query**
 + **R**
 + **SQL**
