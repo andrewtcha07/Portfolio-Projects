@@ -31,7 +31,7 @@ The analysis will address these key questions:
 2. Why would casual riders buy Cyclistic annual memberships?
 3. How can Cyclisitc use digital media to influence casual riders to become members?
 
-## 🛠️ The 'Prepare' Phase
+## 📋 The 'Prepare' Phase
 
 ### Data Location
 + Cyclistic’s Historical Trip Data is sourced from [Divvy Trip Data](https://divvy-tripdata.s3.amazonaws.com/index.html), a public dataset provided by Motivate International Inc., a bike-sharing company operating in Chicago under the name of Divvy (owned by Lyft). 
@@ -68,8 +68,15 @@ The analysis will address these key questions:
 + **Accessibility**: The analysis will ensure that the findings and presentation formats are accessible to all stakeholders with varying abilities, adhering to established accessibility standards and guidelines.
 
 ### Data Integrity
-+ Data integrity will be maintained through validation and assessment of data quality during the exploratory data analysis process, which entails identifying inconsistencies, missing values, outliers, and duplicate entries.
++ Data integrity will be maintained through validation and assessment of data quality during the exploratory data analysis (EDA) process, which entails identifying inconsistencies, missing values, outliers, and duplicate entries.
 
+## 🔄 The 'Process' Phase
+
+### Tools
+
++ **Microsoft Excel / Power Query**
++ **R**
++ **SQL**
 
 
 
