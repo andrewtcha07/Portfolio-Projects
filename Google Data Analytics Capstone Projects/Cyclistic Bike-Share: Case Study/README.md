@@ -35,6 +35,9 @@ The analysis will address these key questions:
 - [x] Identify the business task.
 - [x] Consider key stakeholders.
 
+### Deliverable 
+- [x] A clear statement of the business task.
+
 ## 📋 The 'Prepare' Phase
 
 ### Data Location
@@ -73,6 +76,15 @@ The analysis will address these key questions:
 
 ### Data Integrity
 + Data integrity will be maintained through validation and assessment of data quality during the Exploratory Data Analysis (EDA) process, which entails identifying inconsistencies, missing values, outliers, and duplicate entries.
+
+### Key Tasks
+- [x]  Download data and store it appropriately.
+- [x]  Identify how it’s organized.
+- [x]  Sort and filter the data.
+- [x]  Determine the credibility of the data.
+
+### Deliverable 
+- [x] A description of all data sources used.
 
 ## 🔄 The 'Process' Phase
 
