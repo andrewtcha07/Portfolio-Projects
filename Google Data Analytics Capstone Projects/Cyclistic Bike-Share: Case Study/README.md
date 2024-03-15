@@ -58,8 +58,8 @@ The analysis will address these key questions:
 | 202311-divvy-tripdata.csv | 73 MB |
 | 202312-divvy-tripdata.csv | 45 MB |
 
-### Credibility (ROCCC)
-+ The data was taken directly from the Divvy public dataset, which concludes it is reliable, original, comprehensive, current, and cited.
+### Credibility (R.O.C.C.C)
++ The data was taken directly from the Divvy public dataset, which concludes it is Reliable, Original, Comprehensive, Current, and Cited.
 
 ### Licensing, Privacy, Security, and Accessibility
 + **Licensing**: The public dataset was made available by Motivate International Inc. under this [license](https://divvybikes-marketing-staging.lyft.net/system-data). This ensures that the usage of the data follows the specified terms and conditions.
