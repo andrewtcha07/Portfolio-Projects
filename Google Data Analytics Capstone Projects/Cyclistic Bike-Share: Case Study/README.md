@@ -68,7 +68,7 @@ The analysis will address these key questions:
 + **Accessibility**: The analysis will ensure that the findings and presentation formats are accessible to all stakeholders with varying abilities, adhering to established accessibility standards and guidelines.
 
 ### Data Integrity
-+ Data integrity will be maintained through validation and assessment of data quality during the exploratory data analysis (EDA) process, which entails identifying inconsistencies, missing values, outliers, and duplicate entries.
++ Data integrity will be maintained through validation and assessment of data quality during the Exploratory Data Analysis (EDA) process, which entails identifying inconsistencies, missing values, outliers, and duplicate entries.
 
 ## 🔄 The 'Process' Phase
 
