@@ -15,7 +15,7 @@
 + The Director of Marketing aims to maximize annual memberships for future growth by converting casual riders into members, leveraging their existing awareness of the Cyclistic program.
 + To achieve this goal, the team plans to analyze historical bike trip data to understand the differences between annual members and casual riders, motivations for purchasing memberships, and the impact of digital media on marketing tactics.
 
-## 🖐️ The 'Ask' Phase
+## ❓ The 'Ask' Phase
 
 ### Business Task
 Utilize Cyclistic's historical bike trip data for a comprehensive analysis of the distinct usage behaviors between casual riders and annual members. Employ these insights to craft an effective marketing strategy geared towards converting casual riders into annual members for Cyclistic, thereby driving future growth and profitability.
