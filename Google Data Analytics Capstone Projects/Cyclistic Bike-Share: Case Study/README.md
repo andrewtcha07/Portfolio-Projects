@@ -31,6 +31,10 @@ The analysis will address these key questions:
 2. Why would casual riders buy Cyclistic annual memberships?
 3. How can Cyclisitc use digital media to influence casual riders to become members?
 
+### Key Tasks
+- [x] Identify the business task.
+- [x] Consider key stakeholders.
+
 ## 📋 The 'Prepare' Phase
 
 ### Data Location
