@@ -43,12 +43,11 @@ The analysis will address these key questions:
 ### Data Location
 + Cyclistic’s Historical Trip Data is sourced from [Divvy Trip Data](https://divvy-tripdata.s3.amazonaws.com/index.html), a public dataset provided by Motivate International Inc., a bike-sharing company operating in Chicago under the name of Divvy (owned by Lyft). 
 
-### Organization
+### Data Organization
 + The Divvy Trip dataset is organized by year and month, with each month's data formatted as a separate zip file.
 + In each zip file, the data is formatted as CSV files.
-
-### Data Acquisition
 + The downloaded dataset comprises 12 CSV files, each corresponding to one of the 12 months (January to December) in 2023, with a total file size of 1.15 GB.
++ Each CSV file consists of 13 columns.
 
 ### Metadata
 | File Name | Data Size |
@@ -64,6 +63,11 @@ The analysis will address these key questions:
 | 202310-divvy-tripdata.csv | 107.9 MB |
 | 202311-divvy-tripdata.csv | 73 MB |
 | 202312-divvy-tripdata.csv | 45 MB |
+
+### Sort and Filter
++ Typically, the method for sorting and filtering will depend on the tool being used.
++ Sorting the data involves arranging it according to key factors crucial for the analysis, such as variables and data type.
++ Filtering the data entails removing any unnecessary data to concentrate solely on the information essential for addressing your business questions.
 
 ### Credibility (R.O.C.C.C)
 + The data was taken directly from the Divvy public dataset, which concludes it is Reliable, Original, Comprehensive, Current, and Cited.
