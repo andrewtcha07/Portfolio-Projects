@@ -10,6 +10,24 @@
 ### Data Preparation
 + Imported the 12 CSV files into Excel, converting them to XLSX for enhanced formatting and analysis.
 + Conducted an initial data review.
+
+#### Data Dictionary
+| No. | Column Name | Data Size | Data Size |
+| --- | --- | --- | --- |
+| 1 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
+| 2 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
+| 3 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
+| 4 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
+| 5 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
+| 6 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
+| 7 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
+| 8 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
+| 9 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
+| 10 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
+| 11| 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
+| 12 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
+
+### Data Exploration
 + Generated table charts noting record counts, duplicates, and null/blank values, and identified specific stations and IDs related to testing, warehouses, charging stations, and repairs.
 
 #### Counts of Records, Duplicates, and Null/Blank Values
@@ -26,8 +44,13 @@
 + Each file consists of 13 columns.
 + Total number of rows across all files is 5,719,877.
 + Total count of null/blank values is 3,624,089.
-+ Missing data primarily occurs in columns
-    * start_station_name, start_station_id, end_station_name, end_station_id, end_lat, and end_lng.
++ Missing data primarily occurs in columns:
+    * start_station_name
+    * start_station_id
+    * end_station_name
+    * end_station_id
+    * end_lat
+    * end_lng
 + Following further exploration, a decision will be made regarding whether to keep or drop missing data.
 
 ### Data Combination
