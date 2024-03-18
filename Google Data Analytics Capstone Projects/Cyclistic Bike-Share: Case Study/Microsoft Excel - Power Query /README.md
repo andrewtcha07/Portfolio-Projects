@@ -8,7 +8,7 @@
 + Additionally, Excel's visualization tools enable effective summarization and presentation of analysis results.
 
 ### Data Preparation
-+ Imported CSV files into Excel, converting to XLSX for improved formatting and analysis.
++ Imported the 12 CSV files into Excel, converting them to XLSX for enhanced formatting and analysis.
 + Conducted an initial data review.
 + Generated table charts noting record counts, duplicates, and null/blank values, and identified specific stations and IDs related to testing, warehouses, charging stations, and repairs.
 
