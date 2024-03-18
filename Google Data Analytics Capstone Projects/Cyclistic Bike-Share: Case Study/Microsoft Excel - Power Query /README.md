@@ -15,7 +15,7 @@
 | No. | Column Name | Data Type | Description |
 | :--- | :--- | :--- | :--- |
 | 1 | ride_id | Text | Unique identifier for each trip. |
-| 2 | rideable_type | Text | Type of rideable bike (e.g., classic, docked, electric). |
+| 2 | rideable_type | Text | Type of rideable bike (e.g., classic, docked, electric). [^1] |
 | 3 | started_at | Date/Time | Timestamp indicating when the trip started. |
 | 4 | ended_at | Date/Time | Timestamp indicating when the trip ended. |
 | 5 | start_station_name | Text | Name of the station where the trip started. |
@@ -26,7 +26,10 @@
 | 10 | start_lng | Decimal Number | Longitude of the starting location. |
 | 11| end_lat | Decimal Number | Latitude of the ending location. |
 | 12 | end_lng | Decimal Number | Longitude of the ending location. |
-| 13 | member_casual | Text | Type of user (e.g., casual, member). |
+| 13 | member_casual | Text | Type of user (e.g., casual, member). [^2] |
+
+[^1] fdsa
+[^2] fdsfd
 
 ### Data Exploration
 + Generated table charts noting record counts, duplicates, and null/blank values, and identified specific stations and IDs related to testing, warehouses, charging stations, and repairs.
