@@ -13,11 +13,11 @@
 + Generated table charts noting record counts, duplicates, and null/blank values, and identified specific stations and IDs related to testing, warehouses, charging stations, and repairs.
 
 #### Counts of Records, Duplicates, and Null/Blank Values
-+ Calculated using `=COLUMNS`, `=ROWS`, `=COUNTIF`, and `=COUNTBLANK` functions.
+>Calculated using `=COLUMNS`, `=ROWS`, `=COUNTIF`, and `=COUNTBLANK` functions.
 ![1](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/2ae1b0b0-96aa-4533-a7df-fc56d724f48d)
 
 #### Count of Stations and IDs for Testing, Warehouses, Charging, and Repairs
-+ Calculated using `=COUNTIF` functions.
+>Calculated using `=COUNTIF` functions.
 ![2](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/841785a3-55fd-4418-b76f-1d7aec974b51)
 
 ### Data Combination
