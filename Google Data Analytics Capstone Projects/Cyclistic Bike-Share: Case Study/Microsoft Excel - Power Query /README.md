@@ -12,21 +12,21 @@
 + Conducted an initial data review.
 
 #### Data Dictionary
-| No. | Column Name | Data Type | Description |
+| No. | Column Name | Data Tyoe | Description |
 | --- | --- | --- | --- |
-| 1 | ride_id | Text | 38.5 MB |
-| 2 | rideable_type | Text | 38.5 MB |
-| 3 | started_at | Date/Time | 38.5 MB |
-| 4 | ended_at | Date/Time | 38.5 MB |
-| 5 | start_station_name | Text | 38.5 MB |
-| 6 | start_station_id | Text | 38.5 MB |
-| 7 | end_station_name | Text | 38.5 MB |
-| 8 | end_station_id | Text | 38.5 MB |
-| 9 | start_lat | Decimal Number | 38.5 MB |
-| 10 | start_lng | Decimal Number | 38.5 MB |
-| 11| end_lat | Decimal Number | 38.5 MB |
-| 12 | end_lng | Decimal Number | 38.5 MB |
-| 13 | member_casual | Text | 38.5 MB |
+| 1 | ride_id | Text | Unique identifier for each trip. |
+| 2 | rideable_type | Text | Type of rideable bike (e.g., classic, docked, electric). |
+| 3 | started_at | Date/Time | Timestamp indicating when the trip started. |
+| 4 | ended_at | Date/Time | Timestamp indicating when the trip ended. |
+| 5 | start_station_name | Text | Name of the station where the trip started. |
+| 6 | start_station_id | Text | Unique identifier for the station where the trip started. |
+| 7 | end_station_name | Text | Name of the station where the trip ended. |
+| 8 | end_station_id | Text | Unique identifier for the station where the trip ended. |
+| 9 | start_lat | Decimal Number | Latitude of the starting location. |
+| 10 | start_lng | Decimal Number | Longitude of the starting location. |
+| 11| end_lat | Decimal Number | Latitude of the ending location. |
+| 12 | end_lng | Decimal Number | Longitude of the ending location. |
+| 13 | member_casual | Text | Type of user (e.g., casual, member). |
 
 ### Data Exploration
 + Generated table charts noting record counts, duplicates, and null/blank values, and identified specific stations and IDs related to testing, warehouses, charging stations, and repairs.
