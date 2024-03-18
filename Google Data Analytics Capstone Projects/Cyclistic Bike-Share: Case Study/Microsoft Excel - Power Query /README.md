@@ -11,31 +11,6 @@
 + Imported the 12 CSV files into Excel, converting them to XLSX for enhanced formatting and analysis.
 + Conducted an initial data review.
 
-#### Data Dictionary
-| No. | Column Name | Data Type | Description |
-| :--- | :--- | :--- | :--- |
-| 1 | ride_id | Text | Unique identifier for each trip. |
-| 2 | rideable_type | Text | Type of rideable bike (e.g., classic, docked, electric). |
-| 3 | started_at | Date/Time | Timestamp indicating when the trip started. |
-| 4 | ended_at | Date/Time | Timestamp indicating when the trip ended. |
-| 5 | start_station_name | Text | Name of the station where the trip started. |
-| 6 | start_station_id | Text | Unique identifier for the station where the trip started. |
-| 7 | end_station_name | Text | Name of the station where the trip ended. |
-| 8 | end_station_id | Text | Unique identifier for the station where the trip ended. |
-| 9 | start_lat | Decimal Number | Latitude of the starting location. |
-| 10 | start_lng | Decimal Number | Longitude of the starting location. |
-| 11| end_lat | Decimal Number | Latitude of the ending location. |
-| 12 | end_lng | Decimal Number | Longitude of the ending location. |
-| 13 | member_casual | Text | Type of user (e.g., casual, member). |
-
-> [!NOTE]
-> Further Information
-> + `rideable_type`: There are three possible bike choices: `classic_bike`, `docked_bike`, and `electric_bike`.
->    * `classic bikes`: Standard, traditional bicycles ideal for short and medium distances, well-suited for casual riders.
->    * `docked bikes`: Typically stationed throughout the city for convenient access and return.
->    * `electric bikes`: Motor-powered bicycles provide pedal assistance, facilitating easier navigation and longer-distance travel with reduced effort.
-> + `member_casual`:
-
 ### Data Exploration
 + Generated table charts noting record counts, duplicates, and null/blank values, and identified specific stations and IDs related to testing, warehouses, charging stations, and repairs.
 
