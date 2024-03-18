@@ -22,7 +22,16 @@
 
 ![2](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/841785a3-55fd-4418-b76f-1d7aec974b51)
 
+### Summary of Initial Review
++ Each file consists of 13 columns.
++ Total number of rows across all files is 5,719,877.
++ Total count of null/blank values is 3,624,089.
++ Missing data primarily occurs in columns
+    * start_station_name, start_station_id, end_station_name, end_station_id, end_lat, and end_lng.
++ Following further exploration, a decision will be made regarding whether to keep or drop missing data.
+
 ### Data Combination
++ Using Power Query to combine all 12 XLSX files into one file, following the initial review.
 
 ### Data Exploration
 
