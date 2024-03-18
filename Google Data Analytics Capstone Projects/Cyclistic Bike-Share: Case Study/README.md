@@ -51,7 +51,7 @@ The analysis will address these key questions:
 
 ### Metadata
 | File Name | Data Size |
-| --- | --- |
+| ------------------------- | ------- |
 | 202301-divvy-tripdata.csv | 38.5 MB |
 | 202303-divvy-tripdata.csv | 52.3 MB |
 | 202304-divvy-tripdata.csv | 85.8 MB |
