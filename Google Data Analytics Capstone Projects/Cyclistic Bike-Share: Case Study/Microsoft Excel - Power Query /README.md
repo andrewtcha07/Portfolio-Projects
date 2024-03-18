@@ -12,20 +12,21 @@
 + Conducted an initial data review.
 
 #### Data Dictionary
-| No. | Column Name | Data Size | Data Size |
+| No. | Column Name | Data Type | Description |
 | --- | --- | --- | --- |
-| 1 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
-| 2 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
-| 3 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
-| 4 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
-| 5 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
-| 6 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
-| 7 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
-| 8 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
-| 9 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
-| 10 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
-| 11| 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
-| 12 | 38.5 MB | 202301-divvy-tripdata.csv | 38.5 MB |
+| 1 | ride_id | Text | 38.5 MB |
+| 2 | rideable_type | Text | 38.5 MB |
+| 3 | started_at | Date/Time | 38.5 MB |
+| 4 | ended_at | Date/Time | 38.5 MB |
+| 5 | start_station_name | Text | 38.5 MB |
+| 6 | start_station_id | Text | 38.5 MB |
+| 7 | end_station_name | Text | 38.5 MB |
+| 8 | end_station_id | Text | 38.5 MB |
+| 9 | start_lat | Decimal Number | 38.5 MB |
+| 10 | start_lng | Decimal Number | 38.5 MB |
+| 11| end_lat | Decimal Number | 38.5 MB |
+| 12 | end_lng | Decimal Number | 38.5 MB |
+| 13 | member_casual | Text | 38.5 MB |
 
 ### Data Exploration
 + Generated table charts noting record counts, duplicates, and null/blank values, and identified specific stations and IDs related to testing, warehouses, charging stations, and repairs.
