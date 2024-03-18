@@ -12,8 +12,8 @@
 + Conducted an initial data review.
 
 #### Data Dictionary
-| :No. | :Column Name | :Data Type | :Description |
-| --- | --- | --- | --- |
+| No. | Column Name | Data Type | Description |
+| :--- | :--- | :--- | :--- |
 | 1 | ride_id | Text | Unique identifier for each trip. |
 | 2 | rideable_type | Text | Type of rideable bike (e.g., classic, docked, electric). |
 | 3 | started_at | Date/Time | Timestamp indicating when the trip started. |
