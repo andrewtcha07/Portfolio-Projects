@@ -99,7 +99,10 @@
 ```ruby
 = Table.TransformColumns(#"Renamed Columns6",{{"ride_length_min", Duration.TotalMinutes, type number}})
 ```
-
+   * Rounding up `ride_length_min` by 2 decmial.
+```ruby
+= Table.TransformColumns(#"Calculated Total Minutes",{{"ride_length_min", each Number.Round(_, 2), type number}})
+```
 
 
 ### Key Tasks
