@@ -91,7 +91,7 @@
 = Table.TransformColumns(#"Duplicated Column5",{{"started_at - Copy", Date.QuarterOfYear, Int64.Type}})
 ```
 + Add a custom column called `ride_length_min` measuring the difference between `ended_at` and `started_at`.
-    * `ride_length_min`
+     * `ride_length_min`
 ```ruby
 = Table.AddColumn(#"Renamed Columns5", "Custom", each [ended_at] - [started_at])
 ```
