@@ -2,10 +2,10 @@
 
 ### Tool
 >*Microsoft Excel and Power Query*
-+ The decision to use **Microsoft Excel** and **Power Query** for this analysis stems from their widespread accessibility, robust data manipulation capabilities, and seamless integration with external data sources.
-+ Excel's user-friendly interface and familiarity make it an ideal choice for stakeholders.
-+ Power Query extends Excel's capabilities, offering advanced data shaping and transformation functionalities, and simplifying tasks such as data cleaning and integration.
-+ Additionally, Excel's visualization tools enable effective summarization and presentation of analysis results.
++ **Microsoft Excel** and **Power Query** were chosen for this analysis due to their widespread accessibility, robust data manipulation capabilities, and seamless integration with external data sources.
++ Excel Functions provide powerful tools for performing various calculations, aggregations, and data manipulations, enhancing the analytical capabilities of the platform.
++ Power Query complements Excel's functionalities by offering advanced data shaping and transformation capabilities. Leveraging Power Query M Language, it simplifies tasks such as data cleaning, integration, and transformation, streamlining the data preparation process.
++ Additionally, Excel's visualization tools enable effective summarization and presentation of analysis results, facilitating insightful data visualization for stakeholders.
 
 ### Data Preparation
 + Imported the 12 CSV files into Excel, converting them to XLSX for enhanced formatting and analysis.
@@ -39,12 +39,66 @@
 
 ### Data Consolidation
 + Using Power Query to combine all 12 XLSX files into one file, following the initial review.
+
 ```ruby
 = Table.TransformColumnTypes(#"Expanded Table Column1",{{"ride_id", type text}, {"rideable_type", type text}, {"started_at", type datetime}, {"ended_at", type datetime}, {"start_station_name", type text}, {"start_station_id", type text}, {"end_station_name", type text}, {"end_station_id", type text}, {"start_lat", type number}, {"start_lng", type number}, {"end_lat", type number}, {"end_lng", type number}, {"member_casual", type text}})
 ```
 
 ### Data Transformation
 
+#### Renaming a Column
++ `member_casual` to `user_type`.
+```ruby
+= Table.RenameColumns(#"Changed Type",{{"member_casual", "user_type"}})
+```
+
+#### Removing Duplicates
++ Removing duplicates from column `ride_id`.
+```ruby
+= Table.Distinct(#"Rounded Off", {"ride_id"})
+```
+
+#### Ensure Consistency 
++ Rounding up `start_lat`, `start_lng`, `end_lat`, and `end_lng` by 2 decmial. 
+```ruby
+= Table.TransformColumns(#"Replaced Value",{{"start_lat", each Number.Round(_, 2), type number}, {"start_lng", each Number.Round(_, 2), type number}, {"end_lat", each Number.Round(_, 2), type number}, {"end_lng", each Number.Round(_, 2), type number}})
+```
+
+#### Adding Columns
++ Duplicating the column `started_at` (i.e. 1/21/2023 8:16:33 PM) and splitting column into six different column.
+   * `month` (i.e. **1**/21/2023 8:16:33 PM)
+```ruby
+= Table.RenameColumns(#"Extracted Month",{{"started_at - Copy", "month"}})
+```
+   * `day` (i.e. 1/**21**/2023 8:16:33 PM)
+```ruby
+= Table.TransformColumns(#"Renamed Columns1",{{"started_at - Copy - Copy", Date.Day, Int64.Type}})
+```
+   * `year` (i.e. 1/21/**2023** 8:16:33 PM)
+```ruby
+= Table.TransformColumns(#"Renamed Columns2",{{"year", Date.Year, Int64.Type}})
+```
+   * `day_of_week` (i.e. 1/**21**/2023 8:16:33 PM)
+```ruby
+= Table.TransformColumns(#"Renamed Columns3", {{"day_of_week", each Date.DayOfWeekName(_), type text}})
+```
+   * `hour` (i.e. 1/21/2023 **8**:16:33 PM)
+```ruby
+= Table.TransformColumns(#"Extracted Day Name",{{"started_at - Copy - Copy.1 - Copy.1", Time.Hour, Int64.Type}})
+```
+   * `quarter`
+```ruby
+= Table.TransformColumns(#"Duplicated Column5",{{"started_at - Copy", Date.QuarterOfYear, Int64.Type}})
+```
++ Add a custom column called `ride_length_min` measuring the difference between `ended_at` and `started_at`.
+    * `ride_length_min`
+```ruby
+= Table.AddColumn(#"Renamed Columns5", "Custom", each [ended_at] - [started_at])
+```
+   * Converting the `ride_length_min` measurement from hours to minutes to get a more accurate reading.
+```ruby
+= Table.TransformColumns(#"Renamed Columns6",{{"ride_length_min", Duration.TotalMinutes, type number}})
+```
 
 
 
