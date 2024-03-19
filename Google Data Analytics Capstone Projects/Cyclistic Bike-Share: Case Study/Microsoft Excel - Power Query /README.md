@@ -66,44 +66,41 @@
 
 #### Adding Columns
 + Duplicating the column `started_at` (i.e. 1/21/2023 8:16:33 PM) and splitting column into six different column.
-   * `month` (i.e. **1**/21/2023 8:16:33 PM)
++ `month` (i.e. **1**/21/2023 8:16:33 PM)
 ```ruby
 = Table.RenameColumns(#"Extracted Month",{{"started_at - Copy", "month"}})
 ```
-   * `day` (i.e. 1/**21**/2023 8:16:33 PM)
++ `day` (i.e. 1/**21**/2023 8:16:33 PM)
 ```ruby
 = Table.TransformColumns(#"Renamed Columns1",{{"started_at - Copy - Copy", Date.Day, Int64.Type}})
 ```
-   * `year` (i.e. 1/21/**2023** 8:16:33 PM)
++ `year` (i.e. 1/21/**2023** 8:16:33 PM)
 ```ruby
 = Table.TransformColumns(#"Renamed Columns2",{{"year", Date.Year, Int64.Type}})
 ```
-   * `day_of_week` (i.e. 1/**21**/2023 8:16:33 PM)
++ `day_of_week` (i.e. 1/**21**/2023 8:16:33 PM)
 ```ruby
 = Table.TransformColumns(#"Renamed Columns3", {{"day_of_week", each Date.DayOfWeekName(_), type text}})
 ```
-   * `hour` (i.e. 1/21/2023 **8**:16:33 PM)
++ `hour` (i.e. 1/21/2023 **8**:16:33 PM)
 ```ruby
 = Table.TransformColumns(#"Extracted Day Name",{{"started_at - Copy - Copy.1 - Copy.1", Time.Hour, Int64.Type}})
 ```
-   * `quarter`
++ `quarter`
 ```ruby
 = Table.TransformColumns(#"Duplicated Column5",{{"started_at - Copy", Date.QuarterOfYear, Int64.Type}})
 ```
 
 #### Adding a Custom Column
 + Add a custom column called `ride_length_min` measuring the difference between `ended_at` and `started_at`.
-     * `ride_length_min`
 ```ruby
 = Table.AddColumn(#"Renamed Columns5", "Custom", each [ended_at] - [started_at])
 ```
-
-   * Converting the `ride_length_min` measurement from hours to minutes to get a more accurate reading.
++ Converting the `ride_length_min` measurement from hours to minutes to get a more accurate reading.
 ```ruby
 = Table.TransformColumns(#"Renamed Columns6",{{"ride_length_min", Duration.TotalMinutes, type number}})
 ```
-
-   * Rounding up `ride_length_min` by 2 decimal.
++ Rounding up `ride_length_min` by 2 decimal.
 ```ruby
 = Table.TransformColumns(#"Calculated Total Minutes",{{"ride_length_min", each Number.Round(_, 2), type number}})
 ```
