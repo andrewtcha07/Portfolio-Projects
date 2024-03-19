@@ -44,7 +44,7 @@
 = Table.TransformColumnTypes(#"Expanded Table Column1",{{"ride_id", type text}, {"rideable_type", type text}, {"started_at", type datetime}, {"ended_at", type datetime}, {"start_station_name", type text}, {"start_station_id", type text}, {"end_station_name", type text}, {"end_station_id", type text}, {"start_lat", type number}, {"start_lng", type number}, {"end_lat", type number}, {"end_lng", type number}, {"member_casual", type text}})
 ```
 
-### Data Transformation
+### Data Transformation and Cleaning
 
 #### Renaming a Column
 + `member_casual` to `user_type`.
@@ -68,7 +68,7 @@
 + Duplicating the column `started_at` (i.e. 1/21/2023 8:16:33 PM) and splitting column into six different column.
 + `month` (i.e. **1**/21/2023 8:16:33 PM)
 ```ruby
-= Table.RenameColumns(#"Extracted Month",{{"started_at - Copy", "month"}})
+= Table.TransformColumns(#"Duplicated Column6", {{"started_at - Copy", each Date.MonthName(_), type text}})
 ```
 + `day` (i.e. 1/**21**/2023 8:16:33 PM)
 ```ruby
@@ -91,7 +91,7 @@
 = Table.TransformColumns(#"Duplicated Column5",{{"started_at - Copy", Date.QuarterOfYear, Int64.Type}})
 ```
 
-#### Adding a Custom Column
+#### Adding a Custom Column `ride_length_min`
 + Add a custom column called `ride_length_min` measuring the difference between `ended_at` and `started_at`.
 ```ruby
 = Table.AddColumn(#"Renamed Columns5", "Custom", each [ended_at] - [started_at])
@@ -103,6 +103,29 @@
 + Rounding up `ride_length_min` by 2 decimal.
 ```ruby
 = Table.TransformColumns(#"Calculated Total Minutes",{{"ride_length_min", each Number.Round(_, 2), type number}})
+```
+
+#### Adding Custom Column `ride_distance`
++ Add a custom column called `ride_distance` measuring the distance between the start and end points and converting from kilometers to miles.
+```ruby
+= Table.AddColumn(#"Renamed Columns7", "Custom", each let
+    startLat = [start_lat],
+    startLng = [start_lng],
+    endLat = [end_lat],
+    endLng = [end_lng],
+    earthRadiusMiles = 3958.8, // Earth radius in miles
+    toRadians = (angle) => angle * (Number.PI / 180),
+    dLat = toRadians(endLat - startLat),
+    dLon = toRadians(endLng - startLng),
+    a = Number.Sin(dLat / 2) * Number.Sin(dLat / 2) + Number.Cos(toRadians(startLat)) * Number.Cos(toRadians(endLat)) * Number.Sin(dLon / 2) * Number.Sin(dLon / 2),
+    c = 2 * Number.Atan2(Number.Sqrt(a), Number.Sqrt(1 - a)),
+    distanceMiles = earthRadiusMiles * c
+in
+    distanceMiles)
+```
++ Rounding up `ride_distance` by 2 decimal.
+```ruby
+= Table.AddColumn(#"Changed Type3", "Round", each Number.Round([ride_distance], 2), type number)
 ```
 
 
