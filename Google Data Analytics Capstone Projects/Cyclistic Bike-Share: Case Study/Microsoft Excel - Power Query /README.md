@@ -90,15 +90,19 @@
 ```ruby
 = Table.TransformColumns(#"Duplicated Column5",{{"started_at - Copy", Date.QuarterOfYear, Int64.Type}})
 ```
+
+#### Adding a Custom Column
 + Add a custom column called `ride_length_min` measuring the difference between `ended_at` and `started_at`.
      * `ride_length_min`
 ```ruby
 = Table.AddColumn(#"Renamed Columns5", "Custom", each [ended_at] - [started_at])
 ```
+
    * Converting the `ride_length_min` measurement from hours to minutes to get a more accurate reading.
 ```ruby
 = Table.TransformColumns(#"Renamed Columns6",{{"ride_length_min", Duration.TotalMinutes, type number}})
 ```
+
    * Rounding up `ride_length_min` by 2 decimal.
 ```ruby
 = Table.TransformColumns(#"Calculated Total Minutes",{{"ride_length_min", each Number.Round(_, 2), type number}})
