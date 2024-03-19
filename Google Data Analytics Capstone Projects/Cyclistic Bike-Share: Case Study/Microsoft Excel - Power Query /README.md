@@ -128,6 +128,19 @@ in
 = Table.AddColumn(#"Changed Type3", "Round", each Number.Round([ride_distance], 2), type number)
 ```
 
+#### Data Cleaning
++ Cleaning columns by trimming any leading and trailing spaces.
+```ruby
+= Table.TransformColumns(Table.TransformColumnTypes(#"Filtered Rows", {{"started_at", type text}, {"ended_at", type text}, {"start_lat", type text}, {"start_lng", type text}, {"end_lat", type text}, {"end_lng", type text}, {"month", type text}, {"day", type text}, {"year", type text}, {"hour", type text}, {"quarter", type text}, {"ride_length_min", type text}}, "en-US"),{{"ride_id", Text.Trim, type text}, {"rideable_type", Text.Trim, type text}, {"started_at", Text.Trim, type text}, {"ended_at", Text.Trim, type text}, {"start_station_name", Text.Trim, type text}, {"start_station_id", Text.Trim, type text}, {"end_station_name", Text.Trim, type text}, {"end_station_id", Text.Trim, type text}, {"start_lat", Text.Trim, type text}, {"start_lng", Text.Trim, type text}, {"end_lat", Text.Trim, type text}, {"end_lng", Text.Trim, type text}, {"user_type", Text.Trim, type text}, {"month", Text.Trim, type text}, {"day", Text.Trim, type text}, {"year", Text.Trim, type text}, {"day_of_week", Text.Trim, type text}, {"hour", Text.Trim, type text}, {"quarter", Text.Trim, type text}, {"ride_length_min", Text.Trim, type text}})
+```
++ Cleaning columns by removing any non-printable characters.
+```ruby
+= Table.TransformColumns(#"Trimmed Text",{{"ride_id", Text.Clean, type text}, {"rideable_type", Text.Clean, type text}, {"started_at", Text.Clean, type text}, {"ended_at", Text.Clean, type text}, {"start_station_name", Text.Clean, type text}, {"start_station_id", Text.Clean, type text}, {"end_station_name", Text.Clean, type text}, {"end_station_id", Text.Clean, type text}, {"start_lat", Text.Clean, type text}, {"start_lng", Text.Clean, type text}, {"end_lat", Text.Clean, type text}, {"end_lng", Text.Clean, type text}, {"user_type", Text.Clean, type text}, {"month", Text.Clean, type text}, {"day", Text.Clean, type text}, {"year", Text.Clean, type text}, {"day_of_week", Text.Clean, type text}, {"hour", Text.Clean, type text}, {"quarter", Text.Clean, type text}, {"ride_length_min", Text.Clean, type text}})
+```
++ Filtering out outliers from the `ride_length_min` column. Removing any ride duration that is less or equal to 1 ( 60 seconds) or greater or equal to 1440 (24 hours).
+```ruby
+= Table.SelectRows(#"Rounded Off1", each [ride_length_min] >= 1 and [ride_length_min] <= 1440)
+```
 
 ### Key Tasks
 - [ ]  Check the data for errors.
