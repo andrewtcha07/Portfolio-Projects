@@ -37,10 +37,14 @@
     * end_lng
 + Following further exploration, a decision will be made regarding whether to keep or drop missing data.
 
-### Data Combination
+### Data Consolidation
 + Using Power Query to combine all 12 XLSX files into one file, following the initial review.
+```ruby
+= Table.TransformColumnTypes(#"Expanded Table Column1",{{"ride_id", type text}, {"rideable_type", type text}, {"started_at", type datetime}, {"ended_at", type datetime}, {"start_station_name", type text}, {"start_station_id", type text}, {"end_station_name", type text}, {"end_station_id", type text}, {"start_lat", type number}, {"start_lng", type number}, {"end_lat", type number}, {"end_lng", type number}, {"member_casual", type text}})
+```
 
-### Data Exploration
+### Data Transformation
+
 
 
 
