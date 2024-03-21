@@ -19,7 +19,7 @@
 #### Count of Stations and IDs for Testing, Warehouses, Charging, and Repairs
 >Calculated using `=COUNTIF` functions.
 
-![2](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/841785a3-55fd-4418-b76f-1d7aec974b51)
+![2](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/49743962-c223-4b9d-8e6c-4179f8e515b1)
 
 ### Summary of Initial Review
 + Each file consists of 13 columns.
