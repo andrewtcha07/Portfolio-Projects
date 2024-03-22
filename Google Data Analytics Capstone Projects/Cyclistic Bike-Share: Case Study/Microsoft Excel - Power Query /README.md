@@ -161,9 +161,6 @@ in
     [start_station_name] <> "OH - BONFIRE - TESTING")
 ```
 ```ruby
-= Table.SelectRows(#"Filtered Rows", each [ride_distance] > 0)
-```
-```ruby
 = Table.SelectRows(#"Filtered Rows2", each [start_station_id] <> "OH Charging Stx - Test" and
     [start_station_id] <> "chargingstx5" and
     [start_station_id] <> "chargingstx4" and
@@ -208,6 +205,9 @@ in
     [end_station_id] <> "2059 Hastings Warehouse Station" and
     [end_station_id] <> "OH - BONFIRE - TESTING")
 ```
+
+#### Summary of updated data.
++ 
 
 ### Key Tasks
 - [x]  Check the data for errors.
