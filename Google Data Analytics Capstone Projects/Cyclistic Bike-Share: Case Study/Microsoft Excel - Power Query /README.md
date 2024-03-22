@@ -36,76 +36,76 @@
 
 ### Data Consolidation
 + Using Power Query to combine all 12 CSV files into one file, following the initial review.
-
 ```ruby
-= Table.TransformColumnTypes(#"Expanded Table Column1",{{"ride_id", type text}, {"rideable_type", type text}, {"started_at", type datetime}, {"ended_at", type datetime}, {"start_station_name", type text}, {"start_station_id", type text}, {"end_station_name", type text}, {"end_station_id", type text}, {"start_lat", type number}, {"start_lng", type number}, {"end_lat", type number}, {"end_lng", type number}, {"member_casual", type text}})
+= Table.TransformColumnTypes(#"Expanded Table Column1",{{"Source.Name", type text}, {"ride_id", type text}, {"rideable_type", type text}, {"started_at", type datetime}, {"ended_at", type datetime}, {"start_station_name", type text}, {"start_station_id", type text}, {"end_station_name", type text}, {"end_station_id", type text}, {"start_lat", type number}, {"start_lng", type number}, {"end_lat", type number}, {"end_lng", type number}, {"member_casual", type text}})
 ```
 
 ### Data Transformation and Cleaning
 
-#### Renaming a Column
-+ `member_casual` to `user_type`.
-```ruby
-= Table.RenameColumns(#"Changed Type",{{"member_casual", "user_type"}})
-```
-
 #### Removing Duplicates
 + Removing duplicates from column `ride_id`.
 ```ruby
-= Table.Distinct(#"Rounded Off", {"ride_id"})
+= Table.Distinct(#"Removed Columns", {"ride_id"})
 ```
 
-#### Ensure Consistency 
-+ Rounding up `start_lat`, `start_lng`, `end_lat`, and `end_lng` by 2 decmial. 
+#### Replace Values
++ Replace blank/empty values with `null`.
 ```ruby
-= Table.TransformColumns(#"Replaced Value",{{"start_lat", each Number.Round(_, 2), type number}, {"start_lng", each Number.Round(_, 2), type number}, {"end_lat", each Number.Round(_, 2), type number}, {"end_lng", each Number.Round(_, 2), type number}})
+= Table.ReplaceValue(#"Removed Duplicates","",null,Replacer.ReplaceValue,{"ride_id", "rideable_type", "started_at", "ended_at", "start_station_name", "start_station_id", "end_station_name", "end_station_id", "start_lat", "start_lng", "end_lat", "end_lng", "member_casual"})
+```
+#### Text Transformation
++ + Cleaning columns using `Trimmed Text`, trimming any leading and trailing spaces.
+```ruby
+= Table.TransformColumns(Table.TransformColumnTypes(#"Replaced Value", {{"started_at", type text}, {"ended_at", type text}, {"start_lat", type text}, {"start_lng", type text}, {"end_lat", type text}, {"end_lng", type text}}, "en-US"),{{"ride_id", Text.Trim, type text}, {"rideable_type", Text.Trim, type text}, {"started_at", Text.Trim, type text}, {"ended_at", Text.Trim, type text}, {"start_station_name", Text.Trim, type text}, {"start_station_id", Text.Trim, type text}, {"end_station_name", Text.Trim, type text}, {"end_station_id", Text.Trim, type text}, {"start_lat", Text.Trim, type text}, {"start_lng", Text.Trim, type text}, {"end_lat", Text.Trim, type text}, {"end_lng", Text.Trim, type text}, {"member_casual", Text.Trim, type text}})
+```
++ Cleaning columns using `Cleaned Text`, removing any non-printable characters.
+```ruby
+= Table.TransformColumns(#"Trimmed Text",{{"ride_id", Text.Clean, type text}, {"rideable_type", Text.Clean, type text}, {"started_at", Text.Clean, type text}, {"ended_at", Text.Clean, type text}, {"start_station_name", Text.Clean, type text}, {"start_station_id", Text.Clean, type text}, {"end_station_name", Text.Clean, type text}, {"end_station_id", Text.Clean, type text}, {"start_lat", Text.Clean, type text}, {"start_lng", Text.Clean, type text}, {"end_lat", Text.Clean, type text}, {"end_lng", Text.Clean, type text}, {"member_casual", Text.Clean, type text}})
+```
+
+#### Renaming a Column
++ `member_casual` to `user_type`.
+```ruby
+= Table.RenameColumns(#"Changed Type1",{{"member_casual", "user_type"}})
 ```
 
 #### Adding Columns
 + Duplicating the column `started_at` (i.e. 1/21/2023 8:16:33 PM) and splitting column into six different column.
 + `month` (i.e. **1**/21/2023 8:16:33 PM)
 ```ruby
-= Table.TransformColumns(#"Duplicated Column6", {{"started_at - Copy", each Date.MonthName(_), type text}})
+= Table.AddColumn(#"Renamed Columns", "month", each Date.MonthName([started_at]))
 ```
 + `day` (i.e. 1/**21**/2023 8:16:33 PM)
 ```ruby
-= Table.TransformColumns(#"Renamed Columns1",{{"started_at - Copy - Copy", Date.Day, Int64.Type}})
+= Table.AddColumn(#"Added Custom", "day", each Date.Day([started_at]))
 ```
 + `year` (i.e. 1/21/**2023** 8:16:33 PM)
 ```ruby
-= Table.TransformColumns(#"Renamed Columns2",{{"year", Date.Year, Int64.Type}})
+= Table.AddColumn(#"Added Custom1", "year", each Date.Year([started_at]))
 ```
 + `day_of_week` (i.e. 1/**21**/2023 8:16:33 PM)
 ```ruby
-= Table.TransformColumns(#"Renamed Columns3", {{"day_of_week", each Date.DayOfWeekName(_), type text}})
+= Table.AddColumn(#"Added Custom2", "day_of_week", each Date.DayOfWeekName([started_at]))
 ```
 + `hour` (i.e. 1/21/2023 **8**:16:33 PM)
 ```ruby
-= Table.TransformColumns(#"Extracted Day Name",{{"started_at - Copy - Copy.1 - Copy.1", Time.Hour, Int64.Type}})
+= Table.AddColumn(#"Added Custom3", "hour", each Time.Hour([started_at]))
 ```
 + `quarter`
 ```ruby
-= Table.TransformColumns(#"Duplicated Column5",{{"started_at - Copy", Date.QuarterOfYear, Int64.Type}})
+= Table.AddColumn(#"Added Custom4", "quarter", each Date.QuarterOfYear([started_at]))
 ```
 
 #### Adding a Custom Column `ride_length_min`
 + Add a custom column called `ride_length_min` measuring the difference between `ended_at` and `started_at`.
 ```ruby
-= Table.AddColumn(#"Renamed Columns5", "Custom", each [ended_at] - [started_at])
-```
-+ Converting the `ride_length_min` measurement from hours to minutes to get a more accurate reading.
-```ruby
-= Table.TransformColumns(#"Renamed Columns6",{{"ride_length_min", Duration.TotalMinutes, type number}})
-```
-+ Rounding up `ride_length_min` by 2 decimal.
-```ruby
-= Table.TransformColumns(#"Calculated Total Minutes",{{"ride_length_min", each Number.Round(_, 2), type number}})
+= Table.AddColumn(#"Added Custom5", "ride_length_minute", each [ended_at] - [started_at])
 ```
 
 #### Adding Custom Column `ride_distance`
 + Add a custom column called `ride_distance` measuring the distance between the start and end points and converting from kilometers to miles.
 ```ruby
-= Table.AddColumn(#"Renamed Columns7", "Custom", each let
+= Table.AddColumn(#"Added Custom6", "ride_distance", each let
     startLat = [start_lat],
     startLng = [start_lng],
     endLat = [end_lat],
@@ -120,30 +120,100 @@
 in
     distanceMiles)
 ```
-+ Rounding up `ride_distance` by 2 decimal.
+
+#### Updating Columns
++ Changing all columns to the correct data type.
 ```ruby
-= Table.AddColumn(#"Changed Type3", "Round", each Number.Round([ride_distance], 2), type number)
+= Table.TransformColumnTypes(#"Added Custom7",{{"month", type text}, {"day_of_week", type text}, {"day", Int64.Type}, {"year", Int64.Type}, {"hour", Int64.Type}, {"quarter", Int64.Type}, {"ride_length_minute", type duration}, {"ride_distance", type number}})
+```
++ Converting the `ride_length_min` measurement from hours to minutes to get a more accurate reading.
+```ruby
+= Table.TransformColumns(#"Changed Type2",{{"ride_length_minute", Duration.TotalMinutes, type number}})
+```
++ Rounding up `ride_length_min` and `ride_distance` by 2 decimal.
+```ruby
+= Table.TransformColumns(#"Calculated Total Minutes",{{"ride_length_minute", each Number.Round(_, 2), type number}, {"ride_distance", each Number.Round(_, 2), type number}})
 ```
 
-#### Data Cleaning
-+ Cleaning columns by trimming any leading and trailing spaces.
+#### Filtering
++ Filtering out outliers from the `ride_length_min` column. Eliminating any ride length that is less or equal (`<=`) to 1 ( 60 seconds) and greater or equal (`>=`) to 1440 (24 hours).
 ```ruby
-= Table.TransformColumns(Table.TransformColumnTypes(#"Filtered Rows", {{"started_at", type text}, {"ended_at", type text}, {"start_lat", type text}, {"start_lng", type text}, {"end_lat", type text}, {"end_lng", type text}, {"month", type text}, {"day", type text}, {"year", type text}, {"hour", type text}, {"quarter", type text}, {"ride_length_min", type text}}, "en-US"),{{"ride_id", Text.Trim, type text}, {"rideable_type", Text.Trim, type text}, {"started_at", Text.Trim, type text}, {"ended_at", Text.Trim, type text}, {"start_station_name", Text.Trim, type text}, {"start_station_id", Text.Trim, type text}, {"end_station_name", Text.Trim, type text}, {"end_station_id", Text.Trim, type text}, {"start_lat", Text.Trim, type text}, {"start_lng", Text.Trim, type text}, {"end_lat", Text.Trim, type text}, {"end_lng", Text.Trim, type text}, {"user_type", Text.Trim, type text}, {"month", Text.Trim, type text}, {"day", Text.Trim, type text}, {"year", Text.Trim, type text}, {"day_of_week", Text.Trim, type text}, {"hour", Text.Trim, type text}, {"quarter", Text.Trim, type text}, {"ride_length_min", Text.Trim, type text}})
+= Table.SelectRows(#"Rounded Off", each [ride_length_minute] >= 1 and [ride_length_minute] <= 1440)
 ```
-+ Cleaning columns by removing any non-printable characters.
++ Filtering out any distances where the start latitude and longitude match the end latitude and longitude in the `ride_distance` column.
 ```ruby
-= Table.TransformColumns(#"Trimmed Text",{{"ride_id", Text.Clean, type text}, {"rideable_type", Text.Clean, type text}, {"started_at", Text.Clean, type text}, {"ended_at", Text.Clean, type text}, {"start_station_name", Text.Clean, type text}, {"start_station_id", Text.Clean, type text}, {"end_station_name", Text.Clean, type text}, {"end_station_id", Text.Clean, type text}, {"start_lat", Text.Clean, type text}, {"start_lng", Text.Clean, type text}, {"end_lat", Text.Clean, type text}, {"end_lng", Text.Clean, type text}, {"user_type", Text.Clean, type text}, {"month", Text.Clean, type text}, {"day", Text.Clean, type text}, {"year", Text.Clean, type text}, {"day_of_week", Text.Clean, type text}, {"hour", Text.Clean, type text}, {"quarter", Text.Clean, type text}, {"ride_length_min", Text.Clean, type text}})
+= Table.SelectRows(#"Filtered Rows", each [ride_distance] > 0)
 ```
-+ Filtering out outliers from the `ride_length_min` column. Removing any ride duration that is less or equal to 1 ( 60 seconds) or greater or equal to 1440 (24 hours).
++ Filtering out test, warehouse, or charging stations from start_station_name, start_station_id, end_station_name, and end_station_name columns.
 ```ruby
-= Table.SelectRows(#"Rounded Off1", each [ride_length_min] >= 1 and [ride_length_min] <= 1440)
+= Table.SelectRows(#"Filtered Rows1", each [start_station_name] <> "OH Charging Stx - Test" and
+    [start_station_name] <> "chargingstx5" and
+    [start_station_name] <> "chargingstx4" and
+    [start_station_name] <> "chargingstx3" and
+    [start_station_name] <> "chargingstx2" and
+    [start_station_name] <> "chargingstx1" and
+    [start_station_name] <> "chargingstx07" and
+    [start_station_name] <> "chargingstx06" and
+    [start_station_name] <> "chargingstx0" and
+    [start_station_name] <> "Hubbard Bike-checking (LBS-WH-TEST)" and
+    [start_station_name] <> "DIVVY CASSETTE REPAIR MOBILE STATION" and
+    [start_station_name] <> "2059 Hastings Warehouse Station" and
+    [start_station_name] <> "OH - BONFIRE - TESTING")
+```
+```ruby
+= Table.SelectRows(#"Filtered Rows", each [ride_distance] > 0)
+```
+```ruby
+= Table.SelectRows(#"Filtered Rows2", each [start_station_id] <> "OH Charging Stx - Test" and
+    [start_station_id] <> "chargingstx5" and
+    [start_station_id] <> "chargingstx4" and
+    [start_station_id] <> "chargingstx3" and
+    [start_station_id] <> "chargingstx2" and
+    [start_station_id] <> "chargingstx1" and
+    [start_station_id] <> "chargingstx07" and
+    [start_station_id] <> "chargingstx06" and
+    [start_station_id] <> "chargingstx0" and
+    [start_station_id] <> "Hubbard Bike-checking (LBS-WH-TEST)" and
+    [start_station_id] <> "DIVVY CASSETTE REPAIR MOBILE STATION" and
+    [start_station_id] <> "2059 Hastings Warehouse Station" and
+    [start_station_id] <> "OH - BONFIRE - TESTING")
+```
+```ruby
+= Table.SelectRows(#"Filtered Rows3", each [end_station_name] <> "OH Charging Stx - Test" and
+    [end_station_name] <> "chargingstx5" and
+    [end_station_name] <> "chargingstx4" and
+    [end_station_name] <> "chargingstx3" and
+    [end_station_name] <> "chargingstx2" and
+    [end_station_name] <> "chargingstx1" and
+    [end_station_name] <> "chargingstx07" and
+    [end_station_name] <> "chargingstx06" and
+    [end_station_name] <> "chargingstx0" and
+    [end_station_name] <> "Hubbard Bike-checking (LBS-WH-TEST)" and
+    [end_station_name] <> "DIVVY CASSETTE REPAIR MOBILE STATION" and
+    [end_station_name] <> "2059 Hastings Warehouse Station" and
+    [end_station_name] <> "OH - BONFIRE - TESTING")
+```
+```ruby
+= Table.SelectRows(#"Filtered Rows4", each [end_station_id] <> "OH Charging Stx - Test" and
+    [end_station_id] <> "chargingstx5" and
+    [end_station_id] <> "chargingstx4" and
+    [end_station_id] <> "chargingstx3" and
+    [end_station_id] <> "chargingstx2" and
+    [end_station_id] <> "chargingstx1" and
+    [end_station_id] <> "chargingstx07" and
+    [end_station_id] <> "chargingstx06" and
+    [end_station_id] <> "chargingstx0" and
+    [end_station_id] <> "Hubbard Bike-checking (LBS-WH-TEST)" and
+    [end_station_id] <> "DIVVY CASSETTE REPAIR MOBILE STATION" and
+    [end_station_id] <> "2059 Hastings Warehouse Station" and
+    [end_station_id] <> "OH - BONFIRE - TESTING")
 ```
 
 ### Key Tasks
-- [ ]  Check the data for errors.
-- [ ]  Choose your tools.
-- [ ]  Transform the data so you can work with it effectively.
-- [ ]  Document the cleaning process.
+- [x]  Check the data for errors.
+- [x]  Choose your tools.
+- [x]  Transform the data so you can work with it effectively.
+- [x]  Document the cleaning process.
 
 ### Deliverable 
-- [ ]  A summary of your analysis.
+- [x]  A summary of your analysis.
