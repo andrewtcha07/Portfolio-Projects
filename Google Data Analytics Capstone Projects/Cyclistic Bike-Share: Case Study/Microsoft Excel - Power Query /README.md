@@ -313,6 +313,9 @@
 ```
 
 ### Summary of Updated Data
++ Total columns have increased to 21, reflecting additional data transformations.
++ The dataset now contains 5,251,702 rows, indicating the inclusion of new records.
++ Remaining null/blank values amount to 3,109,229 after data updates.
 
 #### Data Transformation and Cleaning
 + Combined 12 CSV files into one using Power Query.
