@@ -124,8 +124,3 @@ To see the remaining steps of the process, please visit the following pages:
 + [**Microsoft Excel / Power Query**](https://github.com/chaanalyst/Portfolio-Projects/tree/ac7dc5f1716b340018b649754f21c1d93919317f/Google%20Data%20Analytics%20Capstone%20Projects/Cyclistic%20Bike-Share%3A%20Case%20Study/Microsoft%20Excel%20-%20Power%20Query%20)
 + [**R**](https://github.com/chaanalyst/Portfolio-Projects/tree/3147f6bbf77b8e4424ef05b6862b18e4c40ab7fa/Google%20Data%20Analytics%20Capstone%20Projects/Cyclistic%20Bike-Share%3A%20Case%20Study/R%20)
 + [**SQL**](https://github.com/chaanalyst/Portfolio-Projects/tree/ac7dc5f1716b340018b649754f21c1d93919317f/Google%20Data%20Analytics%20Capstone%20Projects/Cyclistic%20Bike-Share%3A%20Case%20Study/SQL%20)
-
-
-
-
-
