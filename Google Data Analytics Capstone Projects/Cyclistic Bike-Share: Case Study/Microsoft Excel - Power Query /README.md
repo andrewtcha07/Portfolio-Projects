@@ -179,8 +179,8 @@
 = Table.AddColumn(#"Added Custom4", "quarter", each Date.QuarterOfYear([started_at]))
 ```
 
-#### Adding a Custom Column `ride_length_min`
-+ Add a custom column called `ride_length_min` measuring the difference between `ended_at` and `started_at`.
+#### Adding a Custom Column `ride_length_minute`
++ Add a custom column called `ride_length_minute` measuring the difference between `ended_at` and `started_at`.
 ```ruby
 = Table.AddColumn(#"Added Custom5", "ride_length_minute", each [ended_at] - [started_at])
 ```
@@ -226,11 +226,11 @@
     }
 )
 ```
-+ Converting the `ride_length_min` measurement from hours to minutes to get a more accurate reading.
++ Converting the `ride_length_minute` measurement from hours to minutes to get a more accurate reading.
 ```ruby
 = Table.TransformColumns(#"Changed Type2",{{"ride_length_minute", Duration.TotalMinutes, type number}})
 ```
-+ Rounding up `ride_length_min` and `ride_distance` by 2 decimal.
++ Rounding up `ride_length_minute` and `ride_distance` by 2 decimal.
 ```ruby
 = Table.TransformColumns(
     #"Calculated Total Minutes",
@@ -242,7 +242,7 @@
 ```
 
 #### Filtering
-+ Filtering out outliers from the `ride_length_min` column. Eliminating any ride length that is less or equal (`<=`) to 1 ( 60 seconds) and greater or equal (`>=`) to 1440 (24 hours).
++ Filtering out outliers from the `ride_length_minute` column. Eliminating any ride length that is less or equal (`<=`) to 1 ( 60 seconds) and greater or equal (`>=`) to 1440 (24 hours).
 ```ruby
 = Table.SelectRows(#"Rounded Off", each [ride_length_minute] >= 1 and [ride_length_minute] <= 1440)
 ```
@@ -338,8 +338,7 @@
 + The decision to keep the missing data in these columns was based on the substantial volume of missing entries, which, if removed, could potentially introduce biases or conflicts with the analysis.
 + Retaining the missing data allows for a more comprehensive exploration of the dataset, ensuring that insights drawn from the analysis are not skewed by data removal.
 
-![Picture1](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/fea18b56-8ce5-45a3-8940-d8c4171e51e8)
-
+![3](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/e2418cd2-5c39-4dd6-9ad7-7974597584e1)
 
 ### Key Tasks
 - [x]  Check the data for errors.
