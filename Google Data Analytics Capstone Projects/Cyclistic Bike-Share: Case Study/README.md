@@ -82,7 +82,7 @@ The analysis will address these key questions:
 | 13 | member_casual | Text | Type of user (e.g., casual, member). |
 
 > [!NOTE]
-> Further Information
+> **Further Information**
 > + `rideable_type`: There are three possible bike choices:
 >    * `classic bikes`: Standard, traditional bicycles ideal for short and medium distances, suited for casual riders.
 >    * `docked bikes`: Typically stationed throughout the city for convenient access and return.
