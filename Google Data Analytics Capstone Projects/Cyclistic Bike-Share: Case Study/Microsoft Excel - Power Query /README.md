@@ -206,7 +206,7 @@ in
     [end_station_id] <> "OH - BONFIRE - TESTING")
 ```
 
-### Summary of updated data.
+### Summary of Updated Data
 + 
 
 ### Key Tasks
@@ -217,3 +217,5 @@ in
 
 ### Deliverable 
 - [x]  A summary of your analysis.
+
+## 🔍 The 'Analyze' Phase
