@@ -347,6 +347,6 @@
 - [x]  Document the cleaning process.
 
 ### Deliverable 
-- [x]  A summary of your analysis.
+- [x]  Documentation of any cleaning or manipulation of data.
 
 ## 🔍 The 'Analyze' Phase
