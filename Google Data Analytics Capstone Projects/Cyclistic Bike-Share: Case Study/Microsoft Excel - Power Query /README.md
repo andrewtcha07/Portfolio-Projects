@@ -156,33 +156,60 @@
 + Duplicating the column `started_at` (i.e. 1/21/2023 8:16:33 PM) and splitting column into six different column.
 + `month` (i.e. **1**/21/2023 8:16:33 PM)
 ```ruby
-= Table.AddColumn(#"Renamed Columns", "month", each Date.MonthName([started_at]))
+= Table.AddColumn(
+    #"Renamed Columns", 
+    "month", 
+    each Date.MonthName([started_at])
 ```
 + `day` (i.e. 1/**21**/2023 8:16:33 PM)
 ```ruby
-= Table.AddColumn(#"Added Custom", "day", each Date.Day([started_at]))
+= Table.AddColumn(
+    #"Added Custom", 
+    "day", 
+    each Date.Day([started_at])
+)
 ```
 + `year` (i.e. 1/21/**2023** 8:16:33 PM)
 ```ruby
-= Table.AddColumn(#"Added Custom1", "year", each Date.Year([started_at]))
+= Table.AddColumn(
+    #"Added Custom1", 
+    "year", 
+    each Date.Year([started_at])
+)
 ```
 + `day_of_week` (i.e. 1/**21**/2023 8:16:33 PM)
 ```ruby
-= Table.AddColumn(#"Added Custom2", "day_of_week", each Date.DayOfWeekName([started_at]))
+= Table.AddColumn(
+    #"Added Custom2", 
+    "day_of_week", 
+    each Date.DayOfWeekName([started_at])
+)
 ```
 + `hour` (i.e. 1/21/2023 **8**:16:33 PM)
 ```ruby
-= Table.AddColumn(#"Added Custom3", "hour", each Time.Hour([started_at]))
+= Table.AddColumn(
+    #"Added Custom3", 
+    "hour", 
+    each Time.Hour([started_at])
+)
 ```
 + `quarter`
 ```ruby
-= Table.AddColumn(#"Added Custom4", "quarter", each Date.QuarterOfYear([started_at]))
+= Table.AddColumn(
+    #"Added Custom4", 
+    "quarter", 
+    each Date.QuarterOfYear([started_at])
+)
 ```
 
 #### Adding a Custom Column `ride_length_minute`
 + Add a custom column called `ride_length_minute` measuring the difference between `ended_at` and `started_at`.
 ```ruby
-= Table.AddColumn(#"Added Custom5", "ride_length_minute", each [ended_at] - [started_at])
+= Table.AddColumn(
+    #"Added Custom5", 
+    "ride_length_minute", 
+    each [ended_at] - [started_at]
+)
 ```
 
 #### Adding Custom Column `ride_distance`
@@ -228,7 +255,12 @@
 ```
 + Converting the `ride_length_minute` measurement from hours to minutes to get a more accurate reading.
 ```ruby
-= Table.TransformColumns(#"Changed Type2",{{"ride_length_minute", Duration.TotalMinutes, type number}})
+= Table.TransformColumns(
+    #"Changed Type2",
+    {
+        {"ride_length_minute", Duration.TotalMinutes, type number}
+    }
+)
 ```
 + Rounding up `ride_length_minute` and `ride_distance` by 2 decimal.
 ```ruby
@@ -244,7 +276,10 @@
 #### Filtering
 + Filtering out outliers from the `ride_length_minute` column. Eliminating any ride length that is less or equal (`<=`) to 1 ( 60 seconds) and greater or equal (`>=`) to 1440 (24 hours).
 ```ruby
-= Table.SelectRows(#"Rounded Off", each [ride_length_minute] >= 1 and [ride_length_minute] <= 1440)
+= Table.SelectRows(
+    #"Rounded Off", 
+    each [ride_length_minute] >= 1 and [ride_length_minute] <= 1440
+)
 ```
 + Filtering out any distances where the start latitude and longitude match the end latitude and longitude in the `ride_distance` column.
 ```ruby
@@ -252,64 +287,80 @@
 ```
 + Filtering out test, warehouse, or charging stations from start_station_name, start_station_id, end_station_name, and end_station_name columns.
 ```ruby
-= Table.SelectRows(#"Filtered Rows1", each [start_station_name] <> "OH Charging Stx - Test" and
-    [start_station_name] <> "chargingstx5" and
-    [start_station_name] <> "chargingstx4" and
-    [start_station_name] <> "chargingstx3" and
-    [start_station_name] <> "chargingstx2" and
-    [start_station_name] <> "chargingstx1" and
-    [start_station_name] <> "chargingstx07" and
-    [start_station_name] <> "chargingstx06" and
-    [start_station_name] <> "chargingstx0" and
-    [start_station_name] <> "Hubbard Bike-checking (LBS-WH-TEST)" and
-    [start_station_name] <> "DIVVY CASSETTE REPAIR MOBILE STATION" and
-    [start_station_name] <> "2059 Hastings Warehouse Station" and
-    [start_station_name] <> "OH - BONFIRE - TESTING")
+= Table.SelectRows(
+    #"Filtered Rows1", 
+    each 
+        [start_station_name] <> "OH Charging Stx - Test" and
+        [start_station_name] <> "chargingstx5" and
+        [start_station_name] <> "chargingstx4" and
+        [start_station_name] <> "chargingstx3" and
+        [start_station_name] <> "chargingstx2" and
+        [start_station_name] <> "chargingstx1" and
+        [start_station_name] <> "chargingstx07" and
+        [start_station_name] <> "chargingstx06" and
+        [start_station_name] <> "chargingstx0" and
+        [start_station_name] <> "Hubbard Bike-checking (LBS-WH-TEST)" and
+        [start_station_name] <> "DIVVY CASSETTE REPAIR MOBILE STATION" and
+        [start_station_name] <> "2059 Hastings Warehouse Station" and
+        [start_station_name] <> "OH - BONFIRE - TESTING"
+)
 ```
 ```ruby
-= Table.SelectRows(#"Filtered Rows2", each [start_station_id] <> "OH Charging Stx - Test" and
-    [start_station_id] <> "chargingstx5" and
-    [start_station_id] <> "chargingstx4" and
-    [start_station_id] <> "chargingstx3" and
-    [start_station_id] <> "chargingstx2" and
-    [start_station_id] <> "chargingstx1" and
-    [start_station_id] <> "chargingstx07" and
-    [start_station_id] <> "chargingstx06" and
-    [start_station_id] <> "chargingstx0" and
-    [start_station_id] <> "Hubbard Bike-checking (LBS-WH-TEST)" and
-    [start_station_id] <> "DIVVY CASSETTE REPAIR MOBILE STATION" and
-    [start_station_id] <> "2059 Hastings Warehouse Station" and
-    [start_station_id] <> "OH - BONFIRE - TESTING")
+= Table.SelectRows(
+    #"Filtered Rows2", 
+    each 
+        [start_station_id] <> "OH Charging Stx - Test" and
+        [start_station_id] <> "chargingstx5" and
+        [start_station_id] <> "chargingstx4" and
+        [start_station_id] <> "chargingstx3" and
+        [start_station_id] <> "chargingstx2" and
+        [start_station_id] <> "chargingstx1" and
+        [start_station_id] <> "chargingstx07" and
+        [start_station_id] <> "chargingstx06" and
+        [start_station_id] <> "chargingstx0" and
+        [start_station_id] <> "Hubbard Bike-checking (LBS-WH-TEST)" and
+        [start_station_id] <> "DIVVY CASSETTE REPAIR MOBILE STATION" and
+        [start_station_id] <> "2059 Hastings Warehouse Station" and
+        [start_station_id] <> "OH - BONFIRE - TESTING"
+)
 ```
 ```ruby
-= Table.SelectRows(#"Filtered Rows3", each [end_station_name] <> "OH Charging Stx - Test" and
-    [end_station_name] <> "chargingstx5" and
-    [end_station_name] <> "chargingstx4" and
-    [end_station_name] <> "chargingstx3" and
-    [end_station_name] <> "chargingstx2" and
-    [end_station_name] <> "chargingstx1" and
-    [end_station_name] <> "chargingstx07" and
-    [end_station_name] <> "chargingstx06" and
-    [end_station_name] <> "chargingstx0" and
-    [end_station_name] <> "Hubbard Bike-checking (LBS-WH-TEST)" and
-    [end_station_name] <> "DIVVY CASSETTE REPAIR MOBILE STATION" and
-    [end_station_name] <> "2059 Hastings Warehouse Station" and
-    [end_station_name] <> "OH - BONFIRE - TESTING")
+= Table.SelectRows(
+    #"Filtered Rows3", 
+    each 
+        [end_station_name] <> "OH Charging Stx - Test" and
+        [end_station_name] <> "chargingstx5" and
+        [end_station_name] <> "chargingstx4" and
+        [end_station_name] <> "chargingstx3" and
+        [end_station_name] <> "chargingstx2" and
+        [end_station_name] <> "chargingstx1" and
+        [end_station_name] <> "chargingstx07" and
+        [end_station_name] <> "chargingstx06" and
+        [end_station_name] <> "chargingstx0" and
+        [end_station_name] <> "Hubbard Bike-checking (LBS-WH-TEST)" and
+        [end_station_name] <> "DIVVY CASSETTE REPAIR MOBILE STATION" and
+        [end_station_name] <> "2059 Hastings Warehouse Station" and
+        [end_station_name] <> "OH - BONFIRE - TESTING"
+)
 ```
 ```ruby
-= Table.SelectRows(#"Filtered Rows4", each [end_station_id] <> "OH Charging Stx - Test" and
-    [end_station_id] <> "chargingstx5" and
-    [end_station_id] <> "chargingstx4" and
-    [end_station_id] <> "chargingstx3" and
-    [end_station_id] <> "chargingstx2" and
-    [end_station_id] <> "chargingstx1" and
-    [end_station_id] <> "chargingstx07" and
-    [end_station_id] <> "chargingstx06" and
-    [end_station_id] <> "chargingstx0" and
-    [end_station_id] <> "Hubbard Bike-checking (LBS-WH-TEST)" and
-    [end_station_id] <> "DIVVY CASSETTE REPAIR MOBILE STATION" and
-    [end_station_id] <> "2059 Hastings Warehouse Station" and
-    [end_station_id] <> "OH - BONFIRE - TESTING")
+= Table.SelectRows(
+    #"Filtered Rows4", 
+    each 
+        [end_station_id] <> "OH Charging Stx - Test" and
+        [end_station_id] <> "chargingstx5" and
+        [end_station_id] <> "chargingstx4" and
+        [end_station_id] <> "chargingstx3" and
+        [end_station_id] <> "chargingstx2" and
+        [end_station_id] <> "chargingstx1" and
+        [end_station_id] <> "chargingstx07" and
+        [end_station_id] <> "chargingstx06" and
+        [end_station_id] <> "chargingstx0" and
+        [end_station_id] <> "Hubbard Bike-checking (LBS-WH-TEST)" and
+        [end_station_id] <> "DIVVY CASSETTE REPAIR MOBILE STATION" and
+        [end_station_id] <> "2059 Hastings Warehouse Station" and
+        [end_station_id] <> "OH - BONFIRE - TESTING"
+)
 ```
 
 ### Summary of Updated Data
