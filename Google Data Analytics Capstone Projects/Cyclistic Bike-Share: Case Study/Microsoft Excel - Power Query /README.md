@@ -63,7 +63,10 @@
 #### Removing Duplicates
 + Removing duplicates from column `ride_id`.
 ```ruby
-= Table.Distinct(#"Removed Columns", {"ride_id"})
+= Table.Distinct(
+    #"Removed Columns", 
+    {"ride_id"}
+)
 ```
 
 #### Replace Values
@@ -149,7 +152,12 @@
 #### Renaming a Column
 + `member_casual` to `user_type`.
 ```ruby
-= Table.RenameColumns(#"Changed Type1",{{"member_casual", "user_type"}})
+= Table.RenameColumns(
+    #"Changed Type1",
+    {
+        {"member_casual", "user_type"}
+    }
+)
 ```
 
 #### Adding Columns
@@ -283,7 +291,10 @@
 ```
 + Filtering out any distances where the start latitude and longitude match the end latitude and longitude in the `ride_distance` column.
 ```ruby
-= Table.SelectRows(#"Filtered Rows", each [ride_distance] > 0)
+= Table.SelectRows(
+    #"Filtered Rows",
+    each [ride_distance] > 0
+)
 ```
 + Filtering out test, warehouse, or charging stations from start_station_name, start_station_id, end_station_name, and end_station_name columns.
 ```ruby
