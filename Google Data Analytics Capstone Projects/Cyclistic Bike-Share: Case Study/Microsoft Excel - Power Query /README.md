@@ -416,6 +416,25 @@
 
 ### User Type Trends
 
+#### Casual vs. Member
+
+Based on the data presented, it's evident that the platform has facilitated a significant number of rides, totaling **5,251,702** rides across all user types.
+
+Casual riders account for approximately **35%** (**1,834,314**) of the total rides, indicating a notable portion of one-time or infrequent users. In contrast, annual members make up the majority, comprising about **65%** (**3,417,388**) of the total rides.
+
+Acknowledging the possibility that this data might not fully represent the entire user community, it's reasonable to consider it accurate based on previous discussions.
+
+The dominance of annual membership users, as indicated by the gathered data, implies:
+
+1. **Prevalence and Commitment**: Member users constitute the bulk of riders, indicating a significant presence and commitment among those who have opted for annual memberships with Cyclistic.
+2. **Consistent Usage**: Given their higher representation in the total ride count, member users likely engage in more regular bike rides compared to casual riders. This suggests that members perceive value in their membership and actively utilize Cyclistic bikes for commuting or recreational purposes on a consistent basis.
+3. **Convenience**: Annual memberships offer convenience to users, allowing them to access Cyclistic bikes whenever needed without the hassle of purchasing individual passes or tickets for each ride. This convenience factor may contribute to the popularity of annual memberships among users seeking a seamless biking experience.
+
+However, it's essential to note that while member users may contribute significantly to ride counts, high ride numbers alone may not necessarily indicate active usage. Additionally, the data may not fully represent all Cyclistic users. For instance, demographic differences between member users and casual riders could influence their behavior, which may not be fully captured in the data. Further analysis of ride frequency, duration, and distances among different user groups can offer deeper insights into their engagement levels and perceived value.
+
+#### Average Ride Length
+
+
 ### Hourly Trends
 
 ### Daily Trends
@@ -426,3 +445,12 @@
 
 ### Rideable Trends
 
+
+### Key Tasks
+- [x]  Aggregate your data so it’s useful and accessible.
+- [x]  Organize and format your data.
+- [x]  Perform calculations.
+- [x]  Identify trends and relationships.
+
+### Deliverable 
+- [x]  A summary of your analysis.
