@@ -1,7 +1,8 @@
 ## 🔄 The 'Process' Phase
 
-### Tool
->*Microsoft Excel and Power Query*
+### Tool Used
+<img src= "https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white"/>
+
 + **Microsoft Excel** and **Power Query** were chosen for this analysis due to their widespread accessibility, robust data manipulation capabilities, and seamless integration with external data sources.
 + Excel Functions provide powerful tools for performing various calculations, aggregations, and data manipulations, enhancing the analytical capabilities of the platform.
 + Power Query complements Excel's functionalities by offering advanced data shaping and transformation capabilities. Leveraging Power Query M Language simplifies tasks such as data cleaning, integration, and transformation, streamlining the data preparation process.
@@ -412,3 +413,16 @@
 - [x]  Documentation of any cleaning or manipulation of data.
 
 ## 🔍 The 'Analyze' Phase
+
+### User Type Trends
+
+### Hourly Trends
+
+### Daily Trends
+
+### Monthly Trends
+
+### Quarterly Trends
+
+### Rideable Trends
+
