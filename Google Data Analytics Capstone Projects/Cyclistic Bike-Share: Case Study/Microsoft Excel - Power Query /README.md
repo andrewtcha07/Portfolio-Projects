@@ -1,4 +1,4 @@
-![3 2 Monthly Ride Length Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/92ac55b1-dc3b-4373-8176-642399897bfb)## 🔄 The 'Process' Phase
+## 🔄 The 'Process' Phase
 
 ### Tool Used
 <img src= "https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white"/>
