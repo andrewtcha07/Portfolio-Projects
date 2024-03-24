@@ -414,9 +414,9 @@
 
 ## 🔍 The 'Analyze' Phase
 
-### User Type Trends
+### **User Type Trends**
 
-#### Casual vs. Member
+![1 1 User Type Distribution Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/54bdc3c3-d406-4852-b1af-11706f5744a8)
 
 Based on the data presented, it's evident that the platform has facilitated a significant number of rides, totaling **5,251,702** rides across all user types.
 
@@ -432,7 +432,9 @@ The dominance of annual membership users, as indicated by the gathered data, imp
 
 However, it's essential to note that while member users may contribute significantly to ride counts, high ride numbers alone may not necessarily indicate active usage. Additionally, the data may not fully represent all Cyclistic users. For instance, demographic differences between member users and casual riders could influence their behavior, which may not be fully captured in the data. Further analysis of ride frequency, duration, and distances among different user groups can offer deeper insights into their engagement levels and perceived value.
 
-#### Average Ride Length
+![1 3 Average Ride Length by User Type Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/3e3dedbd-c6fc-4399-a09f-a523330034c5)
+
+![1 5 Average Ride Distance by User Type Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/1537441c-852b-43fb-8996-d14b2e8b6272)
 
 
 ### Hourly Trends
