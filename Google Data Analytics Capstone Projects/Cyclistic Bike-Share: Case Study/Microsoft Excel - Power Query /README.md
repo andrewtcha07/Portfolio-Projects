@@ -1,4 +1,4 @@
-## 🔄 The 'Process' Phase
+![3 2 Monthly Ride Length Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/92ac55b1-dc3b-4373-8176-642399897bfb)## 🔄 The 'Process' Phase
 
 ### Tool Used
 <img src= "https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white"/>
@@ -416,17 +416,20 @@
 
 ### **User Type Trends**
 
-![1 1 User Type Distribution Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/54bdc3c3-d406-4852-b1af-11706f5744a8)
+![1 1 User Type Distribution Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/5cee319c-6729-4e3a-b8de-d47552ecda91)
+![1  User Type Distribution](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/c8f63938-6459-4a9f-9c9f-cca604fb7427)
 + Based on the data presented, it's evident that the platform has facilitated a significant number of rides, totaling **5,251,702** rides across all user types.
 + Casual riders account for approximately **35%** (**1,834,314**) of the total rides, indicating a notable portion of one-time or infrequent users.
 + In contrast, annual members make up the majority, comprising about **65%** (**3,417,388**) of the total rides.
 
-![1 3 Average Ride Length by User Type Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/3e3dedbd-c6fc-4399-a09f-a523330034c5)
+![1 3 Average Ride Length by User Type Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/5ab3bf73-c6cf-498c-aebf-a6918b429e29)
+![1 2 Ride Length Statistic Summary](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/8a9458b3-fc75-4e16-a5df-b2f1a07febb2)
 + This chart illustrated a notable difference in average ride duration between casual and member users.
 + Casual users, on average, tend to take longer rides, with an average ride length of approximately **19.75 minutes**, suggesting a preference for leisurely or extended biking activities.
 + In contrast, member users exhibit shorter average ride durations, approximately **12.15 minutes**, indicative of more useful or short-distance travel patterns, such as commuting or running errands within the city.
 
-![1 5 Average Ride Distance by User Type Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/1537441c-852b-43fb-8996-d14b2e8b6272)
+![1 5 Average Ride Distance by User Type Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/28db9763-744a-44d9-a658-ec34c695ebf4)
+![1 4 Ride Distance Statistic Summary](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/740a39e0-d6fd-4451-9c48-577eeb7c9263)
 + The analysis of average ride distance by user type reveals a slight difference between casual and member users.
 + Casual users, on average, cover a distance of approximately 1.44 miles per ride, whereas member users travel slightly shorter distances, averaging around 1.37 miles per ride.
 + While the disparity is minimal, it suggests that casual users may be more inclined to take slightly longer rides, perhaps indicating a preference for leisurely biking or exploring new areas. Conversely, member users tend to undertake shorter, more focused trips, likely for commuting or routine travel purposes.
@@ -447,25 +450,72 @@ Acknowledging the possibility that this data might not fully represent the entir
 Further analysis of ride frequency, duration, and distances across different temporal and rideable trends can offer deeper insights into user engagement patterns and perceived values.
 
 ### **Hourly Trends**
-![2  Hourly Total Count](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/77163711-c656-467f-b143-0354f8d6d7c4)
 
-![2 1 Hourly User Overview Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/fa98ba3e-8b03-4f6e-a39a-7310deaa9535)
+![2 1 Hourly User Overview Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/f29db0ce-e457-4c50-bf5a-d1285f3251c5)
+![2  Hourly Total Count](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/4cfb93fd-81ca-4080-91e0-bb5b37d579ce)
 
-| Hourly User Overview | |
-| :------------------: | :------------------------- |
-| <img src="https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/1de1ef8a-d538-44af-bed7-ccd90f9c5897" alt="Hourly Total Count" width="500">  |  * This shows + This shows |
+![2 3 Hourly Ride Length Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/d309b650-7751-4822-85f8-8f3153bf7e48)
+![2 2 Hourly Ride Length Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/b7e2d824-b558-45bf-b687-54882087b031)
+
+![2 5 Hourly Ride Distance Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/1f8fbd51-302c-41f0-af6d-bbe45867ad0b)
+![2 4 Hourly Ride Distance Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/6dd7200d-cbb5-4026-b8e8-6396ba6cec03)
+
+--------------------------------------
+#### **Summary of Hourly Trends**
 
 
+### **Weekly Trends**
 
+![5 1 Weekly User Overview Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/84c9cd0d-a1ef-4511-bcbd-b6760f2a902b)
+![5  Weekly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/3924e5d9-d4d0-411c-8f17-ecbf325b1f94)
 
-### **Daily Trends**
+![5 3 Weekly Ride Length Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/4742cc3f-b53a-4291-8517-170d4de1b3b5)
+![5 2 Weekly Ride Length Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/ac32155a-8809-4a29-a4e9-015dfe2b7530)
+
+![5 5 Weekly Ride Distance Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/ef63d912-4f64-4f31-8a85-dde7bc64f0fe)
+![5 4 Weekly Ride Distance Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/0009f772-6d35-4094-b18a-522ecd82fc4c)
+
+--------------------------------------
+#### **Summary of Weekly Trends**
 
 ### **Monthly Trends**
 
+![3 1 Monthly User Overview Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/2f60ae82-0990-4c0d-98ee-b90f58b8ae81)
+![3  Monthly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/b6364053-7604-4119-ae7b-ae52b71fe6ac)
+
+![3 3 Monthly Ride Length Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/c4b86ad4-a710-4989-9171-2f4f11d0acf6)
+![3 2 Monthly Ride Length Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/500016a9-133c-4f0b-b396-5543fdb23bf3)
+
+![3 5 Monthly Ride Distance Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/56264ee6-1999-4549-b257-3491c788cac0)
+![3 4 Monthly Ride Distance Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/a23387e0-56a6-4290-9bdd-5d30668394b4)
+
+--------------------------------------
+#### **Summary of Monthly Trends**
+
 ### **Quarterly Trends**
+
+![4 1 Quarterly User Overview Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/b70d45d3-f1d6-4d4d-bdc2-a4d228fdf6f8)
+![4  Quarterly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/4adcd2b7-9ceb-4ac9-87f5-34eaca4fe0c0)
+
+![4 3 Quarterly Ride Length Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/b9adc9be-7237-48ec-9a5a-b21fbc9485fa)
+![4 2 Quarterly Ride Length Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/8c665930-3bc5-48d2-abb0-208d6cf5f66b)
+
+![4 5 Quarterly Ride Distance Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/0eb3fadf-9cc3-4a66-bb28-ab90c3f446c4)
+![4 4 Quarterly Ride Distance Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/0560680f-3b8c-405a-bcc0-b4190fecf809)
+
+--------------------------------------
+#### **Summary of Quarterly Trends**
 
 ### **Rideable Trends**
 
+![6 1 Rideable Type Trends Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/42cf7774-b7ea-4000-a197-319836b7c1cd)
+![6  Rideable Type Trends](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/5b6196e0-b2d8-4fc6-91c1-341953573a3d)
+
+
+--------------------------------------
+#### **Summary of Rideable Trends**
+
+![Dashboard](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/f6f7f7ee-ad30-442a-88d2-344c812873ba)
 
 ### Key Tasks
 - [x]  Aggregate your data so it’s useful and accessible.
