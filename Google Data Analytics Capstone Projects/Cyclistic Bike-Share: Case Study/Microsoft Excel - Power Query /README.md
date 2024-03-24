@@ -417,24 +417,33 @@
 ### **User Type Trends**
 
 ![1 1 User Type Distribution Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/54bdc3c3-d406-4852-b1af-11706f5744a8)
-
-Based on the data presented, it's evident that the platform has facilitated a significant number of rides, totaling **5,251,702** rides across all user types.
-
-Casual riders account for approximately **35%** (**1,834,314**) of the total rides, indicating a notable portion of one-time or infrequent users. In contrast, annual members make up the majority, comprising about **65%** (**3,417,388**) of the total rides.
-
-Acknowledging the possibility that this data might not fully represent the entire user community, it's reasonable to consider it accurate based on previous discussions.
-
-The dominance of annual membership users, as indicated by the gathered data, implies:
-
-1. **Prevalence and Commitment**: Member users constitute the bulk of riders, indicating a significant presence and commitment among those who have opted for annual memberships with Cyclistic.
-2. **Consistent Usage**: Given their higher representation in the total ride count, member users likely engage in more regular bike rides compared to casual riders. This suggests that members perceive value in their membership and actively utilize Cyclistic bikes for commuting or recreational purposes on a consistent basis.
-3. **Convenience**: Annual memberships offer convenience to users, allowing them to access Cyclistic bikes whenever needed without the hassle of purchasing individual passes or tickets for each ride. This convenience factor may contribute to the popularity of annual memberships among users seeking a seamless biking experience.
-
-However, it's essential to note that while member users may contribute significantly to ride counts, high ride numbers alone may not necessarily indicate active usage. Additionally, the data may not fully represent all Cyclistic users. For instance, demographic differences between member users and casual riders could influence their behavior, which may not be fully captured in the data. Further analysis of ride duration and distances among different user groups can offer deeper insights into their engagement levels and perceived value.
++ Based on the data presented, it's evident that the platform has facilitated a significant number of rides, totaling **5,251,702** rides across all user types.
++ Casual riders account for approximately **35%** (**1,834,314**) of the total rides, indicating a notable portion of one-time or infrequent users.
++ In contrast, annual members make up the majority, comprising about **65%** (**3,417,388**) of the total rides.
 
 ![1 3 Average Ride Length by User Type Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/3e3dedbd-c6fc-4399-a09f-a523330034c5)
++ This chart illustrated a notable difference in average ride duration between casual and member users.
++ Casual users, on average, tend to take longer rides, with an average ride length of approximately **19.75 minutes**, suggesting a preference for leisurely or extended biking activities.
++ In contrast, member users exhibit shorter average ride durations, approximately **12.15 minutes**, indicative of more useful or short-distance travel patterns, such as commuting or running errands within the city.
 
 ![1 5 Average Ride Distance by User Type Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/1537441c-852b-43fb-8996-d14b2e8b6272)
++ The analysis of average ride distance by user type reveals a slight difference between casual and member users.
++ Casual users, on average, cover a distance of approximately 1.44 miles per ride, whereas member users travel slightly shorter distances, averaging around 1.37 miles per ride.
++ While the disparity is minimal, it suggests that casual users may be more inclined to take slightly longer rides, perhaps indicating a preference for leisurely biking or exploring new areas. Conversely, member users tend to undertake shorter, more focused trips, likely for commuting or routine travel purposes.
+
+--------------------------------------
+
+The analysis of user type distribution, average ride length, and average ride distance offers a comprehensive understanding of Cyclistic's user dynamics.
+
+The prevalence of annual membership users underscores the program's success in fostering long-term commitment among riders. The observed differences in ride length and distance between casual and member users shed light on varying usage patterns and preferences.
+
+The higher representation of member users in the total ride count suggests a committed user base leveraging the convenience and cost-effectiveness of annual memberships. These users likely view Cyclistic as a reliable transportation option for daily commutes or regular biking needs.
+
+Conversely, casual users, while constituting a smaller proportion, demonstrate a preference for longer rides, indicating a propensity for leisurely exploration or occasional usage scenarios.
+
+While it's reasonable to consider the data accurate based on previous discussions, it's essential to acknowledge that high ride numbers may not always signify active usage. Additional factors such as user demographics and external influences can influence user behavior.
+
+Further analysis of ride duration and distances across different temporal and rideable trends can provide deeper insights into user engagement patterns and perceived values.
 
 
 ### Hourly Trends
