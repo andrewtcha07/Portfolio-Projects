@@ -515,7 +515,7 @@ Further analysis of ride frequency, duration, and distances across different tem
 --------------------------------------
 #### **Summary of Rideable Trends**
 
-![Dashboard](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/f6f7f7ee-ad30-442a-88d2-344c812873ba)
+![Dashboard](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/52779456-a63f-48cb-828f-90cc918839bf)
 
 ### Key Tasks
 - [x]  Aggregate your data so it’s useful and accessible.
