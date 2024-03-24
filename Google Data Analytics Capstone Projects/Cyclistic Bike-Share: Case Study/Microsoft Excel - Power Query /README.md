@@ -447,8 +447,15 @@ Acknowledging the possibility that this data might not fully represent the entir
 Further analysis of ride frequency, duration, and distances across different temporal and rideable trends can offer deeper insights into user engagement patterns and perceived values.
 
 ### **Hourly Trends**
-![2  Hourly Total Count](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/1de1ef8a-d538-44af-bed7-ccd90f9c5897)
+![2  Hourly Total Count](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/77163711-c656-467f-b143-0354f8d6d7c4)
+
 ![2 1 Hourly User Overview Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/fa98ba3e-8b03-4f6e-a39a-7310deaa9535)
+
+| Hourly User Overview | |
+| :------------------: | :------------------------- |
+| <img src="https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/1de1ef8a-d538-44af-bed7-ccd90f9c5897" alt="Hourly Total Count" width="500">  |  * This shows + This shows |
+
+
 
 
 ### **Daily Trends**
