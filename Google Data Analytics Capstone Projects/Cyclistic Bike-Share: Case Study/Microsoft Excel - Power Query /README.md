@@ -430,7 +430,7 @@
 
 ![1 5 Average Ride Distance by User Type Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/28db9763-744a-44d9-a658-ec34c695ebf4)
 ![1 4 Ride Distance Statistic Summary](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/740a39e0-d6fd-4451-9c48-577eeb7c9263)
-+ The analysis of average ride distance by user type reveals a slight difference between casual and member users.
++ The analysis reveals a slight difference between casual and member users.
 + Casual users, on average, cover a distance of approximately 1.44 miles per ride, whereas member users travel slightly shorter distances, averaging around 1.37 miles per ride.
 + While the disparity is minimal, it suggests that casual users may be more inclined to take slightly longer rides, perhaps indicating a preference for leisurely biking or exploring new areas. Conversely, member users tend to undertake shorter, more focused trips, likely for commuting or routine travel purposes.
 
@@ -453,6 +453,11 @@ Further analysis of ride frequency, duration, and distances across different tem
 
 ![2 1 Hourly User Overview Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/f29db0ce-e457-4c50-bf5a-d1285f3251c5)
 ![2  Hourly Total Count](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/4cfb93fd-81ca-4080-91e0-bb5b37d579ce)
++ This chart reveals distinct patterns in bike usage between casual and member users throughout the day.
++ Casual users demonstrate a notable range of ride counts, with the lowest recorded at 4:00 AM (5,355 rides) and the highest at 5:00 PM (140,876 rides), potentially indicating utilization for early morning recreational activities or leisurely commutes, peaking again during evening hours.
++ Member users consistently exhibit higher ride counts across all hours, with the lowest recorded at 3:00 AM (7,306 rides) and the highest at 5:00 PM (363,705 rides), suggesting a reliance on Cyclistic bikes for daily commuting or routine travel purposes.
++ Peaks in member user activity coincide with typical morning and evening commuting hours, while casual users show more dispersed patterns, peaking during morning recreational periods and evening leisure rides.
++ A substantial difference in activity levels between casual and member users during peak hours, particularly during the morning commute, underscores the program's popularity among regular commuters and the impact of annual memberships in fostering consistent bike usage.
 
 ![2 3 Hourly Ride Length Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/d309b650-7751-4822-85f8-8f3153bf7e48)
 ![2 2 Hourly Ride Length Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/b7e2d824-b558-45bf-b687-54882087b031)
