@@ -432,7 +432,7 @@
 + While the disparity is minimal, it suggests that casual users may be more inclined to take slightly longer rides, perhaps indicating a preference for leisurely biking or exploring new areas. Conversely, member users tend to undertake shorter, more focused trips, likely for commuting or routine travel purposes.
 
 --------------------------------------
-
+#### **Summary of User Type Trends**
 
 The analysis of user type distribution, average ride length, and average ride distance provides a comprehensive understanding of the dynamics within Cyclistic's user community. The analysis points to:
 
