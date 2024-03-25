@@ -436,18 +436,21 @@
 
 --------------------------------------
 #### **Summary of User Type Trends**
-
-The analysis of user type distribution, average ride length, and average ride distance provides a comprehensive understanding of the dynamics within Cyclistic's user community. The analysis points to:
-
-1. **Dominance of Annual Membership Users**: The higher representation of annual membership users in the dataset underscores the program's appeal and success in fostering long-term commitment among riders. Additionally, the differences observed in ride length and distance shed light on varying usage patterns and preferences between casual and member users.
-
-2. **Consistent Usage among Member Users**: The higher representation of member users in the total ride count suggests a consistent and committed user base. These users likely leverage the convenience and cost-effectiveness offered by annual memberships, perceiving Cyclistic as a reliable mode of transportation for their daily commutes or regular biking needs.
-
-3. **Preference for Longer Rides among Casual Users**: In contrast, casual users, while constituting a smaller proportion of the user base, demonstrate a preference for longer rides. This indicates a propensity for leisurely exploration or occasional usage scenarios among casual riders.
-
-Acknowledging the possibility that this data might not fully represent the entire user community, it's reasonable to consider it accurate based on previous discussions. However, it's essential to recognize that high ride numbers alone may not necessarily indicate active usage and additional factors such as user demographics and external influences may influence user behavior.
-
-Further analysis of ride frequency, duration, and distances across different temporal and rideable trends can offer deeper insights into user engagement patterns and perceived values.
++ The analysis of user type trends provides a comprehensive understanding of the dynamics within Cyclistic's user community. The analysis indicates:
+   * **Casual Users**: Approximately **35%** of Cyclistic's user base consists of casual users. They tend to prefer longer rides, resulting in slightly longer average ride durations and distances. Casual users typically utilize Cyclistic bikes for recreational purposes, city exploration, or leisurely rides. Their usage patterns, preferences, and motivations may differ from those of members.
+   * **Member Users**: Around **65%** of Cyclistic's users are members who exhibit consistent usage patterns, characterized by shorter average ride durations and distances. Members are likely regular users of the Cyclistic service, often employing it for daily commuting or routine transportation needs. Their approach to using Cyclistic bikes is more purposeful and focused.
+#### **Key Questions**:
+1. **How do annual members and casual riders use Cyclistic bikes differently?**
+   * Casual riders tend to have longer average ride durations and distances compared to members.
+   * Members typically focus on shorter rides, likely for commuting or regular transportation purposes.
+2. **Why would casual riders buy Cyclistic annual memberships?**
+   * Casual riders may consider purchasing annual memberships if they find value in using Cyclistic bikes regularly for longer periods.
+   * An annual membership could offer cost savings and convenience for casual riders who anticipate frequent usage throughout the year.
+3. **How can Cyclistic use digital media to influence casual riders to become members?**
+    * Cyclistic can utilize digital media platforms to highlight the benefits of membership, such as cost savings, access to additional features, or exclusive perks.
+    * Targeted advertising campaigns can emphasize the convenience and value of an annual membership, tailored to the specific needs and preferences of casual riders.
+    * Offering incentives, discounts, or limited-time promotions through digital channels can incentivize casual riders to explore membership options and experience the associated benefits firsthand.
++ The user-type trend data provides valuable insights into the behaviors, preferences, and habits of casual users and members. Understanding these differences enables Cyclistic to optimize its offerings, tailor marketing strategies, and enhance the user experience for both user types. By recognizing the unique needs of casual users and implementing targeted approaches through digital media, Cyclistic can encourage casual riders to become members, leading to increased engagement, loyalty, and long-term business growth. Further analysis of ride frequency, duration, and distances across different temporal and rideable trends can offer deeper insights into user engagement patterns and perceived values.
 
 ### **Hourly Trends**
 
@@ -481,7 +484,21 @@ Further analysis of ride frequency, duration, and distances across different tem
 
 --------------------------------------
 #### **Summary of Hourly Trends**
-
++ The analysis of hourly trends data reveals distinct utilization patterns among casual and member users throughout the day. While both user types exhibit peaks in usage during certain hours, variations in ride counts, average ride lengths, and durations provide valuable insights into user behavior and preferences. Several crucial observations can be recognized:
+   * Casual Users: Casual riders exhibit diverse usage patterns, with varying ride volumes, distances, and durations throughout the day. They often engage in longer rides, indicating a more leisurely and exploratory approach to bike usage. Casual users may use the service for recreational purposes, sightseeing, or occasional transportation needs.
+   * Member Users: Annual member users demonstrate more consistent and predictable usage patterns. They tend to have shorter ride durations, suggesting a more purposeful and efficient approach to bike usage. Member users are likely to use the service for regular commuting, daily transportation needs, or planned activities.
+#### **Key Questions**
+1. **How do annual members and casual riders use Cyclistic bikes differently?**
+   * Annual members tend to use Cyclistic bikes consistently throughout the day for shorter, purposeful rides, likely for daily commuting or regular transportation needs.
+   * Casual riders show more varied usage patterns, with longer and exploratory rides, potentially using the bikes for recreational purposes or city exploration.
+2. **Why would casual riders buy Cyclistic annual memberships?**
+   * Casual riders might consider purchasing annual memberships if they find value in using Cyclistic bikes regularly for their transportation needs, such as commuting to work or running errands.
+   * Promotions highlighting the cost-saving benefits, convenience, and flexibility of annual memberships can incentivize casual riders to make the switch.
+3. **How can Cyclistic use digital media to influence casual riders to become members?**
+   * Cyclistic can leverage digital media by showcasing the benefits of annual memberships, such as cost savings, convenience, and access to a reliable transportation option.
+   * Targeted advertisements and personalized offers can be used to engage casual riders and highlight the advantages of becoming a member.
+   * Social media campaigns, influencer collaborations, and user testimonials can also be effective in showcasing the positive experiences of Cyclistic members.
++ By analyzing the hourly trends and understanding the habits of casual users and members, Cyclistic can tailor its marketing tactics to attract and retain both user groups. The data-driven approach allows for targeted promotions, personalized messaging, and an enhanced user experience, ultimately driving user engagement and membership conversions. Further analysis of trends is likely to unveil even more detailed insights into user behavior, enabling Cyclistic to refine its strategies and maximize its effectiveness in the market.
 
 ### **Weekly Trends**
 
