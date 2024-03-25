@@ -464,7 +464,6 @@
 
 ![2 3 Hourly Ride Length Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/d309b650-7751-4822-85f8-8f3153bf7e48)
 ![2 2 Hourly Ride Length Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/b7e2d824-b558-45bf-b687-54882087b031)
-
 + The analysis reveals distinct patterns in ride duration between casual and member users throughout the day.
 + Casual users display varying ride lengths, with the shortest average ride occurring at 5 AM (**12.88 minutes**) and the longest at 11 AM (**23.92 minutes**). This suggests that casual users tend to engage in longer rides (17-24 minutes) during mid-morning to early afternoon hours, indicating a preference for leisurely or exploratory trips.
 + In contrast, member users consistently maintain shorter average ride lengths (11-13 minutes). The shortest recorded average ride for members is at 5 AM (**9.99 minutes**), while the longest is at 5 PM (**12.97 minutes**). Member users' ride lengths remain relatively consistent throughout the day, with slightly longer rides during peak commuting times.
@@ -472,7 +471,6 @@
 
 ![2 5 Hourly Ride Distance Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/1f8fbd51-302c-41f0-af6d-bbe45867ad0b)
 ![2 4 Hourly Ride Distance Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/6dd7200d-cbb5-4026-b8e8-6396ba6cec03)
-
 + The chart offers valuable insights into the typical duration of bike rides taken by both casual and member users throughout the day.
 + Casual users experienced their shortest average ride duration at 12 AM (**1.28 miles**) and their longest at 11 AM (**1.53 miles**), showing fluctuating durations throughout the day, with a peak around midday.
 + On the other hand, member users maintained relatively consistent average ride durations, with the shortest at 12 PM (**1.27 miles**) and the longest at 5 PM (**1.45 miles**), showing minor fluctuations.
@@ -504,6 +502,14 @@
 
 ![5 1 Weekly User Overview Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/84c9cd0d-a1ef-4511-bcbd-b6760f2a902b)
 ![5  Weekly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/3924e5d9-d4d0-411c-8f17-ecbf325b1f94)
++ The analysis reveals interesting trends in user counts for casual and member users throughout the week.
++ Casual users show higher numbers on weekends, with Saturday having a peak count of 363,139 users, indicating a preference for weekend bike rides.
++ Monday has the lowest count for casual users at **208,486**, suggesting a decrease in casual user activity at the start of the week.
++ The data suggests that casual users prefer weekend usage, potentially for leisure or recreational bike rides, aligning with their higher counts on Saturdays.
++ Member users exhibit consistent usage patterns on weekdays, with Thursday recording the highest count of **551,430 users**, suggesting regular and focused usage for commuting or daily transportation needs.
++ Sunday has the lowest count for member users at **378,440**, indicating relatively lower activity among members on weekends.
++ Member users demonstrate regular and focused usage patterns, likely for commuting or daily transportation needs, as reflected in their consistent counts on weekdays.
+
 
 ![5 3 Weekly Ride Length Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/4742cc3f-b53a-4291-8517-170d4de1b3b5)
 ![5 2 Weekly Ride Length Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/ac32155a-8809-4a29-a4e9-015dfe2b7530)
