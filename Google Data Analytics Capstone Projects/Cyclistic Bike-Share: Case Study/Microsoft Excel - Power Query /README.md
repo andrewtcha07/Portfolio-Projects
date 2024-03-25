@@ -454,16 +454,30 @@ Further analysis of ride frequency, duration, and distances across different tem
 ![2 1 Hourly User Overview Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/f29db0ce-e457-4c50-bf5a-d1285f3251c5)
 ![2  Hourly Total Count](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/4cfb93fd-81ca-4080-91e0-bb5b37d579ce)
 + This chart reveals distinct patterns in bike usage between casual and member users throughout the day.
-+ Casual users demonstrate a notable range of ride counts, with the lowest recorded at 4:00 AM (5,355 rides) and the highest at 5:00 PM (140,876 rides), potentially indicating utilization for early morning recreational activities or leisurely commutes, peaking again during evening hours.
-+ Member users consistently exhibit higher ride counts across all hours, with the lowest recorded at 3:00 AM (7,306 rides) and the highest at 5:00 PM (363,705 rides), suggesting a reliance on Cyclistic bikes for daily commuting or routine travel purposes.
++ Casual users demonstrate a notable range of ride counts, with the lowest recorded at 4 AM (**5,355 rides**) and the highest at 5 PM (**140,876 rides**), potentially indicating utilization for early morning recreational activities or leisurely commutes, peaking again during evening hours.
++ Member users consistently exhibit higher ride counts across all hours, with the lowest recorded at 3 AM (**7,306 rides**) and the highest at 5 PM (**363,705 rides**), suggesting a reliance on Cyclistic bikes for daily commuting or routine travel purposes.
 + Peaks in member user activity coincide with typical morning and evening commuting hours, while casual users show more dispersed patterns, peaking during morning recreational periods and evening leisure rides.
 + A substantial difference in activity levels between casual and member users during peak hours, particularly during the morning commute, underscores the program's popularity among regular commuters and the impact of annual memberships in fostering consistent bike usage.
 
 ![2 3 Hourly Ride Length Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/d309b650-7751-4822-85f8-8f3153bf7e48)
 ![2 2 Hourly Ride Length Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/b7e2d824-b558-45bf-b687-54882087b031)
 
++ The analysis reveals distinct patterns in ride duration between casual and member users throughout the day.
++ Casual users display varying ride lengths, with the shortest average ride occurring at 5 AM (**12.88 minutes**) and the longest at 11 AM (**23.92 minutes**). This suggests that casual users tend to engage in longer rides (17-24 minutes) during mid-morning to early afternoon hours, indicating a preference for leisurely or exploratory trips.
++ In contrast, member users consistently maintain shorter average ride lengths (11-13 minutes). The shortest recorded average ride for members is at 5 AM (**9.99 minutes**), while the longest is at 5 PM (**12.97 minutes**). Member users' ride lengths remain relatively consistent throughout the day, with slightly longer rides during peak commuting times.
++ These findings suggest potential differences in user behavior and motivations. Casual users may be more inclined towards longer, recreational rides, while member users tend to opt for shorter, more utilitarian trips.
+
 ![2 5 Hourly Ride Distance Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/1f8fbd51-302c-41f0-af6d-bbe45867ad0b)
 ![2 4 Hourly Ride Distance Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/6dd7200d-cbb5-4026-b8e8-6396ba6cec03)
+
++ The chart offers valuable insights into the typical duration of bike rides taken by both casual and member users throughout the day.
++ Casual users experienced their shortest average ride duration at 12 AM (**1.28 miles**) and their longest at 11 AM (**1.53 miles**), showing fluctuating durations throughout the day, with a peak around midday.
++ On the other hand, member users maintained relatively consistent average ride durations, with the shortest at 12 PM (**1.27 miles**) and the longest at 5 PM (**1.45 miles**), showing minor fluctuations.
++ Casual users generally have slightly longer average ride durations compared to member users across most hours of the day, ranging from approximately 1.28 to 1.53 miles per hour, with peaks observed during the mid-morning to early afternoon hours.
++ In contrast, member users consistently maintain shorter average ride durations, typically ranging from approximately 1.27 to 1.45 miles per hour.
++ There's a slight increase in average ride duration during the early morning hours, followed by a decrease during the afternoon and evening hours, aligning with expectations for practical commuting purposes.
++ The highest average ride durations for both casual and member users are observed during different hours, suggesting varying usage patterns or preferences between the two user groups.
++ Despite this trend, both user groups demonstrate peak durations at different times, indicating diverse patterns or purposes of usage.
 
 --------------------------------------
 #### **Summary of Hourly Trends**
