@@ -419,8 +419,8 @@
 ![1 1 User Type Distribution Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/5cee319c-6729-4e3a-b8de-d47552ecda91)
 ![1  User Type Distribution](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/c8f63938-6459-4a9f-9c9f-cca604fb7427)
 + Based on the data presented, it's evident that the platform has facilitated a significant number of rides, totaling **5,251,702** rides across all user types.
-+ Casual riders account for approximately **35%** (**1,834,314**) of the total rides, indicating a notable portion of one-time or infrequent users.
-+ In contrast, annual members make up the majority, comprising about **65%** (**3,417,388**) of the total rides.
++ Casual riders account for approximately **35%** at **1,834,314** of the total rides, indicating a notable portion of one-time or infrequent users.
++ In contrast, annual members make up the majority, comprising about **65%** at **3,417,388** of the total rides.
 
 ![1 3 Average Ride Length by User Type Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/5ab3bf73-c6cf-498c-aebf-a6918b429e29)
 ![1 2 Ride Length Statistic Summary](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/8a9458b3-fc75-4e16-a5df-b2f1a07febb2)
@@ -503,7 +503,7 @@
 ![5 1 Weekly User Overview Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/84c9cd0d-a1ef-4511-bcbd-b6760f2a902b)
 ![5  Weekly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/3924e5d9-d4d0-411c-8f17-ecbf325b1f94)
 + The analysis reveals interesting trends in user counts for casual and member users throughout the week.
-+ Casual users show higher numbers on weekends, with Saturday having a peak count of 363,139 users, indicating a preference for weekend bike rides.
++ Casual users show higher numbers on weekends, with Saturday having a peak count of **363,139 users**, indicating a preference for weekend bike rides.
 + Monday has the lowest count for casual users at **208,486**, suggesting a decrease in casual user activity at the start of the week.
 + The data suggests that casual users prefer weekend usage, potentially for leisure or recreational bike rides, aligning with their higher counts on Saturdays.
 + Member users exhibit consistent usage patterns on weekdays, with Thursday recording the highest count of **551,430 users**, suggesting regular and focused usage for commuting or daily transportation needs.
