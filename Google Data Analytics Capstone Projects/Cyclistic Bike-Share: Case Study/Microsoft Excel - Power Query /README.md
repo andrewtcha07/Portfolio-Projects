@@ -437,21 +437,22 @@
 
 --------------------------------------
 #### **Summary of User Type Trends**
-+ The analysis of user type trends provides a comprehensive understanding of the dynamics within Cyclistic's user community. The analysis indicates:
-   * **Casual Users**: Approximately **35%** of Cyclistic's user base consists of casual users. They tend to prefer longer rides, resulting in slightly longer average ride durations and distances. Casual users typically utilize Cyclistic bikes for recreational purposes, city exploration, or leisurely rides. Their usage patterns, preferences, and motivations may differ from those of members.
-   * **Member Users**: Around **65%** of Cyclistic's users are members who exhibit consistent usage patterns, characterized by shorter average ride durations and distances. Members are likely regular users of the Cyclistic service, often employing it for daily commuting or routine transportation needs. Their approach to using Cyclistic bikes is more purposeful and focused.
+The analysis of "**User Type Trends**" provides a comprehensive understanding of the dynamics within Cyclistic's user community. The analysis indicates:
++ **Casual User Behavior**: Approximately **35%** of Cyclistic's user base consists of casual users. They tend to prefer longer rides, resulting in slightly longer average ride durations and distances. Casual users typically utilize Cyclistic bikes for recreational purposes, city exploration, or leisurely rides. Their usage patterns, preferences, and motivations may differ from those of members.
++ **Member Users Behavior**: Around **65%** of Cyclistic's users are members who exhibit consistent usage patterns, characterized by shorter average ride durations and distances. Members are likely regular users of the Cyclistic service, often employing it for daily commuting or routine transportation needs. Their approach to using Cyclistic bikes is more purposeful and focused.
 #### **Key Questions**:
 1. **How do annual members and casual riders use Cyclistic bikes differently?**
    * Casual riders tend to have longer average ride durations and distances compared to members.
    * Members typically focus on shorter rides, likely for commuting or regular transportation purposes.
 2. **Why would casual riders buy Cyclistic annual memberships?**
    * Casual riders may consider purchasing annual memberships if they find value in using Cyclistic bikes regularly for longer periods.
-   * An annual membership could offer cost savings and convenience for casual riders who anticipate frequent usage throughout the year.
+   * An annual membership could offer cost savings, convenience, and access to additional features for casual riders who anticipate frequent usage throughout the year.
 3. **How can Cyclistic use digital media to influence casual riders to become members?**
     * Cyclistic can utilize digital media platforms to highlight the benefits of membership, such as cost savings, access to additional features, or exclusive perks.
     * Targeted advertising campaigns can emphasize the convenience and value of an annual membership, tailored to the specific needs and preferences of casual riders.
     * Offering incentives, discounts, or limited-time promotions through digital channels can incentivize casual riders to explore membership options and experience the associated benefits firsthand.
-+ The user-type trend data provides valuable insights into the behaviors, preferences, and habits of casual users and members. Understanding these differences enables Cyclistic to optimize its offerings, tailor marketing strategies, and enhance the user experience for both user types. By recognizing the unique needs of casual users and implementing targeted approaches through digital media, Cyclistic can encourage casual riders to become members, leading to increased engagement, loyalty, and long-term business growth. Further analysis of ride frequency, duration, and distances across different temporal and rideable trends can offer deeper insights into user engagement patterns and perceived values.
+
+The user-type trend data provides valuable insights into the behaviors, preferences, and habits of casual users and members. Understanding these differences enables Cyclistic to optimize its offerings, tailor marketing strategies, and enhance the user experience for both user types. By recognizing the unique needs of casual users and implementing targeted approaches through digital media, Cyclistic can encourage casual riders to become members, leading to increased engagement, loyalty, and long-term business growth. Further analysis of ride frequency, duration, and distances across different temporal and rideable trends can offer deeper insights into user engagement patterns and perceived values.
 
 ### **Hourly Trends**
 
@@ -523,7 +524,16 @@
 
 ![5 5 Weekly Ride Distance Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/ef63d912-4f64-4f31-8a85-dde7bc64f0fe)
 ![5 4 Weekly Ride Distance Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/0009f772-6d35-4094-b18a-522ecd82fc4c)
-
++ The chart offers insights into usage patterns of casual and member users throughout the week, comparing average ride distances.
++ Wednesdays show the lowest average ride distance for casual users of **1.37 miles**, possibly due to time constraints or specific purposes. Saturdays exhibit the highest average ride distance of **1.53 miles**, suggesting popular extended weekend rides.
++ Casual users generally ride longer distances than member users, with consistent averages from Monday to Thursday (ranging from 1.37 to 1.39 miles), indicating stable weekday usage.
++ Mondays have the lowest average ride distance for member users of **1.32 miles**, possibly reflecting shorter commuting trips or essential travel at the week's start. Saturdays have the highest average ride distance of **1.44 miles** for member users, similar to casual users.
++ Fridays see a slightly lower average ride distance for member users (1.35 miles), indicating potentially shorter rides leading into the weekend.
++ Tuesdays, Wednesdays, and Thursdays show relatively consistent average ride distances for member users, ranging from 1.36 to 1.37 miles.
++ Both casual and member users demonstrate similar usage patterns, with higher average ride distances on weekends, particularly on Saturdays.
++ Weekdays exhibit relatively stable average ride distances for both user types, indicating consistent usage during the workweek.
++ Mondays and Wednesdays tend to have the lowest average ride distances for member users and casual users, respectively, suggesting shorter midweek rides and at the week's start.
++ Overall, member users consistently ride slightly shorter distances compared to casual users.
 --------------------------------------
 #### **Summary of Weekly Trends**
 
