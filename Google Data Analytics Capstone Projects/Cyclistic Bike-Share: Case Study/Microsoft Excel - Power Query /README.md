@@ -424,13 +424,13 @@
 
 ![1 3 Average Ride Length by User Type Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/5ab3bf73-c6cf-498c-aebf-a6918b429e29)
 ![1 2 Ride Length Statistic Summary](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/8a9458b3-fc75-4e16-a5df-b2f1a07febb2)
-+ This chart illustrated a notable difference in average ride duration between casual and member users.
++ The chart illustrated a notable difference in average ride duration between casual and member users.
 + Casual users, on average, tend to take longer rides, with an average ride length of approximately **19.75 minutes**, suggesting a preference for leisurely or extended biking activities.
 + In contrast, member users exhibit shorter average ride durations, approximately **12.15 minutes**, indicative of more useful or short-distance travel patterns, such as commuting or running errands within the city.
 
 ![1 5 Average Ride Distance by User Type Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/28db9763-744a-44d9-a658-ec34c695ebf4)
 ![1 4 Ride Distance Statistic Summary](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/740a39e0-d6fd-4451-9c48-577eeb7c9263)
-+ The analysis reveals a slight difference between casual and member users.
++ The chart reveals a slight difference between casual and member users.
 + Casual users, on average, cover a distance of approximately **1.44 miles** per ride
 + Whereas member users travel slightly shorter distances, averaging around **1.37 miles per** ride.
 + While the disparity is minimal, it suggests that casual users may be more inclined to take slightly longer rides, perhaps indicating a preference for leisurely biking or exploring new areas. Conversely, member users tend to undertake shorter, more focused trips, likely for commuting or routine travel purposes.
@@ -458,7 +458,7 @@ The user-type trend data provides valuable insights into the behaviors, preferen
 
 ![2 1 Hourly User Overview Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/f29db0ce-e457-4c50-bf5a-d1285f3251c5)
 ![2  Hourly Total Count](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/4cfb93fd-81ca-4080-91e0-bb5b37d579ce)
-+ This chart reveals distinct patterns in bike usage between casual and member users throughout the day.
++ The chart reveals distinct patterns in bike usage between casual and member users throughout the day.
 + Casual users demonstrate a notable range of ride counts, with the lowest recorded at **4 AM** (**5,355 rides**) and the highest at **5 PM** (**140,876 rides**), potentially indicating utilization for early morning recreational activities or leisurely commutes, peaking again during evening hours.
 + Member users consistently exhibit higher ride counts across all hours, with the lowest recorded at **3 AM** (**7,306 rides**) and the highest at **5 PM** (**363,705 rides**), suggesting a reliance on Cyclistic bikes for daily commuting or routine travel purposes.
 + Peaks in member user activity coincide with typical morning and evening commuting hours, while casual users show more dispersed patterns, peaking during morning recreational periods and evening leisure rides.
@@ -466,7 +466,7 @@ The user-type trend data provides valuable insights into the behaviors, preferen
 
 ![2 3 Hourly Ride Length Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/d309b650-7751-4822-85f8-8f3153bf7e48)
 ![2 2 Hourly Ride Length Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/b7e2d824-b558-45bf-b687-54882087b031)
-+ The analysis reveals distinct patterns in ride duration between casual and member users throughout the day.
++ The chart reveals distinct patterns in ride duration between casual and member users throughout the day.
 + Casual users display varying ride lengths, with the shortest average ride occurring at **5 AM** (**12.88 minutes**) and the longest at **11 AM** (**23.92 minutes**). This suggests that casual users tend to engage in longer rides (17-24 minutes) during mid-morning to early afternoon hours, indicating a preference for leisurely or exploratory trips.
 + In contrast, member users consistently maintain shorter average ride lengths (11-13 minutes). The shortest recorded average ride for members is at **5 AM** (**9.99 minutes**), while the longest is at **5 PM** (**12.97 minutes**). Member users' ride lengths remain relatively consistent throughout the day, with slightly longer rides during peak commuting times.
 + These findings suggest potential differences in user behavior and motivations. Casual users may be more inclined towards longer, recreational rides, while member users tend to opt for shorter, more utilitarian trips.
@@ -505,7 +505,7 @@ By analyzing the hourly trends and understanding the habits of casual users and 
 
 ![5 1 Weekly User Overview Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/84c9cd0d-a1ef-4511-bcbd-b6760f2a902b)
 ![5  Weekly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/3924e5d9-d4d0-411c-8f17-ecbf325b1f94)
-+ The analysis reveals interesting trends in user counts for casual and member users throughout the week.
++ The chart reveals interesting trends in user counts for casual and member users throughout the week.
 + Casual users show higher numbers on weekends, with Saturday having a peak count of **363,139 users**, indicating a preference for weekend bike rides.
 + Monday has the lowest count for casual users at **208,486**, suggesting a decrease in casual user activity at the start of the week.
 + The data suggests that casual users prefer weekend usage, potentially for leisure or recreational bike rides, aligning with their higher counts on Saturdays.
@@ -515,7 +515,7 @@ By analyzing the hourly trends and understanding the habits of casual users and 
 
 ![5 3 Weekly Ride Length Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/4742cc3f-b53a-4291-8517-170d4de1b3b5)
 ![5 2 Weekly Ride Length Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/ac32155a-8809-4a29-a4e9-015dfe2b7530)
-+ This analysis highlights the variations in average ride lengths based on user type and day of the week.
++ The chart highlights the variations in average ride lengths based on user type and day of the week.
 + Casual users, who ride more sporadically, exhibit a weekly trend in their ride lengths. The lowest average ride length for casual users is **16.92 minutes**, observed on Wednesdays. On this day, casual users tend to have shorter rides, potentially due to midweek commitments or time constraints. The highest average ride length for casual users is **22.97 minutes**, occurring on Sundays. On average, Sundays attract casual users who have more free time, allowing them to engage in longer, leisurely rides, possibly exploring the city or enjoying outdoor activities.
 + Member users, who have subscribed to the membership plan, also demonstrate a weekly pattern in their ride lengths. The lowest average ride length for member users is **11.48 minutes**, observed on Mondays. Member users often have shorter rides at the beginning of the week, possibly due to commuting to work or engaging in shorter, purposeful trips. The highest average ride length for member users is **13.56 minutes**, occurring on Sundays. Even for member users, Sundays serve as a day for longer rides, potentially for recreational purposes or exploring the city at a more relaxed pace.
 + Member users, with shorter average ride lengths, are likely utilizing the bikes for more practical purposes, such as commuting to work or running errands, which often involve shorter distances.
