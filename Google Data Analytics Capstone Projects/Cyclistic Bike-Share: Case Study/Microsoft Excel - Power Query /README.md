@@ -431,7 +431,8 @@
 ![1 5 Average Ride Distance by User Type Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/28db9763-744a-44d9-a658-ec34c695ebf4)
 ![1 4 Ride Distance Statistic Summary](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/740a39e0-d6fd-4451-9c48-577eeb7c9263)
 + The analysis reveals a slight difference between casual and member users.
-+ Casual users, on average, cover a distance of approximately 1.44 miles per ride, whereas member users travel slightly shorter distances, averaging around 1.37 miles per ride.
++ Casual users, on average, cover a distance of approximately **1.44 miles** per ride
++ Whereas member users travel slightly shorter distances, averaging around **1.37 miles per** ride.
 + While the disparity is minimal, it suggests that casual users may be more inclined to take slightly longer rides, perhaps indicating a preference for leisurely biking or exploring new areas. Conversely, member users tend to undertake shorter, more focused trips, likely for commuting or routine travel purposes.
 
 --------------------------------------
@@ -509,7 +510,6 @@
 + Member users exhibit consistent usage patterns on weekdays, with Thursday recording the highest count of **551,430 users**, suggesting regular and focused usage for commuting or daily transportation needs.
 + Sunday has the lowest count for member users at **378,440**, indicating relatively lower activity among members on weekends.
 + Member users demonstrate regular and focused usage patterns, likely for commuting or daily transportation needs, as reflected in their consistent counts on weekdays.
-
 
 ![5 3 Weekly Ride Length Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/4742cc3f-b53a-4291-8517-170d4de1b3b5)
 ![5 2 Weekly Ride Length Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/ac32155a-8809-4a29-a4e9-015dfe2b7530)
