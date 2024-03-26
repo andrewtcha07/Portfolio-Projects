@@ -560,6 +560,11 @@ By understanding the specific preferences and behaviors of casual users and memb
 
 ![3 1 Monthly User Overview Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/2f60ae82-0990-4c0d-98ee-b90f58b8ae81)
 ![3  Monthly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/b6364053-7604-4119-ae7b-ae52b71fe6ac)
++ The chart presents the monthly counts of casual and member users, revealing user trends and seasonal variations.
++ Casual user counts show a clear seasonal pattern. The user numbers tend to be lower during the winter months (January to March) and increase significantly from April to August. The highest number of casual users is observed in **August** (**275,833**), indicating a peak in summertime usage. Following the peak in August, casual users gradually decline from September to December. The lowest count of casual users is seen in **December** (**46,711**).
++ Similar to casual users, member user counts also exhibit a seasonal pattern. The numbers are lower during the winter months and experience a notable increase from April to August, peaking in **June** (**391,711**). From September to December, the number of member users shows a gradual decline. The lowest count of member users is observed in **November** (**247,989**).
++ The summer months show the highest user counts for both casual and member users. This indicates that the warm weather and vacation season contribute to increased bike usage. The winter months have lower user counts for both casual and member users, which can be attributed to colder weather and less favorable biking conditions.
++ The lowest number of casual users is observed in December, with 46,711 users. The lowest number of member users is seen in November, with 247,989 users.
 
 ![3 3 Monthly Ride Length Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/c4b86ad4-a710-4989-9171-2f4f11d0acf6)
 ![3 2 Monthly Ride Length Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/500016a9-133c-4f0b-b396-5543fdb23bf3)
