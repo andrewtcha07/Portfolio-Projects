@@ -565,13 +565,24 @@ By understanding the specific preferences and behaviors of casual users and memb
 + Similar to casual users, member user counts also exhibit a seasonal pattern. The numbers are lower during the winter months and experience a notable increase from April to August, peaking in **August** (**428,986**). From September to December, the number of member users shows a gradual decline. The lowest count of member users is observed in **February** (**137,340**).
 + The summer months show the highest user counts for both casual and member users. This indicates that the warm weather and vacation season contribute to increased bike usage.
 + The winter months have lower user counts for both casual and member users, which can be attributed to colder weather and less favorable biking conditions.
-+ The lowest number of casual users is observed in January, with 36,047 users. The lowest number of member users is seen in February, with 137,340 users.
 
 ![3 3 Monthly Ride Length Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/c4b86ad4-a710-4989-9171-2f4f11d0acf6)
 ![3 2 Monthly Ride Length Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/500016a9-133c-4f0b-b396-5543fdb23bf3)
++ The chart presents the average duration of rides for casual and member users over the course of a year, broken down by month.
++ Casual users exhibit a clear seasonal pattern, with longer rides during the warmer months and shorter rides in the colder months. The highest average ride length for casual users is in **July**, at **21.74 minutes**, indicating that casual users tend to take longer rides during the summer months. The lowest average ride length for casual users is observed in **January**, at **13.44 minutes,** which coincides with the winter season.
++ The gradual increase in average ride length from April to July, followed by a decline from August to December, suggests that casual users' riding habits are influenced by seasonal changes and weather conditions.
++ Similarly, member users also show a seasonal pattern in their average ride length, with longer rides during the summer months and shorter rides in the winter. The highest average ride length for member users is in **July**, at **13.30 minutes**, coinciding with the peak summer period. The lowest average ride length for member users is in **January**, at **10.26 minutes**, aligning with the winter season.
++ While member users follow a similar seasonal trend as casual users, their average ride lengths are generally shorter across all months, indicating a potential difference in riding habits or preferences between the two user groups.
++ It suggested that weather conditions and seasonal changes significantly influence the riding habits and preferences of both user groups.
 
 ![3 5 Monthly Ride Distance Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/56264ee6-1999-4549-b257-3491c788cac0)
 ![3 4 Monthly Ride Distance Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/a23387e0-56a6-4290-9bdd-5d30668394b4)
++ The chart presents the average distance of rides for users, broken down by month.
++ Casual users follow a seasonal pattern, with longer distances covered during the warmer months and shorter distances in the colder months. The highest average ride distance for casual users is in **June**, at **1.52 miles**, indicating that casual users tend to cover longer distances during the summer months. The lowest average ride distance for casual users is observed in **January**, at **1.12 miles**, coinciding with the winter season.
++ The gradual increase from April to August, followed by a decline from September to December, suggests that casual users' riding distances are influenced by seasonal changes and weather conditions, similar to their riding duration patterns.
++ Similarly, member users also exhibit a seasonal pattern in their average ride distance, with longer distances covered during the summer months and shorter distances in the winter. The highest average ride distance for member users is in **July** at **1.47 miles**, coinciding with the peak summer period. The lowest average ride distance for member users is in **January** at **1.15 miles**, aligning with the winter season.
++ While member users follow a similar seasonal trend as casual users, their average ride distances are generally shorter across most months, indicating a potential difference in riding habits or preferences between the two user groups, consistent with the observations from the ride length data.
++ It's worth noting that member users generally have shorter average distances compared to casual users.
 
 --------------------------------------
 #### **Summary of Monthly Trends**
