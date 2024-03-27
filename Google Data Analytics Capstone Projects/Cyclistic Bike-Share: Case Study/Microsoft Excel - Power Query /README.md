@@ -716,10 +716,20 @@ These insights provide valuable information for Cyclistic to optimize its servic
 
 
 ### Key Tasks
-- [x]  Aggregate your data so it’s useful and accessible.
-- [x]  Organize and format your data.
-- [x]  Perform calculations.
-- [x]  Identify trends and relationships.
+- [x]  Determine the best way to share your findings.
+- [x]  Create effective data visualizations.
+- [x]  Present your findings.
+- [x]  Ensure your work is accessible.
 
 ### Deliverable 
-- [x]  A summary of your analysis.
+- [x]  Supporting visualizations and key findings.
+
+## 🎭 The 'Act' Phase
+
+### Key Tasks
+- [x]  Create your portfolio.
+- [x]  Add your case study.
+- [x]  Practice presenting your case study to a friend or family member.
+
+### Deliverable 
+- [x]  Your top three recommendations are based on your analysis.
