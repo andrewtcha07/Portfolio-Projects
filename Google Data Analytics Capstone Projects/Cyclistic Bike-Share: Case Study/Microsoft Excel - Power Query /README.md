@@ -746,7 +746,7 @@ These insights provide valuable information for Cyclistic to optimize its servic
 3. **Engaging Content Marketing**: Develop compelling content that showcases the advantages of becoming a member. Create blog posts, videos, or infographics that highlight the convenience, cost savings, and unique features of Cyclistic's membership program. Share member success stories, tips for maximizing membership benefits, and any exclusive events or activities available to members. Promote this content through various digital channels to drive awareness and engagement.
 
 ### **Optional Recommendation**
-+ **Influencer Partnerships**: Collaborate with influential individuals in the cycling or fitness community to promote Cyclistic's membership program. Identify influencers who align with Cyclistic's values and target audience, and work with them to create sponsored content or social media campaigns that highlight the benefits and experiences of being a member. This can help generate buzz, credibility, and attract the attention of casual users.
++ **Influencer Partnerships**: Collaborate with influential individuals in the cycling or fitness community to promote Cyclistic's membership program. Identify influencers who align with Cyclistic's values and target audience, and work with them to create sponsored content or social media campaigns that highlight the benefits and experiences of being a member. This can help generate buzz, and credibility, and attract the attention of casual users.
 + **Social Media Engagement**: Actively engage with casual users on social media platforms to encourage them to convert into members. Respond to comments, direct messages, and inquiries in a timely manner. Share user-generated content that highlights the positive experiences of Cyclistic's members. Encourage casual users to share their own experiences and tag Cyclistic, further increasing the visibility and desirability of membership.
 + **Email Marketing Automation**: Utilize email marketing automation to nurture casual users and guide them toward membership conversion. Develop a series of personalized emails that provide valuable information about the benefits of becoming a member, success stories, and limited-time offers. Segment the email list based on user behavior and engagement levels to deliver relevant content and incentives that encourage conversion.
 
@@ -772,3 +772,14 @@ By prioritizing these recommendations and leveraging the insights gained from ou
 
 ### Deliverable 
 - [x]  Your top three recommendations are based on your analysis.
+
+## ℹ️ Source Citation
++ [`Website`](https://divvybikes.com/)
+  - [`Annual Membership`](https://help.divvybikes.com/hc/en-us/articles/360033483191-Annual-Membership)
+  - [`Purchasing a Day Pass`](https://help.divvybikes.com/hc/en-us/articles/360033483151-Purchasing-a-Day-Pass)
+  - [`Take a Single ride`](https://help.divvybikes.com/hc/en-us/articles/360033121032-Taking-a-Single-ride)
+  - [`Meet the Bikes`](https://divvybikes.com/how-it-works/meet-the-bikes)
+  - [`Pricing`](https://divvybikes.com/pricing)
+  - [`What is a station? A dock? A kiosk?`](https://help.divvybikes.com/hc/en-us/articles/360033124372-What-is-a-station-A-dock-A-kiosk)
+  - [`Divvy Data`](https://divvybikes.com/system-data)
++ [`Location`](https://en.wikipedia.org/wiki/Module:Location_map/data/United_States_Chicago)
