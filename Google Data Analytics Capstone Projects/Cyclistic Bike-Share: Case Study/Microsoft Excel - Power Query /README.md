@@ -615,12 +615,27 @@ By understanding the distinct habits and preferences of casual and member users,
 
 ![4 1 Quarterly User Overview Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/b70d45d3-f1d6-4d4d-bdc2-a4d228fdf6f8)
 ![4  Quarterly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/4adcd2b7-9ceb-4ac9-87f5-34eaca4fe0c0)
++ This chart displays the total count of rides per quarter for both casual and member users.
++ Both casual and member user counts exhibit a distinct seasonal pattern, with the highest numbers observed in the 3rd quarter (July-September) and the lowest numbers in the 1st quarter (January-March).
++ Casual users' peak in the **3rd quarter** (**802,411 rides**) aligns with the summer months, suggesting a higher propensity for leisure or recreational activities during this period.
++ Member users also experience their highest usage in the **3rd quarter** (**1,215,380 rides**), potentially due to favorable weather conditions and increased outdoor activities.
++ The lowest user counts for both groups occur in the **1st quarter**, with casual users at **130,509 rides** and member users at **459,225 rides**, likely influenced by colder weather conditions.
 
 ![4 3 Quarterly Ride Length Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/b9adc9be-7237-48ec-9a5a-b21fbc9485fa)
 ![4 2 Quarterly Ride Length Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/8c665930-3bc5-48d2-abb0-208d6cf5f66b)
++ This chart displays the quarterly average ride length in minutes for both casual and member users.
++ Casual users consistently have longer average ride lengths compared to member users across all quarters, reinforcing the notion of a more leisurely or recreational approach to bike usage.
++ The longest average ride length for casual users is observed in the **3rd quarter** (**21.01 minutes**), coinciding with the peak summer season and favorable weather conditions.
++ Member users also experienced their longest average ride length in the **3rd quarter** (**13.07 minutes**), although it is significantly shorter than casual users, potentially indicating a more commuting-oriented usage pattern.
++ The shortest average ride lengths for both groups occurred in the **1st quarter**, with casual users at **14.51 minutes** and member users at **10.36 minutes**, likely influenced by colder weather conditions and shorter daylight hours.
 
 ![4 5 Quarterly Ride Distance Average Chart](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/0eb3fadf-9cc3-4a66-bb28-ab90c3f446c4)
 ![4 4 Quarterly Ride Distance Average](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/0560680f-3b8c-405a-bcc0-b4190fecf809)
++ This chart displays the quarterly average ride distance in miles for both casual and member users.
++ Similar to the ride length trend, casual users consistently cover longer average ride distances compared to member users across all quarters, further reinforcing the leisurely or recreational nature of their bike usage.
++ The longest average ride distance for casual users is observed in the **3rd quarter** (**1.50 miles**), aligning with the peak summer season and favorable weather conditions.
++ Member users also experienced their longest average ride distance in the **3rd quarter** (**1.45 miles**), although it is slightly shorter than casual users, potentially indicating a more commuting-oriented usage pattern with shorter distances.
++ The shortest average ride distances for both groups occurred in the **1st quarter**, with casual users at **1.18 miles** and member users at **1.19 miles**, likely influenced by colder weather conditions and shorter daylight hours.
 
 --------------------------------------
 #### **Summary of Quarterly Trends**
