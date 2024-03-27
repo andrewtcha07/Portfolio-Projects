@@ -705,8 +705,8 @@ By analyzing the rideable type trend data and conducting a detailed analysis, we
 ## 🎁 The 'Share' Phase
 
 ### **Cyclistic Bike-Share Dashboard**
-![Dashboard](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/114cf143-f290-4bae-9c17-790143560a74)
 + Welcome to the Cyclistic Bike-Share Dashboard, the ultimate destination for unraveling user behavior and discovering trends. This comprehensive hub offers insightful analysis across various dimensions, including user types, usage patterns, and rideable preferences. Gain invaluable insights to optimize services, enhance user experiences, and drive long-term engagement. Get ready to explore a world of bike-sharing possibilities!
+![Dashboard](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/114cf143-f290-4bae-9c17-790143560a74)
 
 ### **Cyclistic Bike-Share Program Analysis Summary**
 This analysis delves into user behavior, preferences, and trends across various dimensions, including user types, hourly usage, weekly engagement, monthly dynamics, quarterly fluctuations, and rideable preferences.
