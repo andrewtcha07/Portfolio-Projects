@@ -1,0 +1,31 @@
+The 'Prepare' Phase
+
+#################################################
+# 1. Package Installation
+#################################################
+# Install required packages
+install.packages("tidyverse")  # Data manipulation and visualization
+install.packages("janitor")    # Data cleaning
+install.packages("readr")      # Reading data
+install.packages("dplyr")      # Data manipulation
+install.packages("lubridate")  # Date-time manipulation
+install.packages("tidyr")      # Data tidying
+install.packages("ggmap")      # Plotting maps
+install.packages("ggplot2")    # Plotting
+install.packages("geosphere")  # Geographical calculations
+install.packages("skimr")      # Summary statistics
+
+#################################################
+# 2. Library Loading
+#################################################
+# Load required libraries
+library(tidyverse)   # Data manipulation and visualization
+library(janitor)     # Data cleaning
+library(readr)       # Reading data
+library(dplyr)       # Data manipulation
+library(lubridate)   # Date-time manipulation
+library(tidyr)       # Data tidying
+library(ggmap)       # Plotting maps
+library(ggplot2)     # Plotting
+library(geosphere)   # Geographical calculations
+library(skimr)       # Summary statistics
