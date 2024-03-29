@@ -1,5 +1,8 @@
 ## 🔄 The 'Process' Phase
 
+### Tool Used
+![RStudio](https://img.shields.io/badge/RStudio-4285F4?style=for-the-badge&logo=rstudio&logoColor=white)
+
 ### Key Tasks
 - [x]  Check the data for errors.
 - [x]  Choose your tools.
