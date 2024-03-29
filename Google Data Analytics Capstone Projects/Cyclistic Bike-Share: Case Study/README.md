@@ -121,6 +121,6 @@ The analysis will address these key questions:
 
 ### Tools
 To see the remaining steps of the process, please visit the following pages:
-+ **Microsoft Excel / Power Query**
++ **Microsoft Excel**
 + **R**
 + **SQL**
