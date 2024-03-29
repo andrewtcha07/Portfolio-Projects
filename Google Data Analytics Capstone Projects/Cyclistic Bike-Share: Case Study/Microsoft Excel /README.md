@@ -700,7 +700,6 @@ By analyzing the rideable type trend data and conducting a detailed analysis, we
 
 ### Deliverable 
 - [x]  A summary of your analysis.
-- [x]  A summary of your analysis.
 
 ## 🎁 The 'Share' Phase
 
