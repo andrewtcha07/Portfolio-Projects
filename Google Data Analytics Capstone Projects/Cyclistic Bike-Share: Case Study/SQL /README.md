@@ -53,4 +53,5 @@
   - [`Pricing`](https://divvybikes.com/pricing)
   - [`What is a station? A dock? A kiosk?`](https://help.divvybikes.com/hc/en-us/articles/360033124372-What-is-a-station-A-dock-A-kiosk)
   - [`Divvy Data`](https://divvybikes.com/system-data)
++ [`License`](https://divvybikes.com/data-license-agreement)
 + [`Location`](https://en.wikipedia.org/wiki/Module:Location_map/data/United_States_Chicago)
