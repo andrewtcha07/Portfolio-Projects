@@ -297,7 +297,7 @@
     each [ride_distance] > 0
 )
 ```
-+ Filtering out test, warehouse, or charging stations from start_station_name, start_station_id, end_station_name, and end_station_name columns.
++ Filtering out test, warehouse, or charging stations from `start_station_name`, `start_station_id`, `end_station_name`, and `end_station_name` columns.
 ```ruby
 = Table.SelectRows(
     #"Filtered Rows1", 
