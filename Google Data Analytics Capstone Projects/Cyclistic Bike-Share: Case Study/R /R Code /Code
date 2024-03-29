@@ -222,3 +222,300 @@ trip_data[is.na(member_casual),]
 
 # Detach the combined trip data from the search path
 detach(trip_data)
+
+######################
+# The 'Process' Phase
+######################
+
+-------------------------
+# 1. Data Transformation
+-------------------------
+# Renaming column "member_casual" to "user_type"
+trip_data <- rename(trip_data, "user_type" = "member_casual")
+
+# Converting "started_at" and "ended_at" columns to POSIXct format
+trip_data$started_at <- ymd_hms(trip_data$started_at)
+trip_data$ended_at <- ymd_hms(trip_data$ended_at)
+
+# Checking for missing values
+sum(is.na(trip_data$started_at)) # in "started_at" column
+sum(is.na(trip_data$ended_at)) # in "ended_at" column
+
+----------------------
+# 2. Data Preparation
+----------------------
+# Rounding latitude and longitude coordinates to two decimal places
+trip_data <- trip_data %>%
+  mutate(
+    start_lat = round(start_lat, digits = 2),
+    start_lng = round(start_lng, digits = 2),
+    end_lat = round(end_lat, digits = 2),
+    end_lng = round(end_lng, digits = 2)
+  )
+
+# Converting "started_at" date-time column to date format
+trip_data <- trip_data %>%
+  mutate(date = as.Date(started_at))
+
+# Extracting month from the "date" column
+trip_data <- trip_data %>%
+  mutate(month = format(date, "%B"))
+
+# Extracting day from the "date" column
+trip_data <- trip_data %>%
+  mutate(day = format(date, "%d"))
+
+# Extracting year from the "date" column
+trip_data <- trip_data %>%
+  mutate(year = format(date, "%Y"))
+
+# Extracting day of the week from the "date" column
+trip_data <- trip_data %>%
+  mutate(day_of_week = format(date, "%A"))
+
+# Extracting hour from the "started_at" date-time column
+trip_data <- trip_data %>%
+  mutate(hour = hour(started_at))
+
+# Extracting quarter from the "started_at" date-time column
+trip_data <- trip_data %>%
+  mutate(quarter = quarter(started_at))
+
+-------------------------------------------------
+# 3. Analyzing Ride Length Data
+-------------------------------------------------
+# Calculating and Adding Ride Length in Minutes (rounding to two decimal places)
+trip_data <- trip_data %>% 
+  mutate(ride_length_minute = round(as.numeric(difftime(ended_at, started_at, units = "mins")), 2))
+
+# Checking the class of the "ride_length_minute" variable
+class(trip_data$ride_length_minute)
+
+# Counting rides with duration less than 1 minute
+sum(trip_data$ride_length_minute < 1, na.rm = TRUE)
+
+# Counting rides with duration more than 24 hours (1440 minutes)
+sum(trip_data$ride_length_minute > 1440, na.rm = TRUE)
+
+# Counting rides with non-positive duration (less than or equal to 0)
+sum(trip_data$ride_length_minute <= 0, na.rm = TRUE)
+
+# Checking for rides where start time is after end time
+sum(trip_data$started_at > trip_data$ended_at, na.rm = TRUE)
+
+# Counting rides where start time is after end time using another method
+length(which(trip_data$started_at > trip_data$ended_at))
+
+-------------------------------------------------
+# 4. Missing Values Analysis and Data Imputation
+-------------------------------------------------
+# Checking missing values in specific columns
+colSums(is.na(trip_data[c(
+  "start_station_name", 
+  "start_station_id", 
+  "end_station_name", 
+  "end_station_id", 
+  "end_lat", 
+  "end_lng")]))
+
+# Filling missing values for start station name by grouping start latitude and longitude
+trip_data <- trip_data %>%
+  group_by(start_lat, start_lng) %>%
+  fill(start_station_name, .direction = "downup") %>%
+  ungroup()
+
+# Filling missing values for end station name by grouping end latitude and longitude
+trip_data <- trip_data %>%
+  group_by(end_lat, end_lng) %>%
+  fill(end_station_name, .direction = "downup") %>%
+  ungroup()
+
+# Filling missing values for start station ID by grouping start station name
+trip_data <- trip_data %>%
+  group_by(start_station_name) %>%
+  fill(start_station_id, .direction = "downup") %>%
+  ungroup()
+
+# Filling missing values for end station ID by grouping end station name
+trip_data <- trip_data %>%
+  group_by(end_station_name) %>%
+  fill(end_station_id, .direction = "downup") %>%
+  ungroup()
+
+# Rechecking missing values in specific columns after filling
+colSums(is.na(trip_data[c(
+  "start_station_name", 
+  "start_station_id", 
+  "end_station_name", 
+  "end_station_id", 
+  "end_lat", 
+  "end_lng")]))
+-----------------------------------
+# 5. Processing Ride Distance Data
+-----------------------------------
+# Calculating and Adding Ride Distance using Great Circle Formula
+trip_data$ride_distance <- distGeo(
+  matrix(c(trip_data$start_lng, trip_data$start_lat), ncol = 2),
+  matrix(c(trip_data$end_lng, trip_data$end_lat), ncol = 2))
+
+# Converting Meters to Kilometers
+trip_data$ride_distance <- trip_data$ride_distance / 1000
+
+# Converting and Updating Kilometers to Miles
+trip_data$ride_distance <- trip_data$ride_distance * 0.621371
+
+-------------------------------
+# 6. Stations Data Exploration
+-------------------------------
+# Counting the number of rides per start station ID and arranging them in descending order
+trip_data %>% 
+  select(start_station_id) %>% 
+  count(start_station_id) %>% 
+  arrange(desc(n))
+
+# Counting the number of rides per end station ID and arranging them in descending order
+trip_data %>% 
+  select(end_station_id) %>% 
+  count(end_station_id) %>% 
+  arrange(desc(n))
+  
+# Counting the number of rides for specific start stations
+trip_data %>% filter(
+  start_station_id %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  )
+) %>% 
+  count(start_station_id)
+
+# Counting the number of rides for specific end stations
+trip_data %>% filter(
+  end_station_id %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  )
+) %>% 
+  count(end_station_id)
+  
+-------------------
+# 7. Data Cleaning
+-------------------
+# Filtering trip data to include rides with a duration between 1 minute and 1440 minutes (24 hours)
+# Storing the filtered data into a new data frame
+trip_data_updated <- trip_data %>% 
+  filter(ride_length_minute >= 1 & ride_length_minute <= 1440)
+
+# Removing rows with missing end latitude and longitude coordinates
+trip_data_updated <- trip_data_updated[!is.na(trip_data_updated$end_lat) & !is.na(trip_data_updated$end_lng), ]
+
+# Filtering out specific start stations from the trip data
+trip_data_updated <- trip_data_updated %>% 
+  filter(!
+  start_station_id %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  ))
+
+# Filtering out specific end stations from the trip data
+trip_data_updated <- trip_data_updated %>% 
+  filter(!
+  end_station_id %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  ))
+
+---------------------------------------
+# 8. Revisiting Filtered Data Analysis
+---------------------------------------
+# Counting rides less than 1 minute
+sum(trip_data_updated$ride_length_minute < 1)
+
+# Counting rides more than 24 hours (or 1440 minutes)
+sum(trip_data_updated$ride_length_minute > 1440)
+
+# Counting number of instances where (started_at) is after (ended_at)
+length(which(trip_data_updated$started_at > trip_data_updated$ended_at)) 
+
+# Counting specific start stations from the trip data
+trip_data_updated %>% filter(
+  start_station_id %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  )
+) %>% 
+  count(start_station_id)
+
+# Counting specific end stations from the trip data 
+ trip_data_updated %>% filter(
+  end_station_id %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  )
+) %>% 
+  count(end_station_id)
