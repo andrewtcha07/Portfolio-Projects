@@ -27,12 +27,12 @@
 + Total number of rows across all files is 5,719,877.
 + Total count of null/blank values is 3,624,089.
 + Missing data primarily occurs in columns:
-    * start_station_name
-    * start_station_id
-    * end_station_name
-    * end_station_id
-    * end_lat
-    * end_lng
+    * `start_station_name`
+    * `start_station_id`
+    * `end_station_name`
+    * `end_station_id`
+    * `end_lat`
+    * `end_lng`
 + Following further exploration, a decision will be made regarding whether to keep or drop missing data.
 
 ### Data Consolidation
@@ -46,7 +46,7 @@
         {"rideable_type", type text}, 
         {"started_at", type datetime}, 
         {"ended_at", type datetime}, 
-        {"start_station_name", type text}, 
+        {"`start_station_name`", type text}, 
         {"start_station_id", type text}, 
         {"end_station_name", type text}, 
         {"end_station_id", type text}, 
@@ -71,7 +71,7 @@
 ```
 
 #### Replace Values
-+ Replace blank/empty values with `null`.
++ Replace blank/empty values with **_null_**.
 ```ruby
 = Table.ReplaceValue(
     #"Removed Duplicates",
@@ -96,7 +96,7 @@
 )
 ```
 #### Text Transformation
-+ Cleaning columns using `Trimmed Text`, trimming any leading and trailing spaces.
++ Cleaning columns using **_Trimmed Text_**, trimming any leading and trailing spaces.
 ```ruby
 = Table.TransformColumns(
     Table.TransformColumnTypes(
@@ -128,7 +128,7 @@
     }
 )
 ```
-+ Cleaning columns using `Cleaned Text`, removing any non-printable characters.
++ Cleaning columns using **_Cleaned Text_**, removing any non-printable characters.
 ```ruby
 = Table.TransformColumns(
     #"Trimmed Text",
