@@ -56,17 +56,158 @@ library(skimr)
 #### Importing Data Files and Creating Data Frame
 ```r
 jan2023 <- read_csv("202301-divvy-tripdata.csv")
+```
+```r
+Rows: 190301 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
+dbl  (4): start_lat, start_lng, end_lat, end_lng
+dttm (2): started_at, ended_at
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+```r
 feb2023 <- read_csv("202302-divvy-tripdata.csv")
+```
+```r
+Rows: 190445 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
+dbl  (4): start_lat, start_lng, end_lat, end_lng
+dttm (2): started_at, ended_at
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+```r
 mar2023 <- read_csv("202303-divvy-tripdata.csv")
+```
+```r
+Rows: 258678 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
+dbl  (4): start_lat, start_lng, end_lat, end_lng
+dttm (2): started_at, ended_at
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+```r
 apr2023 <- read_csv("202304-divvy-tripdata.csv")
+```
+```r
+Rows: 426590 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
+dbl  (4): start_lat, start_lng, end_lat, end_lng
+dttm (2): started_at, ended_at
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+```r
 may2023 <- read_csv("202305-divvy-tripdata.csv")
+```
+```r
+Rows: 604827 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
+dbl  (4): start_lat, start_lng, end_lat, end_lng
+dttm (2): started_at, ended_at
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+```r
 jun2023 <- read_csv("202306-divvy-tripdata.csv")
+```
+```r
+Rows: 719618 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
+dbl  (4): start_lat, start_lng, end_lat, end_lng
+dttm (2): started_at, ended_at
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+```r
 jul2023 <- read_csv("202307-divvy-tripdata.csv")
+```
+```r
+Rows: 767650 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
+dbl  (4): start_lat, start_lng, end_lat, end_lng
+dttm (2): started_at, ended_at
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+```r
 aug2023 <- read_csv("202308-divvy-tripdata.csv")
+```
+```r
+Rows: 771693 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
+dbl  (4): start_lat, start_lng, end_lat, end_lng
+dttm (2): started_at, ended_at
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+```r
 sep2023 <- read_csv("202309-divvy-tripdata.csv")
+```
+```r
+Rows: 666371 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
+dbl  (4): start_lat, start_lng, end_lat, end_lng
+dttm (2): started_at, ended_at
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+```r
 oct2023 <- read_csv("202310-divvy-tripdata.csv")
+```
+```r
+Rows: 537113 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
+dbl  (4): start_lat, start_lng, end_lat, end_lng
+dttm (2): started_at, ended_at
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+```r
 nov2023 <- read_csv("202311-divvy-tripdata.csv")
+```
+```r
+Rows: 362518 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
+dbl  (4): start_lat, start_lng, end_lat, end_lng
+dttm (2): started_at, ended_at
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+```r
 dec2023 <- read_csv("202312-divvy-tripdata.csv")
+```
+```r
+Rows: 224073 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
+dbl  (4): start_lat, start_lng, end_lat, end_lng
+dttm (2): started_at, ended_at
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
 ### Key Tasks
