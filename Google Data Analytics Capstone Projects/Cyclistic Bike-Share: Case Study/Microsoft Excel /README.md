@@ -36,7 +36,7 @@
 + Following further exploration, a decision will be made regarding whether to keep or drop missing data.
 
 ### Data Consolidation
-+ Utilizing Power Query to merge all 12 CSV files into a single file post-initial review.
++ Utilized Power Query to merge all 12 CSV files into a single file post-initial review.
 
 #### Combining Files
 ```ruby
