@@ -36,7 +36,9 @@
 + Following further exploration, a decision will be made regarding whether to keep or drop missing data.
 
 ### Data Consolidation
-+ Using Power Query to combine all 12 CSV files into one file, following the initial review.
++ Utilizing Power Query to merge all 12 CSV files into a single file post-initial review.
+
+#### Combining Files
 ```ruby
 = Table.TransformColumnTypes(
     #"Expanded Table Column1",
