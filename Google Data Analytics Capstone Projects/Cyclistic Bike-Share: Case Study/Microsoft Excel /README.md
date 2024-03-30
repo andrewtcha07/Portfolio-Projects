@@ -79,8 +79,8 @@
 )
 ```
 
-#### Replace Values
-+ Replace blank/empty values with **_null_**.
+#### Replacing Values
++ Replacing blank/empty values with **_null_**.
 ```ruby
 = Table.ReplaceValue(
     #"Removed Duplicates",
