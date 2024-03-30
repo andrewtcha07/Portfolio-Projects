@@ -65,7 +65,7 @@
 + Removed duplicates from unique identifiers to maintain data integrity.
 + Replaced blank values with null values to ensure consistency.
 + Performed text transformations to enhance data quality and integrity.
-+ Renamed columns for clarity and better understanding.
++ Renamed a column for clarity and better understanding.
 + Added new columns derived from existing data.
 + Updated values in new columns based on specified conditions for accuracy.
 + Applied filterings on specific rows based on criteria.
