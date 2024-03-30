@@ -68,7 +68,7 @@
 + Renamed a column for clarity and better understanding.
 + Added new columns derived from existing data.
 + Updated values in new columns based on specified conditions for accuracy.
-+ Applied filterings on specific rows based on criteria.
++ Applied filtering to select specific rows based on defined criteria.
 
 #### Removing Duplicates
 + Removing duplicates from column `ride_id`.
