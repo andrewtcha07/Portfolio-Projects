@@ -212,7 +212,7 @@ dttm (2): started_at, ended_at
 
 ### Data Exploration
 
-#### Display `column names` for each month's dataset.
++ Display `column names` for each month's dataset.
 ```r
 colnames(jan2023)
 colnames(feb2023)
@@ -233,7 +233,7 @@ colnames(dec2023)
 [13] "member_casual"     
 ```
 
-#### Display `structure` of each month's dataset.
++ Display `structure` of each month's dataset.
 ```r
 str(jan2023)
 ```
@@ -678,7 +678,7 @@ spc_tbl_ [224,073 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
-#### Display `summary` statistics for each month's dataset.
++ Display `summary` statistics for each month's dataset.
 ```r
 summary(jan2023)
 ```
