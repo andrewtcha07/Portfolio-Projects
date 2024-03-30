@@ -210,6 +210,62 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
+### Data Exploration
+
+#### Display column names for each month's dataset.
+```r
+colnames(jan2023)
+colnames(feb2023)
+colnames(mar2023)
+colnames(apr2023)
+colnames(may2023)
+colnames(jun2023)
+colnames(jul2023)
+colnames(aug2023)
+colnames(sep2023)
+colnames(oct2023)
+colnames(nov2023)
+colnames(dec2023)
+```
+```r
+ [1] "ride_id"            "rideable_type"      "started_at"         "ended_at"           "start_station_name" "start_station_id"  
+ [7] "end_station_name"   "end_station_id"     "start_lat"          "start_lng"          "end_lat"            "end_lng"           
+[13] "member_casual"     
+```
+
+#### Display structure of each month's dataset.
+```r
+str(jan2023)
+str(feb2023)
+str(mar2023)
+str(apr2023)
+str(may2023)
+str(jun2023)
+str(jul2023)
+str(aug2023)
+str(sep2023)
+str(oct2023)
+str(nov2023)
+str(dec2023)
+```
+```r
+
+```
+
+# Display summary statistics for each month's dataset
+summary(jan2023)
+summary(feb2023)
+summary(mar2023)
+summary(apr2023)
+summary(may2023)
+summary(jun2023)
+summary(jul2023)
+summary(aug2023)
+summary(sep2023)
+summary(oct2023)
+summary(nov2023)
+summary(dec2023)
+
 ### Key Tasks
 - [x]  Check the data for errors.
 - [x]  Choose your tools.
