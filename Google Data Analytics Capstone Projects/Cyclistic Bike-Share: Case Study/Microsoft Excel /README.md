@@ -171,15 +171,15 @@
 ```
 
 #### Adding Columns
-+ Duplicating the column `started_at` (i.e. 1/21/2023 8:16:33 PM) and splitting column into six different column.
-+ `month` (i.e. **1**/21/2023 8:16:33 PM)
++ Duplicating the column `started_at` (e.g. 1/21/2023 8:16:33 PM) and splitting column into six different column.
++ `month` (e.g. **1**/21/2023 8:16:33 PM)
 ```ruby
 = Table.AddColumn(
     #"Renamed Columns", 
     "month", 
     each Date.MonthName([started_at])
 ```
-+ `day` (i.e. 1/**21**/2023 8:16:33 PM)
++ `day` (e.g. 1/**21**/2023 8:16:33 PM)
 ```ruby
 = Table.AddColumn(
     #"Added Custom", 
@@ -187,7 +187,7 @@
     each Date.Day([started_at])
 )
 ```
-+ `year` (i.e. 1/21/**2023** 8:16:33 PM)
++ `year` (e.g. 1/21/**2023** 8:16:33 PM)
 ```ruby
 = Table.AddColumn(
     #"Added Custom1", 
@@ -195,7 +195,7 @@
     each Date.Year([started_at])
 )
 ```
-+ `day_of_week` (i.e. 1/**21**/2023 8:16:33 PM)
++ `day_of_week` (e.g. 1/**21**/2023 8:16:33 PM)
 ```ruby
 = Table.AddColumn(
     #"Added Custom2", 
@@ -203,7 +203,7 @@
     each Date.DayOfWeekName([started_at])
 )
 ```
-+ `hour` (i.e. 1/21/2023 **8**:16:33 PM)
++ `hour` (e.g. 1/21/2023 **8**:16:33 PM)
 ```ruby
 = Table.AddColumn(
     #"Added Custom3", 
