@@ -1460,7 +1460,7 @@ sum(is.na(trip_data))
 [1] 3624089
 ```
 
-> [!NOTE]
+> [!CAUTION]
 > Understanding the potential risks associated with `attach()` and `detach()` during the current analysis, it's essential to recognize that these functions may introduce unexpected behavior and namespace conflicts. Exercise caution when utilizing them to avoid potential issues, and consider alternative methods for variable access, such as explicit referencing or other scoping mechanisms.
 
 ### Data Transformation, Cleaning, and Imputation
@@ -1475,46 +1475,149 @@ sum(is.na(trip_data))
 + Applied filtering to select specific rows based on defined criteria.
 + Revisited specific columns for reassessment, ensuring data accuracy and completeness.
 
+#### Renaming a Column
++ `member_casual` to `user_type`.
+```{r}
+trip_data <- rename(trip_data, "user_type" = "member_casual")
+```
 
+#### Converting Data Type
++ `started_at` and `ended_at` columns to POSIXct format. ( e.g. 2023-01-21 08:16:33)
+```{r}
+trip_data$started_at <- ymd_hms(trip_data$started_at)
+trip_data$ended_at <- ymd_hms(trip_data$ended_at)
+```
+```{r}
+Warning:  23 failed to parse.Warning:  26 failed to parse.
+```
+> [!IMPORTANT]
+> + The warnings ("23 failed to parse" and "26 failed to parse") indicate issues with missing values (NAs) in the started_at and ended_at columns of trip_data. Missing values cannot be parsed into valid date-time objects, causing the warnings.
 
+#### Rechecking Missing Values
++ Verifying the integrity and consistency of the `started_at` and `ended_at` columns following data manipulation.
+```{r}
+sum(is.na(trip_data$started_at))
+sum(is.na(trip_data$ended_at))
+```
+```{r}
+[1] 23
+[1] 26
+```
 
+#### Precision Adjustment for Coordinates
++ Rounding `start and end latitude/longitude` coordinates to two decimal places.
+```{r}
+trip_data <- trip_data %>%
+  mutate(
+    start_lat = round(start_lat, digits = 2),
+    start_lng = round(start_lng, digits = 2),
+    end_lat = round(end_lat, digits = 2),
+    end_lng = round(end_lng, digits = 2)
+  )
+```
 
+#### Extracting and Adding New Columns
++ Extracting date from `started_at` and creating a new column `date`.
+```{r}
+trip_data <- trip_data %>%
+  mutate(date = as.Date(started_at))
+```
++ Extracting month from `date` and creating a new column `month`.
++ ```{r}
+trip_data <- trip_data %>%
+  mutate(month = format(date, "%B"))
+```
++ Extracting day from `date` and creating a new column `day`.
+```{r}
+trip_data <- trip_data %>%
+  mutate(day = format(date, "%d"))
+```
++ Extracting year from `date` and creating a new column `year`.
+```{r}
+trip_data <- trip_data %>%
+  mutate(year = format(date, "%Y"))
+```
++ Extracting day of the week from `date` and creating a new column `day_of_week`.
+```{r}
+trip_data <- trip_data %>%
+  mutate(day_of_week = format(date, "%A"))
+```
++ Extracting hour from `started_at` and creating a new column `hour`.
+```{r}
+trip_data <- trip_data %>%
+  mutate(hour = hour(started_at))
+```
++ Extracting quarterly from `started_at` and creating a new column `quarter`.
+```{r}
+trip_data <- trip_data %>%
+  mutate(quarter = quarter(started_at))
+```
 
+#### Extracting and Adding Custom Column Part 1
++ Calculating the difference in minutes between the timestamps in the `ended_at` and `started_at` columns, rounding the result to two decimal places, and storing the rounded durations in a new custom column `ride_length_minute`.
+```{r}
+trip_data <- trip_data %>% 
+  mutate(ride_length_minute = round(as.numeric(difftime(ended_at, started_at, units = "mins")), 2))
+```
 
+#### Quality Assessment and Outlier Detection
++ Displaying the data type of `ride_length_minute` using `class()`.
+```{r}
+class(trip_data$ride_length_minute)
+```
+```{r}
+[1] "numeric"
+```
++ Detecting outliers by counting duration less than 1 minute (60 seconds) in column `ride_length_minute`.
+```{r}
+sum(trip_data$ride_length_minute < 1, na.rm = TRUE)
+```
+```{r}
+[1] 149615
+```
++ Detecting outliers by counting duration longer than 24 hours (1440 minutes) in column `ride_length_minute`. 
+```{r}
+sum(trip_data$ride_length_minute > 1440, na.rm = TRUE)
+```
+```{r}
+[1] 6418
+```
++ Detecting outliers by counting non-positive duration (less than or equal to 0) in column `ride_length_minute`. 
+```{r}
+sum(trip_data$ride_length_minute <= 0, na.rm = TRUE)
+```
+```{r}
+[1] 1269
+```
++ Detecting outliers by counting instances where the `started_at` occurs after `ended_at` using 2 methods.
+```{r}
+sum(trip_data$started_at > trip_data$ended_at, na.rm = TRUE)
+```
+```{r}
+[1] 272
+```
+```{r}
+length(which(trip_data$started_at > trip_data$ended_at))
+```
+```{r}
+[1] 272
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#### Handling Missing Values
++ Re-counting missing values in specific columns using `colSums(is.na())`.
+```{r}
+colSums(is.na(trip_data[c(
+  "start_station_name", 
+  "start_station_id", 
+  "end_station_name", 
+  "end_station_id", 
+  "end_lat", 
+  "end_lng")]))
+```
+```{r}
+start_station_name   start_station_id   end_station_name     end_station_id            end_lat            end_lng 
+            875716             875848             929202             929343               6990               6990 
+```
 
 
 ### Key Tasks
