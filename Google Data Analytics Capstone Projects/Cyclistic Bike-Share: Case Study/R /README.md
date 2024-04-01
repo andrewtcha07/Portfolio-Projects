@@ -227,7 +227,7 @@ dttm (2): started_at, ended_at
 + Inspected the structure, attributes, and summary statistics.
 + Providing insights into the composition and characteristics of the data.
 
-#### Displaying **_Column Names_** for Each Month’s Dataset
+#### Displaying _Column Names_ for Each Month’s Dataset
 ```r
 colnames(jan2023)
 colnames(feb2023)
@@ -248,7 +248,7 @@ colnames(dec2023)
 [13] "member_casual"     
 ```
 
-#### Displaying **_Structure_** of Each Month’s Dataset
+#### Displaying _Structure_ of Each Month’s Dataset
 + January 2023
 ```r
 str(jan2023)
@@ -477,7 +477,7 @@ spc_tbl_ [719,618 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
-July 2023
++ July 2023
 ```r
 str(jul2023)
 ```
@@ -515,7 +515,7 @@ spc_tbl_ [767,650 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
-+August 2023
++ August 2023
 ```r
 str(aug2023)
 ```
@@ -705,7 +705,7 @@ spc_tbl_ [224,073 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
-#### Displaying **_Summary_** Statistics for Each Month’s Dataset
+#### Displaying _Summary_ Statistics for Each Month’s Dataset
 + January 2023
 ```r
 summary(jan2023)
@@ -998,7 +998,298 @@ summary(dec2023)
 + Combining data from 12 individual data frames into a single unified data frame, following the initial review.
 + Removing the 12 individual data frames after consolidation to streamline data management.
 
-  
+#### Combining All Monthly Data Frames
+```r
+trip_data <- bind_rows(
+  list(
+    jan2023, 
+    feb2023, 
+    mar2023, 
+    apr2023, 
+    may2023, 
+    jun2023, 
+    jul2023, 
+    aug2023, 
+    sep2023, 
+    oct2023, 
+    nov2023, 
+    dec2023
+  )
+)
+```
+
+#### Removing All Individual Monthly Data Frames from the Environment
+```r
+rm(
+  list = c(
+    "jan2023", 
+    "feb2023", 
+    "mar2023", 
+    "apr2023", 
+    "may2023", 
+    "jun2023", 
+    "jul2023", 
+    "aug2023", 
+    "sep2023", 
+    "oct2023", 
+    "nov2023", 
+    "dec2023"
+  )
+)
+```
+
+### Consolidation Data Exploration
++ Reviewed newly combined data framed, `trip_data`.
++ Examined variable types and dimensions to understand the data structure thoroughly.
++ Reviewed column names and variable distributions for clarity and insight into the dataset.
++ Checked for missing values to assess data completeness and potential issues.
++ Evaluated data frame length and width to understand the scale and complexity of the data frame.
++ Inspected data structure to gain deeper insights into how the data is organized.
++ Reviewed the first and last rows to ensure data integrity and consistency.
++ Summarized variable statistics to identify trends, outliers, and patterns within the data.
+
+#### Checking Data Type
++ Identifying data type using `class()`.
+```r
+class(trip_data)
+```
+```r
+[1] "spec_tbl_df" "tbl_df"      "tbl"         "data.frame" 
+```
+
+#### Checking Data Dimensions
++ Counting the number of rows and columns using `dim()`.
+```r
+dim(trip_data)
+```
+```r
+[1] 5719877      13
+```
+
+#### Displaying Variable Names
++ Obtaining the column names using `colnames()` and `names()`.
+```r
+colnames(trip_data)
+```
+```r
+ [1] "ride_id"            "rideable_type"      "started_at"         "ended_at"           "start_station_name" "start_station_id"  
+ [7] "end_station_name"   "end_station_id"     "start_lat"          "start_lng"          "end_lat"            "end_lng"           
+[13] "member_casual"     
+```
+```r
+names(trip_data)
+```
+```r
+ [1] "ride_id"            "rideable_type"      "started_at"         "ended_at"           "start_station_name" "start_station_id"  
+ [7] "end_station_name"   "end_station_id"     "start_lat"          "start_lng"          "end_lat"            "end_lng"           
+[13] "member_casual"     
+```
+
+#### Identifying Total Missing Values
++ Calculating the total sum of missing values (na) in each column using `colSums(is.na())`.
+```{r}
+colSums(is.na(trip_data))
+```
+```{r}
+           ride_id      rideable_type         started_at           ended_at start_station_name   start_station_id   end_station_name 
+                 0                  0                  0                  0             875716             875848             929202 
+    end_station_id          start_lat          start_lng            end_lat            end_lng      member_casual 
+            929343                  0                  0               6990               6990                  0 
+```
+
+#### Displaying Row Count
++ Counting the total count of rows of the entire data frame using `nrow()`.
+```{r}
+nrow(trip_data)
+```
+```{r}
+[1] 5719877
+```
+
+#### Displaying Column Count
++ Counting the total count of columns of the entire data frame using `ncol()`.
+```{r}
+ncol(trip_data)
+```
+```{r}
+[1] 13
+```
+
+#### Displaying Top Rows
++ Showing a preview of the first few rows (6 rows) offering a glimpse into its contents using `head()`.
+```{r}
+head(trip_data)
+```
+| ride_id <chr> | rideable_type <chr> | started_at <S3: POSIXct> | ended_at <S3: POSIXct> | start_station_name <chr> | start_station_id <chr> | end_station_name <chr> | end_station_id <chr> | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | member_casual <chr> |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| F96D5A74A3E41399 | electric_bike | 2023-01-21 20:05:42 | 2023-01-21 20:16:33 | Lincoln Ave & Fullerton Ave | TA1309000058 | Hampden Ct & Diversey Ave | 202480.0 | 41.92407 | -87.64628 | 41.93000 | -87.64000 | member |
+| 13CB7EB698CEDB88 | classic_bike | 2023-01-10 15:37:36 | 2023-01-10 15:46:05 | Kimbark Ave & 53rd St | TA1309000037 | Greenwood Ave & 47th St | TA1308000002 | 41.79957 | -87.59475 | 41.80983 | -87.59938 | member |
+| BD88A2E670661CE5 | electric_bike | 2023-01-02 07:51:57 | 2023-01-02 08:05:11 | Western Ave & Lunt Ave | RP-005 | Valli Produce - Evanston Plaza | 599 | 42.00857 | -87.69048 | 42.03974 | -87.69941 | casual |
+| C90792D034FED968 | classic_bike | 2023-01-22 10:52:58 | 2023-01-22 11:01:44 | Kimbark Ave & 53rd St | TA1309000037 | Greenwood Ave & 47th St | TA1308000002 | 41.79957 | -87.59475 | 41.80983 | -87.59938 | member |
+| 3397017529188E8A | classic_bike | 2023-01-12 13:58:01 | 2023-01-12 14:13:20 | Kimbark Ave & 53rd St | TA1309000037 | Greenwood Ave & 47th St | TA1308000002 | 41.79957 | -87.59475 | 41.80983 | -87.59938 | member |
+| 58E68156DAE3E311 | electric_bike | 2023-01-31 07:18:03 | 2023-01-31 07:21:16 | Lakeview Ave & Fullerton Pkwy | TA1309000019 | Hampden Ct & Diversey Ave | 202480.0 | 41.92607 | -87.63886 | 41.93000 | -87.64000 | member |
+
+#### Displaying Bottom Rows
++ Showing a preview of the last few rows (6 rows) offering a glimpse into its contents using `tail()`.
+```{r}
+tail(trip_data)
+```
+| ride_id <chr> | rideable_type <chr> | started_at <S3: POSIXct> | ended_at <S3: POSIXct> | start_station_name <chr> | start_station_id <chr> | end_station_name <chr> | end_station_id <chr> | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | member_casual <chr> |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| AB675DD0012CBD57 | electric_bike | 2023-12-04 23:34:11 | 2023-12-04 23:39:16 | Racine Ave & 18th St | 13164 | Racine Ave & Congress Pkwy | TA1306000025 | 41.85824 | -87.65638 | 41.87464 | -87.65703 | member |
+| F74DF9549B504A6B | electric_bike | 2023-12-07 13:15:24 | 2023-12-07 13:17:37 | 900 W Harrison St | 13028 | Racine Ave & Congress Pkwy | TA1306000025 | 41.87470 | -87.64980 | 41.87464 | -87.65703 | casual |
+| BCDA66E761CC1029 | classic_bike | 2023-12-08 18:42:21 | 2023-12-08 18:45:56 | 900 W Harrison St | 13028 | Racine Ave & Congress Pkwy | TA1306000025 | 41.87475 | -87.64981 | 41.87464 | -87.65703 | casual |
+| D2CF330F9C266683 | classic_bike | 2023-12-05 14:09:11 | 2023-12-05 14:13:01 | 900 W Harrison St | 13028 | Racine Ave & Congress Pkwy | TA1306000025 | 41.87475 | -87.64981 | 41.87464 | -87.65703 | member |
+| 3829A0D1E00EE970 | electric_bike | 2023-12-02 21:36:07 | 2023-12-02 21:53:45 | Damen Ave & Madison St | 13134 | Morgan St & Lake St* | chargingstx4 | 41.88140 | -87.67498 | 41.88549 | -87.65229 | casual |
+| A373F5B447AEA508 | classic_bike | 2023-12-11 13:07:46 | 2023-12-11 13:11:24 | 900 W Harrison St | 13028 | Racine Ave & Congress Pkwy | TA1306000025 | 41.87475 | -87.64981 | 41.87464 | -87.65703 | member |
+
+#### Displaying the Structure Overview
++ Reviewing the new structure using `str()`.
+```{r}
+str(trip_data)
+```
+```{r}
+spc_tbl_ [5,719,877 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ ride_id           : chr [1:5719877] "F96D5A74A3E41399" "13CB7EB698CEDB88" "BD88A2E670661CE5" "C90792D034FED968" ...
+ $ rideable_type     : chr [1:5719877] "electric_bike" "classic_bike" "electric_bike" "classic_bike" ...
+ $ started_at        : POSIXct[1:5719877], format: "2023-01-21 20:05:42" "2023-01-10 15:37:36" "2023-01-02 07:51:57" "2023-01-22 10:52:58" ...
+ $ ended_at          : POSIXct[1:5719877], format: "2023-01-21 20:16:33" "2023-01-10 15:46:05" "2023-01-02 08:05:11" "2023-01-22 11:01:44" ...
+ $ start_station_name: chr [1:5719877] "Lincoln Ave & Fullerton Ave" "Kimbark Ave & 53rd St" "Western Ave & Lunt Ave" "Kimbark Ave & 53rd St" ...
+ $ start_station_id  : chr [1:5719877] "TA1309000058" "TA1309000037" "RP-005" "TA1309000037" ...
+ $ end_station_name  : chr [1:5719877] "Hampden Ct & Diversey Ave" "Greenwood Ave & 47th St" "Valli Produce - Evanston Plaza" "Greenwood Ave & 47th St" ...
+ $ end_station_id    : chr [1:5719877] "202480.0" "TA1308000002" "599" "TA1308000002" ...
+ $ start_lat         : num [1:5719877] 41.9 41.8 42 41.8 41.8 ...
+ $ start_lng         : num [1:5719877] -87.6 -87.6 -87.7 -87.6 -87.6 ...
+ $ end_lat           : num [1:5719877] 41.9 41.8 42 41.8 41.8 ...
+ $ end_lng           : num [1:5719877] -87.6 -87.6 -87.7 -87.6 -87.6 ...
+ $ member_casual     : chr [1:5719877] "member" "member" "casual" "member" ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   ride_id = col_character(),
+  ..   rideable_type = col_character(),
+  ..   started_at = col_datetime(format = ""),
+  ..   ended_at = col_datetime(format = ""),
+  ..   start_station_name = col_character(),
+  ..   start_station_id = col_character(),
+  ..   end_station_name = col_character(),
+  ..   end_station_id = col_character(),
+  ..   start_lat = col_double(),
+  ..   start_lng = col_double(),
+  ..   end_lat = col_double(),
+  ..   end_lng = col_double(),
+  ..   member_casual = col_character()
+  .. )
+ - attr(*, "problems")=<externalptr> 
+```
+
+#### Displaying Conise Structure
++ Summarizing the structure and attributes using `glimpse()`.
+```{r}
+glimpse(trip_data)
+```
+```{r}
+Rows: 5,719,877
+Columns: 13
+$ ride_id            <chr> "F96D5A74A3E41399", "13CB7EB698CEDB88", "BD88A2E670661CE5", "C90792D034FED968", "3397017529188E8A", "58…
+$ rideable_type      <chr> "electric_bike", "classic_bike", "electric_bike", "classic_bike", "classic_bike", "electric_bike", "ele…
+$ started_at         <dttm> 2023-01-21 20:05:42, 2023-01-10 15:37:36, 2023-01-02 07:51:57, 2023-01-22 10:52:58, 2023-01-12 13:58:0…
+$ ended_at           <dttm> 2023-01-21 20:16:33, 2023-01-10 15:46:05, 2023-01-02 08:05:11, 2023-01-22 11:01:44, 2023-01-12 14:13:2…
+$ start_station_name <chr> "Lincoln Ave & Fullerton Ave", "Kimbark Ave & 53rd St", "Western Ave & Lunt Ave", "Kimbark Ave & 53rd S…
+$ start_station_id   <chr> "TA1309000058", "TA1309000037", "RP-005", "TA1309000037", "TA1309000037", "TA1309000019", "TA1309000037…
+$ end_station_name   <chr> "Hampden Ct & Diversey Ave", "Greenwood Ave & 47th St", "Valli Produce - Evanston Plaza", "Greenwood Av…
+$ end_station_id     <chr> "202480.0", "TA1308000002", "599", "TA1308000002", "TA1308000002", "202480.0", "TA1308000002", "TA13080…
+$ start_lat          <dbl> 41.92407, 41.79957, 42.00857, 41.79957, 41.79957, 41.92607, 41.79955, 41.79957, 41.79959, 41.79957, 41.…
+$ start_lng          <dbl> -87.64628, -87.59475, -87.69048, -87.59475, -87.59475, -87.63886, -87.59462, -87.59475, -87.59467, -87.…
+$ end_lat            <dbl> 41.93000, 41.80983, 42.03974, 41.80983, 41.80983, 41.93000, 41.80983, 41.80983, 41.80983, 41.80983, 41.…
+$ end_lng            <dbl> -87.64000, -87.59938, -87.69941, -87.59938, -87.59938, -87.64000, -87.59938, -87.59938, -87.59938, -87.…
+$ member_casual      <chr> "member", "member", "casual", "member", "member", "member", "member", "member", "member", "member", "me…
+Modify Chunk OptionsRun All Chunks AboveRun Current Chunk
+```
+
+#### Displaying Variable Statistics
++ Generating a summary report without using a chart using `skim_without_charts()`.
+```{r}
+skim_without_charts(trip_data)
+```
+```{r}── Data Summary ────────────────────────
+                           Values   
+Name                       trip_data
+Number of rows             5719877  
+Number of columns          13       
+_______________________             
+Column type frequency:              
+  character                7        
+  numeric                  4        
+  POSIXct                  2        
+________________________            
+Group variables            None     
+```
+|     | skim_variable <chr> | n_missing <int> | complete_rate <dbl> | min <int> | max <int> | empty <int> | n_unique <int> | whitespace <int> |
+|---|---|---|---|---|---|---|---|---|
+| 1 | ride_id | 0 | 1.0000000 | 16 | 16 | 0 | 5719877 | 0 |
+| 2 | rideable_type | 0 | 1.0000000 | 11 | 13 | 0 | 3 | 0 |
+| 3 | start_station_name | 875716 | 0.8468995 | 3 | 64 | 0 | 1592 | 0 |
+| 4 | start_station_id | 875848 | 0.8468764 | 3 | 35 | 0 | 1516 | 0 |
+| 5 | end_station_name | 929202 | 0.8375486 | 3 | 64 | 0 | 1597 | 0 |
+| 6 | end_station_id | 929343 | 0.8375240 | 3 | 36 | 0 | 1520 | 0 |
+| 7 | member_casual | 0 | 1.0000000 | 6 | 6 | 0 | 2 | 0 |
+
+|     | skim_variable <chr> | n_missing <int> | complete_rate <dbl> | mean <dbl> | sd <dbl> | p0 <dbl> | p25 <dbl> | p50 <dbl> | p75 <dbl> | p100 <dbl> |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | start_lat | 0 | 1.0000000 | 41.90288 | 0.04505556 | 41.63 | 41.88096 | 41.89902 | 41.93000 | 42.07 |
+| 2 | start_lng | 0 | 1.0000000 | -87.64704 | 0.02733412 | -87.94 | -87.66000 | -87.64403 | -87.62991 | -87.46 |
+| 3 | end_lat | 6990 | 0.9987779 | 41.90322 | 0.05444371 | 0.00 | 41.88103 | 41.90000 | 41.93000 | 42.18 |
+| 4 | end_lng | 6990 | 0.9987779 | -87.64720 | 0.06919621 | -88.16 | -87.66027 | -87.64410 | -87.63000 | 0.00 |
+
+|     | skim_variable <chr> | n_missing <int> | complete_rate <dbl> | min <S3: POSIXct> | max <S3: POSIXct> | median <S3: POSIXct> | n_unique <int> |
+|---|---|---|---|---|---|---|---|
+| 1 | started_at | 0 | 1 | 2023-01-01 00:01:58 | 2023-12-31 23:59:38 | 2023-07-20 18:02:50 | 4823909 |
+| 2 | ended_at | 0 | 1 | 2023-01-01 00:02:41 | 2024-01-01 23:50:51 | 2023-07-20 18:19:47 | 4835702 |
+
+
+#### Displaying Summary Overview
++ Providing an overall summary of the new data frame using `summary()`.
+```{r}
+summary(trip_data)
+```
+```{r}
+   ride_id          rideable_type        started_at                    
+ Length:5719877     Length:5719877     Min.   :2023-01-01 00:01:58.00  
+ Class :character   Class :character   1st Qu.:2023-05-21 12:50:44.00  
+ Mode  :character   Mode  :character   Median :2023-07-20 18:02:50.00  
+                                       Mean   :2023-07-16 10:27:50.01  
+                                       3rd Qu.:2023-09-16 20:08:49.00  
+                                       Max.   :2023-12-31 23:59:38.00  
+                                                                       
+    ended_at                      start_station_name start_station_id   end_station_name  
+ Min.   :2023-01-01 00:02:41.00   Length:5719877     Length:5719877     Length:5719877    
+ 1st Qu.:2023-05-21 13:14:09.00   Class :character   Class :character   Class :character  
+ Median :2023-07-20 18:19:47.00   Mode  :character   Mode  :character   Mode  :character  
+ Mean   :2023-07-16 10:46:00.18                                                           
+ 3rd Qu.:2023-09-16 20:28:10.00                                                           
+ Max.   :2024-01-01 23:50:51.00                                                           
+                                                                                          
+ end_station_id       start_lat       start_lng         end_lat         end_lng      
+ Length:5719877     Min.   :41.63   Min.   :-87.94   Min.   : 0.00   Min.   :-88.16  
+ Class :character   1st Qu.:41.88   1st Qu.:-87.66   1st Qu.:41.88   1st Qu.:-87.66  
+ Mode  :character   Median :41.90   Median :-87.64   Median :41.90   Median :-87.64  
+                    Mean   :41.90   Mean   :-87.65   Mean   :41.90   Mean   :-87.65  
+                    3rd Qu.:41.93   3rd Qu.:-87.63   3rd Qu.:41.93   3rd Qu.:-87.63  
+                    Max.   :42.07   Max.   :-87.46   Max.   :42.18   Max.   :  0.00  
+                                                     NA's   :6990    NA's   :6990    
+ member_casual     
+ Length:5719877    
+ Class :character  
+ Mode  :character  
+                   
+                   
+                   
+                   
+```
+
+> [!NOTE]
+> + Understanding that similar functions were utilized in the current analysis, it's essential to acknowledge that each function often offers unique insights or formatting options tailored to specific analytical needs or preferences. Thus, selecting the appropriate function relies on factors such as the desired output format, required level of detail, or ease of interpretation.
+
 ### Key Tasks
 - [x]  Check the data for errors.
 - [x]  Choose your tools.
