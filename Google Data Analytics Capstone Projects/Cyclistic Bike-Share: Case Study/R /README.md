@@ -1463,7 +1463,7 @@ sum(is.na(trip_data))
 > [!CAUTION]
 > Understanding the potential risks associated with `attach()` and `detach()` during the current analysis, it's essential to recognize that these functions may introduce unexpected behavior and namespace conflicts. Exercise caution when utilizing them to avoid potential issues, and consider alternative methods for variable access, such as explicit referencing or other scoping mechanisms.
 
-### Data Transformation, Cleaning, and Imputation
+### Data Transformation, Imputation, and Cleaning
 + Renamed a column to improve clarity and consistency.
 + Rounded latitude and longitude values to enhance precision.
 + Converted date-time to ensure consistency and compatibility.
@@ -1680,6 +1680,26 @@ trip_data$ride_distance <- trip_data$ride_distance * 0.621371
 ```
 
 #### Station Exploration
++ Counting the number of rides per `start_station_name` and arranging them in descending order.
+```{r}
+trip_data %>% 
+  select(start_station_name) %>% 
+  count(start_station_name) %>% 
+  arrange(desc(n))
+```
+| start_station_name <chr> | n <int> |
+|---|---|
+| Streeter Dr & Grand Ave | 68074 |
+| DuSable Lake Shore Dr & North Blvd | 44024 |
+| DuSable Lake Shore Dr & Monroe St | 42072 |
+| Michigan Ave & Oak St | 39095 |
+| Clark St & Elm St | 37813 |
+| Wells St & Concord Ln | 36950 |
+| Kingsbury St & Kinzie St | 36251 |
+| Clark St & Lincoln Ave | 36176 |
+```{r}
+1-8 of 1,593 rows
+```
 + Counting the number of rides per `start_station_id` and arranging them in descending order.
 ```{r}
 trip_data %>% 
@@ -1702,6 +1722,26 @@ trip_data %>%
 ```{r}
 1-8 of 1,517 rows
 ```
++ Counting the number of rides per `end_station_name` and arranging them in descending order.
+```{r}
+trip_data %>% 
+  select(end_station_name) %>% 
+  count(end_station_name) %>% 
+  arrange(desc(n))
+```
+| end_station_name <chr> | n <int> |
+|---|---|
+| Streeter Dr & Grand Ave | 71260 |
+| DuSable Lake Shore Dr & North Blvd | 41138 |
+| Michigan Ave & Oak St | 38720 |
+| DuSable Lake Shore Dr & Monroe St | 38198 |
+| Millennium Park | 36861 |
+| Clark St & Lincoln Ave | 36350 |
+| Clark St & Elm St | 35835 |
+| Kingsbury St & Kinzie St | 35803 |
+```{r}
+1-8 of 1,598 rows
+```
 + Counting the number of rides per `end_station_id` and arranging them in descending order.
 ```{r}
 trip_data %>% 
@@ -1721,6 +1761,34 @@ trip_data %>%
 | KA1503000043 | 35803 |
 ```{r}
 1-8 of 1,521 rows
+```
++ Counting the number of rides for `start_station_name` containing 'test', 'warehouse', or 'charging station'.
+```{r}
+trip_data %>% filter(
+  start_station_name %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  )
+) %>% 
+  count(start_station_name)
+```
+| start_station_name <chr> | n <int> |
+|---|---|
+| OH - BONFIRE - TESTING | 1 |
+| OH Charging Stx - Test | 21 |
+```{r}
+2 rows
 ```
 + Counting the number of rides for `start_station_id` containing 'test', 'warehouse', or 'charging station'.
 ```{r}
@@ -1757,6 +1825,34 @@ trip_data %>% filter(
 | chargingstx5 | 8583 |
 ```{r}
 10 rows
+```
++ Counting the number of rides for `end_station_name` containing 'test', 'warehouse', or 'charging station'.
+```{r}
+trip_data %>% filter(
+  end_station_name %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  )
+) %>% 
+  count(end_station_name)
+```
+| end_station_name <chr> | n <int> |
+|---|---|
+| OH - BONFIRE - TESTING | 3 |
+| OH Charging Stx - Test | 477 |
+```{r}
+2 rows
 ```
 + Counting the number of rides for `end_station_id` containing 'test', 'warehouse', or 'charging station'.
 ```{r}
@@ -1797,6 +1893,217 @@ trip_data %>% filter(
 12 rows
 ```
 
+#### Cleansing and Filtering Operations
++ Filtering out rides with durations outside the range of 1 minute (60 seconds) to 1440 minutes (24 hours) and storing the filtered data in a newly updated data frame called `trip_data_updated`.
+```{r}
+trip_data_updated <- trip_data %>% 
+  filter(ride_length_minute >= 1 & ride_length_minute <= 1440)
+```
++ Removing rows with missing end latitude and longitude.
+```{r}
+trip_data_updated <- trip_data_updated[!is.na(trip_data_updated$end_lat) & !is.na(trip_data_updated$end_lng), ]
+```
++ Filtering out stations containing 'test', 'warehouse', or 'charging station' from `start_station_name`.
+```{r}
+trip_data_updated <- trip_data_updated %>% 
+  filter(!
+  start_station_name %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  ))
+```
++ Filtering out stations containing 'test', 'warehouse', or 'charging station' from `start_station_id`.
+```{r}
+trip_data_updated <- trip_data_updated %>% 
+  filter(!
+  start_station_id %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  ))
+```
++ Filtering out stations containing 'test', 'warehouse', or 'charging station' from `end_station_name`.
+```{r}
+trip_data_updated <- trip_data_updated %>% 
+  filter(!
+  end_station_name %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  ))
+```
++ Filtering out stations containing 'test', 'warehouse', or 'charging station' from `end_station_id`.
+```{r}
+trip_data_updated <- trip_data_updated %>% 
+  filter(!
+  end_station_id %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  ))
+```
+
+#### Re-vising Filtered Data
++ Re-counting rides less than 1 minute (60 seconds).
+```{r}
+sum(trip_data_updated$ride_length_minute < 1)
+```
+```{r}
+[1] 0
+```
++ Re-counting rides more than 24 hours (1440 minutes).
+```{r}
+sum(trip_data_updated$ride_length_minute > 1440)
+```
+```{r}
+[1] 0
+```
++ Re-counting number of instances where `started_at` is after `ended_at`.
+```{r}
+length(which(trip_data_updated$started_at > trip_data_updated$ended_at)) 
+```
+```{r}
+[1] 0
+```
++ Re-counting the number of rides for `start_station_name` containing 'test', 'warehouse', or 'charging station'.
+```{r}
+trip_data_updated %>% filter(
+  start_station_name %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  )
+) %>% 
+  count(start_station_name)
+```
+```{r}
+0 rows
+```
++ Re-counting the number of rides for `start_station_id` containing 'test', 'warehouse', or 'charging station'.
+```{r}
+trip_data_updated %>% filter(
+  start_station_id %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  )
+) %>% 
+  count(start_station_id)
+```
+```{r}
+0 rows
+```
++ Re-counting the number of rides for `end_station_name` containing 'test', 'warehouse', or 'charging station'.
+```{r}
+trip_data_updated %>% filter(
+  end_station_name %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  )
+) %>% 
+  count(end_station_name)
+```
+```{r}
+0 rows
+```
++ Re-counting the number of rides for `end_station_id` containing 'test', 'warehouse', or 'charging station'.
+```{r}
+trip_data_updated %>% filter(
+  end_station_id %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  )
+) %>% 
+  count(end_station_id)
+```
+```{r}
+0 rows
+```
+### Summary of Updated Data
++ 
 
 ### Key Tasks
 - [x]  Check the data for errors.
