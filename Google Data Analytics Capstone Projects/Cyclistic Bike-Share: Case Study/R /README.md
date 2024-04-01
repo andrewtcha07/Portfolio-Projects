@@ -2102,6 +2102,83 @@ trip_data_updated %>% filter(
 ```{r}
 0 rows
 ```
+
+#### Final Updated Data Frame Review
++ Inspecting the new total number of columns using `ncol()`.
+```{r}
+ncol(trip_data_updated)
+```
+```{r}
+[1] 22
+```
++ Inspecting the new total number of rows using `nrow()`.
+```{r}
+nrow(trip_data_updated)
+```
+```{r}
+[1] 5459091
+```
++ Summarizing the structure and attributes of the newly updated data frame using `glimpse()`.
+```{r}
+glimpse(trip_data_updated)
+```
+```{r}
+Rows: 5,459,091
+Columns: 22
+$ ride_id            <chr> "F96D5A74A3E41399", "13CB7EB698CEDB88", "BD88A2E670661CE5", "C90792D034FED968", "3397017529188E8A", "58E68156DAE3E311", "2F7194B6012A98D4", "DB1CF84154D6A049", "34EAB943F88C4C5D", "BC8AB1AA51DA9115", "CBE4D3954EB19…
+$ rideable_type      <chr> "electric_bike", "classic_bike", "electric_bike", "classic_bike", "classic_bike", "electric_bike", "electric_bike", "classic_bike", "electric_bike", "classic_bike", "classic_bike", "classic_bike", "electric_bike", …
+$ started_at         <dttm> 2023-01-21 20:05:42, 2023-01-10 15:37:36, 2023-01-02 07:51:57, 2023-01-22 10:52:58, 2023-01-12 13:58:01, 2023-01-31 07:18:03, 2023-01-15 21:18:36, 2023-01-25 10:49:01, 2023-01-25 20:49:47, 2023-01-06 16:37:19, 202…
+$ ended_at           <dttm> 2023-01-21 20:16:33, 2023-01-10 15:46:05, 2023-01-02 08:05:11, 2023-01-22 11:01:44, 2023-01-12 14:13:20, 2023-01-31 07:21:16, 2023-01-15 21:32:36, 2023-01-25 10:58:22, 2023-01-25 21:02:14, 2023-01-06 16:49:52, 202…
+$ start_station_name <chr> "Lincoln Ave & Fullerton Ave", "Kimbark Ave & 53rd St", "Western Ave & Lunt Ave", "Kimbark Ave & 53rd St", "Kimbark Ave & 53rd St", "Lakeview Ave & Fullerton Pkwy", "Kimbark Ave & 53rd St", "Kimbark Ave & 53rd St",…
+$ start_station_id   <chr> "TA1309000058", "TA1309000037", "RP-005", "TA1309000037", "TA1309000037", "TA1309000019", "TA1309000037", "TA1309000037", "TA1309000037", "TA1309000037", "TA1309000037", "TA1309000037", "13325", "13325", "LP-", "RP…
+$ end_station_name   <chr> "Hampden Ct & Diversey Ave", "Greenwood Ave & 47th St", "Valli Produce - Evanston Plaza", "Greenwood Ave & 47th St", "Greenwood Ave & 47th St", "Hampden Ct & Diversey Ave", "Greenwood Ave & 47th St", "Greenwood Ave…
+$ end_station_id     <chr> "202480.0", "TA1308000002", "599", "TA1308000002", "TA1308000002", "202480.0", "TA1308000002", "TA1308000002", "TA1308000002", "TA1308000002", "TA1308000002", "TA1308000002", "202480.0", "202480.0", "202480.0", "RP…
+$ start_lat          <dbl> 41.92, 41.80, 42.01, 41.80, 41.80, 41.93, 41.80, 41.80, 41.80, 41.80, 41.80, 41.80, 41.95, 41.95, 41.92, 42.00, 41.93, 42.01, 41.89, 41.89, 41.96, 41.98, 41.98, 41.94, 41.95, 41.93, 41.79, 41.94, 42.00, 41.92, 41.9…
+$ start_lng          <dbl> -87.65, -87.59, -87.69, -87.59, -87.59, -87.64, -87.59, -87.59, -87.59, -87.59, -87.59, -87.59, -87.65, -87.65, -87.64, -87.67, -87.64, -87.69, -87.62, -87.62, -87.65, -87.67, -87.67, -87.65, -87.73, -87.65, -87.72…
+$ end_lat            <dbl> 41.93, 41.81, 42.04, 41.81, 41.81, 41.93, 41.81, 41.81, 41.81, 41.81, 41.81, 41.81, 41.93, 41.93, 41.93, 42.00, 41.93, 42.04, 41.93, 41.99, 41.99, 41.99, 41.99, 42.00, 41.95, 41.93, 41.80, 41.93, 41.99, 41.93, 41.9…
+$ end_lng            <dbl> -87.64, -87.60, -87.70, -87.60, -87.60, -87.64, -87.60, -87.60, -87.60, -87.60, -87.60, -87.60, -87.64, -87.64, -87.64, -87.69, -87.64, -87.70, -87.64, -87.67, -87.67, -87.67, -87.67, -87.69, -87.69, -87.64, -87.72…
+$ user_type          <chr> "member", "member", "casual", "member", "member", "member", "member", "member", "member", "member", "member", "member", "member", "casual", "member", "member", "member", "casual", "member", "member", "member", "mem…
+$ date               <date> 2023-01-21, 2023-01-10, 2023-01-02, 2023-01-22, 2023-01-12, 2023-01-31, 2023-01-15, 2023-01-25, 2023-01-25, 2023-01-06, 2023-01-05, 2023-01-03, 2023-01-09, 2023-01-03, 2023-01-12, 2023-01-09, 2023-01-21, 2023-01-0…
+$ month              <chr> "January", "January", "January", "January", "January", "January", "January", "January", "January", "January", "January", "January", "January", "January", "January", "January", "January", "January", "January", "Janu…
+$ day                <chr> "21", "10", "02", "22", "12", "31", "15", "25", "25", "06", "05", "03", "09", "03", "12", "09", "21", "05", "17", "03", "02", "01", "02", "17", "11", "16", "12", "17", "24", "13", "21", "11", "18", "19", "06", "07"…
+$ year               <chr> "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023", "2023"…
+$ day_of_week        <chr> "Saturday", "Tuesday", "Monday", "Sunday", "Thursday", "Tuesday", "Sunday", "Wednesday", "Wednesday", "Friday", "Thursday", "Tuesday", "Monday", "Tuesday", "Thursday", "Monday", "Saturday", "Thursday", "Tuesday", "…
+$ hour               <int> 20, 15, 7, 10, 13, 7, 21, 10, 20, 16, 17, 17, 19, 20, 22, 21, 9, 17, 17, 18, 17, 18, 12, 17, 17, 18, 7, 12, 17, 15, 18, 17, 7, 7, 12, 13, 4, 16, 10, 12, 7, 7, 17, 6, 6, 14, 20, 9, 15, 17, 13, 19, 10, 11, 15, 12, 22…
+$ quarter            <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+$ ride_length_minute <dbl> 10.85, 8.48, 13.23, 8.77, 15.32, 3.22, 14.00, 9.35, 12.45, 12.55, 9.82, 9.37, 7.67, 9.95, 4.58, 6.63, 2.50, 15.27, 16.03, 48.82, 15.03, 4.03, 7.30, 29.38, 10.15, 8.03, 7.88, 8.67, 5.32, 5.18, 8.02, 17.28, 3.00, 3.6…
+$ ride_distance      <dbl> 0.8613851, 0.8619511, 2.1335324, 0.8619511, 0.8619511, 0.0000000, 0.8619511, 0.8619511, 0.8619511, 0.8619511, 0.8619511, 0.8619511, 1.4733859, 1.4733859, 0.6901681, 1.0296212, 0.0000000, 2.1335324, 2.9469271, 7.366…
+```
++ Displaying an overall summary of the newly updated data frame using `summary()`.
+```{r}
+summary(trip_data_updated)
+```
+```{r}
+   ride_id          rideable_type        started_at                        ended_at                      start_station_name start_station_id   end_station_name   end_station_id       start_lat       start_lng         end_lat     
+ Length:5459091     Length:5459091     Min.   :2023-01-01 00:02:06.00   Min.   :2023-01-01 00:07:23.00   Length:5459091     Length:5459091     Length:5459091     Length:5459091     Min.   :41.63   Min.   :-87.94   Min.   : 0.00  
+ Class :character   Class :character   1st Qu.:2023-05-21 14:35:20.50   1st Qu.:2023-05-21 14:59:33.50   Class :character   Class :character   Class :character   Class :character   1st Qu.:41.88   1st Qu.:-87.66   1st Qu.:41.88  
+ Mode  :character   Mode  :character   Median :2023-07-20 18:55:28.00   Median :2023-07-20 19:11:35.00   Mode  :character   Mode  :character   Mode  :character   Mode  :character   Median :41.90   Median :-87.64   Median :41.90  
+                                       Mean   :2023-07-16 12:57:16.18   Mean   :2023-07-16 13:12:45.84                                                                               Mean   :41.90   Mean   :-87.65   Mean   :41.90  
+                                       3rd Qu.:2023-09-16 21:10:35.00   3rd Qu.:2023-09-16 21:29:20.00                                                                               3rd Qu.:41.93   3rd Qu.:-87.63   3rd Qu.:41.93  
+                                       Max.   :2023-12-31 23:58:55.00   Max.   :2024-01-01 14:20:23.00                                                                               Max.   :42.07   Max.   :-87.46   Max.   :42.18  
+    end_lng        user_type              date               month               day                year           day_of_week             hour          quarter      ride_length_minute ride_distance     
+ Min.   :-88.16   Length:5459091     Min.   :2023-01-01   Length:5459091     Length:5459091     Length:5459091     Length:5459091     Min.   : 0.00   Min.   :1.000   Min.   :   1.00    Min.   :   0.000  
+ 1st Qu.:-87.66   Class :character   1st Qu.:2023-05-21   Class :character   Class :character   Class :character   Class :character   1st Qu.:11.00   1st Qu.:2.000   1st Qu.:   5.70    1st Qu.:   0.690  
+ Median :-87.64   Mode  :character   Median :2023-07-20   Mode  :character   Mode  :character   Mode  :character   Mode  :character   Median :15.00   Median :3.000   Median :   9.77    Median :   0.862  
+ Mean   :-87.65                      Mean   :2023-07-15                                                                               Mean   :14.09   Mean   :2.668   Mean   :  15.49    Mean   :   1.347  
+ 3rd Qu.:-87.63                      3rd Qu.:2023-09-16                                                                               3rd Qu.:18.00   3rd Qu.:3.000   3rd Qu.:  17.20    3rd Qu.:   1.723  
+ Max.   :  0.00                      Max.   :2023-12-31                                                                               Max.   :23.00   Max.   :4.000   Max.   :1439.87    Max.   :6098.520  
+```
++ Calculating the total sum of missing values after cleaning and filtering using `colSums(is.na())`.
+```{r}
+colSums(is.na(trip_data_updated))
+```
+```{r}
+           ride_id      rideable_type         started_at           ended_at start_station_name   start_station_id   end_station_name     end_station_id          start_lat          start_lng            end_lat            end_lng 
+                 0                  0                  0                  0              10160              10160              31699              31699                  0                  0                  0                  0 
+         user_type               date              month                day               year        day_of_week               hour            quarter ride_length_minute      ride_distance 
+                 0                  0                  0                  0                  0                  0                  0                  0                  0                  0 
+```
+
 ### Summary of Updated Data
 + 
 
