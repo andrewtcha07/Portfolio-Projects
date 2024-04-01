@@ -54,6 +54,7 @@ library(skimr)
 ```
 
 #### Importing Data Files and Creating Data Frame
++ January 2023
 ```r
 jan2023 <- read_csv("202301-divvy-tripdata.csv")
 ```
@@ -67,6 +68,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
++ February 2023
 ```r
 feb2023 <- read_csv("202302-divvy-tripdata.csv")
 ```
@@ -80,6 +82,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
++ March 2023
 ```r
 mar2023 <- read_csv("202303-divvy-tripdata.csv")
 ```
@@ -93,6 +96,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
++ April 2023
 ```r
 apr2023 <- read_csv("202304-divvy-tripdata.csv")
 ```
@@ -106,6 +110,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
++ May 2023
 ```r
 may2023 <- read_csv("202305-divvy-tripdata.csv")
 ```
@@ -119,6 +124,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
++ June 2023
 ```r
 jun2023 <- read_csv("202306-divvy-tripdata.csv")
 ```
@@ -132,6 +138,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
++ July 2023
 ```r
 jul2023 <- read_csv("202307-divvy-tripdata.csv")
 ```
@@ -145,6 +152,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
++ August 2023
 ```r
 aug2023 <- read_csv("202308-divvy-tripdata.csv")
 ```
@@ -158,6 +166,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
++ September 2023
 ```r
 sep2023 <- read_csv("202309-divvy-tripdata.csv")
 ```
@@ -171,6 +180,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
++ October 2023
 ```r
 oct2023 <- read_csv("202310-divvy-tripdata.csv")
 ```
@@ -184,6 +194,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
++ November 2023
 ```r
 nov2023 <- read_csv("202311-divvy-tripdata.csv")
 ```
@@ -197,6 +208,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
++ December 2023
 ```r
 dec2023 <- read_csv("202312-divvy-tripdata.csv")
 ```
@@ -211,8 +223,11 @@ dttm (2): started_at, ended_at
 ```
 
 ### Data Exploration
++ Conducted initial data inspection of each data frame.
++ Inspected the structure, attributes, and summary statistics.
++ Providing insights into the composition and characteristics of the data.
 
-+ Display `column names` for each month's dataset.
+#### Displaying **_Column Names_** for Each Month’s Dataset
 ```r
 colnames(jan2023)
 colnames(feb2023)
@@ -233,7 +248,8 @@ colnames(dec2023)
 [13] "member_casual"     
 ```
 
-+ Display `structure` of each month's dataset.
+#### Displaying **_Structure_** of Each Month’s Dataset
++ January 2023
 ```r
 str(jan2023)
 ```
@@ -271,6 +287,7 @@ spc_tbl_ [190,301 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
++ Feburary 2023
 ```r
 str(feb2023)
 ```
@@ -308,6 +325,7 @@ spc_tbl_ [190,445 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
++ March 2023
 ```r
 str(mar2023)
 ```
@@ -345,6 +363,7 @@ spc_tbl_ [258,678 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
++ April 2023
 ```r
 str(apr2023)
 ```
@@ -382,6 +401,7 @@ spc_tbl_ [426,590 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
++ May 2023
 ```r
 str(may2023)
 ```
@@ -419,6 +439,7 @@ spc_tbl_ [604,827 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
++ June 2023
 ```r
 str(jun2023)
 ```
@@ -456,6 +477,7 @@ spc_tbl_ [719,618 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
+July 2023
 ```r
 str(jul2023)
 ```
@@ -493,6 +515,7 @@ spc_tbl_ [767,650 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
++August 2023
 ```r
 str(aug2023)
 ```
@@ -530,6 +553,7 @@ spc_tbl_ [771,693 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
++ September 2023
 ```r
 str(sep2023)
 ```
@@ -567,6 +591,7 @@ spc_tbl_ [666,371 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
++ October 2023
 ```r
 str(oct2023)
 ```
@@ -604,6 +629,7 @@ spc_tbl_ [537,113 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
++ November 2023
 ```r
 str(nov2023)
 ```
@@ -641,6 +667,7 @@ spc_tbl_ [362,518 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
++ December 2023
 ```r
 str(dec2023)
 ```
@@ -678,7 +705,8 @@ spc_tbl_ [224,073 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
-+ Display `summary` statistics for each month's dataset.
+#### Displaying **_Summary_** Statistics for Each Month’s Dataset
++ January 2023
 ```r
 summary(jan2023)
 ```
@@ -701,6 +729,7 @@ summary(jan2023)
                                                                         NA's   :127     NA's   :127                        
 ```
 
++ February 2023
 ```r
 summary(feb2023)
 ```
@@ -723,6 +752,7 @@ summary(feb2023)
                                                                         NA's   :116     NA's   :116                        
 ```
 
++ March 2023
 ```r
 summary(mar2023)
 ```
@@ -745,6 +775,7 @@ summary(mar2023)
                                                                         NA's   :183     NA's   :183                        
 ```
 
++ April 2023
 ```r
 summary(apr2023)
 ```
@@ -767,6 +798,7 @@ summary(apr2023)
                                                                         NA's   :435     NA's   :435                       
 ```
 
++ May 2023
 ```r
 summary(may2023)
 ```
@@ -789,6 +821,7 @@ summary(may2023)
                                                                         NA's   :710     NA's   :710                        
 ```
 
++ June 2023
 ```r
 summary(jun2023)
 ```
@@ -811,6 +844,7 @@ summary(jun2023)
                                                                         NA's   :889     NA's   :889                     
 ```
 
++ July 2023
 ```r
 summary(jul2023)
 ```
@@ -833,6 +867,7 @@ summary(jul2023)
                                                                         NA's   :1254    NA's   :1254                       
 ```
 
++ August 2023
 ```r
 summary(aug2023)
 ```
@@ -855,6 +890,7 @@ summary(aug2023)
                                                                         NA's   :1257    NA's   :1257                       
 ```
 
++ September 2023
 ```r
 summary(sep2023)
 ```
@@ -877,6 +913,7 @@ summary(sep2023)
                                                                         NA's   :838     NA's   :838                        
 ```
 
++ October 2023
 ```r
 summary(oct2023)
 ```
@@ -899,6 +936,7 @@ summary(oct2023)
                                                                         NA's   :592     NA's   :592                        
 ```
 
++ November 2023
 ```r
 summary(nov2023)
 ```
@@ -921,6 +959,7 @@ summary(nov2023)
                                                                         NA's   :350     NA's   :350                        
 ```
 
++ December 2023
 ```r
 summary(dec2023)
 ```
@@ -943,6 +982,23 @@ summary(dec2023)
                                                                         NA's   :239     NA's   :239                        
 ```
 
+### Summary of Initial Review
++ Each file consists of 13 columns.
++ Total number of rows across all files is 5,719,877.
++ Missing data primarily occurs in columns:
+    - `start_station_name`
+    - `start_station_id`
+    - `end_station_name`
+    - `end_station_id`
+    - `end_lat`
+    - `end_lng`
++ After consolidation and further exploration, a decision will be made regarding whether to keep or drop missing data, possibly considering options to fill in missing values.
+
+### Data Consolidation
++ Combining data from 12 individual data frames into a single unified data frame, following the initial review.
++ Removing the 12 individual data frames after consolidation to streamline data management.
+
+  
 ### Key Tasks
 - [x]  Check the data for errors.
 - [x]  Choose your tools.
