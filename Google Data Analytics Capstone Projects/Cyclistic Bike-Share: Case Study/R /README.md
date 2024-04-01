@@ -27,6 +27,7 @@ install.packages("ggplot2")
 install.packages("geosphere")
 install.packages("skimr")
 ```
+> [!NOTE]
 >**Further Information on R Packages**
 > + `tidyverse`: Comprehensive suite of R packages for efficient data science workflows.
 > + `janitor`: Simplifies data cleaning and tidying tasks.
@@ -1460,8 +1461,7 @@ sum(is.na(trip_data))
 ```
 
 > [!NOTE]
-> + Acknowledging potential issues with attach() and detach() functions.
-> + Proceeding cautiously to mitigate risks of namespace pollution and unintended modifications.
+> Understanding the potential risks associated with `attach()` and `detach()` during the current analysis, it's essential to recognize that these functions may introduce unexpected behavior and namespace conflicts. Exercise caution when utilizing them to avoid potential issues, and consider alternative methods for variable access, such as explicit referencing or other scoping mechanisms.
 
 ### Data Transformation, Cleaning, and Imputation
 + Renamed a column to improve clarity and consistency.
