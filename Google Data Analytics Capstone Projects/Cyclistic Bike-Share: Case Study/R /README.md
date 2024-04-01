@@ -1086,7 +1086,7 @@ names(trip_data)
 ```
 
 #### Identifying Total Missing Values
-+ Calculating the total sum of missing values (na) in each column using `colSums(is.na())`.
++ Calculating the total sum of missing values (**na**) in each column using `colSums(is.na())`.
 ```{r}
 colSums(is.na(trip_data))
 ```
@@ -1286,9 +1286,236 @@ summary(trip_data)
                    
                    
 ```
+---
 
 > [!NOTE]
-> + Understanding that similar functions were utilized in the current analysis, it's essential to acknowledge that each function often offers unique insights or formatting options tailored to specific analytical needs or preferences. Thus, selecting the appropriate function relies on factors such as the desired output format, required level of detail, or ease of interpretation.
+> Understanding that similar functions were utilized in the current analysis, it's essential to acknowledge that each function often offers unique insights or formatting options tailored to specific analytical needs or preferences. Thus, selecting the appropriate function relies on factors such as the desired output format, required level of detail, or ease of interpretation.
+
+### Missing Values Exploration
++ Conducted a review of missing values (**na**) in the new combined data frame through attachment and detachment.
++ Temporarily integrated the data frame into the current R environment.
++ Identified missing values within each of the 13 rows.
++ Removed the temporary data frame from the current R environment.
+
+#### Identifying Missing Values
++ Adding the combined `trip_data` data frame to the search path.
+```{r}
+attach(trip_data)
+```
++ Displaying rows where `ride_id` is (**na**).
+```{r}
+trip_data[is.na(ride_id),]
+```
+```{r}
+0 rows
+```
++ Displaying rows where `rideable_type` is (**na**).
+```{r}
+trip_data[is.na(rideable_type),]
+```
+```{r}
+0 rows
+```
++ Displaying rows where `started_at` is (**na**).
+```{r}
+trip_data[is.na(started_at),]
+```
+```{r}
+0 rows
+```
++ Displaying rows where `ended_at` is (**na**).
+```{r}
+trip_data[is.na(ended_at),]
+```
+```{r}
+0 rows
+```
++ Displaying rows where `start_station_name` is (**na**).
+```{r}
+trip_data[is.na(start_station_name),]
+```
+| ride_id <chr> | rideable_type <chr> | started_at <S3: POSIXct> | ended_at <S3: POSIXct> | start_station_name <chr> | start_station_id <chr> | end_station_name <chr> | end_station_id <chr> | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | member_casual <chr> |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 3F624CAD11ADC36B | electric_bike | 2023-01-24 19:15:35 | 2023-01-24 19:21:59 | NA | NA | Greenwood Ave & 47th St | TA1308000002 | 41.80 | -87.62 | 41.80983 | -87.59938 | member |
+| 7F4991C08F87A20F | electric_bike | 2023-01-27 12:36:53 | 2023-01-27 13:02:30 | NA | NA | Greenwood Ave & 47th St | TA1308000002 | 41.80 | -87.62 | 41.80983 | -87.59938 | member |
+| F3AD17CF04B88EE9 | electric_bike | 2023-01-20 00:37:00 | 2023-01-20 00:46:09 | NA | NA | Greenwood Ave & 47th St | TA1308000002 | 41.78 | -87.59 | 41.80983 | -87.59938 | member |
+| CA3677FEF8FD11B6 | electric_bike | 2023-01-27 02:13:40 | 2023-01-27 02:18:22 | NA | NA | Greenwood Ave & 47th St | TA1308000002 | 41.80 | -87.60 | 41.80983 | -87.59938 | member |
+| 6FFD201EBB80C87C | electric_bike | 2023-01-16 01:43:52 | 2023-01-16 01:52:02 | NA | NA | Clark St & Elmdale Ave | KA1504000148 | 42.00 | -87.68 | 41.99086 | -87.66972 | member |
+| 1CBF19453B2A188A | electric_bike | 2023-01-03 18:00:00 | 2023-01-03 18:21:49 | NA | NA | Hampden Ct & Diversey Ave | 202480.0 | 41.90 | -87.63 | 41.93000 | -87.64000 | member |
+
+```{r}
+1-6 of 875,716 rows
+```
++ Displaying rows where `start_station_id` is (**na**).
+```{r}
+trip_data[is.na(start_station_id),]
+```
+| ride_id <chr> | rideable_type <chr> | started_at <S3: POSIXct> | ended_at <S3: POSIXct> | start_station_name <chr> | start_station_id <chr> | end_station_name <chr> | end_station_id <chr> | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | member_casual <chr> |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 3F624CAD11ADC36B | electric_bike | 2023-01-24 19:15:35 | 2023-01-24 19:21:59 | NA | NA | Greenwood Ave & 47th St | TA1308000002 | 41.80 | -87.62 | 41.80983 | -87.59938 | member |
+| 7F4991C08F87A20F | electric_bike | 2023-01-27 12:36:53 | 2023-01-27 13:02:30 | NA | NA | Greenwood Ave & 47th St | TA1308000002 | 41.80 | -87.62 | 41.80983 | -87.59938 | member |
+| F3AD17CF04B88EE9 | electric_bike | 2023-01-20 00:37:00 | 2023-01-20 00:46:09 | NA | NA | Greenwood Ave & 47th St | TA1308000002 | 41.78 | -87.59 | 41.80983 | -87.59938 | member |
+| CA3677FEF8FD11B6 | electric_bike | 2023-01-27 02:13:40 | 2023-01-27 02:18:22 | NA | NA | Greenwood Ave & 47th St | TA1308000002 | 41.80 | -87.60 | 41.80983 | -87.59938 | member |
+| 6FFD201EBB80C87C | electric_bike | 2023-01-16 01:43:52 | 2023-01-16 01:52:02 | NA | NA | Clark St & Elmdale Ave | KA1504000148 | 42.00 | -87.68 | 41.99086 | -87.66972 | member |
+| 1CBF19453B2A188A | electric_bike | 2023-01-03 18:00:00 | 2023-01-03 18:21:49 | NA | NA | Hampden Ct & Diversey Ave | 202480.0 | 41.90 | -87.63 | 41.93000 | -87.64000 | member |
+
+```{r}
+1-6 of 875,848 rows
+```
++ Displaying rows where `end_station_name` is (**na**).
+```{r}
+trip_data[is.na(end_station_name),]
+```
+| ride_id <chr> | rideable_type <chr> | started_at <S3: POSIXct> | ended_at <S3: POSIXct> | start_station_name <chr> | start_station_id <chr> | end_station_name <chr> | end_station_id <chr> | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | member_casual <chr> |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 98563E8CECC44A5B | electric_bike | 2023-01-06 13:12:53 | 2023-01-06 13:18:54 | Broadway & Waveland Ave | 13325 | NA | NA | 41.94909 | -87.64857 | 41.96 | -87.65 | member |
+| 3F625414353F2C07 | electric_bike | 2023-01-24 07:01:34 | 2023-01-24 07:06:32 | Broadway & Waveland Ave | 13325 | NA | NA | 41.94909 | -87.64857 | 41.96 | -87.65 | member |
+| 0A1832AB46BA959E | electric_bike | 2023-01-22 13:09:13 | 2023-01-22 13:14:17 | Broadway & Waveland Ave | 13325 | NA | NA | 41.94906 | -87.64858 | 41.96 | -87.65 | member |
+| 4B4C428B94A39EEC | electric_bike | 2023-01-16 10:26:17 | 2023-01-16 10:28:08 | Broadway & Waveland Ave | 13325 | NA | NA | 41.94908 | -87.64852 | 41.95 | -87.65 | member |
+| E001B905A293D938 | electric_bike | 2023-01-31 05:27:52 | 2023-01-31 05:33:27 | Indiana Ave & Roosevelt Rd | SL-005 | NA | NA | 41.86797 | -87.62312 | 41.87 | -87.64 | casual |
+| E9764CD7AB7E133B | electric_bike | 2023-01-25 19:08:59 | 2023-01-25 19:14:26 | Broadway & Waveland Ave | 13325 | NA | NA | 41.94909 | -87.64855 | 41.95 | -87.66 | member |
+
+```{r}
+1-6 of 929,202 rows
+```
++ Displaying rows where `end_station_id` is (**na**).
+```{r}
+trip_data[is.na(end_station_id),]
+```
+| ride_id <chr> | rideable_type <chr> | started_at <S3: POSIXct> | ended_at <S3: POSIXct> | start_station_name <chr> | start_station_id <chr> | end_station_name <chr> | end_station_id <chr> | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | member_casual <chr> |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 98563E8CECC44A5B | electric_bike | 2023-01-06 13:12:53 | 2023-01-06 13:18:54 | Broadway & Waveland Ave | 13325 | NA | NA | 41.94909 | -87.64857 | 41.96 | -87.65 | member |
+| 3F625414353F2C07 | electric_bike | 2023-01-24 07:01:34 | 2023-01-24 07:06:32 | Broadway & Waveland Ave | 13325 | NA | NA | 41.94909 | -87.64857 | 41.96 | -87.65 | member |
+| 0A1832AB46BA959E | electric_bike | 2023-01-22 13:09:13 | 2023-01-22 13:14:17 | Broadway & Waveland Ave | 13325 | NA | NA | 41.94906 | -87.64858 | 41.96 | -87.65 | member |
+| 4B4C428B94A39EEC | electric_bike | 2023-01-16 10:26:17 | 2023-01-16 10:28:08 | Broadway & Waveland Ave | 13325 | NA | NA | 41.94908 | -87.64852 | 41.95 | -87.65 | member |
+| E001B905A293D938 | electric_bike | 2023-01-31 05:27:52 | 2023-01-31 05:33:27 | Indiana Ave & Roosevelt Rd | SL-005 | NA | NA | 41.86797 | -87.62312 | 41.87 | -87.64 | casual |
+| E9764CD7AB7E133B | electric_bike | 2023-01-25 19:08:59 | 2023-01-25 19:14:26 | Broadway & Waveland Ave | 13325 | NA | NA | 41.94909 | -87.64855 | 41.95 | -87.66 | member |
+
+```{r}
+1-6 of 929,343 rows
+```
++ Displaying rows where `start_lat` is (**na**).
+```{r}
+trip_data[is.na(start_lat),]
+```
+```{r}
+0 rows
+```
++ Displaying rows where `start_lng` is (**na**).
+```{r}
+trip_data[is.na(start_lng),]
+```
+```{r}
+0 rows
+```
++ Displaying rows where `end_lat` is (**na**).
+```{r}
+trip_data[is.na(end_lat),]
+```
+| ride_id <chr> | rideable_type <chr> | started_at <S3: POSIXct> | ended_at <S3: POSIXct> | start_station_name <chr> | start_station_id <chr> | end_station_name <chr> | end_station_id <chr> | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | member_casual <chr> |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1FB8FE3600279846 | classic_bike | 2023-01-01 04:45:39 | 2023-01-02 05:45:28 | State St & Van Buren St | TA1305000035 | NA | NA | 41.87718 | -87.62784 | NA | NA | casual |
+| 08D63AE5147A8A12 | docked_bike | 2023-01-09 14:20:41 | 2023-01-15 04:19:09 | Indiana Ave & Roosevelt Rd | SL-005 | NA | NA | 41.86789 | -87.62304 | NA | NA | casual |
+| BEEB2B851275BBEE | classic_bike | 2023-01-30 13:24:22 | 2023-01-31 14:24:09 | State St & 19th St | SL-013 | NA | NA | 41.85659 | -87.62754 | NA | NA | member |
+| 758F82A4444D0DF3 | classic_bike | 2023-01-31 09:21:10 | 2023-02-01 10:21:02 | Halsted St & Maxwell St | TA1309000001 | NA | NA | 41.86488 | -87.64707 | NA | NA | casual |
+| 45125F6E88AD0535 | docked_bike | 2023-01-07 12:52:32 | 2023-01-08 06:47:21 | New St & Illinois St | TA1306000013 | NA | NA | 41.89085 | -87.61862 | NA | NA | casual |
+| CFD822F52941BDFF | classic_bike | 2023-01-19 08:30:10 | 2023-01-20 09:30:04 | Ogden Ave & Race Ave | 13194 | NA | NA | 41.89180 | -87.65875 | NA | NA | casual |
+
+```{r}
+1-6 of 6,990 rows
+```
++ Displaying rows where `end_lng` is (**na**).
+```{r}
+trip_data[is.na(end_lng),]
+```
+| ride_id <chr> | rideable_type <chr> | started_at <S3: POSIXct> | ended_at <S3: POSIXct> | start_station_name <chr> | start_station_id <chr> | end_station_name <chr> | end_station_id <chr> | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | member_casual <chr> |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1FB8FE3600279846 | classic_bike | 2023-01-01 04:45:39 | 2023-01-02 05:45:28 | State St & Van Buren St | TA1305000035 | NA | NA | 41.87718 | -87.62784 | NA | NA | casual |
+| 08D63AE5147A8A12 | docked_bike | 2023-01-09 14:20:41 | 2023-01-15 04:19:09 | Indiana Ave & Roosevelt Rd | SL-005 | NA | NA | 41.86789 | -87.62304 | NA | NA | casual |
+| BEEB2B851275BBEE | classic_bike | 2023-01-30 13:24:22 | 2023-01-31 14:24:09 | State St & 19th St | SL-013 | NA | NA | 41.85659 | -87.62754 | NA | NA | member |
+| 758F82A4444D0DF3 | classic_bike | 2023-01-31 09:21:10 | 2023-02-01 10:21:02 | Halsted St & Maxwell St | TA1309000001 | NA | NA | 41.86488 | -87.64707 | NA | NA | casual |
+| 45125F6E88AD0535 | docked_bike | 2023-01-07 12:52:32 | 2023-01-08 06:47:21 | New St & Illinois St | TA1306000013 | NA | NA | 41.89085 | -87.61862 | NA | NA | casual |
+| CFD822F52941BDFF | classic_bike | 2023-01-19 08:30:10 | 2023-01-20 09:30:04 | Ogden Ave & Race Ave | 13194 | NA | NA | 41.89180 | -87.65875 | NA | NA | casual |
+
+```{r}
+1-6 of 6,990 rows
+```
++ Displaying rows where `member_casual` is (**na**).
+```{r}
+trip_data[is.na(member_casual),]
+```
+```{r}
+0 rows
+```
++ Removing the combined `trip_data` data frame from the search path.
+```{r}
+detach(trip_data)
+```
++ Displaying total count of (**na**).
+```{r}
+sum(is.na(trip_data))
+```
+```{r}
+[1] 3624089
+```
+
+> [!NOTE]
+> + Acknowledging potential issues with attach() and detach() functions.
+> + Proceeding cautiously to mitigate risks of namespace pollution and unintended modifications.
+
+### Data Transformation, Cleaning, and Imputation
++ Renamed a column to improve clarity and consistency.
++ Rounded latitude and longitude values to enhance precision.
++ Converted date-time to ensure consistency and compatibility.
++ Extracted various components from different columns for further analysis.
++ Addressed missing values using forward and backward filling methods, maintaining data completeness.
++ Implemented imputation to replace missing values, preserving data integrity.
++ Computed the geographical distance traveled, providing valuable information for route analysis.
++ Converted units of measurements to standardize data representation.
++ Applied filtering to select specific rows based on defined criteria.
++ Revisited specific columns for reassessment, ensuring data accuracy and completeness.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Key Tasks
 - [x]  Check the data for errors.
