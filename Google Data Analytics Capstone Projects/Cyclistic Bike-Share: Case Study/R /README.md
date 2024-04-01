@@ -1618,6 +1618,184 @@ colSums(is.na(trip_data[c(
 start_station_name   start_station_id   end_station_name     end_station_id            end_lat            end_lng 
             875716             875848             929202             929343               6990               6990 
 ```
++ Filling missing values for `start_station_name` by grouping start latitude and longitude.
+```{r}
+trip_data <- trip_data %>%
+  group_by(start_lat, start_lng) %>%
+  fill(start_station_name, .direction = "downup") %>%
+  ungroup()
+```
++ Filling missing values for `end_station_name` by grouping end latitude and longitude.
+```{r}
+trip_data <- trip_data %>%
+  group_by(end_lat, end_lng) %>%
+  fill(end_station_name, .direction = "downup") %>%
+  ungroup()
+```
++ Filling missing values for `start_station_id` by grouping start station name.
+```{r}
+trip_data <- trip_data %>%
+  group_by(start_station_name) %>%
+  fill(start_station_id, .direction = "downup") %>%
+  ungroup()
+```
++ Filling missing values for `end_station _id` by grouping end station name.
+```{r}
+trip_data <- trip_data %>%
+  group_by(end_station_name) %>%
+  fill(end_station_id, .direction = "downup") %>%
+  ungroup()
+```
++ Re-checking missing values in specific columns after filling in values.
+```{r}
+colSums(is.na(trip_data[c(
+  "start_station_name", 
+  "start_station_id", 
+  "end_station_name", 
+  "end_station_id", 
+  "end_lat", 
+  "end_lng")]))
+```
+```{r}
+start_station_name   start_station_id   end_station_name     end_station_id            end_lat 
+             10646              10646              33105              33105               6990 
+           end_lng 
+              6990 
+```
+
+#### Extracting and Adding Custom Column Part 2
++ "Calculating the great-circle distance in meters between the `starting and ending latitude and longitude` coordinates of each trip recorded in the data frame, and storing the distances in a new custom column `ride_distance`.
+```{r}
+trip_data$ride_distance <- distGeo(
+  matrix(c(trip_data$start_lng, trip_data$start_lat), ncol = 2),
+  matrix(c(trip_data$end_lng, trip_data$end_lat), ncol = 2))
+```
++ Converting Meters to Kilometers
+```{r}
+trip_data$ride_distance <- trip_data$ride_distance / 1000
+```
++ Converting and Updating Kilometers to Miles
+```{r}
+trip_data$ride_distance <- trip_data$ride_distance * 0.621371
+```
+
+#### Station Exploration
++ Counting the number of rides per `start_station_id` and arranging them in descending order.
+```{r}
+trip_data %>% 
+  select(start_station_id) %>% 
+  count(start_station_id) %>% 
+  arrange(desc(n))
+```
+| start_station_id <chr> | n <int> |
+|---|---|
+| 13022 | 68074 |
+| LF-005 | 44024 |
+| 13300 | 42072 |
+| 13042 | 39095 |
+| TA1307000039 | 37813 |
+| TA1308000050 | 36950 |
+| KA1503000043 | 36251 |
+| 13179 | 36176 |
+| WL-012 | 36017 |
+| TA1308000001 | 34643 |
+```{r}
+1-8 of 1,517 rows
+```
++ Counting the number of rides per `end_station_id` and arranging them in descending order.
+```{r}
+trip_data %>% 
+  select(end_station_id) %>% 
+  count(end_station_id) %>% 
+  arrange(desc(n))
+```
+| end_station_id <chr> | n <int> |
+|---|---|
+| 13022 | 71260 |
+| LF-005 | 41138 |
+| 13042 | 38720 |
+| 13300 | 38198 |
+| 13008 | 36861 |
+| 13179 | 36350 |
+| TA1307000039 | 35835 |
+| KA1503000043 | 35803 |
+```{r}
+1-8 of 1,521 rows
+```
++ Counting the number of rides for `start_station_id` containing 'test', 'warehouse', or 'charging station'.
+```{r}
+trip_data %>% filter(
+  start_station_id %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  )
+) %>% 
+  count(start_station_id)
+```
+| start_station_id <chr> | n <int> |
+|---|---|
+| Hubbard Bike-checking (LBS-WH-TEST) | 7 |
+| OH Charging Stx - Test | 21 |
+| chargingstx0 | 1090 |
+| chargingstx06 | 3857 |
+| chargingstx07 | 4260 |
+| chargingstx1 | 13870 |
+| chargingstx2 | 2507 |
+| chargingstx3 | 6718 |
+| chargingstx4 | 9644 |
+| chargingstx5 | 8583 |
+```{r}
+10 rows
+```
++ Counting the number of rides for `end_station_id` containing 'test', 'warehouse', or 'charging station'.
+```{r}
+trip_data %>% filter(
+  end_station_id %in% c (
+    "OH - BONFIRE - TESTING",
+    "Hubbard Bike-checking (LBS-WH-TEST)",
+    "chargingstx4",
+    "chargingstx2",
+    "chargingstx07",
+    "chargingstx0",
+    "chargingstx5",
+    "chargingstx3",
+    "chargingstx1",
+    "chargingstx06",
+    "OH Charging Stx - Test",
+    "2059 Hastings Warehouse Station",
+    "DIVVY CASSETTE REPAIR MOBILE STATION"
+  )
+) %>% 
+  count(end_station_id)
+```
+| end_station_id <chr> | n <int> |
+|---|---|
+| 2059 Hastings Warehouse Station | 256 |
+| DIVVY CASSETTE REPAIR MOBILE STATION | 2 |
+| Hubbard Bike-checking (LBS-WH-TEST) | 309 |
+| OH Charging Stx - Test | 477 |
+| chargingstx0 | 2813 |
+| chargingstx06 | 4017 |
+| chargingstx07 | 5533 |
+| chargingstx1 | 13447 |
+| chargingstx2 | 1978 |
+| chargingstx3 | 12864 |
+| chargingstx4 | 9991 |
+| chargingstx5 | 8741 |
+```{r}
+12 rows
+```
 
 
 ### Key Tasks
