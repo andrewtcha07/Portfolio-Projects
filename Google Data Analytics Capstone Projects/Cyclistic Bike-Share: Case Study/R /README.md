@@ -2193,9 +2193,14 @@ colSums(is.na(trip_data_updated))
 + Calculated the difference in minutes between `ended_at` and `started_at`, rounding the result to two decimal places, and creating a new column.
 + Handled missing values in `start_station_name`, `start_station_id`, `end_station_name`, and `end_station_id` by filling in values based on grouping start latitude and longitude and end latitude and longitude.
 + Calculated the great-circle distance in meters between start and end coordinates, converting the units of distances to miles and creating a new column.
-+ Filtered out outliers in `ride_length_minute` where values are less than 1 minute or greater than 24 hours, as well as any negative or zero values.
++ Filtered out outliers in `ride_length_minute` where values are < 1 minute or > 24 hours, as well as any negative or zero values.
 + Removed any missing values in end latitude and longitude.
 + Filtered out entries related to `test`, `warehouse`, or `charging stations` from the `start and end station columns`.
+
+#### Additional Details
++ In the cleaning and filtering process, removing rows containing missing values (**na**) in `end_lat` and `end_lng` was deemed acceptable due to the minimal impact on the dataset's size.
++ However, following the cleaning and filtering steps, the remaining columns with missing values (**na**) are `start_station_name`, `start_station_id`, `end_station_name`, and `end_station_id`.
++ The decision to retain these columns with missing values (**na**) was made considering the substantial number of rows that would be removed if they were filled, and the data in these columns does not necessarily require filling.
 
 ### Key Tasks
 - [x]  Check the data for errors.
