@@ -1523,7 +1523,7 @@ trip_data <- trip_data %>%
   mutate(date = as.Date(started_at))
 ```
 + Extracting month from `date` and creating a new column `month`.
-+ ```{r}
+```{r}
 trip_data <- trip_data %>%
   mutate(month = format(date, "%B"))
 ```
