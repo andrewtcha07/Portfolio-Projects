@@ -385,9 +385,10 @@
 ```
 
 ### Summary of Updated Data
-+ Total columns have increased to 21, reflecting additional data transformations.
++ The dataset underwent extensive manipulation, transformations, filtering, and cleaning processes, resulting in a significant enhancement in data quality.
++ The total columns have increased to 21, reflecting additional data transformations.
 + The dataset now comprises 5,251,702 rows, implying a reduction in the number of records following the implementation of cleaning and filtering processes.
-+ Remaining null/blank values amount to 3,109,229 after data updates.
++ The remaining null/blank values amount to 3,109,229 after data updates.
 
 #### Data Transformation and Cleaning
 + Combined 12 CSV files into one using Power Query.
