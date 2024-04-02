@@ -1664,7 +1664,7 @@ start_station_name   start_station_id   end_station_name     end_station_id     
 ```
 
 #### Extracting and Adding Custom Column Part 2
-+ Calculating the great-circle distance in meters between the `starting and ending latitude and longitude` coordinates of each trip recorded in the data frame, and storing the distances in a new custom column `ride_distance`.
++ Calculating the great-circle distance in meters between the `start and end latitude and longitude` coordinates of each trip recorded in the data frame, and storing the distances in a new custom column `ride_distance`.
 ```{r}
 trip_data$ride_distance <- distGeo(
   matrix(c(trip_data$start_lng, trip_data$start_lat), ncol = 2),
