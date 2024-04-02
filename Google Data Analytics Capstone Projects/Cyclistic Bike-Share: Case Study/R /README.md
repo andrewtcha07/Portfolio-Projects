@@ -2194,6 +2194,7 @@ colSums(is.na(trip_data_updated))
 + Handled missing values in `start_station_name`, `start_station_id`, `end_station_name`, and `end_station_id` by filling in values based on grouping start latitude and longitude and end latitude and longitude.
 + Calculated the great-circle distance in meters between start and end coordinates, converting the units of distances to miles and creating a new column.
 + Filtered out outliers in `ride_length_minute` where values are less than 1 minute or greater than 24 hours, as well as any negative or zero values.
++ Removed any missing values in end latitude and longitude.
 + Filtered out entries related to `test`, `warehouse`, or `charging stations` from the `start and end station columns`.
 
 ### Key Tasks
