@@ -583,7 +583,7 @@
 --------------------------------------
 
 ### **Summary of the Analysis**
-+ This analysis reveals valuable insights into the behavior, trends, and preferences of two distinct user segments: casual and member users. By delving into the intricacies of rider behaviors and preferences, Cyclistic can strategically customize its marketing approach.
+This analysis reveals valuable insights into the behavior, trends, and preferences of two distinct user segments: casual and member users. By delving into the intricacies of rider behaviors and preferences, Cyclistic can strategically customize its marketing approach.
 
 ### Key Tasks
 - [x]  Aggregate your data so it’s useful and accessible.
