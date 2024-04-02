@@ -386,7 +386,7 @@
 
 ### Summary of Updated Data
 + Total columns have increased to 21, reflecting additional data transformations.
-+ The dataset now contains 5,251,702 rows, indicating the inclusion of new records.
++ The dataset now comprises 5,251,702 rows, implying a reduction in the number of records following the implementation of cleaning and filtering processes.
 + Remaining null/blank values amount to 3,109,229 after data updates.
 
 #### Data Transformation and Cleaning
