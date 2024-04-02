@@ -1493,7 +1493,7 @@ Warning:  23 failed to parse.Warning:  26 failed to parse.
 > [!IMPORTANT]
 > + The warnings ("23 failed to parse" and "26 failed to parse") indicate issues with missing values (NAs) in the started_at and ended_at columns of trip_data. Missing values cannot be parsed into valid date-time objects, causing the warnings.
 
-#### Rechecking Missing Values
+#### Verifying Reason for Failed Parse
 + Verifying the integrity and consistency of the `started_at` and `ended_at` columns following data manipulation.
 ```{r}
 sum(is.na(trip_data$started_at))
