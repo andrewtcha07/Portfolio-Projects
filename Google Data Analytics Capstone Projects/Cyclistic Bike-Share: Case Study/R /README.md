@@ -2180,7 +2180,21 @@ colSums(is.na(trip_data_updated))
 ```
 
 ### Summary of Updated Data
-+ 
++ The data frame has undergone extensive manipulation, transformation, cleaning, and filtering.
++ Now encompasses a total of 22 columns, reflecting additional data manipulations.
++ The data frame contains 5,459,091 records, indicating a decrease in entries due to cleaning and filtering.
++ Following data cleaning and filtering, the data frame retains 83,718 missing values (**na**).
+
+#### Data Transformation, Imputation, and Cleaning
++ Renamed the column `member_casual` to `user_type`.
++ Converted started_at and ended_at data type to POSIXct format to ensure consistency.
++ Adjust start and end coordinates for accuracy.
++ Added additional columns: `date`, `month`, `day`, `year`, `day_of_week`, `hour`, `quarter`, `ride_length_minute`, and `ride_distance`.
++ Calculated the difference in minutes between `ended_at` and `started_at`, rounding the result to two decimal places, and creating a new column.
++ Handled missing values in `start_station_name`, `start_station_id`, `end_station_name`, and `end_station_id` by filling in values based on grouping start latitude and longitude and end latitude and longitude.
++ Calculated the great-circle distance in meters between start and end coordinates, converting the units of distances to miles and creating a new column.
++ Filtered out outliers in `ride_length_minute` where values are less than 1 minute or greater than 24 hours, as well as any negative or zero values.
++ Filtered out entries related to `test`, `warehouse`, or `charging stations` from the `start and end station columns`.
 
 ### Key Tasks
 - [x]  Check the data for errors.
