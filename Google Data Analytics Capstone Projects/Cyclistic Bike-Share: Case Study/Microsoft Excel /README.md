@@ -395,7 +395,7 @@
 + Replaced blank/empty values with null across multiple columns.
 + Trimmed leading and trailing spaces from text columns.
 + Cleaned non-printable characters from text columns.
-+ Renamed the column member_casual to user_type.
++ Renamed the column `member_casual` to `user_type`.
 + Added new columns. (`month`, `day`, `year`, `day_of_week`, `hour`, `quarter`, `ride_length_minute`, and `ride_distance`)
 + Changed data types of various columns accordingly.
 + Converted ride_length_minute from hours to minutes for accuracy.
