@@ -1505,7 +1505,7 @@ sum(is.na(trip_data$ended_at))
 ```
 
 #### Precision Adjustment for Coordinates
-+ Rounding `start and end latitude/longitude` coordinates to two decimal places.
++ Rounding `start and end latitude/longitude` coordinates to 2 decimal places.
 ```{r}
 trip_data <- trip_data %>%
   mutate(
@@ -1554,7 +1554,7 @@ trip_data <- trip_data %>%
 ```
 
 #### Extracting and Adding Custom Column Part 1
-+ Calculating the difference in minutes between the timestamps in the `ended_at` and `started_at` columns, rounding the result to two decimal places, and storing the rounded durations in a new custom column `ride_length_minute`.
++ Calculating the difference in minutes between the timestamps in the `ended_at` and `started_at` columns, rounding the result to 2 decimal places, and storing the rounded durations in a new custom column `ride_length_minute`.
 ```{r}
 trip_data <- trip_data %>% 
   mutate(ride_length_minute = round(as.numeric(difftime(ended_at, started_at, units = "mins")), 2))
