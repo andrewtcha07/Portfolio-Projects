@@ -2279,35 +2279,740 @@ trip_data_updated %>%
 
 #### Hourly User Overview
 
+```{r}
+trip_data_updated %>% 
+  group_by(user_type, hour) %>% 
+  summarise(
+    count = n(), .groups = "drop") %>%
+  arrange(user_type, hour)
+```
+
+| user_type <chr> | hour <int> | count <int> |
+|---|---|---|
+| casual | 0 | 34844 |
+| casual | 1 | 22549 |
+| casual | 2 | 13691 |
+| casual | 3 | 7558 |
+| casual | 4 | 5709 |
+| casual | 5 | 11009 |
+| casual | 6 | 29025 |
+| casual | 7 | 50856 |
+| casual | 8 | 67676 |
+| casual | 9 | 66967 |
+| casual | 10 | 82895 |
+| casual | 11 | 105442 |
+| casual | 12 | 124917 |
+| casual | 13 | 130488 |
+| casual | 14 | 136098 |
+| casual | 15 | 151874 |
+| casual | 16 | 174019 |
+| casual | 17 | 189792 |
+| casual | 18 | 163793 |
+| casual | 19 | 121001 |
+| casual | 20 | 87576 |
+| casual | 21 | 73419 |
+| casual | 22 | 64833 |
+| casual | 23 | 46680 |
+| member | 0 | 33771 |
+| member | 1 | 20139 |
+| member | 2 | 11708 |
+| member | 3 | 7627 |
+| member | 4 | 8400 |
+| member | 5 | 32840 |
+| member | 6 | 101051 |
+| member | 7 | 187006 |
+| member | 8 | 233898 |
+| member | 9 | 157561 |
+| member | 10 | 142027 |
+| member | 11 | 168405 |
+| member | 12 | 190928 |
+| member | 13 | 189825 |
+| member | 14 | 192505 |
+| member | 15 | 235473 |
+| member | 16 | 316867 |
+| member | 17 | 370438 |
+| member | 18 | 293345 |
+| member | 19 | 207690 |
+| member | 20 | 144825 |
+| member | 21 | 112372 |
+| member | 22 | 83933 |
+| member | 23 | 53746 |
+
 #### Hourly Average Ride Length (minutes)
 
+```{r}
+trip_data_updated %>% 
+  group_by(user_type, hour) %>% 
+  summarise(
+    average_ride_length = round(mean(ride_length_minute), 2), .groups="drop") %>%
+  arrange(user_type, hour)
+```
+
+| user_type <chr> | hour <int> | average_ride_length <dbl> |
+|---|---|---|
+| casual | 0 | 18.68 minutes |
+| casual | 1 | 18.61 minutes |
+| casual | 2 | 18.40 minutes |
+| casual | 3 | 18.32 minutes |
+| casual | 4 | 16.02 minutes |
+| casual | 5 | 13.85 minutes |
+| casual | 6 | 14.98 minutes |
+| casual | 7 | 14.17 minutes |
+| casual | 8 | 15.75 minutes |
+| casual | 9 | 20.86 minutes |
+| casual | 10 | 24.39 minutes |
+| casual | 11 | 25.37 minutes |
+| casual | 12 | 24.77 minutes |
+| casual | 13 | 24.40 minutes |
+| casual | 14 | 24.56 minutes |
+| casual | 15 | 22.93 minutes |
+| casual | 16 | 21.11 minutes |
+| casual | 17 | 20.16 minutes |
+| casual | 18 | 19.96 minutes |
+| casual | 19 | 19.74 minutes |
+| casual | 20 | 19.05 minutes |
+| casual | 21 | 18.56 minutes |
+| casual | 22 | 18.82 minutes |
+| casual | 23 | 18.43 minutes |
+| member | 0 | 11.66 minutes |
+| member | 1 | 12.16 minutes |
+| member | 2 | 12.28 minutes |
+| member | 3 | 12.70 minutes |
+| member | 4 | 12.14 minutes |
+| member | 5 | 10.21 minutes |
+| member | 6 | 10.68 minutes |
+| member | 7 | 11.16 minutes |
+| member | 8 | 11.30 minutes |
+| member | 9 | 11.54 minutes |
+| member | 10 | 12.40 minutes |
+| member | 11 | 12.70 minutes |
+| member | 12 | 12.36 minutes |
+| member | 13 | 12.29 minutes |
+| member | 14 | 12.74 minutes |
+| member | 15 | 12.69 minutes |
+| member | 16 | 12.88 minutes |
+| member | 17 | 13.15 minutes |
+| member | 18 | 12.98 minutes |
+| member | 19 | 12.64 minutes |
+| member | 20 | 12.31 minutes |
+| member | 21 | 12.20 minutes |
+| member | 22 | 12.19 minutes |
+| member | 23 | 12.18 minutes |
+
 #### Hourly Average Ride Distance (miles)
+
+```{r}
+trip_data_updated %>% 
+  group_by(user_type, hour) %>% 
+  summarise(
+    average_ride_distance = mean(ride_distance),
+    .groups = 'drop'
+  ) %>%
+  mutate(average_ride_distance = round(average_ride_distance, 2))
+```
+
+| user_type <chr> | hour <int> | average_ride_distance <dbl> |
+|---|---|---|
+| casual | 0 | 1.21 miles |
+| casual | 1 | 1.23 miles |
+| casual | 2 | 1.26 miles |
+| casual | 3 | 1.29 miles |
+| casual | 4 | 1.37 miles |
+| casual | 5 | 1.23 miles |
+| casual | 6 | 1.28 miles |
+| casual | 7 | 1.30 miles |
+| casual | 8 | 1.27 miles |
+| casual | 9 | 1.31 miles |
+| casual | 10 | 1.39 miles |
+| casual | 11 | 1.43 miles |
+| casual | 12 | 1.39 miles |
+| casual | 13 | 1.39 miles |
+| casual | 14 | 1.38 miles |
+| casual | 15 | 1.39 miles |
+| casual | 16 | 1.39 miles |
+| casual | 17 | 1.42 miles |
+| casual | 18 | 1.39 miles |
+| casual | 19 | 1.26 miles |
+| casual | 20 | 1.23 miles |
+| casual | 21 | 1.27 miles |
+| casual | 22 | 1.33 miles |
+| casual | 23 | 1.29 miles |
+| member | 0 | 1.34 miles |
+| member | 1 | 1.30 miles |
+| member | 2 | 1.32 miles |
+| member | 3 | 1.37 miles |
+| member | 4 | 1.49 miles |
+| member | 5 | 1.35 miles |
+| member | 6 | 1.40 miles |
+| member | 7 | 1.43 miles |
+| member | 8 | 1.37 miles |
+| member | 9 | 1.31 miles |
+| member | 10 | 1.29 miles |
+| member | 11 | 1.26 miles |
+| member | 12 | 1.24 miles |
+| member | 13 | 1.26 miles |
+| member | 14 | 1.32 miles |
+| member | 15 | 1.35 miles |
+| member | 16 | 1.41 miles |
+| member | 17 | 1.42 miles |
+| member | 18 | 1.36 miles |
+| member | 19 | 1.30 miles |
+| member | 20 | 1.28 miles |
+| member | 21 | 1.33 miles |
+| member | 22 | 1.39 miles |
+| member | 23 | 1.38 miles |
+
 --------------------------------------
 
 ### Weekly Trends
 
 #### Weekly User Overview
 
+```{r}
+trip_data_updated$day_of_week <- ordered(
+  trip_data_updated$day_of_week, 
+  levels = c(
+    "Monday", 
+    "Tuesday", 
+    "Wednesday", 
+    "Thursday", 
+    "Friday", 
+    "Saturday",
+    "Sunday"))
+
+trip_data_updated %>% 
+  group_by(user_type, day_of_week) %>%
+  summarise(
+    number_of_rides = n(), .groups="drop") %>% 
+    arrange(user_type, day_of_week)
+```
+
+| user_type <chr> | day_of_week <ord> | number_of_rides <int> |
+|---|---|---|
+| casual | Monday | 224302 |
+| casual | Tuesday | 235148 |
+| casual | Wednesday | 237797 |
+| casual | Thursday | 257975 |
+| casual | Friday | 297169 |
+| casual | Saturday | 390879 |
+| casual | Sunday | 319441 |
+| member | Monday | 473704 |
+| member | Tuesday | 551725 |
+| member | Wednesday | 560755 |
+| member | Thursday | 562529 |
+| member | Friday | 507261 |
+| member | Saturday | 450327 |
+| member | Sunday | 390079 |
+
 #### Weekly Average Ride Length (minutes)
 
+```{r}
+trip_data_updated$day_of_week <- ordered(
+  trip_data_updated$day_of_week, 
+  levels = c(
+    "Monday", 
+    "Tuesday", 
+    "Wednesday", 
+    "Thursday", 
+    "Friday", 
+    "Saturday",
+    "Sunday"))
+
+ride length by user type and day of the week
+trip_data_updated %>% 
+  group_by(user_type, day_of_week) %>% 
+  summarise(
+    average_ride_length = round(mean(ride_length_minute), 2), 
+    .groups = "drop")
+```
+
+| user_type <chr> | day_of_week <ord> | average_ride_length <dbl> |
+|---|---|---|
+| casual | Monday | 20.73 minutes |
+| casual | Tuesday | 18.84 minutes |
+| casual | Wednesday | 18.04 minutes |
+| casual | Thursday | 18.39 minutes |
+| casual | Friday | 20.49 minutes |
+| casual | Saturday | 23.89 minutes |
+| casual | Sunday | 24.58 minutes |
+| member | Monday | 11.72 minutes |
+| member | Tuesday | 11.86 minutes |
+| member | Wednesday | 11.78 minutes |
+| member | Thursday | 11.88 minutes |
+| member | Friday | 12.29 minutes |
+| member | Saturday | 13.76 minutes |
+| member | Sunday | 13.79 minutes |
+
 #### Weekly Average Ride Distance (miles)
+
+```{r}
+trip_data_updated$day_of_week <- ordered(
+  trip_data_updated$day_of_week, 
+  levels = c(
+    "Monday", 
+    "Tuesday", 
+    "Wednesday", 
+    "Thursday", 
+    "Friday", 
+    "Saturday",
+    "Sunday"))
+
+trip_data_updated %>% 
+  group_by(user_type, day_of_week) %>% 
+  summarise(
+    average_ride_distance = mean(ride_distance),
+    .groups = 'drop'
+  ) %>%
+  mutate(average_ride_distance = round(average_ride_distance, 2))
+```
+
+| user_type <chr> | day_of_week <ord> | average_ride_distance <dbl> |
+|---|---|---|
+| casual | Monday | 1.32 miles |
+| casual | Tuesday | 1.31 miles |
+| casual | Wednesday | 1.30 miles |
+| casual | Thursday | 1.32 miles |
+| casual | Friday | 1.35 miles |
+| casual | Saturday | 1.42 miles |
+| casual | Sunday | 1.39 miles |
+| member | Monday | 1.30 miles |
+| member | Tuesday | 1.34 miles |
+| member | Wednesday | 1.34 miles |
+| member | Thursday | 1.34 miles |
+| member | Friday | 1.32 miles |
+| member | Saturday | 1.40 miles |
+| member | Sunday | 1.38 miles |
+
 --------------------------------------
 
 ### Weekly Bike Demand Patterns and Hourly Usage Trends
 
 #### Monday Hourly Bike Demands
 
+```{r}
+trip_data_updated %>%
+  filter(day_of_week == "Monday") %>% 
+  group_by(day_of_week, hour, user_type) %>%
+  summarise(
+    count = n(), .groups = "drop")
+```
+
+| day_of_week <ord> | hour <int> | user_type <chr> | count <int> |
+|---|---|---|---|
+| Monday | 0 | casual | 3098 |
+| Monday | 0 | member | 2955 |
+| Monday | 1 | casual | 1812 |
+| Monday | 1 | member | 1482 |
+| Monday | 2 | casual | 1021 |
+| Monday | 2 | member | 1010 |
+| Monday | 3 | casual | 749 |
+| Monday | 3 | member | 771 |
+| Monday | 4 | casual | 707 |
+| Monday | 4 | member | 1092 |
+| Monday | 5 | casual | 1604 |
+| Monday | 5 | member | 5126 |
+| Monday | 6 | casual | 3777 |
+| Monday | 6 | member | 16223 |
+| Monday | 7 | casual | 6794 |
+| Monday | 7 | member | 28712 |
+| Monday | 8 | casual | 8697 |
+| Monday | 8 | member | 35163 |
+| Monday | 9 | casual | 7717 |
+| Monday | 9 | member | 20339 |
+| Monday | 10 | casual | 9148 |
+| Monday | 10 | member | 16570 |
+| Monday | 11 | casual | 11494 |
+| Monday | 11 | member | 20052 |
+| Monday | 12 | casual | 13983 |
+| Monday | 12 | member | 23340 |
+| Monday | 13 | casual | 14685 |
+| Monday | 13 | member | 23073 |
+| Monday | 14 | casual | 15156 |
+| Monday | 14 | member | 23711 |
+| Monday | 15 | casual | 17467 |
+| Monday | 15 | member | 30409 |
+| Monday | 16 | casual | 20511 |
+| Monday | 16 | member | 44819 |
+| Monday | 17 | casual | 23473 |
+| Monday | 17 | member | 56037 |
+| Monday | 18 | casual | 19742 |
+| Monday | 18 | member | 43591 |
+| Monday | 19 | casual | 14975 |
+| Monday | 19 | member | 30283 |
+| Monday | 20 | casual | 10764 |
+| Monday | 20 | member | 20642 |
+| Monday | 21 | casual | 7724 |
+| Monday | 21 | member | 14512 |
+| Monday | 22 | casual | 5707 |
+| Monday | 22 | member | 8887 |
+| Monday | 23 | casual | 3497 |
+| Monday | 23 | member | 4905 |
+
 #### Tuesday Hourly Bike Demands
+
+```{r}
+trip_data_updated %>%
+  filter(day_of_week == "Tuesday") %>% 
+  group_by(day_of_week, hour, user_type) %>%
+  summarise(
+    count = n(), .groups = "drop")
+```
+
+| day_of_week <ord> | hour <int> | user_type <chr> | count <int> |
+|---|---|---|---|
+| Tuesday | 0 | casual | 2327 |
+| Tuesday | 0 | member | 2529 |
+| Tuesday | 1 | casual | 1335 |
+| Tuesday | 1 | member | 1211 |
+| Tuesday | 2 | casual | 827 |
+| Tuesday | 2 | member | 772 |
+| Tuesday | 3 | casual | 515 |
+| Tuesday | 3 | member | 604 |
+| Tuesday | 4 | casual | 595 |
+| Tuesday | 4 | member | 1172 |
+| Tuesday | 5 | casual | 1676 |
+| Tuesday | 5 | member | 6399 |
+| Tuesday | 6 | casual | 4816 |
+| Tuesday | 6 | member | 20403 |
+| Tuesday | 7 | casual | 9084 |
+| Tuesday | 7 | member | 39245 |
+| Tuesday | 8 | casual | 11272 |
+| Tuesday | 8 | member | 47348 |
+| Tuesday | 9 | casual | 7902 |
+| Tuesday | 9 | member | 24240 |
+| Tuesday | 10 | casual | 7992 |
+| Tuesday | 10 | member | 17651 |
+| Tuesday | 11 | casual | 10215 |
+| Tuesday | 11 | member | 20396 |
+| Tuesday | 12 | casual | 12182 |
+| Tuesday | 12 | member | 23974 |
+| Tuesday | 13 | casual | 12326 |
+| Tuesday | 13 | member | 23062 |
+| Tuesday | 14 | casual | 13282 |
+| Tuesday | 14 | member | 23683 |
+| Tuesday | 15 | casual | 16091 |
+| Tuesday | 15 | member | 33513 |
+| Tuesday | 16 | casual | 22358 |
+| Tuesday | 16 | member | 54627 |
+| Tuesday | 17 | casual | 27417 |
+| Tuesday | 17 | member | 68247 |
+| Tuesday | 18 | casual | 23035 |
+| Tuesday | 18 | member | 50132 |
+| Tuesday | 19 | casual | 16216 |
+| Tuesday | 19 | member | 34112 |
+| Tuesday | 20 | casual | 11878 |
+| Tuesday | 20 | member | 23214 |
+| Tuesday | 21 | casual | 9929 |
+| Tuesday | 21 | member | 17831 |
+| Tuesday | 22 | casual | 7664 |
+| Tuesday | 22 | member | 11577 |
+| Tuesday | 23 | casual | 4214 |
+| Tuesday | 23 | member | 5783 |
 
 #### Wednesday Hourly Bike Demands
 
+```{r}
+trip_data_updated %>%
+  filter(day_of_week == "Wednesday") %>% 
+  group_by(day_of_week, hour, user_type) %>%
+  summarise(
+    count = n(), .groups = "drop")
+```
+
+| day_of_week <ord> | hour <int> | user_type <chr> | count <int> |
+|---|---|---|---|
+| Wednesday | 0 | casual | 2519 |
+| Wednesday | 0 | member | 2889 |
+| Wednesday | 1 | casual | 1403 |
+| Wednesday | 1 | member | 1458 |
+| Wednesday | 2 | casual | 888 |
+| Wednesday | 2 | member | 737 |
+| Wednesday | 3 | casual | 565 |
+| Wednesday | 3 | member | 605 |
+| Wednesday | 4 | casual | 612 |
+| Wednesday | 4 | member | 1136 |
+| Wednesday | 5 | casual | 1733 |
+| Wednesday | 5 | member | 6488 |
+| Wednesday | 6 | casual | 4692 |
+| Wednesday | 6 | member | 19728 |
+| Wednesday | 7 | casual | 9328 |
+| Wednesday | 7 | member | 39161 |
+| Wednesday | 8 | casual | 11788 |
+| Wednesday | 8 | member | 47193 |
+| Wednesday | 9 | casual | 7981 |
+| Wednesday | 9 | member | 24699 |
+| Wednesday | 10 | casual | 7508 |
+| Wednesday | 10 | member | 17863 |
+| Wednesday | 11 | casual | 9692 |
+| Wednesday | 11 | member | 21480 |
+| Wednesday | 12 | casual | 11614 |
+| Wednesday | 12 | member | 25002 |
+| Wednesday | 13 | casual | 11965 |
+| Wednesday | 13 | member | 24732 |
+| Wednesday | 14 | casual | 12991 |
+| Wednesday | 14 | member | 25385 |
+| Wednesday | 15 | casual | 15945 |
+| Wednesday | 15 | member | 34401 |
+| Wednesday | 16 | casual | 22038 |
+| Wednesday | 16 | member | 55178 |
+| Wednesday | 17 | casual | 28554 |
+| Wednesday | 17 | member | 68364 |
+| Wednesday | 18 | casual | 23257 |
+| Wednesday | 18 | member | 49489 |
+| Wednesday | 19 | casual | 16698 |
+| Wednesday | 19 | member | 33679 |
+| Wednesday | 20 | casual | 11961 |
+| Wednesday | 20 | member | 23505 |
+| Wednesday | 21 | casual | 10747 |
+| Wednesday | 21 | member | 18419 |
+| Wednesday | 22 | casual | 8333 |
+| Wednesday | 22 | member | 12454 |
+| Wednesday | 23 | casual | 4985 |
+| Wednesday | 23 | member | 6710 |
+
 #### Thursday Hourly Bike Demands
+
+```{r}
+trip_data_updated %>%
+  filter(day_of_week == "Thursday") %>% 
+  group_by(day_of_week, hour, user_type) %>%
+  summarise(
+    count = n(), .groups = "drop")
+```
+
+| day_of_week <ord> | hour <int> | user_type <chr> | count <int> |
+|---|---|---|---|
+| Thursday | 0 | casual | 2753 |
+| Thursday | 0 | member | 3424 |
+| Thursday | 1 | casual | 1534 |
+| Thursday | 1 | member | 1583 |
+| Thursday | 2 | casual | 1019 |
+| Thursday | 2 | member | 884 |
+| Thursday | 3 | casual | 571 |
+| Thursday | 3 | member | 677 |
+| Thursday | 4 | casual | 552 |
+| Thursday | 4 | member | 1143 |
+| Thursday | 5 | casual | 1618 |
+| Thursday | 5 | member | 5896 |
+| Thursday | 6 | casual | 4699 |
+| Thursday | 6 | member | 18732 |
+| Thursday | 7 | casual | 8868 |
+| Thursday | 7 | member | 36704 |
+| Thursday | 8 | casual | 11511 |
+| Thursday | 8 | member | 44963 |
+| Thursday | 9 | casual | 8307 |
+| Thursday | 9 | member | 25645 |
+| Thursday | 10 | casual | 8531 |
+| Thursday | 10 | member | 18527 |
+| Thursday | 11 | casual | 10558 |
+| Thursday | 11 | member | 21709 |
+| Thursday | 12 | casual | 12853 |
+| Thursday | 12 | member | 25627 |
+| Thursday | 13 | casual | 13382 |
+| Thursday | 13 | member | 25405 |
+| Thursday | 14 | casual | 14021 |
+| Thursday | 14 | member | 25188 |
+| Thursday | 15 | casual | 17293 |
+| Thursday | 15 | member | 34498 |
+| Thursday | 16 | casual | 23183 |
+| Thursday | 16 | member | 52145 |
+| Thursday | 17 | casual | 29436 |
+| Thursday | 17 | member | 66308 |
+| Thursday | 18 | casual | 26361 |
+| Thursday | 18 | member | 51531 |
+| Thursday | 19 | casual | 18809 |
+| Thursday | 19 | member | 35083 |
+| Thursday | 20 | casual | 13420 |
+| Thursday | 20 | member | 23879 |
+| Thursday | 21 | casual | 11389 |
+| Thursday | 21 | member | 19197 |
+| Thursday | 22 | casual | 10861 |
+| Thursday | 22 | member | 15161 |
+| Thursday | 23 | casual | 6446 |
+| Thursday | 23 | member | 8620 |
 
 #### Friday Hourly Bike Demands
 
+```{r}
+trip_data_updated %>%
+  filter(day_of_week == "Friday") %>% 
+  group_by(day_of_week, hour, user_type) %>%
+  summarise(
+    count = n(), .groups = "drop")
+```
+
+| day_of_week <ord> | hour <int> | user_type <chr> | count <int> |
+|---|---|---|---|
+| Friday | 0 | casual | 4137 |
+| Friday | 0 | member | 4546 |
+| Friday | 1 | casual | 2614 |
+| Friday | 1 | member | 2417 |
+| Friday | 2 | casual | 1358 |
+| Friday | 2 | member | 1306 |
+| Friday | 3 | casual | 845 |
+| Friday | 3 | member | 980 |
+| Friday | 4 | casual | 702 |
+| Friday | 4 | member | 1248 |
+| Friday | 5 | casual | 1696 |
+| Friday | 5 | member | 5042 |
+| Friday | 6 | casual | 6390 |
+| Friday | 6 | member | 16502 |
+| Friday | 7 | casual | 8697 |
+| Friday | 7 | member | 26806 |
+| Friday | 8 | casual | 9528 |
+| Friday | 8 | member | 31301 |
+| Friday | 9 | casual | 8691 |
+| Friday | 9 | member | 20796 |
+| Friday | 10 | casual | 10425 |
+| Friday | 10 | member | 18227 |
+| Friday | 11 | casual | 14119 |
+| Friday | 11 | member | 23567 |
+| Friday | 12 | casual | 18124 |
+| Friday | 12 | member | 28164 |
+| Friday | 13 | casual | 18754 |
+| Friday | 13 | member | 29002 |
+| Friday | 14 | casual | 20020 |
+| Friday | 14 | member | 29907 |
+| Friday | 15 | casual | 23385 |
+| Friday | 15 | member | 37332 |
+| Friday | 16 | casual | 27108 |
+| Friday | 16 | member | 46703 |
+| Friday | 17 | casual | 29007 |
+| Friday | 17 | member | 50857 |
+| Friday | 18 | casual | 25706 |
+| Friday | 18 | member | 42150 |
+| Friday | 19 | casual | 18832 |
+| Friday | 19 | member | 29660 |
+| Friday | 20 | casual | 13670 |
+| Friday | 20 | member | 20550 |
+| Friday | 21 | casual | 11572 |
+| Friday | 21 | member | 15834 |
+| Friday | 22 | casual | 11400 |
+| Friday | 22 | member | 13567 |
+| Friday | 23 | casual | 10389 |
+| Friday | 23 | member | 10797 |
+
 #### Saturday Hourly Bike Demands
 
+```{r}
+trip_data_updated %>%
+  filter(day_of_week == "Saturday") %>% 
+  group_by(day_of_week, hour, user_type) %>%
+  summarise(
+    count = n(), .groups = "drop")
+```
+
+| day_of_week <ord> | hour <int> | user_type <chr> | count <int> |
+|---|---|---|---|
+| Saturday | 0 | casual | 9030 |
+| Saturday | 0 | member | 8275 |
+| Saturday | 1 | casual | 6884 |
+| Saturday | 1 | member | 5986 |
+| Saturday | 2 | casual | 3935 |
+| Saturday | 2 | member | 3275 |
+| Saturday | 3 | casual | 2032 |
+| Saturday | 3 | member | 1914 |
+| Saturday | 4 | casual | 1028 |
+| Saturday | 4 | member | 1104 |
+| Saturday | 5 | casual | 1286 |
+| Saturday | 5 | member | 1981 |
+| Saturday | 6 | casual | 2370 |
+| Saturday | 6 | member | 5198 |
+| Saturday | 7 | casual | 4316 |
+| Saturday | 7 | member | 9275 |
+| Saturday | 8 | casual | 8451 |
+| Saturday | 8 | member | 16504 |
+| Saturday | 9 | casual | 14326 |
+| Saturday | 9 | member | 23591 |
+| Saturday | 10 | casual | 20853 |
+| Saturday | 10 | member | 28617 |
+| Saturday | 11 | casual | 26083 |
+| Saturday | 11 | member | 31871 |
+| Saturday | 12 | casual | 29902 |
+| Saturday | 12 | member | 33936 |
+| Saturday | 13 | casual | 31971 |
+| Saturday | 13 | member | 33481 |
+| Saturday | 14 | casual | 32131 |
+| Saturday | 14 | member | 33648 |
+| Saturday | 15 | casual | 32646 |
+| Saturday | 15 | member | 33395 |
+| Saturday | 16 | casual | 31969 |
+| Saturday | 16 | member | 32788 |
+| Saturday | 17 | casual | 29260 |
+| Saturday | 17 | member | 32158 |
+| Saturday | 18 | casual | 26111 |
+| Saturday | 18 | member | 30332 |
+| Saturday | 19 | casual | 20652 |
+| Saturday | 19 | member | 24583 |
+| Saturday | 20 | casual | 15508 |
+| Saturday | 20 | member | 17727 |
+| Saturday | 21 | casual | 13609 |
+| Saturday | 21 | member | 15015 |
+| Saturday | 22 | casual | 14049 |
+| Saturday | 22 | member | 13918 |
+| Saturday | 23 | casual | 12477 |
+| Saturday | 23 | member | 11755 |
+
 #### Sunday Hourly Bike Demands
+
+```{r}
+trip_data_updated %>%
+  filter(day_of_week == "Sunday") %>% 
+  group_by(day_of_week, hour, user_type) %>%
+  summarise(
+    count = n(), .groups = "drop")
+```
+
+| day_of_week <ord> | hour <int> | user_type <chr> | count <int> |
+|---|---|---|---|
+| Sunday | 0 | casual | 10980 |
+| Sunday | 0 | member | 9153 |
+| Sunday | 1 | casual | 6967 |
+| Sunday | 1 | member | 6002 |
+| Sunday | 2 | casual | 4643 |
+| Sunday | 2 | member | 3724 |
+| Sunday | 3 | casual | 2281 |
+| Sunday | 3 | member | 2076 |
+| Sunday | 4 | casual | 1513 |
+| Sunday | 4 | member | 1505 |
+| Sunday | 5 | casual | 1396 |
+| Sunday | 5 | member | 1908 |
+| Sunday | 6 | casual | 2281 |
+| Sunday | 6 | member | 4265 |
+| Sunday | 7 | casual | 3769 |
+| Sunday | 7 | member | 7103 |
+| Sunday | 8 | casual | 6429 |
+| Sunday | 8 | member | 11426 |
+| Sunday | 9 | casual | 12043 |
+| Sunday | 9 | member | 18251 |
+| Sunday | 10 | casual | 18438 |
+| Sunday | 10 | member | 24572 |
+| Sunday | 11 | casual | 23281 |
+| Sunday | 11 | member | 29330 |
+| Sunday | 12 | casual | 26259 |
+| Sunday | 12 | member | 30885 |
+| Sunday | 13 | casual | 27405 |
+| Sunday | 13 | member | 31070 |
+| Sunday | 14 | casual | 28497 |
+| Sunday | 14 | member | 30983 |
+| Sunday | 15 | casual | 29047 |
+| Sunday | 15 | member | 31925 |
+| Sunday | 16 | casual | 26852 |
+| Sunday | 16 | member | 30607 |
+| Sunday | 17 | casual | 22645 |
+| Sunday | 17 | member | 28467 |
+| Sunday | 18 | casual | 19581 |
+| Sunday | 18 | member | 26120 |
+| Sunday | 19 | casual | 14819 |
+| Sunday | 19 | member | 20290 |
+| Sunday | 20 | casual | 10375 |
+| Sunday | 20 | member | 15308 |
+| Sunday | 21 | casual | 8449 |
+| Sunday | 21 | member | 11564 |
+| Sunday | 22 | casual | 6819 |
+| Sunday | 22 | member | 8369 |
+| Sunday | 23 | casual | 4672 |
+| Sunday | 23 | member | 5176 |
 
 --------------------------------------
 
@@ -2315,23 +3020,253 @@ trip_data_updated %>%
 
 #### Monthly User Overview
 
+```{r}
+trip_data_updated$month <- ordered(
+  trip_data_updated$month, 
+  levels=c(
+    "January", 
+    "February", 
+    "March", 
+    "April", 
+    "May", 
+    "June", 
+    "July", 
+    "August", 
+    "September", 
+    "October", 
+    "November", 
+    "December"))
+
+trip_data_updated %>%  
+  group_by(user_type, month) %>% 
+  summarise(
+    number_of_rides = n(), .groups = "drop") %>% 
+  arrange(user_type, month)
+```
+
+| user_type <chr> | month <ord> | number_of_rides <int> |
+|---|---|---|
+| casual | January | 38204 |
+| casual | February | 41150 |
+| casual | March | 59237 |
+| casual | April | 140000 |
+| casual | May | 224016 |
+| casual | June | 286435 |
+| casual | July | 316555 |
+| casual | August | 295870 |
+| casual | September | 249534 |
+| casual | October | 168663 |
+| casual | November | 93751 |
+| casual | December | 49296 |
+| member | January | 142874 |
+| member | February | 140607 |
+| member | March | 186441 |
+| member | April | 264665 |
+| member | May | 354884 |
+| member | June | 399505 |
+| member | July | 418375 |
+| member | August | 439658 |
+| member | September | 387591 |
+| member | October | 344549 |
+| member | November | 252613 |
+| member | December | 164618 |
+
 #### Monthly Average Ride Length (minutes)
 
+```{r}
+trip_data_updated$month <- ordered(
+  trip_data_updated$month, 
+  levels=c(
+    "January", 
+    "February", 
+    "March", 
+    "April", 
+    "May", 
+    "June", 
+    "July", 
+    "August", 
+    "September", 
+    "October", 
+    "November", 
+    "December"))
+
+trip_data_updated %>% 
+  group_by(user_type, month) %>%
+  summarise(
+    average_ride_length = round(mean(ride_length_minute), 2), .groups = "drop") %>% 
+  arrange(user_type, month)
+```
+
+| user_type <chr> | month <ord> | average_ride_length <dbl> |
+|---|---|---|
+| casual | January | 13.91 minutes |
+| casual | February | 16.26 minutes |
+| casual | March | 15.59 minutes |
+| casual | April | 21.02 minutes |
+| casual | May | 22.57 minutes |
+| casual | June | 22.18 minutes |
+| casual | July | 23.25 minutes |
+| casual | August | 22.36 minutes |
+| casual | September | 21.66 minutes |
+| casual | October | 19.40 minutes |
+| casual | November | 16.25 minutes |
+| casual | December | 14.98 minutes |
+| member | January | 10.41 minutes |
+| member | February | 10.81 minutes |
+| member | March | 10.52 minutes |
+| member | April | 11.87 minutes |
+| member | May | 12.94 minutes |
+| member | June | 13.17 minutes |
+| member | July | 13.51 minutes |
+| member | August | 13.45 minutes |
+| member | September | 12.86 minutes |
+| member | October | 11.77 minutes |
+| member | November | 11.12 minutes |
+| member | December | 11.00 minutes |
+
 #### Monthly Average Ride Distance (miles)
+
+```{r}
+trip_data_updated$month <- ordered(
+  trip_data_updated$month, 
+  levels=c(
+    "January", 
+    "February", 
+    "March", 
+    "April", 
+    "May", 
+    "June", 
+    "July", 
+    "August", 
+    "September", 
+    "October", 
+    "November", 
+    "December"))
+
+trip_data_updated %>% 
+  group_by(user_type, month) %>% 
+  summarise(
+    average_ride_distance = mean(ride_distance),
+    .groups = 'drop'
+  ) %>%
+  mutate(average_ride_distance = round(average_ride_distance, 2))
+```
+
+| user_type <chr> | month <ord> | average_ride_distance <dbl> |
+|---|---|---|
+| casual | January | 1.06 miles |
+| casual | February | 1.13 miles |
+| casual | March | 1.15 miles |
+| casual | April | 1.31 miles |
+| casual | May | 1.40 miles |
+| casual | June | 1.43 miles |
+| casual | July | 1.41 miles |
+| casual | August | 1.41 miles |
+| casual | September | 1.38 miles |
+| casual | October | 1.29 miles |
+| casual | November | 1.19 miles |
+| casual | December | 1.10 miles |
+| member | January | 1.13 miles |
+| member | February | 1.16 miles |
+| member | March | 1.20 miles |
+| member | April | 1.32 miles |
+| member | May | 1.40 miles |
+| member | June | 1.44 miles |
+| member | July | 1.44 miles |
+| member | August | 1.43 miles |
+| member | September | 1.39 miles |
+| member | October | 1.30 miles |
+| member | November | 1.24 miles |
+| member | December | 1.20 miles |
+
 --------------------------------------
 
 ### Quarterly Trends
 
 #### Quarterly User Overview
 
+```{r}
+trip_data_updated %>%
+  group_by(quarter, user_type) %>%
+  summarise(
+    number_of_users = n(), .groups = "drop")
+```
+
+| quarter <int> | user_type <chr> | number_of_users <int> |
+|---|---|---|
+| 1 | casual | 138591 |
+| 1 | member | 469922 |
+| 2 | casual | 650451 |
+| 2 | member | 1019054 |
+| 3 | casual | 861959 |
+| 3 | member | 1245624 |
+| 4 | casual | 311710 |
+| 4 | member | 761780 |
+
 #### Quarterly Average Ride Length (minutes)
 
+```{r}
+trip_data_updated %>%
+  group_by(quarter, user_type) %>%
+  summarise(
+    average_ride_length = round(mean(ride_length_minute), 2), .groups="drop") %>%
+  arrange(quarter, user_type)
+```
+
+| quarter <int> | user_type <chr> | average_ride_length <dbl> |
+|---|---|---|
+| 1 | casual | 15.32 minutes |
+| 1 | member | 10.57 minutes |
+| 2 | casual | 22.07 minutes |
+| 2 | member | 12.75 minutes |
+| 3 | casual | 22.48 minutes |
+| 3 | member | 13.29 minutes |
+| 4 | casual | 17.76 minutes |
+| 4 | member | 11.39 minutes |
+
 #### Quarterly Average Ride Distance (miles)
+
+```{r}
+trip_data_updated %>%
+  group_by(quarter, user_type) %>%
+  summarise(
+    average_ride_distance = mean(ride_distance),
+    .groups = "drop"
+  ) %>%
+  mutate(average_ride_distance = round(average_ride_distance, 2))
+```
+
+| quarter <int> | user_type <chr> | average_ride_distance <dbl> |
+|---|---|---|
+| 1 | casual | 1.12 miles |
+| 1 | member | 1.16 miles |
+| 2 | casual | 1.39 miles |
+| 2 | member | 1.40 miles |
+| 3 | casual | 1.40 miles |
+| 3 | member | 1.42 miles |
+| 4 | casual | 1.23 miles |
+| 4 | member | 1.26 miles |
+
 --------------------------------------
 
 ### Rideable Trends
 
-#### Rideable Type Trends 
+#### Rideable Type Trends
+
+```{r}
+trip_data_updated %>%
+  group_by(user_type, rideable_type) %>%
+  summarise(
+    count = n(), .groups = "drop")
+```
+
+| user_type <chr> | rideable_type <chr> | count <int> |
+|---|---|---|
+| casual | classic_bike | 843957 |
+| casual | docked_bike | 74850 |
+| casual | electric_bike | 1043904 |
+| member | classic_bike | 1754117 |
+| member | electric_bike | 1742263 |
 
 --------------------------------------
 
