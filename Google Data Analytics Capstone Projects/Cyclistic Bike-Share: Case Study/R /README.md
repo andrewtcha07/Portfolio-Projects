@@ -2212,6 +2212,9 @@ colSums(is.na(trip_data_updated))
 - [x]  Documentation of any cleaning or manipulation of data.
 
 ## 🔍 The 'Analyze' Phase
+
+### What if
+
 ### Key Tasks
 - [x]  Aggregate your data so it’s useful and accessible.
 - [x]  Organize and format your data.
