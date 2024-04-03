@@ -2244,7 +2244,7 @@ trip_data_updated %>%
 
 | user_type <chr> | average_ride_length <dbl> |
 |---|---|
-| casual | 21.09 minutes|
+| casual | 21.09 minutes |
 | member | 12.35 minutes |
 
 + The table illustrates the disparity in average ride durations between user types, offering insights into their behavioral patterns.
