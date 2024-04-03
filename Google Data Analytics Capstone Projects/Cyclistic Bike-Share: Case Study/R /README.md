@@ -2213,7 +2213,71 @@ colSums(is.na(trip_data_updated))
 
 ## 🔍 The 'Analyze' Phase
 
-### What if
+### User Trends
+
+#### User Type Overview
+
+```{r}
+trip_data_updated %>%
+  group_by(user_type) %>% 
+  summarise(
+    ride_count = n(),
+    ride_percentage = round((n() / nrow(trip_data_updated)) * 100, 2))
+```
+| user_type <chr> | ride_count <int> | ride_percentage <dbl> |
+|---|---|---|
+| casual | 1962711 | 35.95% |
+| member | 3496380 | 64.05% |
+
++ The table illustrates the platform's remarkable achievement in facilitating a substantial volume of rides, amounting to **5,459,091 rides** in 2023.
++ Casual users contribute to **35.95%** of the total rides, accounting for **1,962,711 rides**. While this represents a smaller proportion of bike share usage compared to member users, it still signifies a significant portion of the overall activity.
++ In contrast, member users constitute a substantial portion, representing **64.05%** of the total rides with **3,496,380 rides**.
+
+#### Average Ride Length (minutes) by User Type
+
+```{r}
+trip_data_updated %>%
+  group_by(user_type) %>% 
+  summarise(
+    average_ride_length = round(mean(ride_length_minute), 2))
+```
+
+| user_type <chr> | average_ride_length <dbl> |
+|---|---|
+| casual | 21.09 minutes|
+| member | 12.35 minutes |
+
++ The table illustrates the disparity in average ride durations between user types, offering insights into their behavioral patterns.
++ Casual users, with an average ride length of **21.09 minutes**, demonstrate a longer duration for bike rides.
++ In contrast, member users have an average ride length of **12.35 minutes**.
++ This contrast suggests that casual users may utilize the bike-sharing service for longer or leisurely trips, whereas members are more inclined to use it for shorter, routine commutes.
+
+#### Average Ride Distances (miles) by User Type
+
+```{r}
+trip_data_updated %>% 
+  group_by(user_type) %>% 
+  drop_na() %>%
+  summarise(
+    average_ride_distance = mean(ride_distance)) %>%
+  mutate(average_ride_distance = round(average_ride_distance, 2))
+```
+
+| user_type <chr> | average_ride_distance <dbl> |
+|---|---|
+| casual | 1.35 miles |
+| member | 1.34 miles |
+
++ The table reveals a subtle contrast in the average ride distance between user types.
++ Casual users exhibit an average ride distance of **1.35 miles**.
++ Similarly, member users demonstrate an average ride distance of 1.34 miles.
++ The marginal difference between casual and member users could be influenced by factors such as usage patterns (leisurely or practical rides), member benefits (efficiency optimization), pricing structure (incentives for shorter rides), and geographical factors (location preferences), collectively contributing to the similarity in riding behaviors observed.
+
+--------------------------------------
+
+### Hourly Trends
+
+#### Hourly User Overview
 
 ### Key Tasks
 - [x]  Aggregate your data so it’s useful and accessible.
@@ -2225,6 +2289,29 @@ colSums(is.na(trip_data_updated))
 - [x]  A summary of your analysis.
 
 ## 🎁 The 'Share' Phase
+
+### **User Type Trends**
+
+#### **Summary of User Type Trends**
+The analysis on **User Type Trends** sheds light on the distribution of rides, as well as the average ride length and distance covered by casual and member users of the bike-sharing platform. Through this analysis, distinct patterns and behaviors emerge, highlighting clear differences between these two user segments:
+
++ **Casual User Behavior**: Casual users constitute a smaller portion of the bike-sharing activity, contributing to **36% of total rides (1,962,711 rides)**. Their preference for longer rides, averaging **21.09 minutes**, reflects a distinct inclination towards leisure or recreational activities. This behavior suggests that casual users may engage with the bike-sharing platform for the enjoyment of exploring the cityscape or indulging in relaxed outings, setting them apart from the more utilitarian mindset of member users. Additionally, the slightly higher average ride distance of **1.35 miles** among casual users indicates a propensity for exploring various locations or taking scenic routes. This behavior may stem from their transient or sporadic usage patterns, allowing them to embrace opportunities for sightseeing or leisurely exploration.
++ **Member Users Behavior**: Member users constitute the majority of the bike-sharing platform's user base, representing **64.05% of total rides (3,496,380 rides)**. They demonstrate a preference for shorter average ride lengths, clocking in at **12.35 minutes**, indicative of their practical and efficient commuting or transportation purposes. This behavior suggests that member users prioritize convenience, time-saving, and cost-effectiveness in their bike-sharing usage. Additionally, their slightly lower average ride distance of **1.34 miles** may be influenced by factors such as optimized routes, familiarity with the city, or a focus on efficiency. In contrast to casual users, member users' usage patterns reflect a more utilitarian approach, emphasizing practicality and effectiveness over leisure or recreational activities
+#### **Key Questions**:
+1. **How do annual members and casual riders use Cyclistic bikes differently?**
+   - Annual members tend to use Cyclistic bikes for shorter, routine commutes or transportation purposes, as evidenced by their shorter average ride lengths and distances.
+   - Casual riders, on the other hand, tend to use Cyclistic bikes for longer, leisure-oriented trips, as reflected in their longer average ride lengths and slightly longer average ride distances.
+2. **Why would casual riders buy Cyclistic annual memberships?**
+   - Casual riders may consider purchasing annual memberships if they find themselves using the bike-sharing service frequently for commuting or transportation purposes.
+   - Annual memberships could offer cost savings and convenience for casual riders who regularly use the service, even if their usage patterns are more leisure-oriented.
+   - Incentives, discounts, or additional benefits offered to members could also motivate casual riders to upgrade to annual memberships.
+3. **How can Cyclistic use digital media to influence casual riders to become members?**
+   - Cyclistic can leverage digital media platforms to showcase the benefits and cost-effectiveness of annual memberships for frequent users, highlighting potential savings and convenience.
+   - Targeted marketing campaigns and personalized offers based on casual riders' usage patterns could be implemented to encourage membership upgrades.
+   - Highlighting the additional features, discounts, or rewards available to members could incentivize casual riders to consider annual memberships.
+   - Promoting the environmental and health benefits of bike-sharing, as well as the convenience for commuting or transportation, could resonate with casual riders and influence their decision to become members.
+
+By understanding the distinct behaviors and preferences revealed in the analysis of User Type Trends, Cyclistic can strategically tailor its marketing strategies, product offerings, and digital media campaigns. The clear disparities between casual and member users suggest specific avenues for targeting and converting casual riders into annual members, thereby facilitating growth and enhancing customer retention. With insights into the longer and leisure-oriented rides favored by casual users, Cyclistic can craft marketing initiatives that emphasize the platform's potential for exploration and enjoyment. Conversely, the preference of member users for shorter, efficient rides underscores the value of convenience and practicality, informing targeted promotions highlighting the time-saving benefits of membership. By leveraging these insights, Cyclistic can optimize its marketing efforts to effectively engage both user segments and drive conversion, ultimately fostering sustainable growth and loyalty within its user base. Further analysis of ride frequency, duration, and distances across different temporal and rideable trends can provide deeper insights into user engagement patterns and perceived values, enabling Cyclistic to refine its strategies and maximize its effectiveness in the market.
 
 ### Key Tasks
 - [x]  Determine the best way to share your findings.

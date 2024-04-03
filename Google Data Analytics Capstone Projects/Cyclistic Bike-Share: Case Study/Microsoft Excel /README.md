@@ -428,9 +428,9 @@
 
 #### User Type Distribution
 ![1  User Type Distribution](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/c8f63938-6459-4a9f-9c9f-cca604fb7427)
-+ Based on the data presented, it's evident that the platform has facilitated a significant number of rides, totaling **5,251,702** rides across all user types.
-+ Casual riders account for approximately **35%** at **1,834,314** of the total rides, indicating a notable portion of one-time or infrequent users.
-+ In contrast, annual members make up the majority, comprising about **65%** at **3,417,388** of the total rides.
++ Based on the data presented, it's evident that the platform has facilitated a significant number of rides, totaling **5,251,702 rides** across all user types.
++ Casual riders account for approximately **35%** at **1,834,314 of the total rides**, indicating a notable portion of one-time or infrequent users.
++ In contrast, annual members make up the majority, comprising about **65%** at **3,417,388 of the total rides**.
 
 #### Average Ride Length (minutes) by User Type
 ![1 2 Ride Length Statistic Summary](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/8a9458b3-fc75-4e16-a5df-b2f1a07febb2)
