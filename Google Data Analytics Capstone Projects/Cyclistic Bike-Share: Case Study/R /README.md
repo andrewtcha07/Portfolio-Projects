@@ -2279,6 +2279,70 @@ trip_data_updated %>%
 
 #### Hourly User Overview
 
+#### Hourly Average Ride Length (minutes)
+
+#### Hourly Average Ride Distance (miles)
+--------------------------------------
+
+### Weekly Trends
+
+#### Weekly User Overview
+
+#### Weekly Average Ride Length (minutes)
+
+#### Weekly Average Ride Distance (miles)
+--------------------------------------
+
+### Weekly Bike Demand Patterns and Hourly Usage Trends
+
+#### Monday Hourly Bike Demands
+
+#### Tuesday Hourly Bike Demands
+
+#### Wednesday Hourly Bike Demands
+
+#### Thursday Hourly Bike Demands
+
+#### Friday Hourly Bike Demands
+
+#### Saturday Hourly Bike Demands
+
+#### Sunday Hourly Bike Demands
+
+--------------------------------------
+
+### Monthly Trends
+
+#### Monthly User Overview
+
+#### Monthly Average Ride Length (minutes)
+
+#### Monthly Average Ride Distance (miles)
+--------------------------------------
+
+### Quarterly Trends
+
+#### Quarterly User Overview
+
+#### Quarterly Average Ride Length (minutes)
+
+#### Quarterly Average Ride Distance (miles)
+--------------------------------------
+
+### Rideable Trends
+
+#### Rideable Type Trends 
+
+--------------------------------------
+
+### Map Trends
+
+#### Most Used Routes by Casual Riders
+
+#### Most Used Routes by Member Riders
+
+--------------------------------------
+
 ### Key Tasks
 - [x]  Aggregate your data so it’s useful and accessible.
 - [x]  Organize and format your data.
@@ -2291,6 +2355,12 @@ trip_data_updated %>%
 ## 🎁 The 'Share' Phase
 
 ### **User Type Trends**
+
+![1 1 User Type Distribution](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/ca681f81-6c7a-4476-9648-0a8158e13d63)
+
+![1 2 Average Ride Length (minutes) by User Type](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/3c65d509-6276-4416-8502-7b4bdc387e86)
+
+![1 3 Average Ride Distance (miles) by User Type](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/4d53d1f7-e026-49e1-929e-acbdb5b88a65)
 
 #### **Summary of User Type Trends**
 The analysis on **User Type Trends** sheds light on the distribution of rides, as well as the average ride length and distance covered by casual and member users of the bike-sharing platform. Through this analysis, distinct patterns and behaviors emerge, highlighting clear differences between these two user segments:
@@ -2312,6 +2382,96 @@ The analysis on **User Type Trends** sheds light on the distribution of rides, a
    - Promoting the environmental and health benefits of bike-sharing, as well as the convenience for commuting or transportation, could resonate with casual riders and influence their decision to become members.
 
 By understanding the distinct behaviors and preferences revealed in the analysis of User Type Trends, Cyclistic can strategically tailor its marketing strategies, product offerings, and digital media campaigns. The clear disparities between casual and member users suggest specific avenues for targeting and converting casual riders into annual members, thereby facilitating growth and enhancing customer retention. With insights into the longer and leisure-oriented rides favored by casual users, Cyclistic can craft marketing initiatives that emphasize the platform's potential for exploration and enjoyment. Conversely, the preference of member users for shorter, efficient rides underscores the value of convenience and practicality, informing targeted promotions highlighting the time-saving benefits of membership. By leveraging these insights, Cyclistic can optimize its marketing efforts to effectively engage both user segments and drive conversion, ultimately fostering sustainable growth and loyalty within its user base. Further analysis of ride frequency, duration, and distances across different temporal and rideable trends can provide deeper insights into user engagement patterns and perceived values, enabling Cyclistic to refine its strategies and maximize its effectiveness in the market.
+
+--------------------------------------
+
+### **Hourly Trends**
+
+![2 1 Hourly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/f58a4dc4-d8b9-44b4-b23a-410efbbf8b68)
+
+![2 2 Hourly Average Ride Length Average (minutes)](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/635d8408-8133-4ec5-96ae-23b5e89ce0e1)
+
+![2 3 Hourly Average Ride Distance Average (miles)](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/7b696cb6-7ce5-4b68-a57d-1fa7b8daa8df)
+
+#### **Summary of Hourly Trends**
+
+--------------------------------------
+
+### **Weekly Trends**
+
+![3 1 Weekly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/2fcbbef6-db75-41f7-91d2-6b3532d5e50b)
+
+![3 2 Weekly Ride Length Average (minutes)](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/0589f21f-a96c-447d-b46c-6584a694bb4e)
+
+![3 3 Weekly Ride Distance Average (miles)](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/f23dd113-b152-47a9-bfa5-e60304620a36)
+
+#### **Summary of Weekly Trends**
+
+--------------------------------------
+
+### **Weekly and Hourly Bike Demand Trends**
+
+![0 1 Weekly and Hourly Bike Demands](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/4c4798ac-a290-448c-b006-f92cf2e1dac2)
+
+![0 2 Monday Hourly Bike Demands](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/26acdbc4-fd11-4dbc-acd9-01fc2af6fe44)
+
+![0 3 Tuesday Hourly Bike Demands](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/07176c97-893a-44b8-a24a-44f2a9aa2845)
+
+![0 4 Wednesday Hourly Bike Demands](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/0201a2b0-3898-4993-bef5-b60e321cbc88)
+
+![0 5 Thursday Hourly Bike Demands](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/43e1f816-6353-44b7-927d-d418cd20b43a)
+
+![0 6 Friday Hourly Bike Demands](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/1c66c716-acaf-4536-bb9c-8f41cdf7630d)
+
+![0 7 Saturday Hourly Bike Demands](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/fbd25a82-295f-409c-8d42-cafce4b47e6c)
+
+![0 8 Sunday Hourly Bike Demands](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/8bd57d4f-cd2d-4c87-a626-3e7382cff76a)
+
+#### **Summary of Weekly and Hourly Bike Demand Trends**
+
+--------------------------------------
+
+### **Monthly Trends**
+
+![4 1 Monthly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/cf7a3a83-0ac9-458b-862a-a90b1c4c8001)
+
+![4 2 Monthly Ride Length Average (minutes)](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/34fd75f5-eb05-404f-a5c5-0e74e1df6463)
+
+![4 3 Monthly Ride Distance Average (miles)](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/1dbd5b6d-c953-4cb1-9eb9-17e03a5771a8)
+
+#### **Summary of Monthly Trends**
+
+--------------------------------------
+
+### **Quarterly Trends**
+
+![5 1 Quarterly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/91a5e632-8810-4c24-88a5-79069d95e5ed)
+
+![5 2 Quarterly Ride Length Average (minutes)](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/9ef45501-2e7e-4a81-8df6-7757247650c9)
+
+![5 3 Quarterly Ride Distance Average (miles)](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/67ca4914-45b6-4189-abdc-c35f8e056d7d)
+
+#### **Summary of Quarterly Trends**
+
+--------------------------------------
+
+### **Rideable Trends**
+
+![6 1 Rideable Type Trends](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/6ea13403-ca07-4b5a-9290-ddf3eb3420ee)
+
+#### **Summary of Rideable Trends**
+
+--------------------------------------
+
+### **Map Trends**
+
+![7 1 Most Used Routes By Casual Riders](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/f4d80a1e-95a3-4cf9-b8ab-4e21a29d2a52)
+
+![7 2 Most Used Routes By Member Riders](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/36e88575-3701-4e3a-9b04-88ba8de27321)
+
+#### **Summary of Map Trends**
+
+--------------------------------------
 
 ### Key Tasks
 - [x]  Determine the best way to share your findings.
