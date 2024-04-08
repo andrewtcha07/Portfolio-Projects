@@ -2313,6 +2313,9 @@ trip_data_updated %>%
 | casual | 21 | 73419 |
 | casual | 22 | 64833 |
 | casual | 23 | 46680 |
+
+| user_type <chr> | hour <int> | count <int> |
+|---|---|---|
 | member | 0 | 33771 |
 | member | 1 | 20139 |
 | member | 2 | 11708 |
@@ -2374,6 +2377,9 @@ trip_data_updated %>%
 | casual | 21 | 18.56 minutes |
 | casual | 22 | 18.82 minutes |
 | casual | 23 | 18.43 minutes |
+
+| user_type <chr> | hour <int> | average_ride_length <dbl> |
+|---|---|---|
 | member | 0 | 11.66 minutes |
 | member | 1 | 12.16 minutes |
 | member | 2 | 12.28 minutes |
@@ -2437,6 +2443,9 @@ trip_data_updated %>%
 | casual | 21 | 1.27 miles |
 | casual | 22 | 1.33 miles |
 | casual | 23 | 1.29 miles |
+
+| user_type <chr> | hour <int> | average_ride_distance <dbl> |
+|---|---|---|
 | member | 0 | 1.34 miles |
 | member | 1 | 1.30 miles |
 | member | 2 | 1.32 miles |
@@ -2496,6 +2505,9 @@ trip_data_updated %>%
 | casual | Friday | 297169 |
 | casual | Saturday | 390879 |
 | casual | Sunday | 319441 |
+
+| user_type <chr> | day_of_week <ord> | number_of_rides <int> |
+|---|---|---|
 | member | Monday | 473704 |
 | member | Tuesday | 551725 |
 | member | Wednesday | 560755 |
@@ -2535,6 +2547,9 @@ trip_data_updated %>%
 | casual | Friday | 20.49 minutes |
 | casual | Saturday | 23.89 minutes |
 | casual | Sunday | 24.58 minutes |
+
+| user_type <chr> | day_of_week <ord> | average_ride_length <dbl> |
+|---|---|---|
 | member | Monday | 11.72 minutes |
 | member | Tuesday | 11.86 minutes |
 | member | Wednesday | 11.78 minutes |
@@ -2575,6 +2590,9 @@ trip_data_updated %>%
 | casual | Friday | 1.35 miles |
 | casual | Saturday | 1.42 miles |
 | casual | Sunday | 1.39 miles |
+
+| user_type <chr> | day_of_week <ord> | average_ride_distance <dbl> |
+|---|---|---|
 | member | Monday | 1.30 miles |
 | member | Tuesday | 1.34 miles |
 | member | Wednesday | 1.34 miles |
@@ -3058,6 +3076,9 @@ trip_data_updated %>%
 | casual | October | 168663 |
 | casual | November | 93751 |
 | casual | December | 49296 |
+
+| user_type <chr> | month <ord> | number_of_rides <int> |
+|---|---|---|
 | member | January | 142874 |
 | member | February | 140607 |
 | member | March | 186441 |
@@ -3111,6 +3132,9 @@ trip_data_updated %>%
 | casual | October | 19.40 minutes |
 | casual | November | 16.25 minutes |
 | casual | December | 14.98 minutes |
+
+| user_type <chr> | month <ord> | average_ride_length <dbl> |
+|---|---|---|
 | member | January | 10.41 minutes |
 | member | February | 10.81 minutes |
 | member | March | 10.52 minutes |
@@ -3166,6 +3190,9 @@ trip_data_updated %>%
 | casual | October | 1.29 miles |
 | casual | November | 1.19 miles |
 | casual | December | 1.10 miles |
+
+| user_type <chr> | month <ord> | average_ride_distance <dbl> |
+|---|---|---|
 | member | January | 1.13 miles |
 | member | February | 1.16 miles |
 | member | March | 1.20 miles |
@@ -3265,6 +3292,9 @@ trip_data_updated %>%
 | casual | classic_bike | 843957 |
 | casual | docked_bike | 74850 |
 | casual | electric_bike | 1043904 |
+
+| user_type <chr> | rideable_type <chr> | count <int> |
+|---|---|---|
 | member | classic_bike | 1754117 |
 | member | electric_bike | 1742263 |
 
