@@ -2341,6 +2341,13 @@ trip_data_updated %>%
 | member | 22 | 83933 |
 | member | 23 | 53746 |
 
++ The table illustrates clear trends in bicycle usage among casual and member users at different times of the day.
++ Between 3 PM and 6 PM, casual users tend to use the service more for fun or leisure, with the highest number of rides occurring at **5 PM (189,792 rides)**.
++ Their usage drops during late night and early morning hours, reaching its lowest point at 4 AM (5,709 rides), suggesting a preference for using bikes outside of work or commuting times.
++ For member users, peak usage occurs between 4 PM and 6 PM, with the highest number of rides at **5 PM (370,438 rides)**. They utilize the service for both commuting and non-commuting purposes throughout the day.
++ Similar to casual users, member users also experience a drop in usage during late night and early morning hours, with the lowest point at **3 AM (7,627 rides)**.
++ Casual users tend to enjoy riding bikes for leisure during the afternoon, while member users utilize them for both commuting and leisure. Both groups ride less during the late night and early morning hours.
+
 #### Hourly Average Ride Length (minutes)
 
 ```{r}
@@ -2404,6 +2411,11 @@ trip_data_updated %>%
 | member | 21 | 12.20 minutes |
 | member | 22 | 12.19 minutes |
 | member | 23 | 12.18 minutes |
+
++ The table highlights noticeable variances in the duration of rides between casual and member users across various times of the day.
++ Casual users exhibit significant variation in ride duration throughout the day, with the shortest rides averaging **13.85 minutes** in the early morning at **5 AM** and peaking at approximately **25.37 minutes** during midday at **11 AM**. This peak occurs between 10 AM and 2 PM. Despite a gradual decline afterward, ride lengths remain relatively high compared to those in the early morning hours.
++ In contrast, member users maintain consistent average ride lengths throughout the day, ranging from about **10.21 minutes** at the lowest in the early morning at **5 AM** to **13.15 minutes** at the highest during evening rush hours at **5 PM**.
++ Unlike casual users, members exhibit minimal fluctuations in ride duration, with generally shorter averages. Casual users tend to have longer durations compared to members, particularly evident during midday.
 
 #### Hourly Average Ride Distance (miles)
 
@@ -2470,6 +2482,11 @@ trip_data_updated %>%
 | member | 21 | 1.33 miles |
 | member | 22 | 1.39 miles |
 | member | 23 | 1.38 miles |
+
++ The table provides observations on the average duration of bike rides undertaken by both casual and member users throughout the day.
++ Casual users maintain consistent average ride distances throughout the day, ranging from **1.21 miles** at its lowest at **12 AM** to **1.43 miles** at its highest at **11 AM**. There's a slight peak in the late morning, with minimal fluctuations otherwise.
++ Similarly, member users also exhibit consistency, ranging from **1.24 miles** at its lowest at **12 PM** to **1.49 miles** at its highest at **4 PM**, with slight variations throughout the day.
++ Both user types show consistent patterns with slight variations in ride durations throughout the day. Casual users display a slightly wider range of distances compared to members, with similar trends of increased distances during certain hours.
 
 --------------------------------------
 
