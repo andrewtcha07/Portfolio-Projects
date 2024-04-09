@@ -2287,6 +2287,8 @@ trip_data_updated %>%
   arrange(user_type, hour)
 ```
 
+<table> <tr><td>
+
 | user_type <chr> | hour <int> | count <int> |
 |---|---|---|
 | casual | 0 | 34844 |
@@ -2313,6 +2315,8 @@ trip_data_updated %>%
 | casual | 21 | 73419 |
 | casual | 22 | 64833 |
 | casual | 23 | 46680 |
+
+</td><td>
 
 | user_type <chr> | hour <int> | count <int> |
 |---|---|---|
@@ -2341,6 +2345,8 @@ trip_data_updated %>%
 | member | 22 | 83933 |
 | member | 23 | 53746 |
 
+</td></tr> </table>
+
 + The table illustrates clear trends in bicycle usage among casual and member users at different times of the day.
 + Between 3 PM and 6 PM, casual users tend to use the service more for fun or leisure, with the highest number of rides occurring at **5 PM (189,792 rides)**.
 + Their usage drops during late night and early morning hours, reaching its lowest point at 4 AM (5,709 rides), suggesting a preference for using bikes outside of work or commuting times.
@@ -2358,6 +2364,8 @@ trip_data_updated %>%
   arrange(user_type, hour)
 ```
 
+<table> <tr><td>
+ 
 | user_type <chr> | hour <int> | average_ride_length <dbl> |
 |---|---|---|
 | casual | 0 | 18.68 minutes |
@@ -2384,7 +2392,9 @@ trip_data_updated %>%
 | casual | 21 | 18.56 minutes |
 | casual | 22 | 18.82 minutes |
 | casual | 23 | 18.43 minutes |
-
+ 
+</td><td>
+ 
 | user_type <chr> | hour <int> | average_ride_length <dbl> |
 |---|---|---|
 | member | 0 | 11.66 minutes |
@@ -2411,6 +2421,8 @@ trip_data_updated %>%
 | member | 21 | 12.20 minutes |
 | member | 22 | 12.19 minutes |
 | member | 23 | 12.18 minutes |
+
+</td></tr> </table>
 
 + The table highlights noticeable variances in the duration of rides between casual and member users across various times of the day.
 + Casual users exhibit significant variation in ride duration throughout the day, with the shortest rides averaging **13.85 minutes** in the early morning at **5 AM** and peaking at approximately **25.37 minutes** during midday at **11 AM**. This peak occurs between 10 AM and 2 PM. Despite a gradual decline afterward, ride lengths remain relatively high compared to those in the early morning hours.
