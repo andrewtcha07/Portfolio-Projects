@@ -3591,7 +3591,7 @@ This analysis provides critical insights into the behavior and preferences of Cy
 
 ![1 2 Average Ride Length (minutes) by User Type](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/3c65d509-6276-4416-8502-7b4bdc387e86)
 
-![1 3 Average Ride Distance (miles) by User Type](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/4d53d1f7-e026-49e1-929e-acbdb5b88a65)
+![1 3 Average Ride Distance (miles) by User Type](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/82ebd99e-e7b2-4da0-b650-a6125ee163a4)
 
 #### **Summary of User Type Trends**
 The analysis on **User Type Trends** sheds light on the distribution of rides, as well as the average ride length and distance covered by casual and member users of the bike-sharing platform. Through this analysis, distinct patterns and behaviors emerge, highlighting clear differences between these two user segments:
