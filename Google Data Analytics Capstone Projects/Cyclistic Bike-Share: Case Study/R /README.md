@@ -15,7 +15,7 @@
 + Importing the 12 CSV data files using the `read.csv()` function.
 
 #### Installing R Packages
-```r
+```{r}
 install.packages("tidyverse")
 install.packages("janitor")
 install.packages("readr")
@@ -41,7 +41,7 @@ install.packages("skimr")
 > + `skimr`: Generates informative summaries and visualizations for data frames.
 
 #### Loading Packages
-```r
+```{r}
 library(tidyverse)
 library(janitor)
 library(readr)
@@ -56,10 +56,10 @@ library(skimr)
 
 #### Importing Data Files and Creating Data Frame
 + January 2023
-```r
+```{r}
 jan2023 <- read_csv("202301-divvy-tripdata.csv")
 ```
-```r
+```{r}
 Rows: 190301 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Delimiter: ","
 chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
@@ -70,10 +70,10 @@ dttm (2): started_at, ended_at
 ```
 
 + February 2023
-```r
+```{r}
 feb2023 <- read_csv("202302-divvy-tripdata.csv")
 ```
-```r
+```{r}
 Rows: 190445 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Delimiter: ","
 chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
@@ -84,10 +84,10 @@ dttm (2): started_at, ended_at
 ```
 
 + March 2023
-```r
+```{r}
 mar2023 <- read_csv("202303-divvy-tripdata.csv")
 ```
-```r
+```{r}
 Rows: 258678 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Delimiter: ","
 chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
@@ -98,10 +98,10 @@ dttm (2): started_at, ended_at
 ```
 
 + April 2023
-```r
+```{r}
 apr2023 <- read_csv("202304-divvy-tripdata.csv")
 ```
-```r
+```{r}
 Rows: 426590 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Delimiter: ","
 chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
@@ -112,10 +112,10 @@ dttm (2): started_at, ended_at
 ```
 
 + May 2023
-```r
+```{r}
 may2023 <- read_csv("202305-divvy-tripdata.csv")
 ```
-```r
+```{r}
 Rows: 604827 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Delimiter: ","
 chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
@@ -126,10 +126,10 @@ dttm (2): started_at, ended_at
 ```
 
 + June 2023
-```r
+```{r}
 jun2023 <- read_csv("202306-divvy-tripdata.csv")
 ```
-```r
+```{r}
 Rows: 719618 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Delimiter: ","
 chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
@@ -140,10 +140,10 @@ dttm (2): started_at, ended_at
 ```
 
 + July 2023
-```r
+```{r}
 jul2023 <- read_csv("202307-divvy-tripdata.csv")
 ```
-```r
+```{r}
 Rows: 767650 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Delimiter: ","
 chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
@@ -154,10 +154,10 @@ dttm (2): started_at, ended_at
 ```
 
 + August 2023
-```r
+```{r}
 aug2023 <- read_csv("202308-divvy-tripdata.csv")
 ```
-```r
+```{r}
 Rows: 771693 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Delimiter: ","
 chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
@@ -168,10 +168,10 @@ dttm (2): started_at, ended_at
 ```
 
 + September 2023
-```r
+```{r}
 sep2023 <- read_csv("202309-divvy-tripdata.csv")
 ```
-```r
+```{r}
 Rows: 666371 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Delimiter: ","
 chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
@@ -182,10 +182,10 @@ dttm (2): started_at, ended_at
 ```
 
 + October 2023
-```r
+```{r}
 oct2023 <- read_csv("202310-divvy-tripdata.csv")
 ```
-```r
+```{r}
 Rows: 537113 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Delimiter: ","
 chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
@@ -196,10 +196,10 @@ dttm (2): started_at, ended_at
 ```
 
 + November 2023
-```r
+```{r}
 nov2023 <- read_csv("202311-divvy-tripdata.csv")
 ```
-```r
+```{r}
 Rows: 362518 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Delimiter: ","
 chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
@@ -210,10 +210,10 @@ dttm (2): started_at, ended_at
 ```
 
 + December 2023
-```r
+```{r}
 dec2023 <- read_csv("202312-divvy-tripdata.csv")
 ```
-```r
+```{r}
 Rows: 224073 Columns: 13── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 Delimiter: ","
 chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_station_name, end_station_id, member_casual
@@ -229,7 +229,7 @@ dttm (2): started_at, ended_at
 + Providing insights into the composition and characteristics of the data.
 
 #### Displaying _Column Names_ for Each Month’s Dataset
-```r
+```{r}
 colnames(jan2023)
 colnames(feb2023)
 colnames(mar2023)
@@ -243,7 +243,7 @@ colnames(oct2023)
 colnames(nov2023)
 colnames(dec2023)
 ```
-```r
+```{r}
  [1] "ride_id"            "rideable_type"      "started_at"         "ended_at"           "start_station_name" "start_station_id"  
  [7] "end_station_name"   "end_station_id"     "start_lat"          "start_lng"          "end_lat"            "end_lng"           
 [13] "member_casual"     
@@ -251,10 +251,10 @@ colnames(dec2023)
 
 #### Displaying _Structure_ of Each Month’s Dataset
 + January 2023
-```r
+```{r}
 str(jan2023)
 ```
-```r
+```{r}
 spc_tbl_ [190,301 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ ride_id           : chr [1:190301] "F96D5A74A3E41399" "13CB7EB698CEDB88" "BD88A2E670661CE5" "C90792D034FED968" ...
  $ rideable_type     : chr [1:190301] "electric_bike" "classic_bike" "electric_bike" "classic_bike" ...
@@ -289,10 +289,10 @@ spc_tbl_ [190,301 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ```
 
 + Feburary 2023
-```r
+```{r}
 str(feb2023)
 ```
-```r
+```{r}
 spc_tbl_ [190,445 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ ride_id           : chr [1:190445] "CBCD0D7777F0E45F" "F3EC5FCE5FF39DE9" "E54C1F27FA9354FF" "3D561E04F739CC45" ...
  $ rideable_type     : chr [1:190445] "classic_bike" "electric_bike" "classic_bike" "electric_bike" ...
@@ -327,10 +327,10 @@ spc_tbl_ [190,445 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ```
 
 + March 2023
-```r
+```{r}
 str(mar2023)
 ```
-```r
+```{r}
 spc_tbl_ [258,678 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ ride_id           : chr [1:258678] "6842AA605EE9FBB3" "F984267A75B99A8C" "FF7CF57CFE026D02" "6B61B916032CB6D6" ...
  $ rideable_type     : chr [1:258678] "electric_bike" "electric_bike" "classic_bike" "classic_bike" ...
@@ -365,10 +365,10 @@ spc_tbl_ [258,678 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ```
 
 + April 2023
-```r
+```{r}
 str(apr2023)
 ```
-```r
+```{r}
 spc_tbl_ [426,590 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ ride_id           : chr [1:426590] "8FE8F7D9C10E88C7" "34E4ED3ADF1D821B" "5296BF07A2F77CB5" "40759916B76D5D52" ...
  $ rideable_type     : chr [1:426590] "electric_bike" "electric_bike" "electric_bike" "electric_bike" ...
@@ -403,10 +403,10 @@ spc_tbl_ [426,590 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ```
 
 + May 2023
-```r
+```{r}
 str(may2023)
 ```
-```r
+```{r}
 spc_tbl_ [604,827 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ ride_id           : chr [1:604827] "0D9FA920C3062031" "92485E5FB5888ACD" "FB144B3FC8300187" "DDEB93BC2CE9AA77" ...
  $ rideable_type     : chr [1:604827] "electric_bike" "electric_bike" "electric_bike" "classic_bike" ...
@@ -441,10 +441,10 @@ spc_tbl_ [604,827 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ```
 
 + June 2023
-```r
+```{r}
 str(jun2023)
 ```
-```r
+```{r}
 spc_tbl_ [719,618 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ ride_id           : chr [1:719618] "6F1682AC40EB6F71" "622A1686D64948EB" "3C88859D926253B4" "EAD8A5E0259DEC88" ...
  $ rideable_type     : chr [1:719618] "electric_bike" "electric_bike" "electric_bike" "electric_bike" ...
@@ -479,10 +479,10 @@ spc_tbl_ [719,618 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ```
 
 + July 2023
-```r
+```{r}
 str(jul2023)
 ```
-```r
+```{r}
 spc_tbl_ [767,650 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ ride_id           : chr [1:767650] "9340B064F0AEE130" "D1460EE3CE0D8AF8" "DF41BE31B895A25E" "9624A293749EF703" ...
  $ rideable_type     : chr [1:767650] "electric_bike" "classic_bike" "classic_bike" "electric_bike" ...
@@ -517,10 +517,10 @@ spc_tbl_ [767,650 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ```
 
 + August 2023
-```r
+```{r}
 str(aug2023)
 ```
-```r
+```{r}
 spc_tbl_ [771,693 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ ride_id           : chr [1:771693] "903C30C2D810A53B" "F2FB18A98E110A2B" "D0DEC7C94E4663DA" "E0DDDC5F84747ED9" ...
  $ rideable_type     : chr [1:771693] "electric_bike" "electric_bike" "electric_bike" "electric_bike" ...
@@ -555,10 +555,10 @@ spc_tbl_ [771,693 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ```
 
 + September 2023
-```r
+```{r}
 str(sep2023)
 ```
-```r
+```{r}
 spc_tbl_ [666,371 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ ride_id           : chr [1:666371] "011C1903BF4E2E28" "87DB80E048A1BF9F" "7C2EB7AF669066E3" "57D197B010269CE3" ...
  $ rideable_type     : chr [1:666371] "classic_bike" "classic_bike" "electric_bike" "classic_bike" ...
@@ -593,10 +593,10 @@ spc_tbl_ [666,371 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ```
 
 + October 2023
-```r
+```{r}
 str(oct2023)
 ```
-```r
+```{r}
 spc_tbl_ [537,113 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ ride_id           : chr [1:537113] "4449097279F8BBE7" "9CF060543CA7B439" "667F21F4D6BDE69C" "F92714CC6B019B96" ...
  $ rideable_type     : chr [1:537113] "classic_bike" "electric_bike" "electric_bike" "classic_bike" ...
@@ -631,10 +631,10 @@ spc_tbl_ [537,113 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ```
 
 + November 2023
-```r
+```{r}
 str(nov2023)
 ```
-```r
+```{r}
 spc_tbl_ [362,518 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ ride_id           : chr [1:362518] "4EAD8F1AD547356B" "6322270563BF5470" "B37BDE091ECA38E0" "CF0CA5DD26E4F90E" ...
  $ rideable_type     : chr [1:362518] "electric_bike" "electric_bike" "electric_bike" "classic_bike" ...
@@ -669,10 +669,10 @@ spc_tbl_ [362,518 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ```
 
 + December 2023
-```r
+```{r}
 str(dec2023)
 ```
-```r
+```{r}
 spc_tbl_ [224,073 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ ride_id           : chr [1:224073] "C9BD54F578F57246" "CDBD92F067FA620E" "ABC0858E52CBFC84" "F44B6F0E8F76DC90" ...
  $ rideable_type     : chr [1:224073] "electric_bike" "electric_bike" "electric_bike" "electric_bike" ...
@@ -708,10 +708,10 @@ spc_tbl_ [224,073 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 
 #### Displaying _Summary_ Statistics for Each Month’s Dataset
 + January 2023
-```r
+```{r}
 summary(jan2023)
 ```
-```r
+```{r}
    ride_id          rideable_type        started_at                        ended_at                     start_station_name start_station_id  
  Length:190301      Length:190301      Min.   :2023-01-01 00:01:58.00   Min.   :2023-01-01 00:02:41.0   Length:190301      Length:190301     
  Class :character   Class :character   1st Qu.:2023-01-09 07:34:39.00   1st Qu.:2023-01-09 07:45:42.0   Class :character   Class :character  
@@ -731,10 +731,10 @@ summary(jan2023)
 ```
 
 + February 2023
-```r
+```{r}
 summary(feb2023)
 ```
-```r
+```{r}
    ride_id          rideable_type        started_at                        ended_at                      start_station_name start_station_id  
  Length:190445      Length:190445      Min.   :2023-02-01 00:01:34.00   Min.   :2023-02-01 00:08:42.00   Length:190445      Length:190445     
  Class :character   Class :character   1st Qu.:2023-02-08 18:25:33.00   1st Qu.:2023-02-08 18:36:24.00   Class :character   Class :character  
@@ -754,10 +754,10 @@ summary(feb2023)
 ```
 
 + March 2023
-```r
+```{r}
 summary(mar2023)
 ```
-```r
+```{r}
    ride_id          rideable_type        started_at                        ended_at                      start_station_name start_station_id  
  Length:258678      Length:258678      Min.   :2023-03-01 00:00:50.00   Min.   :2023-03-01 00:04:17.00   Length:258678      Length:258678     
  Class :character   Class :character   1st Qu.:2023-03-08 11:42:43.25   1st Qu.:2023-03-08 11:55:00.00   Class :character   Class :character  
@@ -777,10 +777,10 @@ summary(mar2023)
 ```
 
 + April 2023
-```r
+```{r}
 summary(apr2023)
 ```
-```r
+```{r}
    ride_id          rideable_type        started_at                        ended_at                      start_station_name start_station_id  
  Length:426590      Length:426590      Min.   :2023-04-01 00:00:02.00   Min.   :2023-04-01 00:03:10.00   Length:426590      Length:426590     
  Class :character   Class :character   1st Qu.:2023-04-10 13:22:13.00   1st Qu.:2023-04-10 13:39:34.50   Class :character   Class :character  
@@ -800,10 +800,10 @@ summary(apr2023)
 ```
 
 + May 2023
-```r
+```{r}
 summary(may2023)
 ```
-```r
+```{r}
    ride_id          rideable_type        started_at                        ended_at                      start_station_name start_station_id  
  Length:604827      Length:604827      Min.   :2023-05-01 00:00:33.00   Min.   :2023-05-01 00:04:28.00   Length:604827      Length:604827     
  Class :character   Class :character   1st Qu.:2023-05-09 21:45:28.50   1st Qu.:2023-05-09 21:59:55.00   Class :character   Class :character  
@@ -823,10 +823,10 @@ summary(may2023)
 ```
 
 + June 2023
-```r
+```{r}
 summary(jun2023)
 ```
-```r
+```{r}
    ride_id          rideable_type        started_at                        ended_at                      start_station_name start_station_id  
  Length:719618      Length:719618      Min.   :2023-06-01 00:00:44.00   Min.   :2023-06-01 00:02:56.00   Length:719618      Length:719618     
  Class :character   Class :character   1st Qu.:2023-06-07 23:00:11.00   1st Qu.:2023-06-07 23:26:36.25   Class :character   Class :character  
@@ -846,10 +846,10 @@ summary(jun2023)
 ```
 
 + July 2023
-```r
+```{r}
 summary(jul2023)
 ```
-```r
+```{r}
    ride_id          rideable_type        started_at                        ended_at                      start_station_name start_station_id  
  Length:767650      Length:767650      Min.   :2023-07-01 00:00:00.00   Min.   :2023-07-01 00:01:26.00   Length:767650      Length:767650     
  Class :character   Class :character   1st Qu.:2023-07-09 14:55:06.75   1st Qu.:2023-07-09 15:19:39.00   Class :character   Class :character  
@@ -869,10 +869,10 @@ summary(jul2023)
 ```
 
 + August 2023
-```r
+```{r}
 summary(aug2023)
 ```
-```r
+```{r}
    ride_id          rideable_type        started_at                        ended_at                      start_station_name start_station_id  
  Length:771693      Length:771693      Min.   :2023-08-01 00:00:06.00   Min.   :2023-08-01 00:01:03.00   Length:771693      Length:771693     
  Class :character   Class :character   1st Qu.:2023-08-08 17:16:56.00   1st Qu.:2023-08-08 17:33:35.00   Class :character   Class :character  
@@ -892,10 +892,10 @@ summary(aug2023)
 ```
 
 + September 2023
-```r
+```{r}
 summary(sep2023)
 ```
-```r
+```{r}
    ride_id          rideable_type        started_at                        ended_at                      start_station_name start_station_id  
  Length:666371      Length:666371      Min.   :2023-09-01 00:00:44.00   Min.   :2023-09-01 00:03:06.00   Length:666371      Length:666371     
  Class :character   Class :character   1st Qu.:2023-09-08 07:26:38.00   1st Qu.:2023-09-08 07:39:33.50   Class :character   Class :character  
@@ -915,10 +915,10 @@ summary(sep2023)
 ```
 
 + October 2023
-```r
+```{r}
 summary(oct2023)
 ```
-```r
+```{r}
    ride_id          rideable_type        started_at                        ended_at                      start_station_name start_station_id  
  Length:537113      Length:537113      Min.   :2023-10-01 00:00:05.00   Min.   :2023-10-01 00:02:02.00   Length:537113      Length:537113     
  Class :character   Class :character   1st Qu.:2023-10-06 19:18:31.00   1st Qu.:2023-10-06 19:31:45.00   Class :character   Class :character  
@@ -938,10 +938,10 @@ summary(oct2023)
 ```
 
 + November 2023
-```r
+```{r}
 summary(nov2023)
 ```
-```r
+```{r}
    ride_id          rideable_type        started_at                        ended_at                      start_station_name start_station_id  
  Length:362518      Length:362518      Min.   :2023-11-01 00:01:46.00   Min.   :2023-10-25 07:31:46.00   Length:362518      Length:362518     
  Class :character   Class :character   1st Qu.:2023-11-07 08:30:44.50   1st Qu.:2023-11-07 08:41:43.25   Class :character   Class :character  
@@ -961,10 +961,10 @@ summary(nov2023)
 ```
 
 + December 2023
-```r
+```{r}
 summary(dec2023)
 ```
-```r
+```{r}
    ride_id          rideable_type        started_at                        ended_at                      start_station_name start_station_id  
  Length:224073      Length:224073      Min.   :2023-12-01 00:00:03.00   Min.   :2023-12-01 00:04:12.00   Length:224073      Length:224073     
  Class :character   Class :character   1st Qu.:2023-12-07 16:18:35.00   1st Qu.:2023-12-07 16:30:49.00   Class :character   Class :character  
@@ -1000,7 +1000,7 @@ summary(dec2023)
 + Removing the 12 individual data frames after consolidation to streamline data management.
 
 #### Combining All Monthly Data Frames
-```r
+```{r}
 trip_data <- bind_rows(
   list(
     jan2023, 
@@ -1020,7 +1020,7 @@ trip_data <- bind_rows(
 ```
 
 #### Removing All Individual Monthly Data Frames from the Environment
-```r
+```{r}
 rm(
   list = c(
     "jan2023", 
@@ -1051,36 +1051,36 @@ rm(
 
 #### Checking Data Type
 + Identifying data type using `class()`.
-```r
+```{r}
 class(trip_data)
 ```
-```r
+```{r}
 [1] "spec_tbl_df" "tbl_df"      "tbl"         "data.frame" 
 ```
 
 #### Checking Data Dimensions
 + Counting the number of rows and columns using `dim()`.
-```r
+```{r}
 dim(trip_data)
 ```
-```r
+```{r}
 [1] 5719877      13
 ```
 
 #### Displaying Variable Names
 + Obtaining the column names using `colnames()` and `names()`.
-```r
+```{r}
 colnames(trip_data)
 ```
-```r
+```{r}
  [1] "ride_id"            "rideable_type"      "started_at"         "ended_at"           "start_station_name" "start_station_id"  
  [7] "end_station_name"   "end_station_id"     "start_lat"          "start_lng"          "end_lat"            "end_lng"           
 [13] "member_casual"     
 ```
-```r
+```{r}
 names(trip_data)
 ```
-```r
+```{r}
  [1] "ride_id"            "rideable_type"      "started_at"         "ended_at"           "start_station_name" "start_station_id"  
  [7] "end_station_name"   "end_station_id"     "start_lat"          "start_lng"          "end_lat"            "end_lng"           
 [13] "member_casual"     
