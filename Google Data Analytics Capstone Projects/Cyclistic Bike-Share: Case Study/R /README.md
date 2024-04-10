@@ -2557,9 +2557,10 @@ trip_data_updated %>%
 
 </td></tr> </table>
 
++ The table highlights intriguing patterns in user numbers for both casual and member users over the course of the week.
 + Casual users tend to peak in rides on **Saturdays (390,879 rides)**, indicating a preference for leisure or recreational activities during weekends. Conversely, their lowest ride count is on **Mondays (224,302 rides)**, reflecting decreased usage at the beginning of the week after the weekend rush.
 + Member users, on the other hand, show their highest ride count on **Thursdays (562,529 rides)**, suggesting a focus on commuting during weekdays. Similarly, their lowest ride count is on **Sundays (390,079 rides)**, following the trend of decreased usage at the end of the weekend.
-+ Both casual and member users exhibit lower usage at the beginning of the week, with casual users showing the lowest usage on Mondays and member users showing the lowest usage on Sundays. This decrease in usage could be attributed to the transition from the weekend to weekdays.
++ Both casual and member users exhibit lower usage at the beginning of the week, with casual users showing the lowest usage on Mondays and member users showing the lowest usage on Sundays. This decrease in usage could be attributed to the transition from the weekends to weekdays.
 
 #### Weekly Average Ride Length (minutes)
 
@@ -2609,13 +2610,13 @@ trip_data_updated %>%
 
 </td></tr> </table>
 
++ The table displays the fluctuations in average ride durations according to user type and day of the week.
 + Casual users typically enjoy longer typical ride durations compared to member users throughout the week. Although, Sundays stand out as the day with the longest typical ride durations for both casual and member users.
 + For casual users, this trend supports the notion of weekend leisure or recreational activities, with **Sundays** recording the lengthiest rides at **24.58 minutes**.
 + Conversely, member users also exhibit longer rides on **Sundays (13.79 minutes)**, suggesting a potential overlap in non-commuting usage during weekends.
 + Transitioning from the weekends to weekdays, **Wednesdays (18.04 minutes)** mark the lowest typical ride durations for casual users, indicating a shift towards shorter trips during the middle of the week.
 + However, member users experience their shortest rides on **Mondays (11.72 minutes)**, possibly indicating a return to routine commuting after the weekend.
 + Overall, both user groups display a pattern of shorter ride durations during weekdays, likely influenced by commuting needs or time constraints.
-
 
 #### Weekly Average Ride Distance (miles)
 
@@ -2666,11 +2667,11 @@ trip_data_updated %>%
 
 </td></tr> </table>
 
++ The table provides insights into the usage patterns of casual and member users throughout the week, comparing average ride distances.
 + Casual users typically enjoy slightly longer distances per ride compared to member users throughout the week.
 + **Saturdays** stand out for both user groups, with casual users covering the longest distance per ride **(1.42 miles)** and member users closely following with **1.40 miles**. This suggests a preference for longer rides on weekends, potentially for leisure or recreational purposes.
 + Conversely, both user groups cover shorter distances per ride during weekdays. Casual users' shortest rides occur on **Wednesdays (1.30 miles)**, while member users' shortest rides are on **Mondays (1.30 miles)**, indicating a trend towards shorter rides at the beginning of the week.
 + Overall, distances covered per ride remain relatively consistent during weekdays for both casual and member users, likely reflecting commuting or transportation needs."
-
 
 --------------------------------------
 
