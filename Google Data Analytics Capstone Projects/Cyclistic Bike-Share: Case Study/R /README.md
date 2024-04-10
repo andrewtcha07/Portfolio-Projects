@@ -1691,9 +1691,9 @@ trip_data %>%
 | Wells St & Concord Ln              | 36950   |
 | Kingsbury St & Kinzie St           | 36251   |
 | Clark St & Lincoln Ave             | 36176   |
-```{r}
-1-8 of 1,593 rows
-```
+
+`1-8 of 1,593 rows`
+
 + Counting the number of rides per `start_station_id` and arranging them in descending order.
 ```{r}
 trip_data %>% 
@@ -1713,9 +1713,9 @@ trip_data %>%
 | 13179                  | 36176   |
 | WL-012                 | 36017   |
 | TA1308000001           | 34643   |
-```{r}
-1-8 of 1,517 rows
-```
+
+`1-8 of 1,517 rows`
+
 + Counting the number of rides per `end_station_name` and arranging them in descending order.
 ```{r}
 trip_data %>% 
@@ -1733,9 +1733,9 @@ trip_data %>%
 | Clark St & Lincoln Ave             | 36350   |
 | Clark St & Elm St                  | 35835   |
 | Kingsbury St & Kinzie St           | 35803   |
-```{r}
-1-8 of 1,598 rows
-```
+
+`1-8 of 1,598 rows`
+
 + Counting the number of rides per `end_station_id` and arranging them in descending order.
 ```{r}
 trip_data %>% 
@@ -1753,9 +1753,9 @@ trip_data %>%
 | 13179                | 36350   |
 | TA1307000039         | 35835   |
 | KA1503000043         | 35803   |
-```{r}
-1-8 of 1,521 rows
-```
+
+`1-8 of 1,521 rows`
+
 + Counting the number of rides for `start_station_name` containing 'test', 'warehouse', or 'charging station'.
 ```{r}
 trip_data %>% filter(
