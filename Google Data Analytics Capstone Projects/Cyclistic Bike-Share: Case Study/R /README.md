@@ -3571,14 +3571,6 @@ trip_data_updated %>%
 
 --------------------------------------
 
-### Map Trends
-
-#### Most Used Routes by Casual Riders
-
-#### Most Used Routes by Member Riders
-
---------------------------------------
-
 ### **Summary of the Analysis**
 This analysis provides critical insights into the behavior and preferences of Cyclistic's casual and member users. Leveraging this understanding, Cyclistic can better meet its needs and enhance its marketing strategies
 
