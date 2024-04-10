@@ -3280,6 +3280,11 @@ trip_data_updated %>%
 
 </td></tr> </table>
 
++ The table depicts the monthly ride usage for casual and member users over a span of 12 months.
++ Casual users exhibit the highest ride counts during the summer months, peaking in **July** with **316,555 rides** while experiencing the lowest usage in **January** with only **38,204 rides**. This trend suggests that casual users primarily utilize the bike-sharing service for leisure or recreational purposes during warmer months, opting for alternative transportation methods during colder periods.
++ Similarly, member users also demonstrate the highest ride counts during the summer months, reaching a peak in **August** with **439,658 rides**. The lowest ride counts occur during the winter months, with **February** registering the least usage at **140,067 rides**. However, member users maintain relatively consistent usage throughout the year, suggesting a stable demand regardless of seasonal variations, which could indicate a diverse range of usage purposes beyond solely commuting.
++ While both user groups display decreased usage during the winter months, member users demonstrate a higher level of usage compared to casual users throughout the months.
+
 #### Monthly Average Ride Length (minutes)
 
 ```{r}
@@ -3341,6 +3346,11 @@ trip_data_updated %>%
 | member          | December    | 11.00 minutes             |
 
 </td></tr> </table>
+
++ The table presents the monthly average ride duration for both casual and member users over the course of a year.
++ Among casual users, the longest rides are observed during the summer months, peaking in **July** at **23.25 minutes**, while the shortest rides occur in January during winter, with an average duration of 13.91 minutes. This trend highlights the preference of casual users for utilizing the service for leisure or recreational purposes more frequently in warmer months than in winter.
++ Similarly, member users also experience longer rides during the summer months, reaching a peak in **July** at **13.51 minutes**, and their shortest rides occur in **January** during winter, with an average duration of **10.41 minutes**, mirroring the pattern observed among casual users. + This suggests that member users' riding habits may differ from casual users due to factors such as commuting needs or habit consistency, resulting in shorter average ride durations.
++ Both user groups consistently demonstrate shorter ride durations during the winter months and longer durations in the summer months, showcasing the significant impact of weather conditions and seasonal fluctuations on their riding habits. Furthermore, casual users consistently maintain longer ride durations compared to member users across all months.
 
 #### Monthly Average Ride Distance (miles)
 
@@ -3405,6 +3415,11 @@ trip_data_updated %>%
 | member          | December    | 1.20 miles                  |
 
 </td></tr> </table>
+
++ The table presents monthly average ride distance data for casual and member users over 12 months.
++ For casual users, the longest average ride distances occur during the summer months, peaking in **June (1.43 miles)**, while the shortest average is recorded in **January (1.06 miles)**. This suggests that longer bike rides may be associated with leisure and recreational usage during the summer months, as warmer weather conditions are more conducive to outdoor activities.
++ Similarly, member users also exhibit longer average ride distances during the summer months, with peaks in both **June (1.44 miles)** and **July (1.44 miles)**, and the shortest average occurring in **January (1.13 miles)**. This indicates that members may take advantage of the warmer weather to embark on longer rides, potentially explore new routes or destinations, enjoy recreational outings, or participate in outdoor events.
++ While both user groups generally show shorter average ride distances during the winter months, which may be attributed to weather conditions or commuting needs, member users consistently demonstrate longer average ride distances compared to casual users across most months.
 
 --------------------------------------
 
