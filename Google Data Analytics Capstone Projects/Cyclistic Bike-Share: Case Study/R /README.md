@@ -3455,6 +3455,11 @@ trip_data_updated %>%
 
 </td></tr> </table>
 
++ This table showcases the quarterly number of rides for casual and member users.
++ Casual users experience the highest number of rides in the **3rd quarter (July-September)** at **861,959 rides**, while their lowest number of rides occurs in the **1st quarter (January-March)** at **138,591 rides**. These fluctuations may be influenced by weather and seasonal conditions, as the 3rd quarter falls in the summer months, while the 1st quarter corresponds to the winter months.
++ Similarly, member users also have their highest number of rides in the **3rd quarter**, totaling **1,245,624**, with the lowest number occurring in the **1st quarter** at **469,922**. This pattern aligns with casual users and may be attributed to similar seasonal factors.
++ Despite these similarities, member users consistently maintain higher ride numbers compared to casual users. This could be attributed to the fact that member users are more likely to use bike-sharing services for commuting purposes, which may be less affected by weather conditions compared to casual users who primarily use the service for leisure or recreational purposes.
+
 #### Quarterly Average Ride Length (minutes)
 
 ```{r}
@@ -3484,6 +3489,11 @@ trip_data_updated %>%
 | 4             | member          | 11.39 minutes             |
 
 </td></tr> </table>
+
++ The table presents the quarterly average ride lengths of casual and member users.
++ Casual users experience the longest average ride length during the **3rd quarter**, with rides lasting **22.48 minutes**, while the shortest duration occurs in the **1st quarter**, averaging **15.32 minutes**. These findings support the notion that casual users prefer the summer months, potentially indicating leisure or recreational usage during this season. Conversely, casual users tend to ride less frequently during the winter months, leading to shorter average ride durations.
++ Similarly, member users also display a comparable pattern, with the longest average ride length observed in the **3rd quarter** at **13.29 minutes** and the shortest in the **1st quarter** at **10.57 minutes**. This suggests that seasonal conditions influence ride durations for both user groups.
++ While both casual and member users exhibit similar seasonal trends, casual users consistently demonstrate higher average ride lengths across all quarters compared to members. This difference could potentially be attributed to the idea that casual users approach bike usage with a more leisurely or recreational mindset, resulting in longer rides.
 
 #### Quarterly Average Ride Distance (miles)
 
@@ -3517,6 +3527,11 @@ trip_data_updated %>%
 
 </td></tr> </table>
 
++ The table presents quarterly average ride distances for casual and member users.
++ Casual users exhibit the longest average ride distance in the **3rd quarter**, reaching **1.40 miles**, while the shortest distance occurs in the **1st quarter**, measuring **1.12 miles**. These findings align with the peak summer season and favorable weather conditions, suggesting that casual users are more inclined to engage in longer rides during this period.
++ Similarly, member users also demonstrate a comparable pattern, with the longest average ride distances observed in the **3rd quarter** at **1.42 miles** and the shortest distances in the **1st quarter** at **1.16 miles**. This further supports the notion that ride distances for both user groups are influenced by seasonal and weather conditions.
++ Although both user groups show similar patterns in average ride distances, member users consistently have slightly longer averages across all quarters. This suggests that members may utilize the bike-sharing service for more practical purposes, potentially involving longer commutes or transportation needs.
+
 --------------------------------------
 
 ### Rideable Trends
@@ -3547,6 +3562,13 @@ trip_data_updated %>%
 
 </td></tr> </table>
 
++ The table presents an analysis of bike preferences among both casual and member users.
++ Among casual users, the most popular rideable type is the **electric_bike**, with **1,043,904 rides**, followed by the **classic_bike** with **843,957 rides**, and the **docked_bike** with **74,850 rides**.
++ Casual users exhibit a preference for electric bikes, possibly due to their convenience and ease of use, especially for leisure or recreational rides.
++ Conversely, among member users, the most preferred rideable type is the **classic_bike**, with **1,754,117 rides**, closely followed by the **electric_bike** with **1,742,263 rides**.
++ Member users also favor both classic bikes and electric bikes, which could be attributed to their commuting needs or cost considerations, as membership plans often provide cost reductions.
++ The docked bike option seems to have the lowest preference among both user groups. This may be attributed to the hassle of returning the bike to a docking station, which might not align with the flexibility and convenience users seek.
+
 --------------------------------------
 
 ### Map Trends
@@ -3556,6 +3578,9 @@ trip_data_updated %>%
 #### Most Used Routes by Member Riders
 
 --------------------------------------
+
+### **Summary of the Analysis**
+This analysis provides critical insights into the behavior and preferences of Cyclistic's casual and member users. Leveraging this understanding, Cyclistic can better meet its needs and enhance its marketing strategies
 
 ### Key Tasks
 - [x]  Aggregate your data so it’s useful and accessible.
