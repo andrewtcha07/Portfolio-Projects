@@ -1344,9 +1344,8 @@ trip_data[is.na(start_station_name),]
 | 6FFD201EBB80C87C | electric_bike       | 2023-01-16 01:43:52      | 2023-01-16 01:52:02    | NA                       | NA                     | Clark St & Elmdale Ave    | KA1504000148         | 42.00           | -87.68          | 41.99086      | -87.66972     | member              |
 | 1CBF19453B2A188A | electric_bike       | 2023-01-03 18:00:00      | 2023-01-03 18:21:49    | NA                       | NA                     | Hampden Ct & Diversey Ave | 202480.0             | 41.90           | -87.63          | 41.93000      | -87.64000     | member              |
 
-```{r}
-1-6 of 875,716 rows
-```
+`1-6 of 875,716 rows`
+
 + Displaying rows where `start_station_id` is (**na**).
 ```{r}
 trip_data[is.na(start_station_id),]
@@ -1360,9 +1359,8 @@ trip_data[is.na(start_station_id),]
 | 6FFD201EBB80C87C | electric_bike       | 2023-01-16 01:43:52      | 2023-01-16 01:52:02    | NA                       | NA                     | Clark St & Elmdale Ave    | KA1504000148         | 42.00           | -87.68          | 41.99086      | -87.66972     | member              |
 | 1CBF19453B2A188A | electric_bike       | 2023-01-03 18:00:00      | 2023-01-03 18:21:49    | NA                       | NA                     | Hampden Ct & Diversey Ave | 202480.0             | 41.90           | -87.63          | 41.93000      | -87.64000     | member              |
 
-```{r}
-1-6 of 875,848 rows
-```
+`1-6 of 875,848 rows`
+
 + Displaying rows where `end_station_name` is (**na**).
 ```{r}
 trip_data[is.na(end_station_name),]
@@ -1376,9 +1374,8 @@ trip_data[is.na(end_station_name),]
 | E001B905A293D938 | electric_bike       | 2023-01-31 05:27:52      | 2023-01-31 05:33:27    | Indiana Ave & Roosevelt Rd | SL-005                 | NA                     | NA                   | 41.86797        | -87.62312       | 41.87         | -87.64        | casual              |
 | E9764CD7AB7E133B | electric_bike       | 2023-01-25 19:08:59      | 2023-01-25 19:14:26    | Broadway & Waveland Ave    | 13325                  | NA                     | NA                   | 41.94909        | -87.64855       | 41.95         | -87.66        | member              |
 
-```{r}
-1-6 of 929,202 rows
-```
+`1-6 of 929,202 rows`
+
 + Displaying rows where `end_station_id` is (**na**).
 ```{r}
 trip_data[is.na(end_station_id),]
@@ -1392,9 +1389,8 @@ trip_data[is.na(end_station_id),]
 | E001B905A293D938 | electric_bike       | 2023-01-31 05:27:52      | 2023-01-31 05:33:27    | Indiana Ave & Roosevelt Rd | SL-005                 | NA                     | NA                   | 41.86797        | -87.62312       | 41.87         | -87.64        | casual              |
 | E9764CD7AB7E133B | electric_bike       | 2023-01-25 19:08:59      | 2023-01-25 19:14:26    | Broadway & Waveland Ave    | 13325                  | NA                     | NA                   | 41.94909        | -87.64855       | 41.95         | -87.66        | member              |
 
-```{r}
-1-6 of 929,343 rows
-```
+`1-6 of 929,343 rows`
+
 + Displaying rows where `start_lat` is (**na**).
 ```{r}
 trip_data[is.na(start_lat),]
@@ -1422,9 +1418,8 @@ trip_data[is.na(end_lat),]
 | 45125F6E88AD0535 | docked_bike         | 2023-01-07 12:52:32      | 2023-01-08 06:47:21    | New St & Illinois St       | TA1306000013           | NA                     | NA                   | 41.89085        | -87.61862       | NA            | NA            | casual              |
 | CFD822F52941BDFF | classic_bike        | 2023-01-19 08:30:10      | 2023-01-20 09:30:04    | Ogden Ave & Race Ave       | 13194                  | NA                     | NA                   | 41.89180        | -87.65875       | NA            | NA            | casual              |
 
-```{r}
-1-6 of 6,990 rows
-```
+`1-6 of 6,990 rows`
+
 + Displaying rows where `end_lng` is (**na**).
 ```{r}
 trip_data[is.na(end_lng),]
@@ -1438,9 +1433,8 @@ trip_data[is.na(end_lng),]
 | 45125F6E88AD0535 | docked_bike         | 2023-01-07 12:52:32      | 2023-01-08 06:47:21    | New St & Illinois St       | TA1306000013           | NA                     | NA                   | 41.89085        | -87.61862       | NA            | NA            | casual              |
 | CFD822F52941BDFF | classic_bike        | 2023-01-19 08:30:10      | 2023-01-20 09:30:04    | Ogden Ave & Race Ave       | 13194                  | NA                     | NA                   | 41.89180        | -87.65875       | NA            | NA            | casual              |
 
-```{r}
-1-6 of 6,990 rows
-```
+`1-6 of 6,990 rows`
+
 + Displaying rows where `member_casual` is (**na**).
 ```{r}
 trip_data[is.na(member_casual),]
