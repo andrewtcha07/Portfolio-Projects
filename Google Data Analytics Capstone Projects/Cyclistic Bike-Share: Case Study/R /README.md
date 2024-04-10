@@ -2748,6 +2748,12 @@ trip_data_updated %>%
 
 </td></tr> </table>
 
++ The table showcases the hourly ride frequencies for casual and member users on Mondays, revealing unique usage patterns and demand disparities between the user categories across the day.
++ Casual users show a peak ride count at **5 PM** with **23,473 rides**, indicating a preference for late afternoon rides, likely for recreation. Conversely, their lowest ride count is at **4 AM** with **707 rides**, reflecting reduced bike usage during late night and early morning hours.
++ Member users also exhibit a peak ride count at **5 PM** with **56,037 rides**, suggesting a preference for late afternoon rides, possibly for commuting. Their lowest ride count is at **3 AM** with **771 rides**, aligning with the pattern of reduced usage during late night and early morning hours.
++ Both casual and member users share a common trend of peak bike usage around late afternoon, indicating a universal preference for this time regardless of user type. 
++ This preference may be influenced by factors such as favorable weather conditions and leisure time post-work.
+
 #### Tuesday Hourly Bike Demands
 
 ```{r}
@@ -2818,6 +2824,13 @@ trip_data_updated %>%
 | Tuesday           | 23         | member          | 5783             |
 
 </td></tr> </table>
+
++ The table illustrates the hourly ride frequencies for both casual and member users on Tuesday, highlighting distinct usage patterns and demand variances between the user categories throughout the day.
++ Casual users show the highest ride count at **5 PM**, totaling **27,417 rides**, indicating a preference for late afternoon rides, potentially for leisure or recreation. Conversely, their lowest ride count occurs at **3 AM**, with only **515 rides**, suggesting a notable decline in bike usage during late night and early morning hours, as anticipated.
++ Similarly, member users also exhibit their peak ride count at **5 PM**, with **68,247 rides**, echoing the trend observed among casual users and indicating a preference for late afternoon rides, likely for commuting purposes. Their lowest ride count is recorded at **3 AM**, totaling **604 rides**, aligning with the observed pattern of reduced bike usage during late night and early morning hours.
++ Both casual and member users demonstrate a surge in bike usage during the late afternoon, indicating a shared preference for this time regardless of user type.
++ Several factors contribute to this trend, including favorable weather conditions, leisure time post-work, and commuting needs. 
++ Reduced bike usage during late night and early morning hours persists across user types, possibly influenced by diminished visibility, maintenance schedules, and security considerations around biking at night.
 
 #### Wednesday Hourly Bike Demands
 
@@ -2890,6 +2903,13 @@ trip_data_updated %>%
 
 </td></tr> </table>
 
++ The table presents hourly ride frequencies for both casual and member users on Wednesday, highlighting distinct usage patterns and demand variations between the user categories throughout the day.
++ Casual users demonstrate the highest ride count at **5 PM (28,554 rides)**, suggesting a preference for late afternoon rides, possibly for leisure or recreation. Their ride count drops significantly at **3 AM (565 rides)**, indicating reduced bike usage during late night and early morning hours.
++ Member users also peak at **5 PM (68,364 rides)**, mirroring the trend seen among casual users and indicating a preference for late afternoon rides, potentially for commuting. At **3 AM (605 rides)**, their ride count decreases aligning with the observed pattern of reduced bike usage during late night and early morning hours.
++ Both casual and member users exhibit a peak in bike usage around late afternoon on Wednesday, emphasizing a shared preference for this time regardless of user type.
++ Contributing factors to this peak in bike usage during late afternoon hours may include favorable weather conditions, post-work leisure time, and commuting needs. 
++ Consistent with safety considerations and limited transportation options, reduced bike usage persists during late night and early morning hours across user types.
+
 #### Thursday Hourly Bike Demands
 
 ```{r}
@@ -2960,6 +2980,12 @@ trip_data_updated %>%
 | Thursday          | 23         | member          | 8620             |
 
 </td></tr> </table>
+
++ The provided table details the hourly usage patterns of both casual and member users on Thursday, delineating notable differences in ride frequencies between the two user categories throughout the day.
++ Casual users exhibit the highest ride count, at **5 PM** totaling **29,436 rides**, indicating a preference for late afternoon rides, potentially for recreational purposes. Conversely, their lowest ride count, **552 rides**, is recorded at **4 AM**, implying decreased bike usage during the late night and early morning hours.
++ Member users also peak at **5 PM** with **66,308 rides**, mirroring the trend observed among casual users and suggesting a preference for late afternoon rides, likely for commuting reasons. Their lowest ride count, **677 rides**, is observed at **3 AM**, aligning with the trend of reduced bike usage during late night and early morning hours.
++ Both casual and member users display a notable increase in bike usage during the late afternoon on Thursday, reflecting a collective preference for this time regardless of user type.
++ Consistently lower bike usage during late night and early morning hours across user types may imply a diminished demand for transportation during those specific times, possibly reflecting fewer individuals commuting or participating in leisure activities.
 
 #### Friday Hourly Bike Demands
 
@@ -3032,6 +3058,13 @@ trip_data_updated %>%
 
 </td></tr> </table>
 
++ The provided table showcases the hourly utilization patterns of both casual and member users on Friday, revealing notable fluctuations in ride frequencies between the two user groups throughout the day.
++ Casual users reach their peak ride count at **5 PM**, logging **29,007 rides**, indicating a preference for late afternoon biking, possibly for recreational purposes. Conversely, their lowest ride tally, **702 rides**, occurs at **4 AM**, suggesting decreased bike usage during the early morning hours.
++ Similarly, member users also hit their peak at **5 PM** with **50,857 rides**, echoing the trend observed among casual users and suggesting a preference for late afternoon rides, potentially for commuting. Their lowest ride count is at **3 AM** with **980 rides**, aligning with the pattern of reduced bike usage during the late night and early morning hours.
++ Friday witnesses a surge in bike usage during the late afternoon for both casual and member users, underscoring a shared preference for this time slot regardless of user type.
++ Factors such as favorable weather conditions, opportunities for post-work leisure, and commuting demands likely contribute to the increase in bike usage during late afternoon hours on Fridays.
++ The consistent trend of reduced bike usage during late night and early morning hours persists across user types on Fridays, possibly due to a higher likelihood of individuals working remotely or having flexible schedules, leading to fewer commuting trips and overall outdoor activity.
+
 #### Saturday Hourly Bike Demands
 
 ```{r}
@@ -3103,6 +3136,13 @@ trip_data_updated %>%
 
 </td></tr> </table>
 
++ The table illustrates hourly ride frequencies for casual and member users on Saturday, emphasizing significant variations throughout the day.
++ Casual users peak at **3 PM** with **32,646 rides**, implying a preference for afternoon biking, possibly for recreational purposes. Conversely, their lowest ride count is recorded at **4 AM**, totaling **1,028 rides**, indicating a decline in bike usage during the early hours of the morning.
++ Member users also experience their highest ride count at **12 PM**, totaling **33,936 rides**, reflecting the trend seen among casual users and indicating a preference for midday rides, potentially for leisure or commuting. Similarly, their lowest ride count coincides with casual users at **4 AM**, totaling **1,104 rides**, aligning with the observed pattern of reduced bike usage during late-night and early morning hours.
++ Both casual and member users demonstrate a peak in bike usage during Saturday afternoons, suggesting a mutual preference for this time regardless of user type.
++ Increased bike usage during Saturday afternoons may be influenced by factors such as weekend events and social gatherings.
++ The consistent decline in bike usage during late-night and early-morning hours on Saturdays suggests a widespread trend of increased reliance on alternative transportation options, potentially due to extended social engagements and late-night entertainment activities.
+
 #### Sunday Hourly Bike Demands
 
 ```{r}
@@ -3173,6 +3213,13 @@ trip_data_updated %>%
 | Sunday            | 23         | member          | 5176             |
 
 </td></tr> </table>
+
++ The table illustrating hourly ride usage for casual and member users on Sunday reveals distinct usage patterns, indicating significant differences in ride frequencies between the two user categories throughout the day.
+Casual users reach their highest ride count at **3 PM**, totaling **29,047 rides**, suggesting a preference for afternoon biking, potentially for leisure activities or enjoyment.
++ Similarly, member users also reach their peak ride count at **3 PM**, totaling **31,925 rides**, echoing the trend observed among casual users and suggesting a preference for midday rides, potentially for leisurely outings or recreational purposes. Correspondingly, their lowest ride count is at **4 AM**, totaling **1,505 rides**, aligning with the decrease in bike usage during late-night and early-morning hours.
++ Both casual and member users demonstrate a peak in bike usage during Sunday afternoons, suggesting a shared preference for this time, possibly as it marks the end of the week, regardless of user type.
++ The heightened demand for bike rides on Sunday afternoons may be fueled by the necessity to run errands or participate in various activities typical of the end of the week.
++ A decline in bike usage during the late-night and early morning hours on Sundays may also stem from individuals' diverse weekend routines, which frequently involve indoor activities or engagements that do not require outdoor transportation. Additionally, people may utilize alternative modes of transportation or choose to remain indoors, contributing to the decreased demand for biking during these hours.
 
 --------------------------------------
 
