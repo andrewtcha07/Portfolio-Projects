@@ -50,36 +50,36 @@ The analysis will address these key questions:
 + Each CSV file consists of 13 columns.
 
 ### Metadata
-| File Name | Data Size |
-| ------------------------- | ------- |
-| 202301-divvy-tripdata.csv | 38.5 MB |
-| 202303-divvy-tripdata.csv | 52.3 MB |
-| 202304-divvy-tripdata.csv | 85.8 MB |
-| 202305-divvy-tripdata.csv | 121.8 MB |
-| 202306-divvy-tripdata.csv | 144.4 MB |
-| 202307-divvy-tripdata.csv | 153.9 MB |
-| 202308-divvy-tripdata.csv | 155.1 MB |
-| 202309-divvy-tripdata.csv | 134.2 MB |
-| 202310-divvy-tripdata.csv | 107.9 MB |
-| 202311-divvy-tripdata.csv | 73 MB |
-| 202312-divvy-tripdata.csv | 45 MB |
+| File Name                 | Data Size |
+|---------------------------|-----------|
+| 202301-divvy-tripdata.csv | 38.5 MB   |
+| 202303-divvy-tripdata.csv | 52.3 MB   |
+| 202304-divvy-tripdata.csv | 85.8 MB   |
+| 202305-divvy-tripdata.csv | 121.8 MB  |
+| 202306-divvy-tripdata.csv | 144.4 MB  |
+| 202307-divvy-tripdata.csv | 153.9 MB  |
+| 202308-divvy-tripdata.csv | 155.1 MB  |
+| 202309-divvy-tripdata.csv | 134.2 MB  |
+| 202310-divvy-tripdata.csv | 107.9 MB  |
+| 202311-divvy-tripdata.csv | 73 MB     |
+| 202312-divvy-tripdata.csv | 45 MB     |
 
 ### Data Dictionary
-| No. | Column Name | Data Type | Description |
-| :--- | :--- | :--- | :--- |
-| 1 | ride_id | Text | Unique identifier for each trip. |
-| 2 | rideable_type | Text | Type of rideable bike (e.g., classic, docked, electric). |
-| 3 | started_at | Date/Time | Timestamp indicating when the trip started. |
-| 4 | ended_at | Date/Time | Timestamp indicating when the trip ended. |
-| 5 | start_station_name | Text | Name of the station where the trip started. |
-| 6 | start_station_id | Text | Unique identifier for the station where the trip started. |
-| 7 | end_station_name | Text | Name of the station where the trip ended. |
-| 8 | end_station_id | Text | Unique identifier for the station where the trip ended. |
-| 9 | start_lat | Decimal Number | Latitude of the starting location. |
-| 10 | start_lng | Decimal Number | Longitude of the starting location. |
-| 11| end_lat | Decimal Number | Latitude of the ending location. |
-| 12 | end_lng | Decimal Number | Longitude of the ending location. |
-| 13 | member_casual | Text | Type of user (e.g., casual, member). |
+| No. | Column Name        | Data Type      | Description                                               |
+|:----|:-------------------|:---------------|:----------------------------------------------------------|
+| 1   | ride_id            | Text           | Unique identifier for each trip.                          |
+| 2   | rideable_type      | Text           | Type of rideable bike (e.g., classic, docked, electric).  |
+| 3   | started_at         | Date/Time      | Timestamp indicating when the trip started.               |
+| 4   | ended_at           | Date/Time      | Timestamp indicating when the trip ended.                 |
+| 5   | start_station_name | Text           | Name of the station where the trip started.               |
+| 6   | start_station_id   | Text           | Unique identifier for the station where the trip started. |
+| 7   | end_station_name   | Text           | Name of the station where the trip ended.                 |
+| 8   | end_station_id     | Text           | Unique identifier for the station where the trip ended.   |
+| 9   | start_lat          | Decimal Number | Latitude of the starting location.                        |
+| 10  | start_lng          | Decimal Number | Longitude of the starting location.                       |
+| 11  | end_lat            | Decimal Number | Latitude of the ending location.                          |
+| 12  | end_lng            | Decimal Number | Longitude of the ending location.                         |
+| 13  | member_casual      | Text           | Type of user (e.g., casual, member).                      |
 
 > [!NOTE]
 > **Further Information**
