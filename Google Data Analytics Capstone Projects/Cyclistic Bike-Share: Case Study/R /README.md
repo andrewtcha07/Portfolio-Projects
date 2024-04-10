@@ -1781,9 +1781,9 @@ trip_data %>% filter(
 |--------------------------|---------|
 | OH - BONFIRE - TESTING   | 1       |
 | OH Charging Stx - Test   | 21      |
-```{r}
-2 rows
-```
+
+`2 rows`
+
 + Counting the number of rides for `start_station_id` containing 'test', 'warehouse', or 'charging station'.
 ```{r}
 trip_data %>% filter(
@@ -1817,9 +1817,9 @@ trip_data %>% filter(
 | chargingstx3                        | 6718    |
 | chargingstx4                        | 9644    |
 | chargingstx5                        | 8583    |
-```{r}
-10 rows
-```
+
+`10 rows`
+
 + Counting the number of rides for `end_station_name` containing 'test', 'warehouse', or 'charging station'.
 ```{r}
 trip_data %>% filter(
@@ -1883,9 +1883,8 @@ trip_data %>% filter(
 | chargingstx3                         | 12864   |
 | chargingstx4                         | 9991    |
 | chargingstx5                         | 8741    |
-```{r}
-12 rows
-```
+
+`12 rows`
 
 #### Cleansing and Filtering Operations
 + Filtering out rides with durations outside the range of 1 minute (60 seconds) to 1440 minutes (24 hours) and storing the filtered data in a newly updated data frame called `trip_data_updated`.
