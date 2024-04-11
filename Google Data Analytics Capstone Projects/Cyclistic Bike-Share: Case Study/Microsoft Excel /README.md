@@ -607,7 +607,7 @@ This analysis uncovers valuable insights into the behaviors, trends, and prefere
 #### **Summary of User Type Trends**
 The analysis of "**User Type Trends**" provides a comprehensive understanding of the dynamics within Cyclistic's user community. The analysis indicates:
 + **Casual User Behavior**: Approximately **35%** of Cyclistic's user base consists of casual users. They tend to prefer longer rides, resulting in slightly longer average ride durations and distances. Casual users typically utilize Cyclistic bikes for recreational purposes, city exploration, or leisurely rides. Their usage patterns, preferences, and motivations may differ from those of members.
-+ **Member Users Behavior**: Around **65%** of Cyclistic's users are members who exhibit consistent usage patterns, characterized by shorter average ride durations and distances. Members are likely regular users of the Cyclistic service, often employing it for daily commuting or routine transportation needs. Their approach to using Cyclistic bikes is more purposeful and focused.
++ **Member User Behavior**: Around **65%** of Cyclistic's users are members who exhibit consistent usage patterns, characterized by shorter average ride durations and distances. Members are likely regular users of the Cyclistic service, often employing it for daily commuting or routine transportation needs. Their approach to using Cyclistic bikes is more purposeful and focused.
 #### **Key Questions**:
 1. **How do annual members and casual riders use Cyclistic bikes differently?**
    - Casual riders tend to have longer average ride durations and distances compared to members.
@@ -634,8 +634,8 @@ The user-type trend data provides valuable insights into the behaviors, preferen
 
 #### **Summary of Hourly Trends**
 The analysis of "**Hourly Trends**" data reveals distinct utilization patterns among casual and member users throughout the day. While both user types exhibit peaks in usage during certain hours, variations in ride counts, average ride lengths, and durations provide valuable insights into user behavior and preferences. Several crucial observations can be recognized:
-+ **Casual Users Behavior**: Casual riders exhibit diverse usage patterns, with varying ride volumes, distances, and durations throughout the day. They often engage in longer rides, indicating a more leisurely and exploratory approach to bike usage. Casual users may use the service for recreational purposes, sightseeing, or occasional transportation needs.
-+ **Member Users Behavior**: Annual member users demonstrate more consistent and predictable usage patterns. They tend to have shorter ride durations, suggesting a more purposeful and efficient approach to bike usage. Member users are likely to use the service for regular commuting, daily transportation needs, or planned activities.
++ **Casual User Behavior**: Casual riders exhibit diverse usage patterns, with varying ride volumes, distances, and durations throughout the day. They often engage in longer rides, indicating a more leisurely and exploratory approach to bike usage. Casual users may use the service for recreational purposes, sightseeing, or occasional transportation needs.
++ **Member User Behavior**: Annual member users demonstrate more consistent and predictable usage patterns. They tend to have shorter ride durations, suggesting a more purposeful and efficient approach to bike usage. Member users are likely to use the service for regular commuting, daily transportation needs, or planned activities.
 #### **Key Questions**
 1. **How do annual members and casual riders use Cyclistic bikes differently?**
    - Annual members tend to use Cyclistic bikes consistently throughout the day for shorter, purposeful rides, likely for daily commuting or regular transportation needs.
