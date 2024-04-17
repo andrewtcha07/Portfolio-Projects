@@ -22,23 +22,27 @@ install.packages("readr")
 install.packages("dplyr")
 install.packages("lubridate")
 install.packages("tidyr")
-install.packages("ggmap")
 install.packages("ggplot2")
 install.packages("geosphere")
 install.packages("skimr")
+install.packages("leaflet")
+install.packages("htmltools")
+install.packages("leaflet.extras")
 ```
 > [!NOTE]
 >**Further Information on R Packages**
 > + `tidyverse`: Comprehensive suite of R packages for efficient data science workflows.
 > + `janitor`: Simplifies data cleaning and tidying tasks.
-> + `readr`: Fast and user-friendly package for reading data into R.
+> + `readr`: Fast and user-friendly package for reading data.
 > + `dplyr`: Essential package for intuitive data manipulation.
 > + `lubridate`: Facilitates easy handling of date-time data.
 > + `tidyr`: Simplifies data tidying and reshaping tasks.
-> + `ggmap`: Enables visualization of spatial data and creation of maps.
 > + `ggplot2`: Powerful package for creating high-quality visualizations.
 > + `geosphere`: Provides functions for computing distances and areas on Earth's surface.
 > + `skimr`: Generates informative summaries and visualizations for data frames.
+> + `leaflet`: Allows creation of interactive maps.
+> + `htmltools`: Offers utilities for working with HTML content in R.
+> + `leaflet.extras`: Extends leaflet with additional features for interactive map creation.
 
 #### Loading Packages
 ```{r}
@@ -48,10 +52,12 @@ library(readr)
 library(dplyr)
 library(lubridate)
 library(tidyr)
-library(ggmap)
 library(ggplot2)
 library(geosphere)
 library(skimr)
+library(leaflet)
+library(htmltools)
+library(leaflet.extras)
 ```
 
 #### Importing Data Files and Creating Data Frame
