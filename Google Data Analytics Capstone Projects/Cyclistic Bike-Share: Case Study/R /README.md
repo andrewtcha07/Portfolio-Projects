@@ -3758,8 +3758,9 @@ The analysis provides a comprehensive perspective on bike demand patterns and ho
 
 ### **Map Trends**
 
-![7 0 Interactive Map](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/17365be9-8a0f-4dfa-8d96-ce46bf097b05)
-
+[![7 0 Interactive Map](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/17365be9-8a0f-4dfa-8d96-ce46bf097b05)](https://htmlview.glitch.me/?https://github.com/chaanalyst/Portfolio-Projects/blob/main/Google%20Data%20Analytics%20Capstone%20Projects/Cyclistic%20Bike-Share%3A%20Case%20Study/R%20/Interactive-Map/interactive_map.html)
+> [!NOTE]
+> Click on the image to check out the interactive map.
 
 #### **Summary of Map Trends**
 
