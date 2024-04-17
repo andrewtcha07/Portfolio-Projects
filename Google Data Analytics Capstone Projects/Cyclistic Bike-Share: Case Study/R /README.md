@@ -3758,9 +3758,8 @@ The analysis provides a comprehensive perspective on bike demand patterns and ho
 
 ### **Map Trends**
 
-![7 1 Most Used Routes By Casual Riders](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/f4d80a1e-95a3-4cf9-b8ab-4e21a29d2a52)
+![7 0 Interactive Map](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/17365be9-8a0f-4dfa-8d96-ce46bf097b05)
 
-![7 2 Most Used Routes By Member Riders](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/36e88575-3701-4e3a-9b04-88ba8de27321)
 
 #### **Summary of Map Trends**
 
