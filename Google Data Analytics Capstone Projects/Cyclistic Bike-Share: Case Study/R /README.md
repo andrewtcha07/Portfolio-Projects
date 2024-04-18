@@ -3591,35 +3591,35 @@ mapping_data <- mapping_data %>%
 
 subset <- sample_n(mapping_data, 500)
 ```
-| user_type <chr> | quarter <chr> | start_station_name <chr>  | end_station_name <chr>              | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | rideable_type <chr> |
-|-----------------|---------------|---------------------------|-------------------------------------|-----------------|-----------------|---------------|---------------|---------------------|
-| casual          | Q3            | Ashland Ave & Division St | California Ave & Division St        | 41.90           | -87.67          | 41.90         | -87.70        | electric_bike       |
-| casual          | Q3            | Michigan Ave & 14th St    | Michigan Ave & Lake St              | 41.86           | -87.62          | 41.89         | -87.62        | classic_bike        |
-| casual          | Q3            | Michigan Ave & 8th St     | McCormick Place                     | 41.87           | -87.62          | 41.85         | -87.62        | classic_bike        |
-| casual          | Q2            | Cherry Ave & Blackhawk St | Halsted St & Willow St              | 41.91           | -87.66          | 41.91         | -87.65        | electric_bike       |
-| casual          | Q3            | Broadway & Thorndale Ave  | Clark St & Winnemac Ave             | 41.99           | -87.66          | 41.97         | -87.67        | classic_bike        |
-| casual          | Q2            | Fairbanks Ct & Grand Ave  | Mies van der Rohe Way & Chestnut St | 41.89           | -87.62          | 41.90         | -87.62        | electric_bike       |
-| casual          | Q4            | Damen Ave & Division St   | Ashland Ave & Division St           | 41.90           | -87.68          | 41.90         | -87.67        | classic_bike        |
-| casual          | Q3            | Wabash Ave & Grand Ave    | Michigan Ave & 8th St               | 41.89           | -87.63          | 41.87         | -87.62        | classic_bike        |
-| casual          | Q3            | Sedgwick St & North Ave   | Clark St & Wrightwood Ave           | 41.91           | -87.64          | 41.93         | -87.64        | classic_bike        |
-| casual          | Q3            | Rush St & Hubbard St      | Sedgwick St & Schiller St           | 41.89           | -87.63          | 41.91         | -87.64        | electric_bike       |
+| user_type <chr> | quarter <chr> | start_station_name <chr>       | end_station_name <chr>        | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | rideable_type <chr> |
+|-----------------|---------------|--------------------------------|-------------------------------|-----------------|-----------------|---------------|---------------|---------------------|
+| casual          | Q1            | California Ave & Cortez St     | Humboldt Blvd & Armitage Ave  | 41.90           | -87.70          | 41.92         | -87.70        | electric_bike       |
+| casual          | Q1            | Sheffield Ave & Wrightwood Ave | Sheffield Ave & Webster Ave   | 41.93           | -87.65          | 41.92         | -87.65        | electric_bike       |
+| casual          | Q1            | Michigan Ave & Madison St      | Michigan Ave & Lake St        | 41.88           | -87.63          | 41.89         | -87.62        | classic_bike        |
+| casual          | Q1            | Ashland Ave & Grand Ave        | Ashland Ave & Chicago Ave     | 41.89           | -87.67          | 41.90         | -87.67        | classic_bike        |
+| casual          | Q1            | Sheffield Ave & Webster Ave    | Greenview Ave & Diversey Pkwy | 41.92           | -87.65          | 41.93         | -87.67        | electric_bike       |
+| casual          | Q1            | Evanston Civic Center          | Benson Ave & Church St        | 42.06           | -87.69          | 42.05         | -87.68        | electric_bike       |
+| casual          | Q1            | Sangamon St & Lake St          | Loomis St & Lexington St      | 41.89           | -87.65          | 41.87         | -87.66        | classic_bike        |
+| casual          | Q1            | Wilton Ave & Diversey Pkwy     | Broadway & Barry Ave          | 41.93           | -87.65          | 41.94         | -87.64        | classic_bike        |
+| casual          | Q1            | Dearborn St & Monroe St        | Damen Ave & Charleston St     | 41.88           | -87.63          | 41.92         | -87.68        | electric_bike       |
+| casual          | Q1            | Ellis Ave & 53rd St            | Ellis Ave & 60th St           | 41.80           | -87.60          | 41.79         | -87.60        | classic_bike        |
 
-`1-10 of 171 rows` 
+`1-10 of 170 rows` 
 
-| user_type <chr> | quarter <chr> | start_station_name <chr>        | end_station_name <chr>        | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | rideable_type <chr> |
-|-----------------|---------------|---------------------------------|-------------------------------|-----------------|-----------------|---------------|---------------|---------------------|
-| member          | Q2            | Milwaukee Ave & Rockwell St     | Hermitage Ave & Polk St       | 41.92           | -87.69          | 41.87         | -87.67        | electric_bike       |
-| member          | Q1            | Ellis Ave & 55th St             | Cottage Grove Ave & 63rd St   | 41.79           | -87.60          | 41.78         | -87.61        | classic_bike        |
-| member          | Q3            | Sedgwick St & Webster Ave       | Sheffield Ave & Webster Ave   | 41.92           | -87.64          | 41.92         | -87.65        | classic_bike        |
-| member          | Q3            | Clark St & Elmdale Ave          | Pine Grove Ave & Waveland Ave | 41.99           | -87.67          | 41.95         | -87.65        | electric_bike       |
-| member          | Q3            | N Southport Ave & W Newport Ave | Green St & Madison St         | 41.94           | -87.66          | 41.88         | -87.65        | electric_bike       |
-| member          | Q4            | Sheffield Ave & Fullerton Ave   | Sheffield Ave & Webster Ave   | 41.93           | -87.65          | 41.92         | -87.65        | electric_bike       |
-| member          | Q1            | Sheridan Rd & Lawrence Ave      | Clarendon Ave & Gordon Ter    | 41.97           | -87.65          | 41.96         | -87.65        | classic_bike        |
-| member          | Q4            | St. Clair St & Erie St          | Indiana Ave & Roosevelt Rd    | 41.89           | -87.62          | 41.87         | -87.62        | electric_bike       |
-| member          | Q2            | Franklin St & Lake St           | Wells St & Concord Ln         | 41.89           | -87.64          | 41.91         | -87.63        | electric_bike       |
-| member          | Q4            | Southport Ave & Wellington Ave  | Damen Ave & Wellington Ave    | 41.94           | -87.66          | 41.94         | -87.68        | electric_bike       |
+| user_type <chr> | quarter <chr> | start_station_name <chr>            | end_station_name <chr>              | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | rideable_type <chr> |
+|-----------------|---------------|-------------------------------------|-------------------------------------|-----------------|-----------------|---------------|---------------|---------------------|
+| member          | Q1            | Damen Ave & Division St             | Sheffield Ave & Kingsbury St        | 41.90           | -87.68          | 41.91         | -87.65        | electric_bike       |
+| member          | Q1            | Leavitt St & Belmont Ave            | Lincoln Ave & Belmont Ave (Temp)    | 41.94           | -87.68          | 41.94         | -87.67        | electric_bike       |
+| member          | Q1            | State St & 33rd St                  | Calumet Ave & 33rd St               | 41.83           | -87.63          | 41.83         | -87.62        | classic_bike        |
+| member          | Q1            | Clark St & Elmdale Ave              | Glenwood Ave & Touhy Ave            | 41.99           | -87.67          | 42.01         | -87.67        | classic_bike        |
+| member          | Q1            | Cityfront Plaza Dr & Pioneer Ct     | Canal St & Madison St               | 41.89           | -87.62          | 41.88         | -87.64        | classic_bike        |
+| member          | Q1            | Central Park Ave & Bloomingdale Ave | Walsh Park                          | 41.91           | -87.72          | 41.91         | -87.67        | classic_bike        |
+| member          | Q1            | Lincoln Ave & Diversey Pkwy         | DuSable Lake Shore Dr & Belmont Ave | 41.93           | -87.66          | 41.94         | -87.64        | electric_bike       |
+| member          | Q1            | Elizabeth St & Fulton St            | Sangamon St & Lake St               | 41.89           | -87.66          | 41.89         | -87.65        | electric_bike       |
+| member          | Q1            | State St & 35th St                  | Halsted St & 35th St                | 41.83           | -87.63          | 41.83         | -87.65        | electric_bike       |
+| member          | Q1            | Millennium Park                     | Michigan Ave & 14th St              | 41.88           | -87.62          | 41.86         | -87.62        | electric_bike       |
 
-`1-10 of 329 rows`
+`1-10 of 330 rows`
 
 + The table presents an analysis of bike preferences among both casual and member users.
 + Among casual users, the most popular rideable type is the **electric_bike**, with **1,043,904 rides**, followed by the **classic_bike** with **843,957 rides**, and the **docked_bike** with **74,850 rides**.
