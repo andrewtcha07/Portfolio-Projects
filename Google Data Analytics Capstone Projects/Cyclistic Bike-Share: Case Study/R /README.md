@@ -3577,6 +3577,59 @@ trip_data_updated %>%
 
 --------------------------------------
 
+### Map Trends
+
+#### User Type and Quarterly Start and End Point Interactive Map
+
+```{r}
+mapping_data <- na.omit(trip_data_updated)
+
+mapping_data$quarter <- paste("Q", mapping_data$quarter, sep = "")
+
+mapping_data <- mapping_data %>%
+  filter(start_lat != end_lat | start_lng != end_lng)
+
+subset <- sample_n(mapping_data, 500)
+```
+| user_type <chr> | quarter <chr> | start_station_name <chr>  | end_station_name <chr>              | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | rideable_type <chr> |
+|-----------------|---------------|---------------------------|-------------------------------------|-----------------|-----------------|---------------|---------------|---------------------|
+| casual          | Q3            | Ashland Ave & Division St | California Ave & Division St        | 41.90           | -87.67          | 41.90         | -87.70        | electric_bike       |
+| casual          | Q3            | Michigan Ave & 14th St    | Michigan Ave & Lake St              | 41.86           | -87.62          | 41.89         | -87.62        | classic_bike        |
+| casual          | Q3            | Michigan Ave & 8th St     | McCormick Place                     | 41.87           | -87.62          | 41.85         | -87.62        | classic_bike        |
+| casual          | Q2            | Cherry Ave & Blackhawk St | Halsted St & Willow St              | 41.91           | -87.66          | 41.91         | -87.65        | electric_bike       |
+| casual          | Q3            | Broadway & Thorndale Ave  | Clark St & Winnemac Ave             | 41.99           | -87.66          | 41.97         | -87.67        | classic_bike        |
+| casual          | Q2            | Fairbanks Ct & Grand Ave  | Mies van der Rohe Way & Chestnut St | 41.89           | -87.62          | 41.90         | -87.62        | electric_bike       |
+| casual          | Q4            | Damen Ave & Division St   | Ashland Ave & Division St           | 41.90           | -87.68          | 41.90         | -87.67        | classic_bike        |
+| casual          | Q3            | Wabash Ave & Grand Ave    | Michigan Ave & 8th St               | 41.89           | -87.63          | 41.87         | -87.62        | classic_bike        |
+| casual          | Q3            | Sedgwick St & North Ave   | Clark St & Wrightwood Ave           | 41.91           | -87.64          | 41.93         | -87.64        | classic_bike        |
+| casual          | Q3            | Rush St & Hubbard St      | Sedgwick St & Schiller St           | 41.89           | -87.63          | 41.91         | -87.64        | electric_bike       |
+
+`1-10 of 171 rows` 
+
+| user_type <chr> | quarter <chr> | start_station_name <chr>        | end_station_name <chr>        | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | rideable_type <chr> |
+|-----------------|---------------|---------------------------------|-------------------------------|-----------------|-----------------|---------------|---------------|---------------------|
+| member          | Q2            | Milwaukee Ave & Rockwell St     | Hermitage Ave & Polk St       | 41.92           | -87.69          | 41.87         | -87.67        | electric_bike       |
+| member          | Q1            | Ellis Ave & 55th St             | Cottage Grove Ave & 63rd St   | 41.79           | -87.60          | 41.78         | -87.61        | classic_bike        |
+| member          | Q3            | Sedgwick St & Webster Ave       | Sheffield Ave & Webster Ave   | 41.92           | -87.64          | 41.92         | -87.65        | classic_bike        |
+| member          | Q3            | Clark St & Elmdale Ave          | Pine Grove Ave & Waveland Ave | 41.99           | -87.67          | 41.95         | -87.65        | electric_bike       |
+| member          | Q3            | N Southport Ave & W Newport Ave | Green St & Madison St         | 41.94           | -87.66          | 41.88         | -87.65        | electric_bike       |
+| member          | Q4            | Sheffield Ave & Fullerton Ave   | Sheffield Ave & Webster Ave   | 41.93           | -87.65          | 41.92         | -87.65        | electric_bike       |
+| member          | Q1            | Sheridan Rd & Lawrence Ave      | Clarendon Ave & Gordon Ter    | 41.97           | -87.65          | 41.96         | -87.65        | classic_bike        |
+| member          | Q4            | St. Clair St & Erie St          | Indiana Ave & Roosevelt Rd    | 41.89           | -87.62          | 41.87         | -87.62        | electric_bike       |
+| member          | Q2            | Franklin St & Lake St           | Wells St & Concord Ln         | 41.89           | -87.64          | 41.91         | -87.63        | electric_bike       |
+| member          | Q4            | Southport Ave & Wellington Ave  | Damen Ave & Wellington Ave    | 41.94           | -87.66          | 41.94         | -87.68        | electric_bike       |
+
+`1-10 of 329 rows`
+
++ The table presents an analysis of bike preferences among both casual and member users.
++ Among casual users, the most popular rideable type is the **electric_bike**, with **1,043,904 rides**, followed by the **classic_bike** with **843,957 rides**, and the **docked_bike** with **74,850 rides**.
++ Casual users exhibit a preference for electric bikes, possibly due to their convenience and ease of use, especially for leisure or recreational rides.
++ Conversely, among member users, the most preferred rideable type is the **classic_bike**, with **1,754,117 rides**, closely followed by the **electric_bike** with **1,742,263 rides**.
++ Member users also favor both classic bikes and electric bikes, which could be attributed to their commuting needs or cost considerations, as membership plans often provide cost reductions.
++ The docked bike option seems to have the lowest preference among both user groups. This may be attributed to the hassle of returning the bike to a docking station, which might not align with the flexibility and convenience users seek.
+
+--------------------------------------
+
 ### **Summary of the Analysis**
 This analysis provides critical insights into the behavior and preferences of Cyclistic's casual and member users. Leveraging this understanding, Cyclistic can better meet its needs and enhance its marketing strategies
 
