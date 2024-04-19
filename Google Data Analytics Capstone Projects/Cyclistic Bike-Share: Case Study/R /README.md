@@ -3854,7 +3854,7 @@ These insights uncover the distinct preferences between the two user groups in t
 ### **Map Trends**
 
 [![7 0 Interactive Map](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/9fa82a65-ac85-4e28-9cb0-08adb215f22a)](https://htmlview.glitch.me/?https://github.com/chaanalyst/Portfolio-Projects/blob/main/Google%20Data%20Analytics%20Capstone%20Projects/Cyclistic%20Bike-Share%3A%20Case%20Study/R%20/Interactive%20Map/Interactive_Map.html)
-[![7 0 Interactive Map](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/9fa82a65-ac85-4e28-9cb0-08adb215f22a)](https://htmlview.glitch.me/?https://github.com/chaanalyst/Portfolio-Projects/blob/main/Google%20Data%20Analytics%20Capstone%20Projects/Cyclistic%20Bike-Share%3A%20Case%20Study/R%20/Interactive%20Map/Interactive_Map.html){:target="_blank"}
+<a href="https://htmlview.glitch.me/?https://github.com/chaanalyst/Portfolio-Projects/blob/main/Google%20Data%20Analytics%20Capstone%20Projects/Cyclistic%20Bike-Share%3A%20Case%20Study/R%20/Interactive%20Map/Interactive_Map.html" target="_blank"><img src="https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/9fa82a65-ac85-4e28-9cb0-08adb215f22a" alt="7 0 Interactive Map"></a>
 > [!NOTE]
 > Clicking the image will redirect you to an interactive map hosted on a different website, where you can explore further details and features.
 
