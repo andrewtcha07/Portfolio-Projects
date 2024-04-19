@@ -2277,7 +2277,7 @@ trip_data_updated %>%
 
 + The table reveals a subtle contrast in the average ride distance between user types.
 + Casual users exhibit an average ride distance of **1.35 miles**.
-+ Similarly, member users demonstrate an average ride distance of 1.34 miles.
++ Similarly, member users demonstrate an average ride distance of **1.34 miles**.
 + The marginal difference between casual and member users could be influenced by factors such as usage patterns (leisurely or practical rides), member benefits (efficiency optimization), pricing structure (incentives for shorter rides), and geographical factors (location preferences), collectively contributing to the similarity in riding behaviors observed.
 
 --------------------------------------
@@ -2355,10 +2355,10 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table illustrates clear trends in bicycle usage among casual and member users at different times of the day.
-+ Between 3 PM and 6 PM, casual users tend to use the service more for fun or leisure, with the highest number of rides occurring at **5 PM (189,792 rides)**.
-+ Their usage drops during late night and early morning hours, reaching its lowest point at 4 AM (5,709 rides), suggesting a preference for using bikes outside of work or commuting times.
-+ For member users, peak usage occurs between 4 PM and 6 PM, with the highest number of rides at **5 PM (370,438 rides)**. They utilize the service for both commuting and non-commuting purposes throughout the day.
-+ Similar to casual users, member users also experience a drop in usage during late night and early morning hours, with the lowest point at **3 AM (7,627 rides)**.
++ Casual users peak between 3 PM and 6 PM with the highest number of rides occurring at **5 PM (189,792 rides)**.
++ Their usage drops during late night and early morning hours, reaching its lowest point at **4 AM (5,709 rides)**, suggesting a preference for using bikes outside of work or commuting times and for more leisure activities.
++ Member users, peak usage occurs between 4 PM and 6 PM, with the highest number of rides at **5 PM (370,438 rides)**. They utilize the service for both commuting and non-commuting purposes throughout the day.
++ Similar to casual users, member users also experience a drop in usage during late night and early morning hours, with the lowest point at **3 AM (7,627 rides)**. 
 + Casual users tend to enjoy riding bikes for leisure during the afternoon, while member users utilize them for both commuting and leisure. Both groups ride less during the late night and early morning hours.
 
 #### Hourly Average Ride Length (minutes)
@@ -2432,8 +2432,8 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table highlights noticeable variances in the duration of rides between casual and member users across various times of the day.
-+ Casual users exhibit significant variation in ride duration throughout the day, with the shortest rides averaging **13.85 minutes** in the early morning at **5 AM** and peaking at approximately **25.37 minutes** during midday at **11 AM**. This peak occurs between 10 AM and 2 PM. Despite a gradual decline afterward, ride lengths remain relatively high compared to those in the early morning hours.
-+ In contrast, member users maintain consistent average ride lengths throughout the day, ranging from about **10.21 minutes** at the lowest in the early morning at **5 AM** to **13.15 minutes** at the highest during evening rush hours at **5 PM**.
++ Casual users exhibit significant variation in ride duration throughout the day, with the shortest rides averaging in the early morning at **5 AM (13.85 minutes)** and peaking during the midday at **11 AM (25.37 minutes)**. This peak occurs between 10 AM and 2 PM. Despite a gradual decline afterward, ride lengths remain relatively high compared to those in the early morning hours.
++ In contrast, member users maintain consistent average ride lengths throughout the day, the lowest in the early morning at **5 AM (10.21 minutes)** to the highest during evening rush hours at **5 PM (13.15 minutes)**.
 + Unlike casual users, members exhibit minimal fluctuations in ride duration, with generally shorter averages. Casual users tend to have longer durations compared to members, particularly evident during midday.
 
 #### Hourly Average Ride Distance (miles)
@@ -2509,8 +2509,8 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table provides observations on the average duration of bike rides undertaken by both casual and member users throughout the day.
-+ Casual users maintain consistent average ride distances throughout the day, ranging from **1.21 miles** at its lowest at **12 AM** to **1.43 miles** at its highest at **11 AM**. There's a slight peak in the late morning, with minimal fluctuations otherwise.
-+ Similarly, member users also exhibit consistency, ranging from **1.24 miles** at its lowest at **12 PM** to **1.49 miles** at its highest at **4 PM**, with slight variations throughout the day.
++ Casual users maintain consistent average ride distances throughout the day, from its lowest at **12 AM (1.21 miles)** to its highest at **11 AM (1.43 miles)**. There's a slight peak in the late morning, with minimal fluctuations otherwise.
++ Similarly, member users also exhibit consistency, ranging from its lowest at **12 PM (1.24 miles)** to its highest at **4 PM (1.49 miles)**, with slight variations throughout the day.
 + Both user types show consistent patterns with slight variations in ride durations throughout the day. Casual users display a slightly wider range of distances compared to members, with similar trends of increased distances during certain hours.
 
 --------------------------------------
@@ -2565,8 +2565,10 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table highlights intriguing patterns in user numbers for both casual and member users over the course of the week.
-+ Casual users tend to peak in rides on **Saturdays (390,879 rides)**, indicating a preference for leisure or recreational activities during weekends. Conversely, their lowest ride count is on **Mondays (224,302 rides)**, reflecting decreased usage at the beginning of the week after the weekend rush.
-+ Member users, on the other hand, show their highest ride count on **Thursdays (562,529 rides)**, suggesting a focus on commuting during weekdays. Similarly, their lowest ride count is on **Sundays (390,079 rides)**, following the trend of decreased usage at the end of the weekend.
++ Casual users tend to peak in rides on **Saturdays (390,879 rides)**, indicating a preference for leisure or recreational activities during weekends. 
++ Conversely, their lowest ride count is on **Mondays (224,302 rides)**, reflecting decreased usage at the beginning of the week after the weekend rush.
++ Member users, on the other hand, show their highest ride count on **Thursdays (562,529 rides)**, suggesting a focus on commuting during weekdays. 
++ Similarly, their lowest ride count is on **Sundays (390,079 rides)**, following the trend of decreased usage at the end of the weekend.
 + Both casual and member users exhibit lower usage at the beginning of the week, with casual users showing the lowest usage on Mondays and member users showing the lowest usage on Sundays. This decrease in usage could be attributed to the transition from the weekends to weekdays.
 
 #### Weekly Average Ride Length (minutes)
@@ -2618,10 +2620,9 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table displays the fluctuations in average ride durations according to user type and day of the week.
-+ Casual users typically enjoy longer typical ride durations compared to member users throughout the week. Although, Sundays stand out as the day with the longest typical ride durations for both casual and member users.
-+ For casual users, this trend supports the notion of weekend leisure or recreational activities, with **Sundays** recording the lengthiest rides at **24.58 minutes**.
-+ Conversely, member users also exhibit longer rides on **Sundays (13.79 minutes)**, suggesting a potential overlap in non-commuting usage during weekends.
++ Casual users, trend supports the notion of weekend leisure or recreational activities, with **Sundays (24.58 minutes)** recording the lengthiest rides.
 + Transitioning from the weekends to weekdays, **Wednesdays (18.04 minutes)** mark the lowest typical ride durations for casual users, indicating a shift towards shorter trips during the middle of the week.
++ Conversely, member users also exhibit longer rides on **Sundays (13.79 minutes)**, suggesting a potential overlap in non-commuting usage during weekends.
 + However, member users experience their shortest rides on **Mondays (11.72 minutes)**, possibly indicating a return to routine commuting after the weekend.
 + Overall, both user groups display a pattern of shorter ride durations during weekdays, likely influenced by commuting needs or time constraints.
 
@@ -2675,10 +2676,11 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table provides insights into the usage patterns of casual and member users throughout the week, comparing average ride distances.
++ Casual users covering the longest distance per ride on **Saturday (1.42 miles)** wheras there shorest rides occur on **Wednesdays (1.30 miles)**.
++ Similarly, member users longest distance per ride also falls on **Saturday(1.40 miles**) but the shortest rides occur on **Mondays (1.30 miles)**.
++ This suggests a preference for longer rides on weekends, potentially for leisure or recreational purposes and indicating a trend towards shorter rides at the beginning of the week.
 + Casual users typically enjoy slightly longer distances per ride compared to member users throughout the week.
-+ **Saturdays** stand out for both user groups, with casual users covering the longest distance per ride **(1.42 miles)** and member users closely following with **1.40 miles**. This suggests a preference for longer rides on weekends, potentially for leisure or recreational purposes.
-+ Conversely, both user groups cover shorter distances per ride during weekdays. Casual users' shortest rides occur on **Wednesdays (1.30 miles)**, while member users' shortest rides are on **Mondays (1.30 miles)**, indicating a trend towards shorter rides at the beginning of the week.
-+ Overall, distances covered per ride remain relatively consistent during weekdays for both casual and member users, likely reflecting commuting or transportation needs."
++ Overall, distances covered per ride remain relatively consistent during weekdays for both casual and member users, likely reflecting commuting or transportation needs.
 
 --------------------------------------
 
@@ -2756,8 +2758,10 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table showcases the hourly ride frequencies for casual and member users on Mondays, revealing unique usage patterns and demand disparities between the user categories across the day.
-+ Casual users show a peak ride count at **5 PM** with **23,473 rides**, indicating a preference for late afternoon rides, likely for recreation. Conversely, their lowest ride count is at **4 AM** with **707 rides**, reflecting reduced bike usage during late night and early morning hours.
-+ Member users also exhibit a peak ride count at **5 PM** with **56,037 rides**, suggesting a preference for late afternoon rides, possibly for commuting. Their lowest ride count is at **3 AM** with **771 rides**, aligning with the pattern of reduced usage during late night and early morning hours.
++ Casual users show a peak ride count at **5 PM (23,473 rides)**, indicating a preference for late afternoon rides, likely for recreation. 
++ Conversely, their lowest ride count is at **4 AM (707 rides)**, reflecting reduced bike usage during late night and early morning hours.
++ Member users also exhibit a peak ride count at **5 PM (56,037 rides)**, suggesting a preference for late afternoon rides, possibly for commuting. 
++ Their lowest ride count is at **3 AM (771 rides**), aligning with the pattern of reduced usage during late night and early morning hours.
 + Both casual and member users share a common trend of peak bike usage around late afternoon, indicating a universal preference for this time regardless of user type. 
 + This preference may be influenced by factors such as favorable weather conditions and leisure time post-work.
 
@@ -2833,8 +2837,10 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table illustrates the hourly ride frequencies for both casual and member users on Tuesday, highlighting distinct usage patterns and demand variances between the user categories throughout the day.
-+ Casual users show the highest ride count at **5 PM**, totaling **27,417 rides**, indicating a preference for late afternoon rides, potentially for leisure or recreation. Conversely, their lowest ride count occurs at **3 AM**, with only **515 rides**, suggesting a notable decline in bike usage during late night and early morning hours, as anticipated.
-+ Similarly, member users also exhibit their peak ride count at **5 PM**, with **68,247 rides**, echoing the trend observed among casual users and indicating a preference for late afternoon rides, likely for commuting purposes. Their lowest ride count is recorded at **3 AM**, totaling **604 rides**, aligning with the observed pattern of reduced bike usage during late night and early morning hours.
++ Casual users show the highest ride count at **5 PM (27,417 rides)**, indicating a preference for late afternoon rides, potentially for leisure or recreation. 
++ Conversely, their lowest ride count occurs at **3 AM (515 rides)**, suggesting a notable decline in bike usage during late night and early morning hours, as anticipated.
++ Similarly, member users also exhibit their peak ride count at **5 PM (68,247 rides)**, echoing the trend observed among casual users and indicating a preference for late afternoon rides, likely for commuting purposes. 
++ Their lowest ride count is recorded at **3 AM (604 rides)**, aligning with the observed pattern of reduced bike usage during late night and early morning hours.
 + Both casual and member users demonstrate a surge in bike usage during the late afternoon, indicating a shared preference for this time regardless of user type.
 + Several factors contribute to this trend, including favorable weather conditions, leisure time post-work, and commuting needs. 
 + Reduced bike usage during late night and early morning hours persists across user types, possibly influenced by diminished visibility, maintenance schedules, and security considerations around biking at night.
@@ -2911,8 +2917,10 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table presents hourly ride frequencies for both casual and member users on Wednesday, highlighting distinct usage patterns and demand variations between the user categories throughout the day.
-+ Casual users demonstrate the highest ride count at **5 PM (28,554 rides)**, suggesting a preference for late afternoon rides, possibly for leisure or recreation. Their ride count drops significantly at **3 AM (565 rides)**, indicating reduced bike usage during late night and early morning hours.
-+ Member users also peak at **5 PM (68,364 rides)**, mirroring the trend seen among casual users and indicating a preference for late afternoon rides, potentially for commuting. At **3 AM (605 rides)**, their ride count decreases aligning with the observed pattern of reduced bike usage during late night and early morning hours.
++ Casual users demonstrate the highest ride count at **5 PM (28,554 rides)**, suggesting a preference for late afternoon rides, possibly for leisure or recreation.
++ Their ride count drops significantly at **3 AM (565 rides)**, indicating reduced bike usage during late night and early morning hours.
++ Member users also peak at **5 PM (68,364 rides)**, mirroring the trend seen among casual users and indicating a preference for late afternoon rides, potentially for commuting. 
++ At **3 AM (605 rides)**, their ride count decreases aligning with the observed pattern of reduced bike usage during late night and early morning hours.
 + Both casual and member users exhibit a peak in bike usage around late afternoon on Wednesday, emphasizing a shared preference for this time regardless of user type.
 + Contributing factors to this peak in bike usage during late afternoon hours may include favorable weather conditions, post-work leisure time, and commuting needs. 
 + Consistent with safety considerations and limited transportation options, reduced bike usage persists during late night and early morning hours across user types.
@@ -2989,8 +2997,10 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The provided table details the hourly usage patterns of both casual and member users on Thursday, delineating notable differences in ride frequencies between the two user categories throughout the day.
-+ Casual users exhibit the highest ride count, at **5 PM** totaling **29,436 rides**, indicating a preference for late afternoon rides, potentially for recreational purposes. Conversely, their lowest ride count, **552 rides**, is recorded at **4 AM**, implying decreased bike usage during the late night and early morning hours.
-+ Member users also peak at **5 PM** with **66,308 rides**, mirroring the trend observed among casual users and suggesting a preference for late afternoon rides, likely for commuting reasons. Their lowest ride count, **677 rides**, is observed at **3 AM**, aligning with the trend of reduced bike usage during late night and early morning hours.
++ Casual users exhibit the highest ride count, at **5 PM (29,436 rides)**, indicating a preference for late afternoon rides, potentially for recreational purposes. 
++ Conversely, their lowest ride count, is recorded at **4 AM (552 rides)**, implying decreased bike usage during the late night and early morning hours.
++ Member users also peak at **5 PM (66,308 rides)**, mirroring the trend observed among casual users and suggesting a preference for late afternoon rides, likely for commuting reasons. 
++ Their lowest ride count, is observed at **3 AM (677 rides**, aligning with the trend of reduced bike usage during late night and early morning hours.
 + Both casual and member users display a notable increase in bike usage during the late afternoon on Thursday, reflecting a collective preference for this time regardless of user type.
 + Consistently lower bike usage during late night and early morning hours across user types may imply a diminished demand for transportation during those specific times, possibly reflecting fewer individuals commuting or participating in leisure activities.
 
@@ -3066,8 +3076,10 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The provided table showcases the hourly utilization patterns of both casual and member users on Friday, revealing notable fluctuations in ride frequencies between the two user groups throughout the day.
-+ Casual users reach their peak ride count at **5 PM**, logging **29,007 rides**, indicating a preference for late afternoon biking, possibly for recreational purposes. Conversely, their lowest ride tally, **702 rides**, occurs at **4 AM**, suggesting decreased bike usage during the early morning hours.
-+ Similarly, member users also hit their peak at **5 PM** with **50,857 rides**, echoing the trend observed among casual users and suggesting a preference for late afternoon rides, potentially for commuting. Their lowest ride count is at **3 AM** with **980 rides**, aligning with the pattern of reduced bike usage during the late night and early morning hours.
++ Casual users reach their peak ride count at **5 PM (29,007 rides)**, indicating a preference for late afternoon biking, possibly for recreational purposes. 
++ Conversely, their lowest ride occurs at **4 AM (702 rides)**, suggesting decreased bike usage during the early morning hours.
++ Similarly, member users also hit their peak at **5 PM (50,857 rides)**, echoing the trend observed among casual users and suggesting a preference for late afternoon rides, potentially for commuting. 
++ Their lowest ride count is at **3 AM (980 rides)**, aligning with the pattern of reduced bike usage during the late night and early morning hours.
 + Friday witnesses a surge in bike usage during the late afternoon for both casual and member users, underscoring a shared preference for this time slot regardless of user type.
 + Factors such as favorable weather conditions, opportunities for post-work leisure, and commuting demands likely contribute to the increase in bike usage during late afternoon hours on Fridays.
 + The consistent trend of reduced bike usage during late night and early morning hours persists across user types on Fridays, possibly due to a higher likelihood of individuals working remotely or having flexible schedules, leading to fewer commuting trips and overall outdoor activity.
@@ -3144,8 +3156,10 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table illustrates hourly ride frequencies for casual and member users on Saturday, emphasizing significant variations throughout the day.
-+ Casual users peak at **3 PM** with **32,646 rides**, implying a preference for afternoon biking, possibly for recreational purposes. Conversely, their lowest ride count is recorded at **4 AM**, totaling **1,028 rides**, indicating a decline in bike usage during the early hours of the morning.
-+ Member users also experience their highest ride count at **12 PM**, totaling **33,936 rides**, reflecting the trend seen among casual users and indicating a preference for midday rides, potentially for leisure or commuting. Similarly, their lowest ride count coincides with casual users at **4 AM**, totaling **1,104 rides**, aligning with the observed pattern of reduced bike usage during late-night and early morning hours.
++ Casual users peak at **3 PM (32,646 rides)**, implying a preference for afternoon biking, possibly for recreational purposes. 
++ Conversely, their lowest ride count is recorded at **4 AM (1,028 rides)**, indicating a decline in bike usage during the early hours of the morning.
++ Member users also experience their highest ride count at **12 PM (33,936 rides)**, reflecting the trend seen among casual users and indicating a preference for midday rides, potentially for leisure or commuting. 
++ Similarly, their lowest ride count coincides with casual users at **4 AM (1,104 rides)**, aligning with the observed pattern of reduced bike usage during late-night and early morning hours.
 + Both casual and member users demonstrate a peak in bike usage during Saturday afternoons, suggesting a mutual preference for this time regardless of user type.
 + Increased bike usage during Saturday afternoons may be influenced by factors such as weekend events and social gatherings.
 + The consistent decline in bike usage during late-night and early-morning hours on Saturdays suggests a widespread trend of increased reliance on alternative transportation options, potentially due to extended social engagements and late-night entertainment activities.
@@ -3222,8 +3236,9 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table illustrating hourly ride usage for casual and member users on Sunday reveals distinct usage patterns, indicating significant differences in ride frequencies between the two user categories throughout the day.
-Casual users reach their highest ride count at **3 PM**, totaling **29,047 rides**, suggesting a preference for afternoon biking, potentially for leisure activities or enjoyment.
-+ Similarly, member users also reach their peak ride count at **3 PM**, totaling **31,925 rides**, echoing the trend observed among casual users and suggesting a preference for midday rides, potentially for leisurely outings or recreational purposes. Correspondingly, their lowest ride count is at **4 AM**, totaling **1,505 rides**, aligning with the decrease in bike usage during late-night and early-morning hours.
+Casual users reach their highest ride count at **3 PM (29,047 rides)**, suggesting a preference for afternoon biking, potentially for leisure activities or enjoyment.
++ Similarly, member users also reach their peak ride count at **3 PM (31,925 rides)**, echoing the trend observed among casual users and suggesting a preference for midday rides, potentially for leisurely outings or recreational purposes. 
++ Correspondingly, their lowest ride count is at **4 AM (1,505 rides)**, aligning with the decrease in bike usage during late-night and early-morning hours.
 + Both casual and member users demonstrate a peak in bike usage during Sunday afternoons, suggesting a shared preference for this time, possibly as it marks the end of the week, regardless of user type.
 + The heightened demand for bike rides on Sunday afternoons may be fueled by the necessity to run errands or participate in various activities typical of the end of the week.
 + A decline in bike usage during the late-night and early morning hours on Sundays may also stem from individuals' diverse weekend routines, which frequently involve indoor activities or engagements that do not require outdoor transportation. Additionally, people may utilize alternative modes of transportation or choose to remain indoors, contributing to the decreased demand for biking during these hours.
@@ -3295,8 +3310,10 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table depicts the monthly ride usage for casual and member users over a span of 12 months.
-+ Casual users exhibit the highest ride counts during the summer months, peaking in **July** with **316,555 rides** while experiencing the lowest usage in **January** with only **38,204 rides**. This trend suggests that casual users primarily utilize the bike-sharing service for leisure or recreational purposes during warmer months, opting for alternative transportation methods during colder periods.
-+ Similarly, member users also demonstrate the highest ride counts during the summer months, reaching a peak in **August** with **439,658 rides**. The lowest ride counts occur during the winter months, with **February** registering the least usage at **140,067 rides**. However, member users maintain relatively consistent usage throughout the year, suggesting a stable demand regardless of seasonal variations, which could indicate a diverse range of usage purposes beyond solely commuting.
++ Casual users exhibit the highest ride counts during the summer months, peaking in **July (316,555 rides)**. 
++ While experiencing the lowest usage in **January (38,204 rides)**. This trend suggests that casual users primarily utilize the bike-sharing service for leisure or recreational purposes during warmer months, opting for alternative transportation methods during colder periods.
++ Similarly, member users also demonstrate the highest ride counts during the summer months, reaching a peak in **August (439,658 rides)**. 
++ The lowest ride counts occur during the winter months, in **February (140,067 rides)**. However, member users maintain relatively consistent usage throughout the year, suggesting a stable demand regardless of seasonal variations, which could indicate a diverse range of usage purposes beyond solely commuting.
 + While both user groups display decreased usage during the winter months, member users demonstrate a higher level of usage compared to casual users throughout the months.
 
 #### Monthly Average Ride Length (minutes)
@@ -3362,8 +3379,10 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table presents the monthly average ride duration for both casual and member users over the course of a year.
-+ Among casual users, the longest rides are observed during the summer months, peaking in **July** at **23.25 minutes**, while the shortest rides occur in January during winter, with an average duration of 13.91 minutes. This trend highlights the preference of casual users for utilizing the service for leisure or recreational purposes more frequently in warmer months than in winter.
-+ Similarly, member users also experience longer rides during the summer months, reaching a peak in **July** at **13.51 minutes**, and their shortest rides occur in **January** during winter, with an average duration of **10.41 minutes**, mirroring the pattern observed among casual users. + This suggests that member users' riding habits may differ from casual users due to factors such as commuting needs or habit consistency, resulting in shorter average ride durations.
++ Among casual users, the longest rides are observed during the summer months, peaking in **July (23.25 minutes)**.
++ While the shortest rides occur in **January (13.91 minutes)** during winter. This trend highlights the preference of casual users for utilizing the service for leisure or recreational purposes more frequently in warmer months than in winter.
++ Similarly, member users also experience longer rides during the summer months, reaching a peak in **July (13.51 minutes)**.
++ Their shortest rides occur in **January (10.41 minutes)** during winter, mirroring the pattern observed among casual users. + This suggests that member users' riding habits may differ from casual users due to factors such as commuting needs or habit consistency, resulting in shorter average ride durations.
 + Both user groups consistently demonstrate shorter ride durations during the winter months and longer durations in the summer months, showcasing the significant impact of weather conditions and seasonal fluctuations on their riding habits. Furthermore, casual users consistently maintain longer ride durations compared to member users across all months.
 
 #### Monthly Average Ride Distance (miles)
@@ -3431,8 +3450,10 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table presents monthly average ride distance data for casual and member users over 12 months.
-+ For casual users, the longest average ride distances occur during the summer months, peaking in **June (1.43 miles)**, while the shortest average is recorded in **January (1.06 miles)**. This suggests that longer bike rides may be associated with leisure and recreational usage during the summer months, as warmer weather conditions are more conducive to outdoor activities.
-+ Similarly, member users also exhibit longer average ride distances during the summer months, with peaks in both **June (1.44 miles)** and **July (1.44 miles)**, and the shortest average occurring in **January (1.13 miles)**. This indicates that members may take advantage of the warmer weather to embark on longer rides, potentially explore new routes or destinations, enjoy recreational outings, or participate in outdoor events.
++ For casual users, the longest average ride distances occur during the summer months, peaking in **June (1.43 miles)**. 
++ While the shortest average is recorded in **January (1.06 miles)**. This suggests that longer bike rides may be associated with leisure and recreational usage during the summer months, as warmer weather conditions are more conducive to outdoor activities.
++ Similarly, member users also exhibit longer average ride distances during the summer months, with peaks in both **June (1.44 miles)** and **July (1.44 miles)**.
++ The shortest average occurring in **January (1.13 miles)**. This indicates that members may take advantage of the warmer weather to embark on longer rides, potentially explore new routes or destinations, enjoy recreational outings, or participate in outdoor events.
 + While both user groups generally show shorter average ride distances during the winter months, which may be attributed to weather conditions or commuting needs, member users consistently demonstrate longer average ride distances compared to casual users across most months.
 
 --------------------------------------
@@ -3470,8 +3491,10 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + This table showcases the quarterly number of rides for casual and member users.
-+ Casual users experience the highest number of rides in the **3rd quarter (July-September)** at **861,959 rides**, while their lowest number of rides occurs in the **1st quarter (January-March)** at **138,591 rides**. These fluctuations may be influenced by weather and seasonal conditions, as the 3rd quarter falls in the summer months, while the 1st quarter corresponds to the winter months.
-+ Similarly, member users also have their highest number of rides in the **3rd quarter**, totaling **1,245,624**, with the lowest number occurring in the **1st quarter** at **469,922**. This pattern aligns with casual users and may be attributed to similar seasonal factors.
++ Casual users experience the highest number of rides in the **3rd quarter (July-September)** at **861,959 rides**.
++ While their lowest number of rides occurs in the **1st quarter (January-March)** at **138,591 rides**. These fluctuations may be influenced by weather and seasonal conditions, as the 3rd quarter falls in the summer months, while the 1st quarter corresponds to the winter months.
++ Similarly, member users also have their highest number of rides in the **3rd quarter (July-September)**, totaling **1,245,624**. 
++ While their lowest number occurring in the **1st quarter (January-March)** at **469,922**. This pattern aligns with casual users and may be attributed to similar seasonal factors.
 + Despite these similarities, member users consistently maintain higher ride numbers compared to casual users. This could be attributed to the fact that member users are more likely to use bike-sharing services for commuting purposes, which may be less affected by weather conditions compared to casual users who primarily use the service for leisure or recreational purposes.
 
 #### Quarterly Average Ride Length (minutes)
@@ -3505,8 +3528,10 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table presents the quarterly average ride lengths of casual and member users.
-+ Casual users experience the longest average ride length during the **3rd quarter**, with rides lasting **22.48 minutes**, while the shortest duration occurs in the **1st quarter**, averaging **15.32 minutes**. These findings support the notion that casual users prefer the summer months, potentially indicating leisure or recreational usage during this season. Conversely, casual users tend to ride less frequently during the winter months, leading to shorter average ride durations.
-+ Similarly, member users also display a comparable pattern, with the longest average ride length observed in the **3rd quarter** at **13.29 minutes** and the shortest in the **1st quarter** at **10.57 minutes**. This suggests that seasonal conditions influence ride durations for both user groups.
++ Casual users experience the longest average ride length during the **3rd quarter (22.48 minutes)**.
++ While the shortest duration occurs in the **1st quarter (15.32 minutes)**. These findings support the notion that casual users prefer the summer months, potentially indicating leisure or recreational usage during this season. Conversely, casual users tend to ride less frequently during the winter months, leading to shorter average ride durations.
++ Similarly, member users also display a comparable pattern, with the longest average ride length observed in the **3rd quarter (13.29 minutes)**.
++ While their shortest in the **1st quarter (10.57 minutes)**. This suggests that seasonal conditions influence ride durations for both user groups.
 + While both casual and member users exhibit similar seasonal trends, casual users consistently demonstrate higher average ride lengths across all quarters compared to members. This difference could potentially be attributed to the idea that casual users approach bike usage with a more leisurely or recreational mindset, resulting in longer rides.
 
 #### Quarterly Average Ride Distance (miles)
@@ -3542,8 +3567,10 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table presents quarterly average ride distances for casual and member users.
-+ Casual users exhibit the longest average ride distance in the **3rd quarter**, reaching **1.40 miles**, while the shortest distance occurs in the **1st quarter**, measuring **1.12 miles**. These findings align with the peak summer season and favorable weather conditions, suggesting that casual users are more inclined to engage in longer rides during this period.
-+ Similarly, member users also demonstrate a comparable pattern, with the longest average ride distances observed in the **3rd quarter** at **1.42 miles** and the shortest distances in the **1st quarter** at **1.16 miles**. This further supports the notion that ride distances for both user groups are influenced by seasonal and weather conditions.
++ Casual users exhibit the longest average ride distance in the **3rd quarter (1.40 miles)**.
++ While the shortest distance occurs in the **1st quarter (1.12 miles)**. These findings align with the peak summer season and favorable weather conditions, suggesting that casual users are more inclined to engage in longer rides during this period.
++ Similarly, member users also demonstrate a comparable pattern, with the longest average ride distances observed in the **3rd quarter (1.42 miles)**. 
++ While the shortest distances in the **1st quarter (1.16 miles)**. This further supports the notion that ride distances for both user groups are influenced by seasonal and weather conditions.
 + Although both user groups show similar patterns in average ride distances, member users consistently have slightly longer averages across all quarters. This suggests that members may utilize the bike-sharing service for more practical purposes, potentially involving longer commutes or transportation needs.
 
 --------------------------------------
@@ -3577,9 +3604,9 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table presents an analysis of bike preferences among both casual and member users.
-+ Among casual users, the most popular rideable type is the **electric_bike**, with **1,043,904 rides**, followed by the **classic_bike** with **843,957 rides**, and the **docked_bike** with **74,850 rides**.
++ Among casual users, the most popular rideable type is the **electric_bike (1,043,904 rides)**, followed by the **classic_bike (843,957 rides)**, and then the **docked_bike (74,850 rides)**.
 + Casual users exhibit a preference for electric bikes, possibly due to their convenience and ease of use, especially for leisure or recreational rides.
-+ Conversely, among member users, the most preferred rideable type is the **classic_bike**, with **1,754,117 rides**, closely followed by the **electric_bike** with **1,742,263 rides**.
++ Conversely, among member users, the most preferred rideable type is the **classic_bike (1,754,117 rides)**, closely followed by the **electric_bike (1,742,263 rides)**.
 + Member users also favor both classic bikes and electric bikes, which could be attributed to their commuting needs or cost considerations, as membership plans often provide cost reductions.
 + The docked bike option seems to have the lowest preference among both user groups. This may be attributed to the hassle of returning the bike to a docking station, which might not align with the flexibility and convenience users seek.
 
@@ -3629,7 +3656,7 @@ subset <- sample_n(mapping_data, 500)
 
 `1-10 of 330 rows`
 
-+ The table presents a subset of data extracted from the main dataset, representing a random sample of user interactions.
++ The table presents a subset of data extracted from the main dataset, representing a random sample of user interactions and popular locations.
 + It showcases various attributes and patterns observed within this sample, offering insights into user behaviors, preferencs, and engagements levels across different quarters and user types.
 
 --------------------------------------
