@@ -10,9 +10,9 @@
 + R excels in data visualization with powerful plotting libraries such as ggplot2 and plotly, which provide customizable and publication-ready visualizations. These libraries offer extensive control over design elements, facilitating the creation of interactive and dynamic visualizations that effectively communicate insights from complex datasets.
 
 ### Setting Up the Environment
-+ Installing R packages from the CRAN (Comprehensive R Archive Network) or other repositories using the `install.packages()` function.
-+ Loading packages using the `library()` function to make their functions and features available for analysis.
-+ Importing the 12 CSV data files using the `read.csv()` function.
++ Installing R packages from the CRAN (Comprehensive R Archive Network) or other repositories.
++ Loading packages in R to make their functions and features available for analysis.
++ Importing the 12 CSV data files.
 
 #### Installing R Packages
 ```{r}
@@ -61,7 +61,7 @@ library(leaflet.extras)
 ```
 
 #### Importing Data Files and Creating Data Frame
-+ Importing the 12 CSV data files using the **`read.csv()`** function.
++ Importing the 12 CSV data files.
   
 **January 2023**
 ```{r}
@@ -259,7 +259,7 @@ colnames(dec2023)
 ```
 
 #### Structure of Each Month’s Data Frame
-+ Displaying the structure of each data frame using **`str()`** functions.
++ Displaying the structure of each data frame.
   
 **January 2023**
 ```{r}
@@ -718,7 +718,7 @@ spc_tbl_ [224,073 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ```
 
 #### Statistics for Each Month’s Data Frame
-+ Displaying the summary for each data frame using **`summary()`** functions.
++ Displaying the summary for each data frame.
 
 **January 2023**
 ```{r}
@@ -1000,12 +1000,12 @@ summary(dec2023)
 + Each file consists of **13 columns**.
 + Total number of rows across all files is **5,719,877**.
 + Missing data primarily occurs in columns:
-    - `start_station_name`
-    - `start_station_id`
-    - `end_station_name`
-    - `end_station_id`
-    - `end_lat`
-    - `end_lng`
+    - **start_station_name**
+    - **start_station_id**
+    - **end_station_name**
+    - **end_station_id**
+    - **end_lat**
+    - **end_lng**
 + After consolidation and further exploration, a decision will be made regarding whether to keep or drop missing data, possibly considering options to fill in missing values.
 
 ### Data Consolidation
@@ -1013,7 +1013,7 @@ summary(dec2023)
 + Removing the 12 individual data frames after consolidation to streamline data management.
 
 #### Combining All Monthly Data Frames
-+ Combining all data frames into a single unified data frame using the **`bind_rows()`** function.
++ Combining all data frames into a single unified data frame.
 ```{r}
 trip_data <- bind_rows(
   list(
@@ -1034,7 +1034,7 @@ trip_data <- bind_rows(
 ```
 
 #### Removing All Individual Monthly Data Frames from the Environment
-+ Removing all individual data frames from the environment to streamline data management using the **`rm()`** function.
++ Removing all individual data frames from the environment to streamline data management.
 ```{r}
 rm(
   list = c(
@@ -1065,7 +1065,7 @@ rm(
 + Summarized variable statistics to identify trends, outliers, and patterns within the data.
 
 #### Checking Data Type
-+ Identifying data type using **`class()`** function.
++ Identifying data type.
 ```{r}
 class(trip_data)
 ```
@@ -1074,7 +1074,7 @@ class(trip_data)
 ```
 
 #### Checking Data Dimensions
-+ Counting the number of rows and columns using **`dim()`** function.
++ Counting the number of rows and columns.
 ```{r}
 dim(trip_data)
 ```
@@ -1083,7 +1083,7 @@ dim(trip_data)
 ```
 
 #### Displaying Variable Names
-+ Obtaining the column names using **`colnames()`** and **`names()`** functions.
++ Obtaining the column names.
 ```{r}
 colnames(trip_data)
 ```
@@ -1102,7 +1102,7 @@ names(trip_data)
 ```
 
 #### Identifying Total Missing Values
-+ Calculating the total sum of missing values (**na**) in each column using **`colSums(is.na())`** function.
++ Calculating the total sum of missing values (**na**) in each column.
 ```{r}
 colSums(is.na(trip_data))
 ```
@@ -1114,7 +1114,7 @@ colSums(is.na(trip_data))
 ```
 
 #### Displaying Row Count
-+ Counting the total count of rows of the entire data frame using **`nrow()`** function.
++ Counting the total count of rows of the entire data frame.
 ```{r}
 nrow(trip_data)
 ```
@@ -1123,7 +1123,7 @@ nrow(trip_data)
 ```
 
 #### Displaying Column Count
-+ Counting the total count of columns of the entire data frame using **`ncol()`** function.
++ Counting the total count of columns of the entire data frame.
 ```{r}
 ncol(trip_data)
 ```
@@ -1132,7 +1132,7 @@ ncol(trip_data)
 ```
 
 #### Displaying Top Rows
-+ Showing a preview of the first few rows (6 rows) offering a glimpse into its contents using **`head()`** function.
++ Showing a preview of the first few rows (6 rows) offering a glimpse into its contents.
 ```{r}
 head(trip_data)
 ```
@@ -1146,7 +1146,7 @@ head(trip_data)
 | 58E68156DAE3E311 | electric_bike       | 2023-01-31 07:18:03      | 2023-01-31 07:21:16    | Lakeview Ave & Fullerton Pkwy | TA1309000019           | Hampden Ct & Diversey Ave      | 202480.0             | 41.92607        | -87.63886       | 41.93000      | -87.64000     | member              |
 
 #### Displaying Bottom Rows
-+ Showing a preview of the last few rows (6 rows) offering a glimpse into its contents using **`tail()`** function.
++ Showing a preview of the last few rows (6 rows) offering a glimpse into its contents.
 ```{r}
 tail(trip_data)
 ```
@@ -1160,7 +1160,7 @@ tail(trip_data)
 | A373F5B447AEA508 | classic_bike        | 2023-12-11 13:07:46      | 2023-12-11 13:11:24    | 900 W Harrison St        | 13028                  | Racine Ave & Congress Pkwy | TA1306000025         | 41.87475        | -87.64981       | 41.87464      | -87.65703     | member              |
 
 #### Displaying the Structure Overview
-+ Reviewing the new structure using **`str()`** function.
++ Reviewing the new structure.
 ```{r}
 str(trip_data)
 ```
@@ -1199,7 +1199,7 @@ spc_tbl_ [5,719,877 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ```
 
 #### Displaying Conise Structure
-+ Summarizing the structure and attributes using **`glimpse()`** function.
++ Summarizing the structure and attributes.
 ```{r}
 glimpse(trip_data)
 ```
@@ -1223,7 +1223,7 @@ Modify Chunk OptionsRun All Chunks AboveRun Current Chunk
 ```
 
 #### Displaying Variable Statistics
-+ Generating a summary report without using a chart using **`skim_without_charts()`** function.
++ Generating a summary report without using a chart.
 ```{r}
 skim_without_charts(trip_data)
 ```
@@ -1264,7 +1264,7 @@ Group variables            None
 
 
 #### Displaying Summary Overview
-+ Providing an overall summary of the new data frame using **`summary()`** function.
++ Providing an overall summary of the new data frame.
 ```{r}
 summary(trip_data)
 ```
@@ -1314,41 +1314,39 @@ summary(trip_data)
 + Removed the temporary data frame from the current R environment.
 
 #### Identifying Missing Values
-+ Attaching the combined **`trip_data`** data frame to the search path using the **`attach()`** function.
-
-  ```{r}
-  attach(trip_data)
-  ```
-  + Displaying rows where **`ride_id`** is (**na**) using the **`is.na()`** function. 
-  
-    ```{r}
-    trip_data[is.na(ride_id),]
-    ```
-    ```{r}
-    0 rows
-    ```
-+ Displaying rows where **`rideable_type`** is (**na**) using the **`is.na()`** function.
++ Attaching the combined **`trip_data`** data frame to the search path.
+```{r}
+attach(trip_data)
+```
++ **ride_id** 
+```{r}
+trip_data[is.na(ride_id),]
+```
+```{r}
+0 rows
+```
++ **rideable_type**
 ```{r}
 trip_data[is.na(rideable_type),]
 ```
 ```{r}
 0 rows
 ```
-+ Displaying rows where **`started_at`** is (**na**) using the **`is.na()`** function.
++ **started_at**
 ```{r}
 trip_data[is.na(started_at),]
 ```
 ```{r}
 0 rows
 ```
-+ Displaying rows where **`ended_at`** is (**na**) using the **`is.na()`** function.
++ **ended_at**
 ```{r}
 trip_data[is.na(ended_at),]
 ```
 ```{r}
 0 rows
 ```
-+ Displaying rows where **`start_station_name`** is (**na**) using the **`is.na()`** function.
++ **start_station_name**
 ```{r}
 trip_data[is.na(start_station_name),]
 ```
@@ -1363,7 +1361,7 @@ trip_data[is.na(start_station_name),]
 
 `1-6 of 875,716 rows`
 
-+ Displaying rows where **`start_station_id`** is (**na**) using the **`is.na()`** function.
++ **start_station_id**
 ```{r}
 trip_data[is.na(start_station_id),]
 ```
@@ -1378,7 +1376,7 @@ trip_data[is.na(start_station_id),]
 
 `1-6 of 875,848 rows`
 
-+ Displaying rows where **`end_station_name`** is (**na**) using the **`is.na()`** function.
++ **end_station_name**
 ```{r}
 trip_data[is.na(end_station_name),]
 ```
@@ -1393,7 +1391,7 @@ trip_data[is.na(end_station_name),]
 
 `1-6 of 929,202 rows`
 
-+ Displaying rows where **`end_station_id`** is (**na**) using the **`is.na()`** function.
++ **end_station_id**
 ```{r}
 trip_data[is.na(end_station_id),]
 ```
@@ -1408,21 +1406,21 @@ trip_data[is.na(end_station_id),]
 
 `1-6 of 929,343 rows`
 
-+ Displaying rows where **`start_lat`** is (**na**) using the **`is.na()`** function.
++ **start_lat**
 ```{r}
 trip_data[is.na(start_lat),]
 ```
 ```{r}
 0 rows
 ```
-+ Displaying rows where **`start_lng`** is (**na**) using the **`is.na()`** function.
++ **start_lng**
 ```{r}
 trip_data[is.na(start_lng),]
 ```
 ```{r}
 0 rows
 ```
-+ Displaying rows where **`end_lat`** is (**na**) using the **`is.na()`** function.
++ **end_lat**
 ```{r}
 trip_data[is.na(end_lat),]
 ```
@@ -1437,7 +1435,7 @@ trip_data[is.na(end_lat),]
 
 `1-6 of 6,990 rows`
 
-+ Displaying rows where **`end_lng`** is (**na**) using the **`is.na()`** function.
++ **end_lng**
 ```{r}
 trip_data[is.na(end_lng),]
 ```
@@ -1452,7 +1450,7 @@ trip_data[is.na(end_lng),]
 
 `1-6 of 6,990 rows`
 
-+ Displaying rows where **`member_casual`** is (**na**) using the **`is.na()`** function.
++ **member_casual**
 ```{r}
 trip_data[is.na(member_casual),]
 ```
@@ -1463,7 +1461,7 @@ trip_data[is.na(member_casual),]
 ```{r}
 detach(trip_data)
 ```
-+ Displaying total count of (**na**).
++ Displaying total count of missing values (**na**).
 ```{r}
 sum(is.na(trip_data))
 ```
@@ -1472,7 +1470,7 @@ sum(is.na(trip_data))
 ```
 
 > [!CAUTION]
-> Understanding the potential risks associated with `attach()` and `detach()` during the current analysis, it's essential to recognize that these functions may introduce unexpected behavior and namespace conflicts. Exercise caution when utilizing them to avoid potential issues, and consider alternative methods for variable access, such as explicit referencing or other scoping mechanisms.
+> Understanding the potential risks associated with **`attach()`** and **`detach()`** during the current analysis, it's essential to recognize that these functions may introduce unexpected behavior and namespace conflicts. Exercise caution when utilizing them to avoid potential issues, and consider alternative methods for variable access, such as explicit referencing or other scoping mechanisms.
 
 ### Data Transformation, Imputation, and Cleaning
 + Renamed a column to improve clarity and consistency.
@@ -1487,13 +1485,13 @@ sum(is.na(trip_data))
 + Revisited specific columns for reassessment, ensuring data accuracy and completeness.
 
 #### Renaming a Column
-+ **`member_casual`** to **`user_type`**.
++ **member_casual** to **user_type**.
 ```{r}
 trip_data <- rename(trip_data, "user_type" = "member_casual")
 ```
 
 #### Converting Data Type
-+ **`started_at`** and **`ended_at`** columns to POSIXct format. ( e.g. 2023-01-21 08:16:33)
++ **started_at** and **ended_at** columns to POSIXct format. ( e.g. 2023-01-21 08:16:33)
 ```{r}
 trip_data$started_at <- ymd_hms(trip_data$started_at)
 trip_data$ended_at <- ymd_hms(trip_data$ended_at)
@@ -1504,7 +1502,7 @@ trip_data$ended_at <- ymd_hms(trip_data$ended_at)
 > + The warnings ("23 failed to parse" and "26 failed to parse") indicate issues with missing values (NAs) in the started_at and ended_at columns of trip_data. Missing values cannot be parsed into valid date-time objects, causing the warnings.
 
 #### Verifying Reason for Failed Parse
-+ Verifying the integrity and consistency of the **`started_at`** and **`ended_at`** columns following data manipulation.
++ Verifying the integrity and consistency of the **started_at** and **ended_at** columns.
 ```{r}
 sum(is.na(trip_data$started_at))
 sum(is.na(trip_data$ended_at))
@@ -1515,7 +1513,7 @@ sum(is.na(trip_data$ended_at))
 ```
 
 #### Precision Adjustment for Coordinates
-+ Rounding **`start and end latitude/longitude`** coordinates to 2 decimal places.
++ Rounding **start and end coordinates** to 2 decimal places.
 ```{r}
 trip_data <- trip_data %>%
   mutate(
@@ -1527,17 +1525,17 @@ trip_data <- trip_data %>%
 ```
 
 #### Extracting and Adding New Columns
-+ Extracting date from **`started_at`** and creating a new column **`date`**.
++ Extracting date from **started_at** and creating a new column **date**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(date = as.Date(started_at))
 ```
-+ Extracting month from **`date`** and creating a new column **`month`**.
++ Extracting month from **date** and creating a new column **month**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(month = format(date, "%B"))
 ```
-+ Extracting day from **`date`** and creating a new column **`day`**.
++ Extracting day from **date** and creating a new column **day**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(day = format(date, "%d"))
@@ -1547,59 +1545,59 @@ trip_data <- trip_data %>%
 trip_data <- trip_data %>%
   mutate(year = format(date, "%Y"))
 ```
-+ Extracting day of the week from **`date`** and creating a new column **`day_of_week`**.
++ Extracting day of the week from **date** and creating a new column **day_of_week**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(day_of_week = format(date, "%A"))
 ```
-+ Extracting hour from **`started_at`** and creating a new column **`hour`**.
++ Extracting hour from **started_at** and creating a new column **hour**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(hour = hour(started_at))
 ```
-+ Extracting quarterly from **`started_at`** and creating a new column **`quarter`**.
++ Extracting quarterly from **started_at** and creating a new column **quarter**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(quarter = quarter(started_at))
 ```
 
 #### Extracting and Adding Custom Column Part 1
-+ Calculating the difference in minutes between the timestamps in the **`ended_at`** and **`started_at`** columns, rounding the result to 2 decimal places, and storing the rounded durations in a new custom column **`ride_length_minute`**.
++ Calculating the difference in minutes between the timestamps in the **ended_at** and **started_at** columns, rounding the result to 2 decimal places, and storing the rounded durations in a new custom column **ride_length_minute**.
 ```{r}
 trip_data <- trip_data %>% 
   mutate(ride_length_minute = round(as.numeric(difftime(ended_at, started_at, units = "mins")), 2))
 ```
 
 #### Quality Assessment and Outlier Detection
-+ Displaying the data type of **`ride_length_minute`**.
++ Displaying the data type of **ride_length_minute**.
 ```{r}
 class(trip_data$ride_length_minute)
 ```
 ```{r}
 [1] "numeric"
 ```
-+ Detecting outliers by counting duration less than (**`<`**) 1 minute (60 seconds) in column **`ride_length_minute`**.
++ Detecting outliers by counting duration less than (**<**) 1 minute (60 seconds) in column **ride_length_minute**.
 ```{r}
 sum(trip_data$ride_length_minute < 1, na.rm = TRUE)
 ```
 ```{r}
 [1] 149615
 ```
-+ Detecting outliers by counting duration longer than (**`>`**) 24 hours (1440 minutes) in column **`ride_length_minute`**. 
++ Detecting outliers by counting duration longer than (**`>`**) 24 hours (1440 minutes) in column **ride_length_minute**. 
 ```{r}
 sum(trip_data$ride_length_minute > 1440, na.rm = TRUE)
 ```
 ```{r}
 [1] 6418
 ```
-+ Detecting outliers by counting non-positive duration less than or equal (**`<=`**) to 0 in column **`ride_length_minute`**. 
++ Detecting outliers by counting non-positive duration less than or equal (**`<=`**) to 0 in column **ride_length_minute**. 
 ```{r}
 sum(trip_data$ride_length_minute <= 0, na.rm = TRUE)
 ```
 ```{r}
 [1] 1269
 ```
-+ Detecting outliers by counting instances where the **`started_at`** occurs after **`ended_at`** using 2 methods.
++ Detecting outliers by counting instances where the **started_at** occurs after **ended_at**.
 ```{r}
 sum(trip_data$started_at > trip_data$ended_at, na.rm = TRUE)
 ```
@@ -1628,28 +1626,28 @@ colSums(is.na(trip_data[c(
 start_station_name   start_station_id   end_station_name     end_station_id            end_lat            end_lng 
             875716             875848             929202             929343               6990               6990 
 ```
-+ Filling missing values for **`start_station_name`** by grouping start latitude and longitude.
++ Filling missing values for **start_station_name** by grouping start latitude and longitude.
 ```{r}
 trip_data <- trip_data %>%
   group_by(start_lat, start_lng) %>%
   fill(start_station_name, .direction = "downup") %>%
   ungroup()
 ```
-+ Filling missing values for **`end_station_name`** by grouping end latitude and longitude.
++ Filling missing values for **end_station_name** by grouping end latitude and longitude.
 ```{r}
 trip_data <- trip_data %>%
   group_by(end_lat, end_lng) %>%
   fill(end_station_name, .direction = "downup") %>%
   ungroup()
 ```
-+ Filling missing values for **`start_station_id`** by grouping start station name.
++ Filling missing values for **start_station_id** by grouping start station name.
 ```{r}
 trip_data <- trip_data %>%
   group_by(start_station_name) %>%
   fill(start_station_id, .direction = "downup") %>%
   ungroup()
 ```
-+ Filling missing values for **`end_station_id`** by grouping end station name.
++ Filling missing values for **end_station_id** by grouping end station name.
 ```{r}
 trip_data <- trip_data %>%
   group_by(end_station_name) %>%
@@ -1674,7 +1672,7 @@ start_station_name   start_station_id   end_station_name     end_station_id     
 ```
 
 #### Extracting and Adding Custom Column Part 2
-+ Calculating the great-circle distance in meters between the **`start and end latitude/longitude`** coordinates of each trip recorded in the data frame, and storing the distances in a new custom column **`ride_distance`**.
++ Calculating the great-circle distance in meters between the **start and end coordinates** of each trip recorded in the data frame, and storing the distances in a new custom column **ride_distance**.
 ```{r}
 trip_data$ride_distance <- distGeo(
   matrix(c(trip_data$start_lng, trip_data$start_lat), ncol = 2),
@@ -1690,7 +1688,7 @@ trip_data$ride_distance <- trip_data$ride_distance * 0.621371
 ```
 
 #### Station Exploration
-+ Counting the number of rides per **`start_station_name`** and arranging them in descending order.
++ Counting the number of rides per **start_station_name** and arranging them in descending order.
 ```{r}
 trip_data %>% 
   select(start_station_name) %>% 
@@ -1710,7 +1708,7 @@ trip_data %>%
 
 `1-8 of 1,593 rows`
 
-+ Counting the number of rides per **`start_station_id`** and arranging them in descending order.
++ Counting the number of rides per **start_station_id** and arranging them in descending order.
 ```{r}
 trip_data %>% 
   select(start_station_id) %>% 
@@ -1732,7 +1730,7 @@ trip_data %>%
 
 `1-8 of 1,517 rows`
 
-+ Counting the number of rides per **`end_station_name`** and arranging them in descending order.
++ Counting the number of rides per **end_station_name** and arranging them in descending order.
 ```{r}
 trip_data %>% 
   select(end_station_name) %>% 
@@ -1752,7 +1750,7 @@ trip_data %>%
 
 `1-8 of 1,598 rows`
 
-+ Counting the number of rides per **`end_station_id`** and arranging them in descending order.
++ Counting the number of rides per **end_station_id** and arranging them in descending order.
 ```{r}
 trip_data %>% 
   select(end_station_id) %>% 
@@ -1772,7 +1770,7 @@ trip_data %>%
 
 `1-8 of 1,521 rows`
 
-+ Counting the number of rides for **`start_station_name`** containing **`test`**, **`warehouse`** , and **`charging station`**.
++ Counting the number of rides for **start_station_name** containing **test**, **warehouse** , and **charging station**.
 ```{r}
 trip_data %>% filter(
   start_station_name %in% c (
@@ -1800,7 +1798,7 @@ trip_data %>% filter(
 
 `2 rows`
 
-+ Counting the number of rides for **`start_station_id`** containing **`test`**, **`warehouse`** , and **`charging station`**.
++ Counting the number of rides for **start_station_id** containing **test**, **warehouse** , and **charging station**.
 ```{r}
 trip_data %>% filter(
   start_station_id %in% c (
@@ -1836,7 +1834,7 @@ trip_data %>% filter(
 
 `10 rows`
 
-+ Counting the number of rides for **`end_station_name`** containing **`test`**, **`warehouse`** , and **`charging station`**.
++ Counting the number of rides for **end_station_name** containing **test**, **warehouse** , and **charging station**.
 ```{r}
 trip_data %>% filter(
   end_station_name %in% c (
@@ -1864,7 +1862,7 @@ trip_data %>% filter(
 
 `2 rows`
 
-+ Counting the number of rides for **`end_station_id`** containing **`test`**, **`warehouse`** , and **`charging station`**.
++ Counting the number of rides for **end_station_id** containing **test**, **warehouse** , and **charging station**.
 ```{r}
 trip_data %>% filter(
   end_station_id %in% c (
@@ -1903,7 +1901,7 @@ trip_data %>% filter(
 `12 rows`
 
 #### Cleansing and Filtering Operations
-+ Filtering out rides with durations outside the range (**`>=`** and **`<=`** ) of 1 minute (60 seconds) to 1440 minutes (24 hours) and storing the filtered data in a newly updated data frame called **`trip_data_updated`**.
++ Filtering out rides with durations outside the range (**>=**) and (**<=** ) of 1 minute (60 seconds) to 1440 minutes (24 hours) and storing the filtered data in a newly updated data frame called **`trip_data_updated`**.
 ```{r}
 trip_data_updated <- trip_data %>% 
   filter(ride_length_minute >= 1 & ride_length_minute <= 1440)
@@ -1912,7 +1910,7 @@ trip_data_updated <- trip_data %>%
 ```{r}
 trip_data_updated <- trip_data_updated[!is.na(trip_data_updated$end_lat) & !is.na(trip_data_updated$end_lng), ]
 ```
-+ Filtering out stations containing **`test`**, **`warehouse`** , and **`charging station`** from **`start_station_name`**.
++ Filtering out stations containing **test**, **warehouse** , and **charging station** from **start_station_name**.
 ```{r}
 trip_data_updated <- trip_data_updated %>% 
   filter(!
@@ -1932,7 +1930,7 @@ trip_data_updated <- trip_data_updated %>%
     "DIVVY CASSETTE REPAIR MOBILE STATION"
   ))
 ```
-+ Filtering out stations containing **`test`**, **`warehouse`** , and **`charging station`** from **`start_station_id`**.
++ Filtering out stations containing **test**, **warehouse** , and **charging station** from **start_station_id**.
 ```{r}
 trip_data_updated <- trip_data_updated %>% 
   filter(!
@@ -1952,7 +1950,7 @@ trip_data_updated <- trip_data_updated %>%
     "DIVVY CASSETTE REPAIR MOBILE STATION"
   ))
 ```
-+ Filtering out stations containing **`test`**, **`warehouse`** , and **`charging station`** from **`end_station_name`**.
++ Filtering out stations containing **test**, **warehouse** , and **charging station** from **end_station_name**.
 ```{r}
 trip_data_updated <- trip_data_updated %>% 
   filter(!
@@ -1972,7 +1970,7 @@ trip_data_updated <- trip_data_updated %>%
     "DIVVY CASSETTE REPAIR MOBILE STATION"
   ))
 ```
-+ Filtering out stations containing **`test`**, **`warehouse`** , and **`charging station`** from **`end_station_id`**.
++ Filtering out stations containing **test**, **warehouse** , and **charging station** from **end_station_id**.
 ```{r}
 trip_data_updated <- trip_data_updated %>% 
   filter(!
@@ -1994,7 +1992,7 @@ trip_data_updated <- trip_data_updated %>%
 ```
 
 #### Re-vising Filtered Data
-+ Re-counting rides less than (**`<`**) 1 minute (60 seconds).
++ Re-counting rides less than (**<**) 1 minute (60 seconds).
 ```{r}
 sum(trip_data_updated$ride_length_minute < 1)
 ```
@@ -2008,14 +2006,14 @@ sum(trip_data_updated$ride_length_minute > 1440)
 ```{r}
 [1] 0
 ```
-+ Re-counting number of instances where **`started_at`** is after **`ended_at`**.
++ Re-counting number of instances where **started_at** is after **ended_at**.
 ```{r}
 length(which(trip_data_updated$started_at > trip_data_updated$ended_at)) 
 ```
 ```{r}
 [1] 0
 ```
-+ Re-counting the number of rides for **`start_station_name`** containing **`test`**, **`warehouse`** , and **`charging station`**.
++ Re-counting the number of rides for **start_station_name** containing **test**, **warehouse** , and **charging station**.
 ```{r}
 trip_data_updated %>% filter(
   start_station_name %in% c (
@@ -2039,7 +2037,7 @@ trip_data_updated %>% filter(
 ```{r}
 0 rows
 ```
-+ Re-counting the number of rides for **`start_station_id`** containing **`test`**, **`warehouse`** , and **`charging station`**.
++ Re-counting the number of rides for **start_station_id** containing **test**, **warehouse** , and **charging station**.
 ```{r}
 trip_data_updated %>% filter(
   start_station_id %in% c (
@@ -2063,7 +2061,7 @@ trip_data_updated %>% filter(
 ```{r}
 0 rows
 ```
-+ Re-counting the number of rides for **`end_station_name`** containing **`test`**, **`warehouse`** , and **`charging station`**.
++ Re-counting the number of rides for **end_station_name** containing **test**, **warehouse** , and **charging station**.
 ```{r}
 trip_data_updated %>% filter(
   end_station_name %in% c (
@@ -2087,7 +2085,7 @@ trip_data_updated %>% filter(
 ```{r}
 0 rows
 ```
-+ Re-counting the number of rides for **`end_station_id`** containing **`test`**, **`warehouse`** , and **`charging station`**.
++ Re-counting the number of rides for **end_station_id** containing **test**, **warehouse** , and **charging station**.
 ```{r}
 trip_data_updated %>% filter(
   end_station_id %in% c (
@@ -2127,7 +2125,7 @@ nrow(trip_data_updated)
 ```{r}
 [1] 5459091
 ```
-+ Summarizing the structure and attributes of the newly updated data frame using `glimpse()`.
++ Summarizing the structure and attributes of the newly updated data frame.
 ```{r}
 glimpse(trip_data_updated)
 ```
@@ -2157,7 +2155,7 @@ $ quarter            <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 $ ride_length_minute <dbl> 10.85, 8.48, 13.23, 8.77, 15.32, 3.22, 14.00, 9.35, 12.45, 12.55, 9.82, 9.37, 7.67, 9.95, 4.58, 6.63, 2.50, 15.27, 16.03, 48.82, 15.03, 4.03, 7.30, 29.38, 10.15, 8.03, 7.88, 8.67, 5.32, 5.18, 8.02, 17.28, 3.00, 3.6…
 $ ride_distance      <dbl> 0.8613851, 0.8619511, 2.1335324, 0.8619511, 0.8619511, 0.0000000, 0.8619511, 0.8619511, 0.8619511, 0.8619511, 0.8619511, 0.8619511, 1.4733859, 1.4733859, 0.6901681, 1.0296212, 0.0000000, 2.1335324, 2.9469271, 7.366…
 ```
-+ Displaying an overall summary of the newly updated data frame using `summary()`.
++ Displaying an overall summary of the newly updated data frame.
 ```{r}
 summary(trip_data_updated)
 ```
@@ -2177,7 +2175,7 @@ summary(trip_data_updated)
  3rd Qu.:-87.63                      3rd Qu.:2023-09-16                                                                               3rd Qu.:18.00   3rd Qu.:3.000   3rd Qu.:  17.20    3rd Qu.:   1.723  
  Max.   :  0.00                      Max.   :2023-12-31                                                                               Max.   :23.00   Max.   :4.000   Max.   :1439.87    Max.   :6098.520  
 ```
-+ Calculating the total sum of missing values after cleaning and filtering using `colSums(is.na())`.
++ Calculating the total sum of missing values after cleaning and filtering.
 ```{r}
 colSums(is.na(trip_data_updated))
 ```
@@ -2195,20 +2193,20 @@ colSums(is.na(trip_data_updated))
 + Following data cleaning and filtering, the data frame retains 83,718 missing values (**na**).
 
 #### Data Transformation, Imputation, and Cleaning
-+ Renamed the column `member_casual` to `user_type`.
++ Renamed the column member_casual to user_type.
 + Converted started_at and ended_at data type to POSIXct format to ensure consistency.
 + Adjust start and end coordinates for accuracy.
-+ Added additional columns: `date`, `month`, `day`, `year`, `day_of_week`, `hour`, `quarter`, `ride_length_minute`, and `ride_distance`.
-+ Calculated the difference in minutes between `ended_at` and `started_at`, rounding the result to two decimal places, and creating a new column.
-+ Handled missing values in `start_station_name`, `start_station_id`, `end_station_name`, and `end_station_id` by filling in values based on grouping start latitude and longitude and end latitude and longitude.
++ Added additional columns: **date**, **month**, **day**, **year**, **day_of_week**, **hour**, **quarter**, **ride_length_minute**, and **ride_distance**.
++ Calculated the difference in minutes between **ended_at** and **started_at**, rounding the result to two decimal places, and creating a new column.
++ Handled missing values in **start_station_name**, **start_station_id**, **end_station_name**, and **end_station_id** by filling in values based on grouping start latitude and longitude and end latitude and longitude.
 + Calculated the great-circle distance in meters between start and end coordinates, converting the units of distances to miles and creating a new column.
-+ Filtered out outliers in `ride_length_minute` where values are < 1 minute or > 24 hours, as well as any negative or zero values.
++ Filtered out outliers in **ride_length_minute** where values are < 1 minute or > 24 hours, as well as any negative or zero values.
 + Removed any missing values in end latitude and longitude.
-+ Filtered out entries related to `test`, `warehouse`, or `charging stations` from the `start and end station columns`.
++ Filtered out entries related to **test**, **warehouse**, or **charging stations** from the **start and end station columns**.
 
 #### Additional Details
-+ In the cleaning and filtering process, removing rows containing missing values (**na**) in `end_lat` and `end_lng` was deemed acceptable due to the minimal impact on the dataset's size.
-+ However, following the cleaning and filtering steps, the remaining columns with missing values (**na**) are `start_station_name`, `start_station_id`, `end_station_name`, and `end_station_id`.
++ In the cleaning and filtering process, removing rows containing missing values (**na**) in **end_lat** and **end_lng** was deemed acceptable due to the minimal impact on the dataset's size.
++ However, following the cleaning and filtering steps, the remaining columns with missing values (**na**) are **start_station_name**, **start_station_id**, **end_station_name**, and **end_station_id**.
 + The decision to retain these columns with missing values (**na**) was made considering the substantial number of rows that would be removed if they were filled, and the data in these columns does not necessarily require filling.
 
 ### Key Tasks
