@@ -61,7 +61,9 @@ library(leaflet.extras)
 ```
 
 #### Importing Data Files and Creating Data Frame
-+ January 2023
++ Importing the 12 CSV data files using the **`read.csv()`** function.
+  
+**January 2023**
 ```{r}
 jan2023 <- read_csv("202301-divvy-tripdata.csv")
 ```
@@ -75,7 +77,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
-+ February 2023
+**February 2023**
 ```{r}
 feb2023 <- read_csv("202302-divvy-tripdata.csv")
 ```
@@ -89,7 +91,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
-+ March 2023
+**March 2023**
 ```{r}
 mar2023 <- read_csv("202303-divvy-tripdata.csv")
 ```
@@ -103,7 +105,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
-+ April 2023
+**April 2023**
 ```{r}
 apr2023 <- read_csv("202304-divvy-tripdata.csv")
 ```
@@ -117,7 +119,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
-+ May 2023
+**May 2023**
 ```{r}
 may2023 <- read_csv("202305-divvy-tripdata.csv")
 ```
@@ -131,7 +133,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
-+ June 2023
+**June 2023**
 ```{r}
 jun2023 <- read_csv("202306-divvy-tripdata.csv")
 ```
@@ -145,7 +147,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
-+ July 2023
+**July 2023**
 ```{r}
 jul2023 <- read_csv("202307-divvy-tripdata.csv")
 ```
@@ -159,7 +161,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
-+ August 2023
+**August 2023**
 ```{r}
 aug2023 <- read_csv("202308-divvy-tripdata.csv")
 ```
@@ -173,7 +175,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
-+ September 2023
+**September 2023**
 ```{r}
 sep2023 <- read_csv("202309-divvy-tripdata.csv")
 ```
@@ -187,7 +189,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
-+ October 2023
+**October 2023**
 ```{r}
 oct2023 <- read_csv("202310-divvy-tripdata.csv")
 ```
@@ -201,7 +203,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
-+ November 2023
+**November 2023**
 ```{r}
 nov2023 <- read_csv("202311-divvy-tripdata.csv")
 ```
@@ -215,7 +217,7 @@ dttm (2): started_at, ended_at
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
-+ December 2023
+**December 2023**
 ```{r}
 dec2023 <- read_csv("202312-divvy-tripdata.csv")
 ```
@@ -234,7 +236,8 @@ dttm (2): started_at, ended_at
 + Inspected the structure, attributes, and summary statistics.
 + Providing insights into the composition and characteristics of the data.
 
-#### Displaying _Column Names_ for Each Month’s Dataset
+#### Column Names for Each Month’s Data Frame
++ Displaying the column names for each data frame using **`colnames()`** functions.
 ```{r}
 colnames(jan2023)
 colnames(feb2023)
@@ -255,8 +258,10 @@ colnames(dec2023)
 [13] "member_casual"     
 ```
 
-#### Displaying _Structure_ of Each Month’s Dataset
-+ January 2023
+#### Structure of Each Month’s Data Frame
++ Displaying the structure of each data frame using **`str()`** functions.
+  
+**January 2023**
 ```{r}
 str(jan2023)
 ```
@@ -294,7 +299,7 @@ spc_tbl_ [190,301 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
-+ Feburary 2023
+**Feburary 2023**
 ```{r}
 str(feb2023)
 ```
@@ -332,7 +337,7 @@ spc_tbl_ [190,445 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
-+ March 2023
+**March 2023**
 ```{r}
 str(mar2023)
 ```
@@ -370,7 +375,7 @@ spc_tbl_ [258,678 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
-+ April 2023
+**April 2023**
 ```{r}
 str(apr2023)
 ```
@@ -408,7 +413,7 @@ spc_tbl_ [426,590 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
-+ May 2023
+**May 2023**
 ```{r}
 str(may2023)
 ```
@@ -446,7 +451,7 @@ spc_tbl_ [604,827 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
-+ June 2023
+**June 2023**
 ```{r}
 str(jun2023)
 ```
@@ -484,7 +489,7 @@ spc_tbl_ [719,618 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
-+ July 2023
+**July 2023**
 ```{r}
 str(jul2023)
 ```
@@ -522,7 +527,7 @@ spc_tbl_ [767,650 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
-+ August 2023
+**August 2023**
 ```{r}
 str(aug2023)
 ```
@@ -560,7 +565,7 @@ spc_tbl_ [771,693 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
-+ September 2023
+**September 2023**
 ```{r}
 str(sep2023)
 ```
@@ -598,7 +603,7 @@ spc_tbl_ [666,371 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
-+ October 2023
+**October 2023**
 ```{r}
 str(oct2023)
 ```
@@ -636,7 +641,7 @@ spc_tbl_ [537,113 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
-+ November 2023
+**November 2023**
 ```{r}
 str(nov2023)
 ```
@@ -674,7 +679,7 @@ spc_tbl_ [362,518 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
-+ December 2023
+**December 2023**
 ```{r}
 str(dec2023)
 ```
@@ -712,8 +717,10 @@ spc_tbl_ [224,073 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  - attr(*, "problems")=<externalptr> 
 ```
 
-#### Displaying _Summary_ Statistics for Each Month’s Dataset
-+ January 2023
+#### Statistics for Each Month’s Data Frame
++ Displaying the summary for each data frame using **`summary()`** functions.
+
+**January 2023**
 ```{r}
 summary(jan2023)
 ```
@@ -736,7 +743,7 @@ summary(jan2023)
                                                                         NA's   :127     NA's   :127                        
 ```
 
-+ February 2023
+**February 2023**
 ```{r}
 summary(feb2023)
 ```
@@ -759,7 +766,7 @@ summary(feb2023)
                                                                         NA's   :116     NA's   :116                        
 ```
 
-+ March 2023
+**March 2023**
 ```{r}
 summary(mar2023)
 ```
@@ -782,7 +789,7 @@ summary(mar2023)
                                                                         NA's   :183     NA's   :183                        
 ```
 
-+ April 2023
+**April 2023**
 ```{r}
 summary(apr2023)
 ```
@@ -805,7 +812,7 @@ summary(apr2023)
                                                                         NA's   :435     NA's   :435                       
 ```
 
-+ May 2023
+**May 2023**
 ```{r}
 summary(may2023)
 ```
@@ -828,7 +835,7 @@ summary(may2023)
                                                                         NA's   :710     NA's   :710                        
 ```
 
-+ June 2023
+**June 2023**
 ```{r}
 summary(jun2023)
 ```
@@ -851,7 +858,7 @@ summary(jun2023)
                                                                         NA's   :889     NA's   :889                     
 ```
 
-+ July 2023
+**July 2023**
 ```{r}
 summary(jul2023)
 ```
@@ -874,7 +881,7 @@ summary(jul2023)
                                                                         NA's   :1254    NA's   :1254                       
 ```
 
-+ August 2023
+**August 2023**
 ```{r}
 summary(aug2023)
 ```
@@ -897,7 +904,7 @@ summary(aug2023)
                                                                         NA's   :1257    NA's   :1257                       
 ```
 
-+ September 2023
+**September 2023**
 ```{r}
 summary(sep2023)
 ```
@@ -920,7 +927,7 @@ summary(sep2023)
                                                                         NA's   :838     NA's   :838                        
 ```
 
-+ October 2023
+**October 2023**
 ```{r}
 summary(oct2023)
 ```
@@ -943,7 +950,7 @@ summary(oct2023)
                                                                         NA's   :592     NA's   :592                        
 ```
 
-+ November 2023
+**November 2023**
 ```{r}
 summary(nov2023)
 ```
@@ -966,7 +973,7 @@ summary(nov2023)
                                                                         NA's   :350     NA's   :350                        
 ```
 
-+ December 2023
+**December 2023**
 ```{r}
 summary(dec2023)
 ```
@@ -990,8 +997,8 @@ summary(dec2023)
 ```
 
 ### Summary of Initial Review
-+ Each file consists of 13 columns.
-+ Total number of rows across all files is 5,719,877.
++ Each file consists of **13 columns**.
++ Total number of rows across all files is **5,719,877**.
 + Missing data primarily occurs in columns:
     - `start_station_name`
     - `start_station_id`
@@ -1006,6 +1013,7 @@ summary(dec2023)
 + Removing the 12 individual data frames after consolidation to streamline data management.
 
 #### Combining All Monthly Data Frames
++ Combining all data frames into a single unified data frame using the **`bind_rows()`** function.
 ```{r}
 trip_data <- bind_rows(
   list(
@@ -1026,6 +1034,7 @@ trip_data <- bind_rows(
 ```
 
 #### Removing All Individual Monthly Data Frames from the Environment
++ Removing all individual data frames from the environment to streamline data management using the **`rm()`** function.
 ```{r}
 rm(
   list = c(
@@ -1046,7 +1055,7 @@ rm(
 ```
 
 ### Consolidation Data Exploration
-+ Reviewed newly combined data framed, `trip_data`.
++ Reviewed newly combined data framed, **`trip_data`**.
 + Examined variable types and dimensions to understand the data structure thoroughly.
 + Reviewed column names and variable distributions for clarity and insight into the dataset.
 + Checked for missing values to assess data completeness and potential issues.
@@ -1056,7 +1065,7 @@ rm(
 + Summarized variable statistics to identify trends, outliers, and patterns within the data.
 
 #### Checking Data Type
-+ Identifying data type using `class()`.
++ Identifying data type using **`class()`** function.
 ```{r}
 class(trip_data)
 ```
@@ -1065,7 +1074,7 @@ class(trip_data)
 ```
 
 #### Checking Data Dimensions
-+ Counting the number of rows and columns using `dim()`.
++ Counting the number of rows and columns using **`dim()`** function.
 ```{r}
 dim(trip_data)
 ```
@@ -1074,7 +1083,7 @@ dim(trip_data)
 ```
 
 #### Displaying Variable Names
-+ Obtaining the column names using `colnames()` and `names()`.
++ Obtaining the column names using **`colnames()`** and **`names()`** functions.
 ```{r}
 colnames(trip_data)
 ```
@@ -1093,7 +1102,7 @@ names(trip_data)
 ```
 
 #### Identifying Total Missing Values
-+ Calculating the total sum of missing values (**na**) in each column using `colSums(is.na())`.
++ Calculating the total sum of missing values (**na**) in each column using **`colSums(is.na())`** function.
 ```{r}
 colSums(is.na(trip_data))
 ```
@@ -1105,7 +1114,7 @@ colSums(is.na(trip_data))
 ```
 
 #### Displaying Row Count
-+ Counting the total count of rows of the entire data frame using `nrow()`.
++ Counting the total count of rows of the entire data frame using **`nrow()`** function.
 ```{r}
 nrow(trip_data)
 ```
@@ -1114,7 +1123,7 @@ nrow(trip_data)
 ```
 
 #### Displaying Column Count
-+ Counting the total count of columns of the entire data frame using `ncol()`.
++ Counting the total count of columns of the entire data frame using **`ncol()`** function.
 ```{r}
 ncol(trip_data)
 ```
@@ -1123,7 +1132,7 @@ ncol(trip_data)
 ```
 
 #### Displaying Top Rows
-+ Showing a preview of the first few rows (6 rows) offering a glimpse into its contents using `head()`.
++ Showing a preview of the first few rows (6 rows) offering a glimpse into its contents using **`head()`** function.
 ```{r}
 head(trip_data)
 ```
@@ -1137,7 +1146,7 @@ head(trip_data)
 | 58E68156DAE3E311 | electric_bike       | 2023-01-31 07:18:03      | 2023-01-31 07:21:16    | Lakeview Ave & Fullerton Pkwy | TA1309000019           | Hampden Ct & Diversey Ave      | 202480.0             | 41.92607        | -87.63886       | 41.93000      | -87.64000     | member              |
 
 #### Displaying Bottom Rows
-+ Showing a preview of the last few rows (6 rows) offering a glimpse into its contents using `tail()`.
++ Showing a preview of the last few rows (6 rows) offering a glimpse into its contents using **`tail()`** function.
 ```{r}
 tail(trip_data)
 ```
@@ -1151,7 +1160,7 @@ tail(trip_data)
 | A373F5B447AEA508 | classic_bike        | 2023-12-11 13:07:46      | 2023-12-11 13:11:24    | 900 W Harrison St        | 13028                  | Racine Ave & Congress Pkwy | TA1306000025         | 41.87475        | -87.64981       | 41.87464      | -87.65703     | member              |
 
 #### Displaying the Structure Overview
-+ Reviewing the new structure using `str()`.
++ Reviewing the new structure using **`str()`** function.
 ```{r}
 str(trip_data)
 ```
@@ -1190,7 +1199,7 @@ spc_tbl_ [5,719,877 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ```
 
 #### Displaying Conise Structure
-+ Summarizing the structure and attributes using `glimpse()`.
++ Summarizing the structure and attributes using **`glimpse()`** function.
 ```{r}
 glimpse(trip_data)
 ```
@@ -1214,7 +1223,7 @@ Modify Chunk OptionsRun All Chunks AboveRun Current Chunk
 ```
 
 #### Displaying Variable Statistics
-+ Generating a summary report without using a chart using `skim_without_charts()`.
++ Generating a summary report without using a chart using **`skim_without_charts()`** function.
 ```{r}
 skim_without_charts(trip_data)
 ```
@@ -1255,7 +1264,7 @@ Group variables            None
 
 
 #### Displaying Summary Overview
-+ Providing an overall summary of the new data frame using `summary()`.
++ Providing an overall summary of the new data frame using **`summary()`** function.
 ```{r}
 summary(trip_data)
 ```
@@ -1305,39 +1314,41 @@ summary(trip_data)
 + Removed the temporary data frame from the current R environment.
 
 #### Identifying Missing Values
-+ Adding the combined `trip_data` data frame to the search path.
-```{r}
-attach(trip_data)
-```
-+ Displaying rows where `ride_id` is (**na**).
-```{r}
-trip_data[is.na(ride_id),]
-```
-```{r}
-0 rows
-```
-+ Displaying rows where `rideable_type` is (**na**).
++ Attaching the combined **`trip_data`** data frame to the search path using the **`attach()`** function.
+
+  ```{r}
+  attach(trip_data)
+  ```
+  + Displaying rows where **`ride_id`** is (**na**) using the **`is.na()`** function. 
+  
+    ```{r}
+    trip_data[is.na(ride_id),]
+    ```
+    ```{r}
+    0 rows
+    ```
++ Displaying rows where **`rideable_type`** is (**na**) using the **`is.na()`** function.
 ```{r}
 trip_data[is.na(rideable_type),]
 ```
 ```{r}
 0 rows
 ```
-+ Displaying rows where `started_at` is (**na**).
++ Displaying rows where **`started_at`** is (**na**) using the **`is.na()`** function.
 ```{r}
 trip_data[is.na(started_at),]
 ```
 ```{r}
 0 rows
 ```
-+ Displaying rows where `ended_at` is (**na**).
++ Displaying rows where **`ended_at`** is (**na**) using the **`is.na()`** function.
 ```{r}
 trip_data[is.na(ended_at),]
 ```
 ```{r}
 0 rows
 ```
-+ Displaying rows where `start_station_name` is (**na**).
++ Displaying rows where **`start_station_name`** is (**na**) using the **`is.na()`** function.
 ```{r}
 trip_data[is.na(start_station_name),]
 ```
@@ -1352,7 +1363,7 @@ trip_data[is.na(start_station_name),]
 
 `1-6 of 875,716 rows`
 
-+ Displaying rows where `start_station_id` is (**na**).
++ Displaying rows where **`start_station_id`** is (**na**) using the **`is.na()`** function.
 ```{r}
 trip_data[is.na(start_station_id),]
 ```
@@ -1367,7 +1378,7 @@ trip_data[is.na(start_station_id),]
 
 `1-6 of 875,848 rows`
 
-+ Displaying rows where `end_station_name` is (**na**).
++ Displaying rows where **`end_station_name`** is (**na**) using the **`is.na()`** function.
 ```{r}
 trip_data[is.na(end_station_name),]
 ```
@@ -1382,7 +1393,7 @@ trip_data[is.na(end_station_name),]
 
 `1-6 of 929,202 rows`
 
-+ Displaying rows where `end_station_id` is (**na**).
++ Displaying rows where **`end_station_id`** is (**na**) using the **`is.na()`** function.
 ```{r}
 trip_data[is.na(end_station_id),]
 ```
@@ -1397,21 +1408,21 @@ trip_data[is.na(end_station_id),]
 
 `1-6 of 929,343 rows`
 
-+ Displaying rows where `start_lat` is (**na**).
++ Displaying rows where **`start_lat`** is (**na**) using the **`is.na()`** function.
 ```{r}
 trip_data[is.na(start_lat),]
 ```
 ```{r}
 0 rows
 ```
-+ Displaying rows where `start_lng` is (**na**).
++ Displaying rows where **`start_lng`** is (**na**) using the **`is.na()`** function.
 ```{r}
 trip_data[is.na(start_lng),]
 ```
 ```{r}
 0 rows
 ```
-+ Displaying rows where `end_lat` is (**na**).
++ Displaying rows where **`end_lat`** is (**na**) using the **`is.na()`** function.
 ```{r}
 trip_data[is.na(end_lat),]
 ```
@@ -1426,7 +1437,7 @@ trip_data[is.na(end_lat),]
 
 `1-6 of 6,990 rows`
 
-+ Displaying rows where `end_lng` is (**na**).
++ Displaying rows where **`end_lng`** is (**na**) using the **`is.na()`** function.
 ```{r}
 trip_data[is.na(end_lng),]
 ```
@@ -1441,14 +1452,14 @@ trip_data[is.na(end_lng),]
 
 `1-6 of 6,990 rows`
 
-+ Displaying rows where `member_casual` is (**na**).
++ Displaying rows where **`member_casual`** is (**na**) using the **`is.na()`** function.
 ```{r}
 trip_data[is.na(member_casual),]
 ```
 ```{r}
 0 rows
 ```
-+ Removing the combined `trip_data` data frame from the search path.
++ Detaching the combined **`trip_data`** data frame from the search path.
 ```{r}
 detach(trip_data)
 ```
@@ -1476,25 +1487,24 @@ sum(is.na(trip_data))
 + Revisited specific columns for reassessment, ensuring data accuracy and completeness.
 
 #### Renaming a Column
-+ `member_casual` to `user_type`.
++ **`member_casual`** to **`user_type`**.
 ```{r}
 trip_data <- rename(trip_data, "user_type" = "member_casual")
 ```
 
 #### Converting Data Type
-+ `started_at` and `ended_at` columns to POSIXct format. ( e.g. 2023-01-21 08:16:33)
++ **`started_at`** and **`ended_at`** columns to POSIXct format. ( e.g. 2023-01-21 08:16:33)
 ```{r}
 trip_data$started_at <- ymd_hms(trip_data$started_at)
 trip_data$ended_at <- ymd_hms(trip_data$ended_at)
 ```
-```{r}
-Warning:  23 failed to parse.Warning:  26 failed to parse.
-```
+`Warning:  23 failed to parse.Warning:  26 failed to parse.`
+
 > [!IMPORTANT]
 > + The warnings ("23 failed to parse" and "26 failed to parse") indicate issues with missing values (NAs) in the started_at and ended_at columns of trip_data. Missing values cannot be parsed into valid date-time objects, causing the warnings.
 
 #### Verifying Reason for Failed Parse
-+ Verifying the integrity and consistency of the `started_at` and `ended_at` columns following data manipulation.
++ Verifying the integrity and consistency of the **`started_at`** and **`ended_at`** columns following data manipulation.
 ```{r}
 sum(is.na(trip_data$started_at))
 sum(is.na(trip_data$ended_at))
@@ -1505,7 +1515,7 @@ sum(is.na(trip_data$ended_at))
 ```
 
 #### Precision Adjustment for Coordinates
-+ Rounding `start and end latitude/longitude` coordinates to 2 decimal places.
++ Rounding **`start and end latitude/longitude`** coordinates to 2 decimal places.
 ```{r}
 trip_data <- trip_data %>%
   mutate(
@@ -1517,79 +1527,79 @@ trip_data <- trip_data %>%
 ```
 
 #### Extracting and Adding New Columns
-+ Extracting date from `started_at` and creating a new column `date`.
++ Extracting date from **`started_at`** and creating a new column **`date`**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(date = as.Date(started_at))
 ```
-+ Extracting month from `date` and creating a new column `month`.
++ Extracting month from **`date`** and creating a new column **`month`**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(month = format(date, "%B"))
 ```
-+ Extracting day from `date` and creating a new column `day`.
++ Extracting day from **`date`** and creating a new column **`day`**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(day = format(date, "%d"))
 ```
-+ Extracting year from `date` and creating a new column `year`.
++ Extracting year from **`date`** and creating a new column **`year`**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(year = format(date, "%Y"))
 ```
-+ Extracting day of the week from `date` and creating a new column `day_of_week`.
++ Extracting day of the week from **`date`** and creating a new column **`day_of_week`**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(day_of_week = format(date, "%A"))
 ```
-+ Extracting hour from `started_at` and creating a new column `hour`.
++ Extracting hour from **`started_at`** and creating a new column **`hour`**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(hour = hour(started_at))
 ```
-+ Extracting quarterly from `started_at` and creating a new column `quarter`.
++ Extracting quarterly from **`started_at`** and creating a new column **`quarter`**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(quarter = quarter(started_at))
 ```
 
 #### Extracting and Adding Custom Column Part 1
-+ Calculating the difference in minutes between the timestamps in the `ended_at` and `started_at` columns, rounding the result to 2 decimal places, and storing the rounded durations in a new custom column `ride_length_minute`.
++ Calculating the difference in minutes between the timestamps in the **`ended_at`** and **`started_at`** columns, rounding the result to 2 decimal places, and storing the rounded durations in a new custom column **`ride_length_minute`**.
 ```{r}
 trip_data <- trip_data %>% 
   mutate(ride_length_minute = round(as.numeric(difftime(ended_at, started_at, units = "mins")), 2))
 ```
 
 #### Quality Assessment and Outlier Detection
-+ Displaying the data type of `ride_length_minute` using `class()`.
++ Displaying the data type of **`ride_length_minute`**.
 ```{r}
 class(trip_data$ride_length_minute)
 ```
 ```{r}
 [1] "numeric"
 ```
-+ Detecting outliers by counting duration less than 1 minute (60 seconds) in column `ride_length_minute`.
++ Detecting outliers by counting duration less than (**`<`**) 1 minute (60 seconds) in column **`ride_length_minute`**.
 ```{r}
 sum(trip_data$ride_length_minute < 1, na.rm = TRUE)
 ```
 ```{r}
 [1] 149615
 ```
-+ Detecting outliers by counting duration longer than 24 hours (1440 minutes) in column `ride_length_minute`. 
++ Detecting outliers by counting duration longer than (**`>`**) 24 hours (1440 minutes) in column **`ride_length_minute`**. 
 ```{r}
 sum(trip_data$ride_length_minute > 1440, na.rm = TRUE)
 ```
 ```{r}
 [1] 6418
 ```
-+ Detecting outliers by counting non-positive duration (less than or equal to 0) in column `ride_length_minute`. 
++ Detecting outliers by counting non-positive duration less than or equal (**`<=`**) to 0 in column **`ride_length_minute`**. 
 ```{r}
 sum(trip_data$ride_length_minute <= 0, na.rm = TRUE)
 ```
 ```{r}
 [1] 1269
 ```
-+ Detecting outliers by counting instances where the `started_at` occurs after `ended_at` using 2 methods.
++ Detecting outliers by counting instances where the **`started_at`** occurs after **`ended_at`** using 2 methods.
 ```{r}
 sum(trip_data$started_at > trip_data$ended_at, na.rm = TRUE)
 ```
@@ -1604,7 +1614,7 @@ length(which(trip_data$started_at > trip_data$ended_at))
 ```
 
 #### Handling Missing Values
-+ Re-counting missing values in specific columns using `colSums(is.na())`.
++ Re-counting missing values in specific columns.
 ```{r}
 colSums(is.na(trip_data[c(
   "start_station_name", 
@@ -1618,28 +1628,28 @@ colSums(is.na(trip_data[c(
 start_station_name   start_station_id   end_station_name     end_station_id            end_lat            end_lng 
             875716             875848             929202             929343               6990               6990 
 ```
-+ Filling missing values for `start_station_name` by grouping start latitude and longitude.
++ Filling missing values for **`start_station_name`** by grouping start latitude and longitude.
 ```{r}
 trip_data <- trip_data %>%
   group_by(start_lat, start_lng) %>%
   fill(start_station_name, .direction = "downup") %>%
   ungroup()
 ```
-+ Filling missing values for `end_station_name` by grouping end latitude and longitude.
++ Filling missing values for **`end_station_name`** by grouping end latitude and longitude.
 ```{r}
 trip_data <- trip_data %>%
   group_by(end_lat, end_lng) %>%
   fill(end_station_name, .direction = "downup") %>%
   ungroup()
 ```
-+ Filling missing values for `start_station_id` by grouping start station name.
++ Filling missing values for **`start_station_id`** by grouping start station name.
 ```{r}
 trip_data <- trip_data %>%
   group_by(start_station_name) %>%
   fill(start_station_id, .direction = "downup") %>%
   ungroup()
 ```
-+ Filling missing values for `end_station _id` by grouping end station name.
++ Filling missing values for **`end_station_id`** by grouping end station name.
 ```{r}
 trip_data <- trip_data %>%
   group_by(end_station_name) %>%
@@ -1664,7 +1674,7 @@ start_station_name   start_station_id   end_station_name     end_station_id     
 ```
 
 #### Extracting and Adding Custom Column Part 2
-+ Calculating the great-circle distance in meters between the `start and end latitude and longitude` coordinates of each trip recorded in the data frame, and storing the distances in a new custom column `ride_distance`.
++ Calculating the great-circle distance in meters between the **`start and end latitude/longitude`** coordinates of each trip recorded in the data frame, and storing the distances in a new custom column **`ride_distance`**.
 ```{r}
 trip_data$ride_distance <- distGeo(
   matrix(c(trip_data$start_lng, trip_data$start_lat), ncol = 2),
@@ -1680,7 +1690,7 @@ trip_data$ride_distance <- trip_data$ride_distance * 0.621371
 ```
 
 #### Station Exploration
-+ Counting the number of rides per `start_station_name` and arranging them in descending order.
++ Counting the number of rides per **`start_station_name`** and arranging them in descending order.
 ```{r}
 trip_data %>% 
   select(start_station_name) %>% 
@@ -1700,7 +1710,7 @@ trip_data %>%
 
 `1-8 of 1,593 rows`
 
-+ Counting the number of rides per `start_station_id` and arranging them in descending order.
++ Counting the number of rides per **`start_station_id`** and arranging them in descending order.
 ```{r}
 trip_data %>% 
   select(start_station_id) %>% 
@@ -1722,7 +1732,7 @@ trip_data %>%
 
 `1-8 of 1,517 rows`
 
-+ Counting the number of rides per `end_station_name` and arranging them in descending order.
++ Counting the number of rides per **`end_station_name`** and arranging them in descending order.
 ```{r}
 trip_data %>% 
   select(end_station_name) %>% 
@@ -1742,7 +1752,7 @@ trip_data %>%
 
 `1-8 of 1,598 rows`
 
-+ Counting the number of rides per `end_station_id` and arranging them in descending order.
++ Counting the number of rides per **`end_station_id`** and arranging them in descending order.
 ```{r}
 trip_data %>% 
   select(end_station_id) %>% 
@@ -1762,7 +1772,7 @@ trip_data %>%
 
 `1-8 of 1,521 rows`
 
-+ Counting the number of rides for `start_station_name` containing 'test', 'warehouse', or 'charging station'.
++ Counting the number of rides for **`start_station_name`** containing **`test`**, **`warehouse`** , and **`charging station`**.
 ```{r}
 trip_data %>% filter(
   start_station_name %in% c (
@@ -1790,7 +1800,7 @@ trip_data %>% filter(
 
 `2 rows`
 
-+ Counting the number of rides for `start_station_id` containing 'test', 'warehouse', or 'charging station'.
++ Counting the number of rides for **`start_station_id`** containing **`test`**, **`warehouse`** , and **`charging station`**.
 ```{r}
 trip_data %>% filter(
   start_station_id %in% c (
@@ -1826,7 +1836,7 @@ trip_data %>% filter(
 
 `10 rows`
 
-+ Counting the number of rides for `end_station_name` containing 'test', 'warehouse', or 'charging station'.
++ Counting the number of rides for **`end_station_name`** containing **`test`**, **`warehouse`** , and **`charging station`**.
 ```{r}
 trip_data %>% filter(
   end_station_name %in% c (
@@ -1851,10 +1861,10 @@ trip_data %>% filter(
 |------------------------|---------|
 | OH - BONFIRE - TESTING | 3       |
 | OH Charging Stx - Test | 477     |
-```{r}
-2 rows
-```
-+ Counting the number of rides for `end_station_id` containing 'test', 'warehouse', or 'charging station'.
+
+`2 rows`
+
++ Counting the number of rides for **`end_station_id`** containing **`test`**, **`warehouse`** , and **`charging station`**.
 ```{r}
 trip_data %>% filter(
   end_station_id %in% c (
@@ -1893,7 +1903,7 @@ trip_data %>% filter(
 `12 rows`
 
 #### Cleansing and Filtering Operations
-+ Filtering out rides with durations outside the range of 1 minute (60 seconds) to 1440 minutes (24 hours) and storing the filtered data in a newly updated data frame called `trip_data_updated`.
++ Filtering out rides with durations outside the range (**`>=`** and **`<=`** ) of 1 minute (60 seconds) to 1440 minutes (24 hours) and storing the filtered data in a newly updated data frame called **`trip_data_updated`**.
 ```{r}
 trip_data_updated <- trip_data %>% 
   filter(ride_length_minute >= 1 & ride_length_minute <= 1440)
@@ -1902,7 +1912,7 @@ trip_data_updated <- trip_data %>%
 ```{r}
 trip_data_updated <- trip_data_updated[!is.na(trip_data_updated$end_lat) & !is.na(trip_data_updated$end_lng), ]
 ```
-+ Filtering out stations containing 'test', 'warehouse', or 'charging station' from `start_station_name`.
++ Filtering out stations containing **`test`**, **`warehouse`** , and **`charging station`** from **`start_station_name`**.
 ```{r}
 trip_data_updated <- trip_data_updated %>% 
   filter(!
@@ -1922,7 +1932,7 @@ trip_data_updated <- trip_data_updated %>%
     "DIVVY CASSETTE REPAIR MOBILE STATION"
   ))
 ```
-+ Filtering out stations containing 'test', 'warehouse', or 'charging station' from `start_station_id`.
++ Filtering out stations containing **`test`**, **`warehouse`** , and **`charging station`** from **`start_station_id`**.
 ```{r}
 trip_data_updated <- trip_data_updated %>% 
   filter(!
@@ -1942,7 +1952,7 @@ trip_data_updated <- trip_data_updated %>%
     "DIVVY CASSETTE REPAIR MOBILE STATION"
   ))
 ```
-+ Filtering out stations containing 'test', 'warehouse', or 'charging station' from `end_station_name`.
++ Filtering out stations containing **`test`**, **`warehouse`** , and **`charging station`** from **`end_station_name`**.
 ```{r}
 trip_data_updated <- trip_data_updated %>% 
   filter(!
@@ -1962,7 +1972,7 @@ trip_data_updated <- trip_data_updated %>%
     "DIVVY CASSETTE REPAIR MOBILE STATION"
   ))
 ```
-+ Filtering out stations containing 'test', 'warehouse', or 'charging station' from `end_station_id`.
++ Filtering out stations containing **`test`**, **`warehouse`** , and **`charging station`** from **`end_station_id`**.
 ```{r}
 trip_data_updated <- trip_data_updated %>% 
   filter(!
@@ -1984,28 +1994,28 @@ trip_data_updated <- trip_data_updated %>%
 ```
 
 #### Re-vising Filtered Data
-+ Re-counting rides less than 1 minute (60 seconds).
++ Re-counting rides less than (**`<`**) 1 minute (60 seconds).
 ```{r}
 sum(trip_data_updated$ride_length_minute < 1)
 ```
 ```{r}
 [1] 0
 ```
-+ Re-counting rides more than 24 hours (1440 minutes).
++ Re-counting rides more than (**`>`**) 24 hours (1440 minutes).
 ```{r}
 sum(trip_data_updated$ride_length_minute > 1440)
 ```
 ```{r}
 [1] 0
 ```
-+ Re-counting number of instances where `started_at` is after `ended_at`.
++ Re-counting number of instances where **`started_at`** is after **`ended_at`**.
 ```{r}
 length(which(trip_data_updated$started_at > trip_data_updated$ended_at)) 
 ```
 ```{r}
 [1] 0
 ```
-+ Re-counting the number of rides for `start_station_name` containing 'test', 'warehouse', or 'charging station'.
++ Re-counting the number of rides for **`start_station_name`** containing **`test`**, **`warehouse`** , and **`charging station`**.
 ```{r}
 trip_data_updated %>% filter(
   start_station_name %in% c (
@@ -2029,7 +2039,7 @@ trip_data_updated %>% filter(
 ```{r}
 0 rows
 ```
-+ Re-counting the number of rides for `start_station_id` containing 'test', 'warehouse', or 'charging station'.
++ Re-counting the number of rides for **`start_station_id`** containing **`test`**, **`warehouse`** , and **`charging station`**.
 ```{r}
 trip_data_updated %>% filter(
   start_station_id %in% c (
@@ -2053,7 +2063,7 @@ trip_data_updated %>% filter(
 ```{r}
 0 rows
 ```
-+ Re-counting the number of rides for `end_station_name` containing 'test', 'warehouse', or 'charging station'.
++ Re-counting the number of rides for **`end_station_name`** containing **`test`**, **`warehouse`** , and **`charging station`**.
 ```{r}
 trip_data_updated %>% filter(
   end_station_name %in% c (
@@ -2077,7 +2087,7 @@ trip_data_updated %>% filter(
 ```{r}
 0 rows
 ```
-+ Re-counting the number of rides for `end_station_id` containing 'test', 'warehouse', or 'charging station'.
++ Re-counting the number of rides for **`end_station_id`** containing **`test`**, **`warehouse`** , and **`charging station`**.
 ```{r}
 trip_data_updated %>% filter(
   end_station_id %in% c (
@@ -2103,14 +2113,14 @@ trip_data_updated %>% filter(
 ```
 
 #### Final Updated Data Frame Review
-+ Inspecting the new total number of columns using `ncol()`.
++ Inspecting the new total number of columns.
 ```{r}
 ncol(trip_data_updated)
 ```
 ```{r}
 [1] 22
 ```
-+ Inspecting the new total number of rows using `nrow()`.
++ Inspecting the new total number of rows
 ```{r}
 nrow(trip_data_updated)
 ```
@@ -3858,7 +3868,7 @@ These insights uncover the distinct preferences between the two user groups in t
 > Clicking the image will redirect you to an interactive map hosted on a different website, where you can explore further details and features.
 
 #### **Summary of Map Trends**
-The analysis of the “**Map Trends**” interactive map demonstrates a detailed examination of user pathways, characterized by the dynamic interplay between start points, end points, and quarterly fluctuations, highlighting key insights derived from sample data extracted from the main dataset, highlighting:
+The analysis of the "**Map Trends**" interactive map demonstrates a meticulous examination of popular locations for user pathways, characterized by the dynamic interplay between start points, end points, and quarterly fluctuations, drawing insights from sample data extracted from the main dataset, highlighting:
 
 --------------------------------------
 
