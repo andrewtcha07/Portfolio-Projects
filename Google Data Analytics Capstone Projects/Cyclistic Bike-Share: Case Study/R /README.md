@@ -3621,12 +3621,8 @@ subset <- sample_n(mapping_data, 500)
 
 `1-10 of 330 rows`
 
-+ The table presents an analysis of bike preferences among both casual and member users.
-+ Among casual users, the most popular rideable type is the **electric_bike**, with **1,043,904 rides**, followed by the **classic_bike** with **843,957 rides**, and the **docked_bike** with **74,850 rides**.
-+ Casual users exhibit a preference for electric bikes, possibly due to their convenience and ease of use, especially for leisure or recreational rides.
-+ Conversely, among member users, the most preferred rideable type is the **classic_bike**, with **1,754,117 rides**, closely followed by the **electric_bike** with **1,742,263 rides**.
-+ Member users also favor both classic bikes and electric bikes, which could be attributed to their commuting needs or cost considerations, as membership plans often provide cost reductions.
-+ The docked bike option seems to have the lowest preference among both user groups. This may be attributed to the hassle of returning the bike to a docking station, which might not align with the flexibility and convenience users seek.
++ The table presents a subset of data extracted from the main dataset, representing a random sample of user interactions.
++ It showcases various attributes and patterns observed within this sample, offering insights into user behaviors, preferencs, and engagements levels across different quarters and user types.
 
 --------------------------------------
 
