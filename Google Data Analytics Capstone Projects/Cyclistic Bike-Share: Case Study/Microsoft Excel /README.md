@@ -773,6 +773,8 @@ The analysis of "**Rideable Trends**" offers valuable insights into the preferen
 
 By analyzing the rideable type trend data and conducting a detailed analysis, we can gain a deep understanding of user preferences, operational considerations, and potential areas for product development or marketing strategies. This analysis can guide us in crafting effective strategies to convert casual riders into annual members, highlighting the cost savings of an annual membership, promoting the convenience of unrestricted bike access, and capitalizing on the popularity of electric bikes. By leveraging digital media, Cyclistic can influence casual riders by showcasing the benefits of an annual membership, fostering a sense of community, and providing personalized offers based on their preferences. These strategies will contribute to the conversion of casual riders into long-term, engaged members.
 
+--------------------------------------
+
 ### **Cyclistic Bike-Share Dashboard**
 Welcome to the Cyclistic Bike-Share Dashboard, the ultimate destination for unraveling user behavior and discovering trends. This comprehensive hub offers insightful analysis across various dimensions, including user types, usage patterns, and rideable preferences. Gain invaluable insights to optimize services, enhance user experiences, and drive long-term engagement. Get ready to explore a world of bike-sharing possibilities!
 
