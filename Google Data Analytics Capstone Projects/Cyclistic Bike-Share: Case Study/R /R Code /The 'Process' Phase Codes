@@ -2,9 +2,9 @@
 # The 'Process' Phase
 ######################
 
-# --------------------
+# -------------------
 # Installing Packages
-# --------------------
+# -------------------
 
 # Install required packages
 install.packages("tidyverse")  # Data manipulation and visualization.
@@ -20,9 +20,9 @@ install.packages("leaflet")     # Interactive maps.
 install.packages("htmltools")   # HTML generation.
 install.packages("leaflet.extras")  # Additional leaflet features.
 
-#-----------------
+# ---------------
 # Library Loading
-# ----------------
+# ---------------
 
 # Load required libraries
 library(tidyverse)      # Data manipulation and visualization.
@@ -38,9 +38,9 @@ library(leaflet)        # Interactive maps.
 library(htmltools)      # HTML generation.
 library(leaflet.extras) # Additional leaflet features.
 
-# ------------
+# -----------
 # Data Import
-# ------------
+# -----------
 
 # Read CSV files for each month in 2023
 jan2023 <- read_csv("202301-divvy-tripdata.csv")
@@ -56,9 +56,9 @@ oct2023 <- read_csv("202310-divvy-tripdata.csv")
 nov2023 <- read_csv("202311-divvy-tripdata.csv")
 dec2023 <- read_csv("202312-divvy-tripdata.csv")
 
-# -----------------
+# ----------------
 # Data Exploration
-# -----------------
+# ----------------
 
 # Display column names for each month's dataset
 colnames(jan2023)
@@ -102,9 +102,9 @@ summary(oct2023)
 summary(nov2023)
 summary(dec2023)
 
-# -------------------
+# ------------------
 # Data Consolidation
-# -------------------
+# ------------------
 
 # Combine all monthly datasets into one
 trip_data <- bind_rows(
@@ -142,9 +142,9 @@ rm(
   )
 )
 
-# ------------------------------
+# -----------------------------
 # Consolidated Data Exploration
-# ------------------------------
+# -----------------------------
 
 # Check the class of the combined trip data
 class(trip_data)
@@ -185,9 +185,9 @@ skim_without_charts(trip_data)
 # Display summary statistics of the combined trip data
 summary(trip_data)
 
-# -----------------------
+# ----------------------
 # Missing Value Analysis
-# -----------------------
+# ----------------------
 
 # Attach the combined trip data to the search path
 attach(trip_data)
@@ -234,9 +234,9 @@ trip_data[is.na(member_casual),]
 # Detach the combined trip data from the search path
 detach(trip_data)
 
-#---------------------
+# -------------------
 # Data Transformation
-#---------------------
+# -------------------
 
 # Renaming column "member_casual" to "user_type"
 trip_data <- rename(trip_data, "user_type" = "member_casual")
@@ -249,9 +249,9 @@ trip_data$ended_at <- ymd_hms(trip_data$ended_at)
 sum(is.na(trip_data$started_at)) # in "started_at" column
 sum(is.na(trip_data$ended_at)) # in "ended_at" column
 
-# -----------------
+# ----------------
 # Data Preparation
-# -----------------
+# ----------------
 
 # Rounding latitude and longitude coordinates to two decimal places
 trip_data <- trip_data %>%
@@ -290,9 +290,9 @@ trip_data <- trip_data %>%
 trip_data <- trip_data %>%
   mutate(quarter = quarter(started_at))
 
-# ---------------------------
+# --------------------------
 # Analyzing Ride Length Data
-# ---------------------------
+# --------------------------
 
 # Calculating and Adding Ride Length in Minutes (rounding to two decimal places)
 trip_data <- trip_data %>% 
@@ -316,9 +316,9 @@ sum(trip_data$started_at > trip_data$ended_at, na.rm = TRUE)
 # Counting rides where start time is after end time using another method
 length(which(trip_data$started_at > trip_data$ended_at))
 
-# --------------------------------------------
+# -------------------------------------------
 # Missing Values Analysis and Data Imputation
-# --------------------------------------------
+# -------------------------------------------
 
 # Checking missing values in specific columns
 colSums(is.na(trip_data[c(
@@ -362,9 +362,9 @@ colSums(is.na(trip_data[c(
   "end_lat", 
   "end_lng")]))
   
-# ------------------------------
+# -----------------------------
 # Processing Ride Distance Data
-# ------------------------------
+# -----------------------------
 
 # Calculating and Adding Ride Distance using Great Circle Formula
 trip_data$ride_distance <- distGeo(
@@ -377,9 +377,9 @@ trip_data$ride_distance <- trip_data$ride_distance / 1000
 # Converting and Updating Kilometers to Miles
 trip_data$ride_distance <- trip_data$ride_distance * 0.621371
 
-#---------------------------
+# -------------------------
 # Stations Data Exploration
-#---------------------------
+# -------------------------
 
 # Counting the number of rides per start station ID and arranging them in descending order
 trip_data %>% 
@@ -433,9 +433,9 @@ trip_data %>% filter(
 ) %>% 
   count(end_station_id)
   
-# --------------
+# -------------
 # Data Cleaning
-# --------------
+# -------------
 
 # Filtering trip data to include rides with a duration between 1 minute and 1440 minutes (24 hours)
 # Storing the filtered data into a new data frame
@@ -483,9 +483,9 @@ trip_data_updated <- trip_data_updated %>%
     "DIVVY CASSETTE REPAIR MOBILE STATION"
   ))
 
-# ----------------------------------
+# ---------------------------------
 # Revisiting Filtered Data Analysis
-# ----------------------------------
+# ---------------------------------
 
 # Counting rides less than 1 minute
 sum(trip_data_updated$ride_length_minute < 1)
