@@ -8,32 +8,36 @@
 # --------------------
 
 # Install required packages
-install.packages("tidyverse")  # Data manipulation and visualization
-install.packages("janitor")    # Data cleaning
-install.packages("readr")      # Reading data
-install.packages("dplyr")      # Data manipulation
-install.packages("lubridate")  # Date-time manipulation
-install.packages("tidyr")      # Data tidying
-install.packages("ggmap")      # Plotting maps
-install.packages("ggplot2")    # Plotting
-install.packages("geosphere")  # Geographical calculations
-install.packages("skimr")      # Summary statistics
+install.packages("tidyverse")  # Data manipulation and visualization.
+install.packages("janitor")     # Simplifies data cleaning.
+install.packages("readr")       # Reads flat files.
+install.packages("dplyr")       # Data manipulation.
+install.packages("lubridate")   # Date and time handling.
+install.packages("tidyr")       # Tidying data.
+install.packages("ggplot2")     # Graphics creation.
+install.packages("geosphere")   # Earth distance computations.
+install.packages("skimr")       # Summary statistics.
+install.packages("leaflet")     # Interactive maps.
+install.packages("htmltools")   # HTML generation.
+install.packages("leaflet.extras")  # Additional leaflet features.
 
 #-----------------
 # Library Loading
 # ----------------
 
 # Load required libraries
-library(tidyverse)   # Data manipulation and visualization
-library(janitor)     # Data cleaning
-library(readr)       # Reading data
-library(dplyr)       # Data manipulation
-library(lubridate)   # Date-time manipulation
-library(tidyr)       # Data tidying
-library(ggmap)       # Plotting maps
-library(ggplot2)     # Plotting
-library(geosphere)   # Geographical calculations
-library(skimr)       # Summary statistics
+library(tidyverse)      # Data manipulation and visualization.
+library(janitor)        # Simplifies data cleaning.
+library(readr)          # Reads flat files.
+library(dplyr)          # Data manipulation.
+library(lubridate)      # Date and time handling.
+library(tidyr)          # Tidying data.
+library(ggplot2)        # Graphics creation.
+library(geosphere)      # Earth distance computations.
+library(skimr)          # Summary statistics.
+library(leaflet)        # Interactive maps.
+library(htmltools)      # HTML generation.
+library(leaflet.extras) # Additional leaflet features.
 
 # ------------
 # Data Import
@@ -532,3 +536,22 @@ trip_data_updated %>% filter(
   )
 ) %>% 
   count(end_station_id)
+
+# -------------------------------------
+# Final Data Exploration and Validation
+# -------------------------------------
+
+# Get the number of columns in the updated data frame
+ncol(trip_data_updated)
+
+# Get the number of rows in the updated data frame
+nrow(trip_data_updated)
+
+# Display a concise summary of the
+glimpse(trip_data_updated)
+
+# Display summary statistics of the
+summary(trip_data_updated)
+
+# Count the number of missing values in each column of the updated data frame
+colSums(is.na(trip_data_updated))
