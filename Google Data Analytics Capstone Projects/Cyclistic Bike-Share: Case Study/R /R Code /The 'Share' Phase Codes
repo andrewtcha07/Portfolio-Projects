@@ -60,7 +60,6 @@ ggplot(donut_data, aes(ymax=ymax, ymin=ymin, x=3.5, y=labelPosition, label=paste
 # Average Ride Length (minutes) by User Type
 # ------------------------------------------
 
-# Load necessary libraries
 # library(dplyr)
 # library(ggplot2)
 
@@ -131,12 +130,13 @@ trip_data_updated %>%
   geom_col(position = "dodge") + # Add columns to the plot
   scale_y_continuous(labels = function(x) format(x, scientific = FALSE)) + # Set y-axis labels
   labs(
-    x = "Hour of day", 
-    y = "Number of Rides", 
-    title = "Total Rides by User Type Across Hours of the Day") + # Set axis labels and plot title
+    x = "Hours",  # Set x-axis label
+    y = "Number of Riders",  # Set y-axis label
+    title = "Hourly User Overview") +  # Set plot title
   theme(
-    axis.title.x = element_text(vjust = - 1.0), # Adjust x-axis title position
-    axis.title.y = element_text(vjust = 3.0)) # Adjust y-axis title position
+    axis.title.x = element_text(vjust = - 1.0),  # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),  # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))  # Set plot title properties
 
 # ------------------------------------
 # Hourly Average Ride Length (minutes)
@@ -156,7 +156,7 @@ trip_data_updated %>%
   labs(
     x = "Hours",  # Set x-axis label
     y = "Durations (in minutes)",  # Set y-axis label
-    title = "Hourly Average Ride Length Average (minutes)") +  # Set plot title
+    title = "Hourly Average Ride Length (minutes)") +  # Set plot title
   theme(
     axis.title.x = element_text(vjust = - 1.0),  # Adjust x-axis label position
     axis.title.y = element_text(vjust = 3.0),  # Adjust y-axis label position
@@ -182,7 +182,7 @@ trip_data_updated %>%
   labs(
     x = "Hours",  # Set x-axis label
     y = "Distance (in miles)",  # Set y-axis label
-    title = "Hourly Average Ride Distance Average (miles)") +  # Set plot title
+    title = "Hourly Average Ride Distance (miles)") +  # Set plot title
   theme(
     axis.title.x = element_text(vjust = - 1.0),  # Adjust x-axis label position
     axis.title.y = element_text(vjust = 3.0),  # Adjust y-axis label position
@@ -260,7 +260,7 @@ trip_data_updated %>%
   labs(
     x = "Days of Week",  # Set x-axis label
     y = "Durations (in minutes)",  # Set y-axis label
-    title = "Weekly Ride Length Average (minutes)") +  # Set plot title
+    title = "Weekly Average Ride Length (minutes)") +  # Set plot title
   theme(
     axis.title.x = element_text(vjust = - 1.0),  # Adjust x-axis label position
     axis.title.y = element_text(vjust = 3.0),  # Adjust y-axis label position
@@ -298,7 +298,7 @@ trip_data_updated %>%
   labs(
     x = "Days of Week",  # Set x-axis label
     y = "Distance (in miles)",  # Set y-axis label
-    title = "Weekly Ride Distance Average (miles)"  # Set plot title
+    title = "Weekly Average Ride Distance (miles)"  # Set plot title
   ) +
   theme(
     axis.title.x = element_text(vjust = - 1.0),  # Adjust x-axis label position
@@ -583,7 +583,7 @@ trip_data_updated %>%
   labs(
     x = "Months",   # Set x-axis label
     y = "Durations (in minutes)",   # Set y-axis label
-    title = "Monthly Ride Length Average (minutes)") +   # Set plot title
+    title = "Monthly Average Ride Length (minutes)") +   # Set plot title
   geom_col(position = "dodge", width = 0.5) +   # Add bars with dodge position
   scale_y_continuous(labels = function(x) format(x, scientific = FALSE)) +   # Adjust y-axis labels
   theme(
@@ -628,7 +628,7 @@ trip_data_updated %>%
   labs(
     x = "Months",   # Set x-axis label
     y = "Distance (in miles)",   # Set y-axis label
-    title = "Monthly Ride Distance Average (miles)") +   # Set plot title
+    title = "Monthly Average Ride Distance (miles)") +   # Set plot title
   geom_col(position = "dodge", width = 0.5) +   # Add bars with dodge position
   scale_y_continuous(labels = function(x) format(x, scientific = FALSE)) +   # Adjust y-axis labels
   theme(
@@ -681,7 +681,7 @@ trip_data_updated %>%
   labs(
     x = "Quarters",   # Set x-axis label
     y = "Durations (in minutes)",   # Set y-axis label
-    title = "Quarterly Ride Length Average (minutes)") +   # Set plot title
+    title = "Quarterly Average Ride Length (minutes)") +   # Set plot title
   geom_col(position = "dodge", width = 0.5) +   # Add bars
   scale_y_continuous(labels = function(x) format(x, scientific = FALSE)) +   # Format y-axis labels
   theme(
@@ -708,7 +708,7 @@ trip_data_updated %>%
   labs(
     x = "Quarters",   # Set x-axis label
     y = "Distance (in miles)",   # Set y-axis label
-    title = "Quarterly Ride Distance Average (miles)") +   # Set plot title
+    title = "Quarterly Average Ride Distance (miles)") +   # Set plot title
   geom_col(position = "dodge", width = 0.5) +   # Add bars
   scale_y_continuous(labels = function(x) format(x, scientific = FALSE)) +   # Format y-axis labels
   theme(
