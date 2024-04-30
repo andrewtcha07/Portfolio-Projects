@@ -4,6 +4,16 @@
 ![MicrosoftSQLServer](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white)
 ![Tableau](https://img.shields.io/badge/Tableau-E97627.svg?style=for-the-badge&logo=Tableau&logoColor=white)
 
++ **Microsoft SQL Server:** Chosen for its robust data management capabilities, scalability, and reliability in handling large datasets. SQL Server provides a comprehensive platform for database management, data warehousing, and business intelligence.
+  - **Data Management:** SQL Server offers advanced features for storing, retrieving, and manipulating data, ensuring data integrity and security.
+  - **Scalability:** SQL Server's scalability allows it to efficiently handle growing datasets and workloads, making it suitable for organizations of all sizes.
+  - **Reliability:** With built-in features for data redundancy, backup, and recovery, SQL Server ensures the reliability and availability of critical data.
++ **Tableau:** Selected for its intuitive data visualization capabilities and ease of use in creating interactive dashboards and reports.
+  - **Data Visualization:** Tableau offers a wide range of visualization options, allowing users to create compelling charts, graphs, and maps to explore and communicate insights from data.
+  - **Interactivity:** Tableau's interactive features enable users to drill down into data, filter visualizations dynamically, and uncover hidden patterns or trends.
+  - **Dashboard Creation:** With Tableau, the ability to easily design interactive dashboards that consolidate multiple visualizations into a single view, providing a holistic overview of key metrics.
+  - **Integration:** Tableau seamlessly integrates with various data sources, including databases like Microsoft SQL Server, Excel files, and cloud-based platforms, enabling real-time data analysis and visualization.
+
 ### Key Tasks
 - [x]  Check the data for errors.
 - [x]  Choose your tools.
