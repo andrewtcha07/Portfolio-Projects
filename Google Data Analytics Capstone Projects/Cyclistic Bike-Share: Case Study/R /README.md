@@ -3891,7 +3891,7 @@ These insights uncover the distinct preferences between the two user groups in t
 
 ### **Map Trends**
 
-[![7 0 Interactive Map](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/ca305484-4be9-419e-bf53-c056df5755d9)](https://htmlview.glitch.me/?https://github.com/chaanalyst/Portfolio-Projects/blob/main/Google%20Data%20Analytics%20Capstone%20Projects/Cyclistic%20Bike-Share%3A%20Case%20Study/R%20/Interactive%20Map/Interactive_Map.html)
+
 
 > [!NOTE]
 > Clicking the image will redirect you to an interactive map hosted on a different website, where you can explore further details and features.
@@ -3915,6 +3915,11 @@ The analysis of the "**Map Trends**" interactive map demonstrates a key examinat
 The insights from the interactive map uncover a nuanced understanding of Chicago's user pathways, emphasizing the dynamic interplay between start-points, end-points, and quarterly fluctuations, all drawn from sample data extracted from the main dataset, laying the groundwork for crafting a potent conversion strategy geared towards transitioning casual riders into annual members. Finally, the analysis enables Cyclistic to enhance marketing strategies and drive greater conversion rates.
 
 --------------------------------------
+
+### **Cyclistic Bike-Share PowerPoint Presentation**
+
+![Cyclistic Bike-Share Case Study PowerPoint Presentation](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/d62bb372-f511-489c-a052-c6529bc2aee2)
+
 
 ### Key Tasks
 - [x]  Determine the best way to share your findings.
