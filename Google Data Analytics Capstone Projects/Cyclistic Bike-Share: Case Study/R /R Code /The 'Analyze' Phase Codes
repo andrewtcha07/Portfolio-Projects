@@ -19,8 +19,7 @@ trip_data_updated %>%
     # Calculate the count of rides for each user type
     ride_count = n(),
     # Calculate the percentage of rides for each user type
-    ride_percentage = round((n() / nrow(trip_data_updated)) * 100, 2)
-  )
+    ride_percentage = round((n() / nrow(trip_data_updated)) * 100, 2))
 
 # ------------------------------------------
 # Average Ride Length (minutes) by User Type
