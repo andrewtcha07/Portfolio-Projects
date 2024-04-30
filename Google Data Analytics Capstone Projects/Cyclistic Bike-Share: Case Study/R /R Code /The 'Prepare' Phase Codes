@@ -60,7 +60,7 @@ dec2023 <- read_csv("202312-divvy-tripdata.csv")
 # Data Exploration
 # ----------------
 
-# Display column names for each month's dataset
+# Display column names for each month's dataframe
 colnames(jan2023)
 colnames(feb2023)
 colnames(mar2023)
@@ -74,7 +74,7 @@ colnames(oct2023)
 colnames(nov2023)
 colnames(dec2023)
 
-# Display structure of each month's dataset
+# Display the structure of each month's data frame
 str(jan2023)
 str(feb2023)
 str(mar2023)
@@ -88,7 +88,7 @@ str(oct2023)
 str(nov2023)
 str(dec2023)
 
-# Display summary statistics for each month's dataset
+# Display summary statistics for each month's data frame
 summary(jan2023)
 summary(feb2023)
 summary(mar2023)
@@ -106,7 +106,7 @@ summary(dec2023)
 # Data Consolidation
 # ------------------
 
-# Combine all monthly datasets into one
+# Combine all monthly data frames into one
 trip_data <- bind_rows(
   list(
     jan2023, 
@@ -124,7 +124,7 @@ trip_data <- bind_rows(
   )
 )
 
-# Remove individual monthly datasets from the environment
+# Remove individual monthly data frames from the environment
 rm(
   list = c(
     "jan2023", 
