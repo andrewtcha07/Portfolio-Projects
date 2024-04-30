@@ -261,7 +261,6 @@ trip_data_updated %>%
     ride_count = n(), .groups = "drop") %>% # Calculate the count of rides in each group
   arrange(user_type) # Arrange the results by user_type
 
-
 # ----------------------------
 # Saturday Hourly Bike Demands
 # ----------------------------
