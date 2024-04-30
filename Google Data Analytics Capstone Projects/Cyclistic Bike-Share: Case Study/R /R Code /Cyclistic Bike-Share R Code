@@ -1,5 +1,5 @@
 ######################
-# The 'Prepare' Phase
+# The 'Process' Phase
 ######################
 
 # -------------------
@@ -233,10 +233,6 @@ trip_data[is.na(member_casual),]
 
 # Detach the combined trip data from the search path
 detach(trip_data)
-
-######################
-# The 'Process' Phase
-######################
 
 # -------------------
 # Data Transformation
