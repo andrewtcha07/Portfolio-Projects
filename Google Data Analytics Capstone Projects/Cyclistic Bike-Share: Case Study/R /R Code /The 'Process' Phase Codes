@@ -69,7 +69,7 @@ trip_data <- trip_data %>%
 # Checking the class of the "ride_length_minute" variable
 class(trip_data$ride_length_minute)
 
-# Counting rides with duration less than 1 minute
+# Counting rides with duration less than 1 minute (60 seconds)
 sum(trip_data$ride_length_minute < 1, na.rm = TRUE)
 
 # Counting rides with duration more than 24 hours (1440 minutes)
@@ -314,10 +314,10 @@ ncol(trip_data_updated)
 # Get the number of rows in the updated data frame
 nrow(trip_data_updated)
 
-# Display a concise summary of the
+# Display a concise summary of the updated data frame
 glimpse(trip_data_updated)
 
-# Display summary statistics of the
+# Display summary statistics of the updated data frame
 summary(trip_data_updated)
 
 # Count the number of missing values in each column of the updated data frame
