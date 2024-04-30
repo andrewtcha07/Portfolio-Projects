@@ -40,8 +40,13 @@ The analysis will address these key questions:
 
 ## 📋 The 'Prepare' Phase
 
-### Data Location
-+ Cyclistic’s Historical Trip Data is sourced from [Divvy Trip Data](https://divvy-tripdata.s3.amazonaws.com/index.html), a public dataset provided by Motivate International Inc., a bike-sharing company operating in Chicago under the name of Divvy (owned by Lyft). 
+### Data Information
++ Cyclistic’s Historical Trip Data is sourced from [Divvy Trip Data](https://divvy-tripdata.s3.amazonaws.com/index.html), a public dataset provided by Motivate International Inc., a bike-sharing company operating in Chicago under the name of Divvy (owned by Lyft).
++ Cyclistic and Divvy Trip Data have distinct names because Cyclistic is a fictitious entity created for this case study.
+
+### Limitations
++ Due to data privacy concerns, the use of personally identifiable information of riders is prohibited.
++ This encompasses data such as pass purchases and credit card numbers, utilized to ascertain whether casual riders reside within Cyclistic's service area or if users have made multiple single-pass purchases.
 
 ### Data Organization
 + The Divvy Trip dataset is organized by year and month, with each month's data formatted as a separate zip file.
