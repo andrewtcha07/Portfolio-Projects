@@ -3,10 +3,10 @@
 ### Tool Used
 <img src= "https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white"/>
 
-+ **Microsoft Excel** and **Power Query** were chosen for this analysis due to their widespread accessibility, robust data manipulation capabilities, and seamless integration with external data sources.
-+ Excel Functions provide powerful tools for performing various calculations, aggregations, and data manipulations, enhancing the analytical capabilities of the platform.
-+ Power Query complements Excel's functionalities by offering advanced data shaping and transformation capabilities. Leveraging Power Query M Language simplifies tasks such as data cleaning, integration, and transformation, streamlining the data preparation process.
-+ Additionally, Excel's visualization tools (pivot table and pivot charts) enable effective summarization and presentation of analysis results, facilitating insightful data visualization for stakeholders.
++ **Microsoft Excel and Power Query:** Chosen for their widespread accessibility, robust data manipulation capabilities, and seamless integration with external data sources.
+  - **Excel Functions:** Excel provides powerful tools for performing various calculations, aggregations, and data manipulations, enhancing the analytical capabilities of the platform.
+  - **Power Query:** Complements Excel's functionalities by offering advanced data shaping and transformation capabilities. Leveraging Power Query's M Language simplifies tasks such as data cleaning, integration, and transformation, streamlining the data preparation process.
+  - **Data Visualization:** Excel's visualization tools, such as pivot tables and pivot charts, enable effective summarization and presentation of analysis results, facilitating insightful data visualization for stakeholders.
 
 ### Data Exploration
 + Conducted an initial data review.
