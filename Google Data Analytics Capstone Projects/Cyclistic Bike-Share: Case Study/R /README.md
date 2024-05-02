@@ -1514,6 +1514,10 @@ sum(is.na(trip_data$ended_at))
 [1] 26
 ```
 
+> [!NOTE]
+> + The expressions **`sum(is.na(trip_data$started_at))`** and **`sum(is.na(trip_data$ended_at))`** calculate the total counts of missing values in the **started_at** and **ended_at** columns of the trip_data dataset, respectively. These calculations include missing values in all rows of their respective columns.
+> + It's important to note that these calculations count missing values only in their respective columns. In contrast, another operation in the portfolio may filter rows based on missing values in these columns individually, isolating rows with missing values in each column while disregarding missing values in other columns.
+
 #### Precision Adjustment for Coordinates
 + Rounding **start and end coordinates** to 2 decimal places.
 ```{r}
