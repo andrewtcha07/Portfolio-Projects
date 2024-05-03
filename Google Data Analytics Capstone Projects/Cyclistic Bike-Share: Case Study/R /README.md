@@ -2199,8 +2199,8 @@ colSums(is.na(trip_data_updated))
 + Following data cleaning and filtering, the data frame retains 83,718 missing values (**na**).
 
 #### Data Transformation, Imputation, and Cleaning
-+ Renamed the column member_casual to user_type.
-+ Converted started_at and ended_at data type to POSIXct format to ensure consistency.
++ Renamed the column **member_casual** to **user_type**.
++ Converted **started_at** and **ended_at** data type to POSIXct format to ensure consistency.
 + Adjust start and end coordinates for accuracy.
 + Added additional columns: **date**, **month**, **day**, **year**, **day_of_week**, **hour**, **quarter**, **ride_length_minute**, and **ride_distance**.
 + Calculated the difference in minutes between **ended_at** and **started_at**, rounding the result to two decimal places, and creating a new column.
