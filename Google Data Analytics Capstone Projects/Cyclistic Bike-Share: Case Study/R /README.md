@@ -2194,9 +2194,9 @@ colSums(is.na(trip_data_updated))
 
 ### Summary of Updated Data
 + The data frame has undergone extensive manipulation, transformation, cleaning, and filtering.
-+ Now encompasses a total of 22 columns, reflecting additional data manipulations.
-+ The data frame contains 5,459,091 records, indicating a decrease in entries due to cleaning and filtering.
-+ Following data cleaning and filtering, the data frame retains 83,718 missing values (**na**).
++ Now encompasses a total of **22 columns**, reflecting additional data manipulations.
++ The data frame contains **5,459,091 records**, indicating a decrease in entries due to cleaning and filtering.
++ Following data cleaning and filtering, the data frame retains **83,718 missing values** (**na**).
 
 #### Data Transformation, Imputation, and Cleaning
 + Renamed the column **member_casual** to **user_type**.
