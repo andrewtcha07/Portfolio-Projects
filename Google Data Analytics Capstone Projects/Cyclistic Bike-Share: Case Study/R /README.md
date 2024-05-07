@@ -3939,7 +3939,7 @@ The Cyclistic Bike-Share presentation explores data-driven insights into user be
 
 ## 🎭 The 'Act' Phase
 
-### **Summary of Key Questions**:
+### **Summary of Key Questions:**
 1. **How do annual members and casual riders use Cyclistic bikes differently?**
     - Annual members and casual riders demonstrate distinct usage patterns with Cyclistic bikes. Annual members primarily rely on the service for shorter, routine commutes or transportation, evident in their shorter average ride lengths and distances, often peaking during typical work hours on weekdays. In contrast, casual riders tend to opt for longer, leisure-oriented trips, leading to longer average ride lengths and slightly greater distances, especially during weekends and late afternoons. While annual members exhibit stable and predictable demand patterns, reflecting a reliance on Cyclistic for daily transportation needs, casual riders display more variable usage, with fluctuations influenced by leisure and recreational activities. The choice of bike type also varies, with annual members favoring classic bikes for practical commuting, while casual riders prefer electric bikes for added convenience and comfort during their leisure rides. Despite seasonal fluctuations affecting both groups, casual riders' usage tends to be more influenced by weather conditions, peaking in warmer months for outdoor activities.
 2. **Why would casual riders buy Cyclistic annual memberships?**
