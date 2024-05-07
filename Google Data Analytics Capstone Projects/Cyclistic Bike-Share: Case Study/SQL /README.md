@@ -2992,6 +2992,105 @@ having
 
 ## 🎁 The 'Share' Phase
 
+### **User Type Trends**
+
+![1  User Type Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/48f259a7-0401-4b63-9f41-1a6cb5eab885)
+
+![1 1 Average Ride Length](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/53ca7851-509e-4620-b2c4-5376fe4bcd13)
+
+![1 2 Average Ride Distance](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/579c7ffa-c166-4fe1-9779-a53d1889a52f)
+
+#### **Summary of User Type Trends**
+#### **Key Questions:**
+
+--------------------------------------
+
+### **Hourly Trends**
+
+![2  Hourly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/f7a88658-5576-4842-9097-50bcd887187d)
+
+![2 1 Hourly Average Ride Length](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/6825cffb-45ac-4584-a777-bf8b430996dd)
+
+![2 2 Hourly Average Ride Distance](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/751a11be-a0ef-435a-8962-2ad42e6e7439)
+
+
+#### **Summary of Hourly Trends**
+#### **Key Questions:**
+
+--------------------------------------
+
+### **Weekly Trends**
+
+![3  Weekly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/d9091b6f-42ab-423b-a8ca-5a975eb0a320)
+
+![3 1 Weekly Average Ride Length](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/2fd0be1f-6b95-411d-b5eb-4b110390fa1c)
+
+![3 2 Weekly Average Ride Distance](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/c3b13c5c-f844-49da-9f27-827dc9c6f3d8)
+
+#### **Summary of Weekly Trends**
+#### **Key Questions:**
+
+--------------------------------------
+
+### **Monthly Trends**
+
+![4  Monthly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/87aea40a-3e1e-4996-a900-35d9c4bd6b94)
+
+![4 1 Monthly Average Ride Length](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/290f2377-7511-4648-b346-addf21c9f0eb)
+
+![4 2 Monthly Average Ride Distance](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/20009d99-155d-49dc-8eb3-f232688f58a4)
+
+#### **Summary of Monthly Trends**
+#### **Key Questions:**
+
+--------------------------------------
+
+### **Quarterly Trends**
+
+![5  Quarterly Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/e46a9129-f0a8-40a7-a420-f8ad91c18a83)
+
+![5 1 Quarterly Average Ride Length](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/28d437ae-d905-4735-848f-1098e1c33671)
+
+![5 2 Quarterly Average Ride Distance](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/67720bde-f717-4ec2-92b6-ae21f576fc0a)
+
+#### **Summary of Quarterly Trends**
+#### **Key Questions:**
+
+--------------------------------------
+
+### **Rideable Trends**
+
+![6  Rideable Type Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/71a536c4-04bc-4094-a3e8-1b703818a810)
+
+#### **Summary of Rideable Trends**
+#### **Key Questions:**
+
+--------------------------------------
+
+### **Station Trends**
+
+![7  Start Station Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/18d4cf76-0c20-49bd-b51c-133c4dd2fa5b)
+
+#### **Summary of Station Trends**
+#### **Key Questions:**
+
+--------------------------------------
+
+### **Map Trends**
+
+![8  Map Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/e663af14-3892-41d4-b0b3-d520b2959157)
+
+#### **Summary of Map Trends**
+#### **Key Questions:**
+
+--------------------------------------
+
+### **Cyclistic Bike-Share Interactive Dashboard**
+
+![Cyclistic Dashboard](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/0f0e2353-580a-4806-a237-098e3cd19f3d)
+
+#### **Summary of Cyclistic Bike-Share Program Analysis**
+
 ### Key Tasks
 - [x]  Determine the best way to share your findings.
 - [x]  Create effective data visualizations.
@@ -3002,6 +3101,14 @@ having
 - [x]  Supporting visualizations and key findings.
 
 ## 🎭 The 'Act' Phase
+
+### **Summary of Key Questions:**
+### **Top 3 Recommendation**
+### **Optional Recommendation**
+### **Conclusion**
+
+#### **Key Takeaways**
+#### **Recommendations for Improved User Engagement**
 
 ### Key Tasks
 - [x]  Create your portfolio.
