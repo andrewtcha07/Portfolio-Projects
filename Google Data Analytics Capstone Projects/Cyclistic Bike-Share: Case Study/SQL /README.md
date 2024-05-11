@@ -1534,7 +1534,9 @@ add ride_length_minute as
 -- Add 'ride_distance' column
 alter table [dbo].[2023-divvy-tripdata]
 add ride_distance decimal(10, 2);
+```
 
+```sql
 -- Update the newly added ride_distance column with calculated values
 update [dbo].[2023-divvy-tripdata]
 set ride_distance = (
