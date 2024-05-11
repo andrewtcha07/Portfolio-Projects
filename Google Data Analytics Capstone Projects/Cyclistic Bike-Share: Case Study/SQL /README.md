@@ -1421,7 +1421,9 @@ EXEC sp_rename 'dbo.2023-divvy-tripdata.member_casual', 'user_type', 'COLUMN';
 -- Add 'month' column
 alter table [dbo].[2023-divvy-tripdata]
 add month nvarchar(20);
+```
 
+```sql
 -- Update the 'month' column based on the 'started_at' datetime column
 update [dbo].[2023-divvy-tripdata]
 set
@@ -1448,7 +1450,9 @@ set
 -- Add 'day_of_week' column
 alter table [dbo].[2023-divvy-tripdata]
 add day_of_week nvarchar(20);
+```
 
+```sql
 -- Update the 'day_of_week' column based on the 'started_at' datetime column
 update [dbo].[2023-divvy-tripdata]
 set
@@ -1470,7 +1474,9 @@ set
 -- Add 'hour' column
 alter table [dbo].[2023-divvy-tripdata]
 add hour nvarchar(10);
+```
 
+```sql
 -- Update the 'hour' column based on the 'started_at' column
 update [dbo].[2023-divvy-tripdata]
 set
@@ -1491,7 +1497,9 @@ set
 -- Add 'quarter' column
 alter table [dbo].[2023-divvy-tripdata]
 add quarter nvarchar(2);
+```
 
+```sql
 -- Update the 'quarter' column based on the 'started_at' datetime column
 update [dbo].[2023-divvy-tripdata]
 set
@@ -2504,6 +2512,10 @@ group by
 |-----------|------------|-----------------------|-----------------|-----------------|-----------------|-------------------|-------------------|-------------------|
 | member    | 3,101,101  | 64.65                 | 1.02            | 1,439.87        | 12.72           | 0.51              | 25.27             | 1.52              |
 | casual    | 1,695,628  | 35.35                 | 1.02            | 1,437.68        | 19.87           | 0.51              | 6,096.89          | 1.56              |
+
++ The table presents insights into the platform's ridership statistics for 2023, totaling **5,459,091 rides**.
++ Casual users accounted for **1,695,628 rides**, constituting approximately **35.35%** of the total. Their average ride duration was **19.87 minutes**, and the average distance covered was **1.56 miles** per ride.
++ On the other hand, member users contributed **3,101,101 rides**, representing about **64.65%** of the total rides. Their average ride duration was **12.72 minutes**, and the average distance covered was **1.52 miles** per ride. 
 
 ### Hourly Trends
 
