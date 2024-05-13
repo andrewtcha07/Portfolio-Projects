@@ -3707,7 +3707,7 @@ The analysis of the "**User Type Trends**" visualizations demonstrates the ride 
 + **Member User Key Points**:
     - Member users constitute the majority of Cyclistic's riders. They prefer shorter rides, indicating a focus on practical commuting or transportation purposes. This behavior suggests that member users prioritize convenience, time efficiency, and cost-effectiveness in their bike-sharing usage. Additionally, their slightly lower average ride distance may be influenced by factors such as optimized routes, city familiarity, or an emphasis on efficiency. Overall, their approach reflects a utilitarian mindset, emphasizing efficiency and practicality in their bike-sharing activities.
 
-#### **Key Questions:**
+**Key Questions:**
 1. **How do annual members and casual riders use Cyclistic bikes differently?**
     - Annual members and casual riders exhibit different usage patterns with Cyclistic bikes. Annual members primarily use the bikes for shorter, routine commutes or transportation, as reflected in their shorter average ride lengths and distances. On the other hand, casual riders tend to opt for longer, leisure-oriented trips, resulting in longer average ride lengths and slightly greater distances.
 2. **Why would casual riders buy Cyclistic annual memberships?**
@@ -3735,7 +3735,7 @@ The analysis of the “**Hourly Trends**” visualizations demonstrates the ride
 + **Member User Key Points**:
     - Member users demonstrate distinct usage patterns, with activity concentrated during morning commuting hours and late afternoon/evening, suggesting a blend of commuting and non-commuting purposes. They maintain shorter and consistent average ride lengths throughout the day, with peaks observed in the evening hours. Longer average distances occur during early morning and late hours, possibly reflecting longer commutes or non-commuting activities during these times. Notably, peak usage occurs at 5 PM, indicating a focus on commuting during this time. Interestingly, the longest average ride length for member users is observed at 5 PM, while the longest average ride distance is recorded at 4 AM. This usage pattern suggests that member users primarily utilize Cyclistic for commuting during peak hours and engage in leisure or non-commuting activities during off-peak hours, highlighting the versatility of their usage.
 
-#### **Key Questions**:
+**Key Questions**:
 1. **How do annual members and casual riders use Cyclistic bikes differently?**
     - Annual members and casual riders exhibit distinct usage patterns with Cyclistic bikes. Annual members predominantly utilize the service for commuting, especially during typical work hours, and also for non-commuting activities in the late afternoon and evening. This contrasts with casual riders, who primarily use the bikes for leisure or recreational purposes, showing higher usage and longer ride lengths in the afternoon and early evening, indicating a preference for non-commuting activities.
 2. **Why would casual riders buy Cyclistic annual memberships?**
@@ -3763,7 +3763,7 @@ The analysis of the "**Weekly Trends**" visualizations demonstrates the behavior
 + **Member User Key Points**:
     - Member users demonstrate a structured and utilitarian approach to bike-sharing, primarily utilizing Cyclistic for commuting and practical transportation purposes. They maintain relatively consistent ride counts and durations throughout the week, with slight fluctuations during peak commuting hours, especially on weekdays. Unlike casual users, member users prioritize efficiency and time-saving benefits, preferring shorter average ride lengths and distances. Notably, the highest number of member users occurs on Thursdays, followed closely by Wednesdays and Tuesdays, indicating a commuting-oriented usage pattern during weekdays. While member users also utilize Cyclistic on weekends, their ride counts and durations are relatively lower compared to weekdays, suggesting reduced reliance on bike-sharing for leisure activities during weekends. The longest average ride lengths and distances for member users are observed on Saturdays and Sundays, potentially indicating longer non-commuting rides during weekends. This suggests that member users rely on Cyclistic as a convenient and cost-effective solution for daily commuting needs.
 
-#### **Key Questions**:
+**Key Questions**:
 1. **How do annual members and casual riders use Cyclistic bikes differently?**
     - Annual members and casual riders demonstrate differing usage patterns with Cyclistic bikes. Annual members predominantly utilize the bikes for commuting purposes on weekdays, characterized by higher usage and consistent ride lengths/distances during these days. Conversely, casual riders tend to use Cyclistic bikes more for leisure or recreational activities, showing increased usage and longer ride lengths/distances on weekends, particularly Saturdays and Sundays.
 2. **Why would casual riders buy Cyclistic annual memberships?**
