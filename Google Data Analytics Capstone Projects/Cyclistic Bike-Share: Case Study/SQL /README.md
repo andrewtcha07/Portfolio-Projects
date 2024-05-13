@@ -2486,34 +2486,27 @@ where
 #### User Type Overview
 ```sql
 select
-    user_type,
-    count(*) as ride_count,
-    cast(
-        round(
-            count(*) * 100.0 / sum(count(*)) over (),
-            2 
-        ) as decimal(10, 2)
-    ) as ride_count_percentage,
-    min(ride_length_minute) as min_ride_length,
-    max(ride_length_minute) as max_ride_length,
-    cast(
+    user_type
+  , count(*) as ride_count
+  , cast(
+        round(count(*) * 100.0 / sum(count(*)) over (), 2) as decimal(10, 2)
+    ) as ride_count_percentage
+  , cast(
         round(avg(ride_length_minute), 2) as decimal(10, 2)
-    ) as avg_ride_length,
-    min(ride_distance) as min_ride_distance,
-    max(ride_distance) as max_ride_distance,
-    cast(
-        round(avg(ride_distance), 2) as decimal(10, 2)
-    ) as avg_ride_distance
+    ) as avg_ride_length
+  , cast(round(avg(ride_distance), 2) as decimal(10, 2)) as avg_ride_distance
 from
     [dbo].[2023-divvy-tripdataupdated]
 group by
+    user_type
+order by
     user_type;
 ```
 
-| user_type | ride_count | ride_count_percentage | min_ride_length | max_ride_length | avg_ride_length | min_ride_distance | max_ride_distance | avg_ride_distance |
-|-----------|------------|-----------------------|-----------------|-----------------|-----------------|-------------------|-------------------|-------------------|
-| member    | 3,101,101  | 64.65                 | 1.02            | 1,439.87        | 12.72           | 0.51              | 25.27             | 1.52              |
-| casual    | 1,695,628  | 35.35                 | 1.02            | 1,437.68        | 19.87           | 0.51              | 6,096.89          | 1.56              |
+| user_type | ride_count | ride_count_percentage | avg_ride_length | avg_ride_distance |
+|-----------|------------|-----------------------|-----------------|-------------------|
+| casual    | 1,695,628  | 35.35                 | 19.87           | 1.56              |
+| member    | 3,101,101  | 64.65                 | 12.72           | 1.52              |
 
 + The table presents insights into the platform's ridership statistics for 2023, totaling **5,459,091 rides**.
 + Casual users accounted for **1,695,628 rides**, constituting approximately **35.35%** of the total. Their average ride duration was **19.87 minutes**, and the average distance covered was **1.56 miles** per ride.
@@ -2528,21 +2521,19 @@ select
     user_type
   , hour
   , count(*) as ride_count
-  , min(ride_length_minute) as min_ride_length
-  , max(ride_length_minute) as max_ride_length
   , cast(
         round(avg(ride_length_minute), 2) as decimal(10, 2)
     ) as avg_ride_length
-  , min(ride_distance) as min_ride_distance
-  , max(ride_distance) as max_ride_distance
   , cast(round(avg(ride_distance), 2) as decimal(10, 2)) as avg_ride_distance
 from
     [dbo].[2023-divvy-tripdataupdated]
+where
+    user_type = 'casual'
 group by
     user_type
   , hour
 order by
-    user_type
+    ride_count desc
   , case
         when right(hour, 2) = 'AM' then cast(
             substring(hour, 1, charindex(' ', hour) - 1) as int
@@ -2552,57 +2543,69 @@ order by
         ) + 12
     end;
 ```
+<table> <tr><td>
 
-| user_type | hour  | ride_count | min_ride_length | max_ride_length | avg_ride_length | min_ride_distance | max_ride_distance | avg_ride_distance |
-|-----------|-------|------------|-----------------|-----------------|-----------------|-------------------|-------------------|-------------------|
-| casual    | 0 AM  | 29,521     | 1.07            | 1,372.95        | 17.21           | 0.51              | 15.42             | 1.42              |
-| casual    | 1 AM  | 19,087     | 1.17            | 1,190.98        | 17.55           | 0.51              | 30.23             | 1.45              |
-| casual    | 2 AM  | 11,591     | 1.15            | 1,268.37        | 17.08           | 0.51              | 11.55             | 1.48              |
-| casual    | 3 AM  | 6,436      | 1.22            | 1,094.32        | 17.36           | 0.51              | 16.63             | 1.51              |
-| casual    | 4 AM  | 4,981      | 1.22            | 1,070.55        | 15.92           | 0.51              | 11.48             | 1.57              |
-| casual    | 5 AM  | 9,730      | 1.02            | 1,143.42        | 13.06           | 0.51              | 11.48             | 1.40              |
-| casual    | 6 AM  | 25,777     | 1.05            | 1,130.90        | 13.55           | 0.51              | 15.89             | 1.44              |
-| casual    | 7 AM  | 45,266     | 1.02            | 1,308.20        | 13.21           | 0.51              | 15.75             | 1.46              |
-| casual    | 8 AM  | 59,788     | 1.03            | 1,436.67        | 14.58           | 0.51              | 15.08             | 1.44              |
-| casual    | 9 AM  | 57,262     | 1.03            | 1,324.93        | 19.08           | 0.51              | 19.35             | 1.54              |
-| casual    | 10 AM | 70,867     | 1.03            | 1,350.47        | 22.89           | 0.51              | 15.89             | 1.62              |
-| casual    | 11 AM | 90,525     | 1.02            | 1,428.72        | 24.16           | 0.51              | 22.95             | 1.66              |
-| casual    | 1 PM  | 111,412    | 1.07            | 1,426.02        | 23.24           | 0.51              | 15.89             | 1.62              |
-| casual    | 2 PM  | 116,291    | 1.08            | 1,419.25        | 23.27           | 0.51              | 16.55             | 1.62              |
-| casual    | 3 PM  | 130,342    | 1.03            | 1,436.78        | 21.80           | 0.51              | 17.36             | 1.62              |
-| casual    | 4 PM  | 151,421    | 1.03            | 1,430.08        | 19.99           | 0.51              | 16.68             | 1.60              |
-| casual    | 5 PM  | 167,076    | 1.02            | 1,437.68        | 19.09           | 0.51              | 21.02             | 1.61              |
-| casual    | 6 PM  | 143,077    | 1.02            | 1,429.23        | 18.67           | 0.51              | 6,096.89          | 1.59              |
-| casual    | 7 PM  | 103,934    | 1.03            | 1,434.05        | 18.26           | 0.51              | 13.92             | 1.47              |
-| casual    | 8 PM  | 74,766     | 1.02            | 1,385.87        | 17.75           | 0.51              | 13.97             | 1.44              |
-| casual    | 9 PM  | 63,387     | 1.05            | 1,405.40        | 17.53           | 0.51              | 13.83             | 1.47              |
-| casual    | 10 PM | 56,300     | 1.03            | 1,427.63        | 17.92           | 0.51              | 11.84             | 1.53              |
-| casual    | 11 PM | 39,866     | 1.03            | 1,378.25        | 17.56           | 0.51              | 15.53             | 1.51              |
-| casual    | 12 PM | 106,925    | 1.07            | 1,412.03        | 23.73           | 0.51              | 19.22             | 1.63              |
-| member    | 0 AM  | 29,781     | 1.02            | 1,421.48        | 12.00           | 0.51              | 11.93             | 1.52              |
-| member    | 1 AM  | 17,512     | 1.08            | 1,178.60        | 12.43           | 0.51              | 15.97             | 1.50              |
-| member    | 2 AM  | 10,155     | 1.08            | 1,411.70        | 12.73           | 0.51              | 13.10             | 1.52              |
-| member    | 3 AM  | 6,576      | 1.08            | 1,265.50        | 13.14           | 0.51              | 16.55             | 1.59              |
-| member    | 4 AM  | 7,361      | 1.07            | 826.57          | 12.61           | 0.51              | 12.70             | 1.70              |
-| member    | 5 AM  | 29,054     | 1.03            | 749.93          | 10.60           | 0.51              | 11.99             | 1.53              |
-| member    | 6 AM  | 91,555     | 1.03            | 783.52          | 10.91           | 0.51              | 13.61             | 1.55              |
-| member    | 7 AM  | 170,835    | 1.02            | 1,401.52        | 11.51           | 0.51              | 15.62             | 1.57              |
-| member    | 8 AM  | 211,851    | 1.02            | 1,361.12        | 11.70           | 0.51              | 14.28             | 1.51              |
-| member    | 9 AM  | 139,454    | 1.02            | 1,379.93        | 11.90           | 0.51              | 18.27             | 1.48              |
-| member    | 10 AM | 124,481    | 1.02            | 1,439.87        | 12.72           | 0.51              | 18.43             | 1.47              |
-| member    | 11 AM | 146,581    | 1.02            | 1,374.42        | 12.96           | 0.51              | 20.04             | 1.45              |
-| member    | 1 PM  | 164,924    | 1.02            | 1,426.08        | 12.72           | 0.51              | 15.40             | 1.45              |
-| member    | 2 PM  | 168,675    | 1.02            | 1,390.58        | 13.17           | 0.51              | 14.10             | 1.50              |
-| member    | 3 PM  | 208,384    | 1.02            | 1,337.68        | 13.10           | 0.51              | 14.75             | 1.52              |
-| member    | 4 PM  | 284,354    | 1.02            | 1,393.38        | 13.31           | 0.51              | 19.10             | 1.57              |
-| member    | 5 PM  | 333,667    | 1.02            | 1,434.43        | 13.52           | 0.51              | 15.75             | 1.58              |
-| member    | 6 PM  | 260,941    | 1.02            | 1,439.25        | 13.27           | 0.51              | 14.55             | 1.53              |
-| member    | 7 PM  | 183,037    | 1.02            | 1,272.37        | 12.95           | 0.51              | 14.95             | 1.48              |
-| member    | 8 PM  | 126,929    | 1.03            | 1,426.75        | 12.67           | 0.51              | 13.49             | 1.46              |
-| member    | 9 PM  | 98,934     | 1.02            | 1,330.85        | 12.55           | 0.51              | 15.05             | 1.51              |
-| member    | 10 PM | 74,243     | 1.02            | 1,317.82        | 12.67           | 0.51              | 13.10             | 1.57              |
-| member    | 11 PM | 47,463     | 1.02            | 1,197.57        | 12.51           | 0.51              | 25.27             | 1.56              |
-| member    | 12 PM | 164,354    | 1.02            | 1,429.43        | 12.80           | 0.51              | 18.66             | 1.44              |
+| user_type | hour  | ride_count | avg_ride_length | avg_ride_distance |
+|-----------|-------|------------|-----------------|-------------------|
+| casual    | 0 AM  | 29,521     | 17.21           | 1.42              |
+| casual    | 1 AM  | 19,087     | 17.55           | 1.45              |
+| casual    | 2 AM  | 11,591     | 17.08           | 1.48              |
+| casual    | 3 AM  | 6,436      | 17.36           | 1.51              |
+| casual    | 4 AM  | 4,981      | 15.92           | 1.57              |
+| casual    | 5 AM  | 9,730      | 13.06           | 1.40              |
+| casual    | 6 AM  | 25,777     | 13.55           | 1.44              |
+| casual    | 7 AM  | 45,266     | 13.21           | 1.46              |
+| casual    | 8 AM  | 59,788     | 14.58           | 1.44              |
+| casual    | 9 AM  | 57,262     | 19.08           | 1.54              |
+| casual    | 10 AM | 70,867     | 22.89           | 1.62              |
+| casual    | 11 AM | 90,525     | 24.16           | 1.66              |
+| casual    | 1 PM  | 111,412    | 23.24           | 1.62              |
+| casual    | 2 PM  | 116,291    | 23.27           | 1.62              |
+| casual    | 3 PM  | 130,342    | 21.80           | 1.62              |
+| casual    | 4 PM  | 151,421    | 19.99           | 1.60              |
+| casual    | 5 PM  | 167,076    | 19.09           | 1.61              |
+| casual    | 6 PM  | 143,077    | 18.67           | 1.59              |
+| casual    | 7 PM  | 103,934    | 18.26           | 1.47              |
+| casual    | 8 PM  | 74,766     | 17.75           | 1.44              |
+| casual    | 9 PM  | 63,387     | 17.53           | 1.47              |
+| casual    | 10 PM | 56,300     | 17.92           | 1.53              |
+| casual    | 11 PM | 39,866     | 17.56           | 1.51              |
+| casual    | 12 PM | 106,925    | 23.73           | 1.63              |
+
+</td><td>
+
+| user_type | hour  | ride_count | avg_ride_length | avg_ride_distance |
+|-----------|-------|------------|-----------------|-------------------|
+| member    | 0 AM  | 29,781     | 12.00           | 1.52              |
+| member    | 1 AM  | 17,512     | 12.43           | 1.50              |
+| member    | 2 AM  | 10,155     | 12.73           | 1.52              |
+| member    | 3 AM  | 6,576      | 13.14           | 1.59              |
+| member    | 4 AM  | 7,361      | 12.61           | 1.70              |
+| member    | 5 AM  | 29,054     | 10.60           | 1.53              |
+| member    | 6 AM  | 91,555     | 10.91           | 1.55              |
+| member    | 7 AM  | 170,835    | 11.51           | 1.57              |
+| member    | 8 AM  | 211,851    | 11.70           | 1.51              |
+| member    | 9 AM  | 139,454    | 11.90           | 1.48              |
+| member    | 10 AM | 124,481    | 12.72           | 1.47              |
+| member    | 11 AM | 146,581    | 12.96           | 1.45              |
+| member    | 1 PM  | 164,924    | 12.72           | 1.45              |
+| member    | 2 PM  | 168,675    | 13.17           | 1.50              |
+| member    | 3 PM  | 208,384    | 13.10           | 1.52              |
+| member    | 4 PM  | 284,354    | 13.31           | 1.57              |
+| member    | 5 PM  | 333,667    | 13.52           | 1.58              |
+| member    | 6 PM  | 260,941    | 13.27           | 1.53              |
+| member    | 7 PM  | 183,037    | 12.95           | 1.48              |
+| member    | 8 PM  | 126,929    | 12.67           | 1.46              |
+| member    | 9 PM  | 98,934     | 12.55           | 1.51              |
+| member    | 10 PM | 74,243     | 12.67           | 1.57              |
+| member    | 11 PM | 47,463     | 12.51           | 1.56              |
+| member    | 12 PM | 164,354    | 12.80           | 1.44              |
+
+</td></tr> </table>
+
++ The table reveals insights into the platform's ridership statistics across different times of the day.
++ Casual users display a varied distribution of ride counts throughout the day, peaking at **5 PM (167,076 rides)** and reaching their lowest point at **4 AM (4,981 rides)**. The average ride duration for casual users remains consistently high at **11 AM (24.16 minutes)** and consistently low at **5 AM (13.06 minutes)**. Similarly, the average ride distance for casual users fluctuates between its highest point at **4 AM (1.7 miles)** and its lowest at **12 PM (1.44 miles)**.
++ Member users also exhibit a diverse distribution of ride counts, with the highest count occurring at **5 PM (333,667 rides)** and the lowest at **3 AM (6,576 rides)**. Average ride lengths for member users follow relatively consistent patterns throughout the day, peaking at **5 PM (13.52 minutes)** and hitting their lowest point at **5 AM (10.6 minutes)**. Like casual users, member users' average ride distance peaks at **4 AM (1.7 miles)** and dips at **12 PM (1.44 miles)**.
 
 ### Weekly Trends
 
@@ -2613,13 +2616,9 @@ select
     user_type
   , day_of_week
   , count(*) as ride_count
-  , min(ride_length_minute) as min_ride_length
-  , max(ride_length_minute) as max_ride_length
   , cast(
         round(avg(ride_length_minute), 2) as decimal(10, 2)
     ) as avg_ride_length
-  , min(ride_distance) as min_ride_distance
-  , max(ride_distance) as max_ride_distance
   , cast(round(avg(ride_distance), 2) as decimal(10, 2)) as avg_ride_distance
 from
     [dbo].[2023-divvy-tripdataupdated]
@@ -2639,22 +2638,35 @@ order by
     end;
 ```
 
-| user_type | day_of_week | ride_count | min_ride_length | max_ride_length | avg_ride_length | min_ride_distance | max_ride_distance | avg_ride_distance |
-|-----------|-------------|------------|-----------------|-----------------|-----------------|-------------------|-------------------|-------------------|
-| casual    | Mon         | 270,832    | 1.02            | 1,430.08        | 23.01           | 0.51              | 22.95             | 1.64              |
-| casual    | Tue         | 191,455    | 1.02            | 1,436.78        | 19.25           | 0.51              | 6,096.89          | 1.55              |
-| casual    | Wed         | 204,129    | 1.02            | 1,437.68        | 17.74           | 0.51              | 15.23             | 1.51              |
-| casual    | Thu         | 208,031    | 1.02            | 1,409.22        | 17.10           | 0.51              | 19.35             | 1.49              |
-| casual    | Fri         | 225,663    | 1.02            | 1,436.67        | 17.36           | 0.51              | 30.23             | 1.50              |
-| casual    | Sat         | 258,491    | 1.02            | 1,434.05        | 19.45           | 0.51              | 17.17             | 1.55              |
-| casual    | Sun         | 337,027    | 1.02            | 1,427.63        | 22.69           | 0.51              | 19.22             | 1.65              |
-| member    | Mon         | 342,859    | 1.02            | 1,439.87        | 14.13           | 0.51              | 18.27             | 1.57              |
-| member    | Tue         | 418,368    | 1.02            | 1,337.68        | 12.05           | 0.51              | 18.66             | 1.47              |
-| member    | Wed         | 490,783    | 1.02            | 1,439.25        | 12.23           | 0.51              | 15.62             | 1.51              |
-| member    | Thu         | 499,821    | 1.02            | 1,434.43        | 12.17           | 0.51              | 15.62             | 1.50              |
-| member    | Fri         | 500,606    | 1.02            | 1,431.87        | 12.28           | 0.51              | 19.10             | 1.51              |
-| member    | Sat         | 449,212    | 1.02            | 1,429.40        | 12.64           | 0.51              | 25.27             | 1.49              |
-| member    | Sun         | 399,452    | 1.02            | 1,426.08        | 14.13           | 0.51              | 18.43             | 1.58              |
+<table> <tr><td>
+
+| user_type | day_of_week | ride_count | avg_ride_length | avg_ride_distance |
+|-----------|-------------|------------|-----------------|-------------------|
+| casual    | Mon         | 270,832    | 23.01           | 1.64              |
+| casual    | Tue         | 191,455    | 19.25           | 1.55              |
+| casual    | Wed         | 204,129    | 17.74           | 1.51              |
+| casual    | Thu         | 208,031    | 17.10           | 1.49              |
+| casual    | Fri         | 225,663    | 17.36           | 1.50              |
+| casual    | Sat         | 258,491    | 19.45           | 1.55              |
+| casual    | Sun         | 337,027    | 22.69           | 1.65              |
+
+</td><td>
+
+| user_type | day_of_week | ride_count | avg_ride_length | avg_ride_distance |
+|-----------|-------------|------------|-----------------|-------------------|
+| member    | Mon         | 342,859    | 14.13           | 1.57              |
+| member    | Tue         | 418,368    | 12.05           | 1.47              |
+| member    | Wed         | 490,783    | 12.23           | 1.51              |
+| member    | Thu         | 499,821    | 12.17           | 1.50              |
+| member    | Fri         | 500,606    | 12.28           | 1.51              |
+| member    | Sat         | 449,212    | 12.64           | 1.49              |
+| member    | Sun         | 399,452    | 14.13           | 1.58              |
+
+</td></tr> </table>
+
++ The table provides insights into the platform's ridership statistics across the days of the week.
++ Casual users exhibit varying ride counts throughout the week, peaking on **Sundays (337,027 rides)** and hitting their lowest point on **Tuesdays (191,455 rides)**. The average ride length for casual users remains relatively consistent throughout the week, reaching its peak on **Mondays (23.01 minutes)** and its lowest on **Thursdays (17.1 minutes)**. Similarly, casual users' average distances fluctuate across different days, with **Sundays (1.65 miles)** being the highest and **Thursdays (1.49 miles)** being the lowest.
++ Member users also demonstrate fluctuations in ride counts throughout the week, with the highest count on **Fridays (500,606 rides)** and the lowest on **Mondays (342,859 rides)**. The average ride length for member users peaks on **Mondays and Sundays (14.13 minutes)** and is shortest on **Tuesdays (12.05 minutes)**. Member users' average distance is highest on **Sundays (1.58 miles)** and shortest on **Tuesdays (1.47 miles)**, with only slight variations observed across different days.
 
 ### Monthly Trends
 
@@ -2665,13 +2677,9 @@ select
     user_type
   , month
   , count(*) as ride_count
-  , min(ride_length_minute) as min_ride_length
-  , max(ride_length_minute) as max_ride_length
   , cast(
         round(avg(ride_length_minute), 2) as decimal(10, 2)
     ) as avg_ride_length
-  , min(ride_distance) as min_ride_distance
-  , max(ride_distance) as max_ride_distance
   , cast(round(avg(ride_distance), 2) as decimal(10, 2)) as avg_ride_distance
 from
     [dbo].[2023-divvy-tripdataupdated]
@@ -2696,32 +2704,45 @@ order by
     end;
 ```
 
-| user_type | month | ride_count | min_ride_length | max_ride_length | avg_ride_length | min_ride_distance | max_ride_distance | avg_ride_distance |
-|-----------|-------|------------|-----------------|-----------------|-----------------|-------------------|-------------------|-------------------|
-| casual    | Jan   | 32,544     | 1.03            | 1,351.22        | 13.66           | 0.51              | 14.75             | 1.24              |
-| casual    | Feb   | 34,978     | 1.02            | 1,423.62        | 15.44           | 0.51              | 14.16             | 1.33              |
-| casual    | Mar   | 51,007     | 1.05            | 1,427.57        | 14.98           | 0.51              | 12.95             | 1.33              |
-| casual    | Apr   | 118,805    | 1.02            | 1,396.13        | 19.56           | 0.51              | 21.02             | 1.55              |
-| casual    | May   | 192,245    | 1.02            | 1,431.63        | 21.05           | 0.51              | 16.71             | 1.63              |
-| casual    | Jun   | 249,558    | 1.03            | 1,428.72        | 20.85           | 0.51              | 30.23             | 1.64              |
-| casual    | Jul   | 272,556    | 1.02            | 1,434.05        | 21.72           | 0.51              | 17.36             | 1.63              |
-| casual    | Aug   | 256,733    | 1.03            | 1,437.68        | 20.88           | 0.51              | 6,096.89          | 1.63              |
-| casual    | Sep   | 216,425    | 1.02            | 1,425.42        | 20.48           | 0.51              | 18.18             | 1.59              |
-| casual    | Oct   | 146,717    | 1.02            | 1,436.78        | 18.80           | 0.51              | 15.24             | 1.48              |
-| casual    | Nov   | 81,575     | 1.03            | 1,426.02        | 15.71           | 0.51              | 19.22             | 1.37              |
-| casual    | Dec   | 42,485     | 1.10            | 1,408.32        | 14.37           | 0.51              | 17.17             | 1.28              |
-| member    | Jan   | 122,176    | 1.02            | 1,419.42        | 10.86           | 0.51              | 13.46             | 1.32              |
-| member    | Feb   | 120,570    | 1.02            | 1,423.78        | 11.21           | 0.51              | 13.49             | 1.35              |
-| member    | Mar   | 162,576    | 1.02            | 1,337.68        | 10.85           | 0.51              | 13.27             | 1.37              |
-| member    | Apr   | 232,918    | 1.02            | 1,429.40        | 12.26           | 0.51              | 13.61             | 1.49              |
-| member    | May   | 316,768    | 1.02            | 1,353.13        | 13.25           | 0.51              | 16.05             | 1.57              |
-| member    | Jun   | 360,531    | 1.02            | 1,394.22        | 13.49           | 0.51              | 16.10             | 1.60              |
-| member    | Jul   | 375,211    | 1.02            | 1,431.87        | 13.81           | 0.51              | 18.43             | 1.61              |
-| member    | Aug   | 393,777    | 1.02            | 1,434.43        | 13.73           | 0.51              | 20.04             | 1.59              |
-| member    | Sep   | 345,708    | 1.02            | 1,429.43        | 13.22           | 0.51              | 18.66             | 1.56              |
-| member    | Oct   | 304,349    | 1.02            | 1,439.25        | 12.22           | 0.51              | 25.27             | 1.47              |
-| member    | Nov   | 222,031    | 1.02            | 1,439.87        | 11.54           | 0.51              | 13.49             | 1.41              |
-| member    | Dec   | 144,486    | 1.02            | 1,368.77        | 11.36           | 0.51              | 14.10             | 1.37              |
+<table> <tr><td>
+
+| user_type | month | ride_count | avg_ride_length | avg_ride_distance |
+|-----------|-------|------------|-----------------|-------------------|
+| casual    | Jan   | 32,544     | 13.66           | 1.24              |
+| casual    | Feb   | 34,978     | 15.44           | 1.33              |
+| casual    | Mar   | 51,007     | 14.98           | 1.33              |
+| casual    | Apr   | 118,805    | 19.56           | 1.55              |
+| casual    | May   | 192,245    | 21.05           | 1.63              |
+| casual    | Jun   | 249,558    | 20.85           | 1.64              |
+| casual    | Jul   | 272,556    | 21.72           | 1.63              |
+| casual    | Aug   | 256,733    | 20.88           | 1.63              |
+| casual    | Sep   | 216,425    | 20.48           | 1.59              |
+| casual    | Oct   | 146,717    | 18.80           | 1.48              |
+| casual    | Nov   | 81,575     | 15.71           | 1.37              |
+| casual    | Dec   | 42,485     | 14.37           | 1.28              |
+
+</td><td>
+
+| user_type | month | ride_count | avg_ride_length | avg_ride_distance |
+|-----------|-------|------------|-----------------|-------------------|
+| member    | Jan   | 122,176    | 10.86           | 1.32              |
+| member    | Feb   | 120,570    | 11.21           | 1.35              |
+| member    | Mar   | 162,576    | 10.85           | 1.37              |
+| member    | Apr   | 232,918    | 12.26           | 1.49              |
+| member    | May   | 316,768    | 13.25           | 1.57              |
+| member    | Jun   | 360,531    | 13.49           | 1.60              |
+| member    | Jul   | 375,211    | 13.81           | 1.61              |
+| member    | Aug   | 393,777    | 13.73           | 1.59              |
+| member    | Sep   | 345,708    | 13.22           | 1.56              |
+| member    | Oct   | 304,349    | 12.22           | 1.47              |
+| member    | Nov   | 222,031    | 11.54           | 1.41              |
+| member    | Dec   | 144,486    | 11.36           | 1.37              |
+
+</td></tr> </table>
+
++ The table presents insights into the platform's ridership statistics across various months.
++ Casual users show varying ride counts throughout the year, with the highest count in **July (272,556 rides)** and the lowest in **January (32,544 rides)**. The average ride length peaks in **July (21.76 minutes)** and drops to its lowest point in **January (13.66 minutes)**, indicating fluctuations throughout the year. Casual users' average distances range from **June (1.64 miles)**, the highest, to **January (1.24 miles)**, the lowest, showcasing variability across different months.
++ Similarly, member users also experience fluctuations in ride counts throughout the year, reaching the highest count in **August (393,777 rides)** and the lowest in **February (120,570 rides)**. The average ride length for member users peaks in **July (13.81 minutes)** and declines to its lowest point in **March (10.85 minutes)**, demonstrating variations across different months. Member users' average distances range from **July (1.61 miles)**, the highest, to **January (1.32 miles)**, the lowest.
 
 ### Quarterly Trends
 
@@ -2732,13 +2753,9 @@ select
     user_type
   , quarter
   , count(*) as ride_count
-  , min(ride_length_minute) as min_ride_length
-  , max(ride_length_minute) as max_ride_length
   , cast(
         round(avg(ride_length_minute), 2) as decimal(10, 2)
     ) as avg_ride_length
-  , min(ride_distance) as min_ride_distance
-  , max(ride_distance) as max_ride_distance
   , cast(round(avg(ride_distance), 2) as decimal(10, 2)) as avg_ride_distance
 from
     [dbo].[2023-divvy-tripdataupdated]
@@ -2750,16 +2767,29 @@ order by
   , quarter;
 ```
 
-| user_type | quarter | ride_count | min_ride_length | max_ride_length | avg_ride_length | min_ride_distance | max_ride_distance | avg_ride_distance |
-|-----------|---------|------------|-----------------|-----------------|-----------------|-------------------|-------------------|-------------------|
-| casual    | Q1      | 118,529    | 1.02            | 1,427.57        | 14.75           | 0.51              | 14.75             | 1.31              |
-| casual    | Q2      | 560,608    | 1.02            | 1,431.63        | 20.64           | 0.51              | 30.23             | 1.62              |
-| casual    | Q3      | 745,714    | 1.02            | 1,437.68        | 21.07           | 0.51              | 6,096.89          | 1.62              |
-| casual    | Q4      | 270,777    | 1.02            | 1,436.78        | 17.18           | 0.51              | 19.22             | 1.42              |
-| member    | Q1      | 405,322    | 1.02            | 1,423.78        | 10.96           | 0.51              | 13.49             | 1.35              |
-| member    | Q2      | 910,217    | 1.02            | 1,429.40        | 13.09           | 0.51              | 16.10             | 1.57              |
-| member    | Q3      | 1,114,696  | 1.02            | 1,434.43        | 13.60           | 0.51              | 20.04             | 1.59              |
-| member    | Q4      | 670,866    | 1.02            | 1,439.87        | 11.81           | 0.51              | 25.27             | 1.43              |
+<table> <tr><td>
+
+| user_type | quarter | ride_count | avg_ride_length | avg_ride_distance |
+|-----------|---------|------------|-----------------|-------------------|
+| casual    | Q1      | 118,529    | 14.75           | 1.31              |
+| casual    | Q2      | 560,608    | 20.64           | 1.62              |
+| casual    | Q3      | 745,714    | 21.07           | 1.62              |
+| casual    | Q4      | 270,777    | 17.18           | 1.42              |
+
+</td><td>
+
+| user_type | quarter | ride_count | avg_ride_length | avg_ride_distance |
+|-----------|---------|------------|-----------------|-------------------|
+| member    | Q1      | 405,322    | 10.96           | 1.35              |
+| member    | Q2      | 910,217    | 13.09           | 1.57              |
+| member    | Q3      | 1,114,696  | 13.60           | 1.59              |
+| member    | Q4      | 670,866    | 11.81           | 1.43              |
+
+</td></tr> </table>
+
++ The table presents insights into the platform's ridership statistics across each quarter.
++ Casual users exhibit varying ride counts, with the highest count in **Q3 (745,714 rides)** and the lowest in **Q1 (118,529 rides)**. Their average ride length varies throughout the year, peaking in **Q3 (21.07 minutes)** and reaching its lowest point in **Q1 (14.75 minutes)**. Average distances range from their highest in **Q2 and Q3 (1.62 miles)** to their lowest in **Q1 (1.31 miles)**, showing variability.
++ Member users also show fluctuations in ride counts, with the highest count in **Q3 (1,114,696 rides)** and the lowest in **Q1 (405,322 rides)**. Their average ride length ranges from its highest in **Q3 (13.60 minutes)** to its lowest in **Q1 (10.96 minutes)**. Similarly, average distances vary from their highest in **Q3 (1.59 miles)** to their lowest in **Q1 (1.35 miles)**, displaying differences across quarters.
 
 ### Rideable Trends
 
@@ -2770,13 +2800,9 @@ select
     user_type
   , rideable_type
   , count(*) as ride_count
-  , min(ride_length_minute) as min_ride_length
-  , max(ride_length_minute) as max_ride_length
-  , cast(
+    , cast(
         round(avg(ride_length_minute), 2) as decimal(10, 2)
     ) as avg_ride_length
-  , min(ride_distance) as min_ride_distance
-  , max(ride_distance) as max_ride_distance
   , cast(round(avg(ride_distance), 2) as decimal(10, 2)) as avg_ride_distance
 from
     [dbo].[2023-divvy-tripdataupdated]
@@ -2788,13 +2814,26 @@ order by
   , rideable_type;
 ```
 
-| user_type | rideable_type | ride_count | min_ride_length | max_ride_length | avg_ride_length | min_ride_distance | max_ride_distance | avg_ride_distance |
-|-----------|---------------|------------|-----------------|-----------------|-----------------|-------------------|-------------------|-------------------|
-| casual    | classic_bike  | 716,056    | 1.03            | 1,436.78        | 24.35           | 0.51              | 6,096.89          | 1.54              |
-| casual    | docked_bike   | 57,108     | 1.38            | 1,437.68        | 45.90           | 0.51              | 19.35             | 1.77              |
-| casual    | electric_bike | 922,464    | 1.02            | 480.45          | 14.77           | 0.51              | 30.23             | 1.57              |
-| member    | classic_bike  | 1,521,033  | 1.02            | 1,439.87        | 13.61           | 0.51              | 16.55             | 1.39              |
-| member    | electric_bike | 1,580,068  | 1.02            | 481.40          | 11.86           | 0.51              | 25.27             | 1.64              |
+<table> <tr><td>
+
+| user_type | rideable_type | ride_count | avg_ride_length | avg_ride_distance |
+|-----------|---------------|------------|-----------------|-------------------|
+| casual    | classic_bike  | 716,056    | 24.35           | 1.54              |
+| casual    | docked_bike   | 57,108     | 45.90           | 1.77              |
+| casual    | electric_bike | 922,464    | 14.77           | 1.57              |
+
+</td><td>
+
+| user_type | rideable_type | ride_count | avg_ride_length | avg_ride_distance |
+|-----------|---------------|------------|-----------------|-------------------|
+| member    | classic_bike  | 1,521,033  | 13.61           | 1.39              |
+| member    | electric_bike | 1,580,068  | 11.86           | 1.64              |
+
+</td></tr> </table>
+
++ The table provides insights into the platform's ridership statistics across different rideable types.
++ Casual users embarked on a combined total of **1,695,628 bike rides** across three categories. **Classic_bikes (716,056 rides)** saw the highest uptake, averaging a duration of **24.35 minutes** and covering a distance of **1.54 miles** per ride. **Docked_bikes (57,108 rides)** exhibited longer rides, averaging **45.90 minutes** and covering **1.77 miles**, despite being fewer in number. **Electric_bikes (922,464 rides)** were the most popular among casual users, featuring shorter but more frequent trips, averaging **14.77 minutes** in duration and covering **1.57 miles** per ride.
++ Member users engaged in a total of **3,101,101 bike rides** across two categories. **Classic_bikes (1,521,033 rides)** had an average ride duration of **13.61 minutes** and covered **1.39 miles** per ride. **Electric_bikes (1,580,068 rides)** emerged as the preferred choice for members, characterized by shorter durations averaging **11.86 minutes** and covering slightly longer distances, averaging **1.64 miles per ride**.
 
 ### Station Trends
 
@@ -2898,32 +2937,65 @@ from
         offset
             0 rows
         fetch first
-            10 rows only
+            10 rows onlybn  
     ) as TopMemberStations;
 ```
 
+<table> <tr><td>
+
+| user_type | start_station_name                  | start_station_trips |
+|-----------|-------------------------------------|---------------------|
+| casual    | Streeter Dr & Grand Ave             | 39,395              |
+| casual    | DuSable Lake Shore Dr & Monroe St   | 22,840              |
+| casual    | Michigan Ave & Oak St               | 19,924              |
+| casual    | DuSable Lake Shore Dr & North Blvd  | 19,477              |
+| casual    | Theater on the Lake                 | 15,909              |
+| casual    | Millennium Park                     | 15,440              |
+| casual    | Shedd Aquarium                      | 15,144              |
+| casual    | Clark St & Lincoln Ave              | 13,552              |
+| casual    | Wells St & Concord Ln               | 12,732              |
+| casual    | Dusable Harbor                      | 11,491              |
+| casual    | Montrose Harbor                     | 11,128              |
+| casual    | Clark St & Armitage Ave             | 10,774              |
+| casual    | Adler Planetarium                   | 10,610              |
+| casual    | Wilton Ave & Belmont Ave            | 10,388              |
+| casual    | Clark St & Elm St                   | 10,368              |
+| casual    | Broadway & Barry Ave                | 10,273              |
+| casual    | Indiana Ave & Roosevelt Rd          | 9,485               |
+| casual    | Clark St & Newport St               | 9,399               |
+| casual    | Wells St & Elm St                   | 9,356               |
+| casual    | DuSable Lake Shore Dr & Belmont Ave | 8,998               |
+
+</td><td>
+
 | user_type | start_station_name                 | start_station_trips |
 |-----------|------------------------------------|---------------------|
-| casual    | Streeter Dr & Grand Ave            | 39395               |
-| casual    | DuSable Lake Shore Dr & Monroe St  | 22840               |
-| casual    | Michigan Ave & Oak St              | 19924               |
-| casual    | DuSable Lake Shore Dr & North Blvd | 19477               |
-| casual    | Theater on the Lake                | 15909               |
-| casual    | Millennium Park                    | 15440               |
-| casual    | Shedd Aquarium                     | 15144               |
-| casual    | Clark St & Lincoln Ave             | 13552               |
-| casual    | Wells St & Concord Ln              | 12732               |
-| casual    | Dusable Harbor                     | 11491               |
-| member    | Clinton St & Washington Blvd       | 24587               |
-| member    | Clark St & Elm St                  | 23908               |
-| member    | Kingsbury St & Kinzie St           | 23224               |
-| member    | Wells St & Concord Ln              | 22228               |
-| member    | Broadway & Barry Ave               | 20220               |
-| member    | Clinton St & Madison St            | 18826               |
-| member    | Wells St & Elm St                  | 18690               |
-| member    | Loomis St & Lexington St           | 16983               |
-| member    | Sheffield Ave & Fullerton Ave      | 16676               |
-| member    | Wells St & Huron St                | 16622               |
+| member    | Clinton St & Washington Blvd       | 24,587              |
+| member    | Clark St & Elm St                  | 23,908              |
+| member    | Kingsbury St & Kinzie St           | 23,224              |
+| member    | Wells St & Concord Ln              | 22,228              |
+| member    | Broadway & Barry Ave               | 20,220              |
+| member    | Clinton St & Madison St            | 18,826              |
+| member    | Wells St & Elm St                  | 18,690              |
+| member    | Loomis St & Lexington St           | 16,983              |
+| member    | Sheffield Ave & Fullerton Ave      | 16,676              |
+| member    | Wells St & Huron St                | 16,622              |
+| member    | Larrabee St & Kingsbury St         | 16,502              |
+| member    | Clark St & Lincoln Ave             | 16,496              |
+| member    | Streeter Dr & Grand Ave            | 16,305              |
+| member    | Dearborn St & Erie St              | 16,303              |
+| member    | Canal St & Adams St                | 16,232              |
+| member    | DuSable Lake Shore Dr & North Blvd | 16,183              |
+| member    | State St & Chicago Ave             | 15,964              |
+| member    | Clark St & Wrightwood Ave          | 15,850              |
+| member    | Wilton Ave & Belmont Ave           | 15,846              |
+| member    | Lincoln Ave & Fullerton Ave        | 15,807              |
+
+</td></tr> </table>
+
++ The table provides insights into the platform's most popular start stations for both casual and member users.
++ The top start station for casual users is **"Streeter Dr & Grand Ave" (39,395 trips)**. Other popular start stations include **"DuSable Lake Shore Dr & Monroe St" (22,840 trips)**, **"Michigan Ave & Oak St" (19,924 trips)**, and **"DuSable Lake Shore Dr & North Blvd" (19,477 trips)**. Some of these stations are situated near popular tourist attractions, shopping areas, or recreational spots, making them attractive destinations for casual riders interested in leisurely rides, city exploration, shopping, dining, or outdoor activities. Overall, these start stations reflect the diverse preferences and interests among casual users.
++ For member users, the top start station is **"Clinton St & Washington Blvd" (24,587 trips)**. Other frequently used start stations include **"Clark St & Elm St" (23,908 trips)**, **"Kingsbury St & Kinzie St" (23,224 trips)**, and **"Wells St & Concord Ln" (22,228 trips)**. These stations are located in various neighborhoods, catering to member users residing in or commuting to the respective areas. Some stations may be conveniently located near popular attractions, office buildings, restaurants, or nightlife spots, making them suitable for commuting or social activities. Overall, these start stations fulfill a variety of needs for member users across different neighborhoods.
 
 ### Map Trends
 
@@ -2994,6 +3066,8 @@ group by
 having
     count(*) > 200;
 ```
+
++ These queries retrieve data for map visualization, focusing on rides taken by 'casual' or 'member' users where the start and end coordinates are different. The count threshold of 200 rides helps identify significant biking locations, such as popular routes or commuter hubs, for visualization on the map.
 
 ### Key Tasks
 - [x]  Aggregate your data so it’s useful and accessible.
@@ -3143,4 +3217,3 @@ having
   - [`What is a station? A dock? A kiosk?`](https://help.divvybikes.com/hc/en-us/articles/360033124372-What-is-a-station-A-dock-A-kiosk)
 + [`License`](https://divvybikes.com/data-license-agreement)
 + [`Location`](https://en.wikipedia.org/wiki/Module:Location_map/data/United_States_Chicago)
-
