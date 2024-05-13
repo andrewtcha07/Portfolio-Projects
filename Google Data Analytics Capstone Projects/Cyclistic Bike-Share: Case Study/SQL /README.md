@@ -3201,7 +3201,7 @@ The "**Weekly Trends**" visuals explore recurring patterns on a weekly basis, sp
 3. **How can Cyclistic use digital media to influence casual riders to become members?**
    - 
 
-This analysis reveals key findings regarding the patterns of both user categories over the weekly timeframe, offering essential direction for developing a conversion strategy focused on transitioning casual riders into annual members. Additionally, by continuing to delve deeper into the findings, Cycli
+This analysis reveals key findings regarding the patterns of both user categories over the weekly timeframe, offering essential direction for developing a conversion strategy focused on transitioning casual riders into annual members. Additionally, by continuing to delve deeper into the findings, Cyclistic can uncover valuable insights that will refine its marketing strategies, ultimately enhancing overall effectiveness.
 
 --------------------------------------
 
