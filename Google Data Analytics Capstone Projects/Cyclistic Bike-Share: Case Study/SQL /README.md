@@ -2484,6 +2484,10 @@ where
 ### User Trends
 
 #### User Type Overview
+
+<details>
+  <summary>Click to expand SQL code:</summary>
+
 ```sql
 select
     user_type
@@ -2502,6 +2506,7 @@ group by
 order by
     user_type;
 ```
+</details>
 
 | user_type | ride_count | ride_count_percentage | avg_ride_length | avg_ride_distance |
 |-----------|------------|-----------------------|-----------------|-------------------|
@@ -2516,6 +2521,9 @@ order by
 
 #### Hourly Overview
 
+<details>
+  <summary>Click to expand SQL code:</summary>
+  
 ```sql
 select
     user_type
@@ -2543,6 +2551,9 @@ order by
         ) + 12
     end;
 ```
+
+</details>
+
 <table> <tr><td>
 
 | user_type | hour  | ride_count | avg_ride_length | avg_ride_distance |
@@ -2611,6 +2622,9 @@ order by
 
 #### Weekly Overview
 
+<details>
+  <summary>Click to expand SQL code:</summary>
+
 ```sql
 select
     user_type
@@ -2637,6 +2651,8 @@ order by
         when day_of_week = 'Sun' then 7
     end;
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -2672,6 +2688,9 @@ order by
 
 #### Monthly Overview
 
+<details>
+  <summary>Click to expand SQL code:</summary>
+  
 ```sql
 select
     user_type
@@ -2703,6 +2722,8 @@ order by
         when month = 'Dec' then 12
     end;
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -2748,6 +2769,9 @@ order by
 
 #### Quarterly Overview
 
+<details>
+  <summary>Click to expand SQL code:</summary>
+  
 ```sql
 select
     user_type
@@ -2766,6 +2790,8 @@ order by
     user_type
   , quarter;
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -2795,6 +2821,9 @@ order by
 
 #### Rideable Type Overview
 
+<details>
+  <summary>Click to expand SQL code:</summary>
+
 ```sql
 select
     user_type
@@ -2813,6 +2842,8 @@ order by
     user_type
   , rideable_type;
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -2839,6 +2870,9 @@ order by
 
 #### Most Popular Start Stations
 
+<details>
+  <summary>Click to expand SQL code:</summary>
+  
 ```sql
 select
     user_type
@@ -2941,6 +2975,8 @@ from
     ) as TopMemberStations;
 ```
 
+</details>
+
 <table> <tr><td>
 
 | user_type | start_station_name                  | start_station_trips |
@@ -3000,6 +3036,9 @@ from
 ### Map Trends
 
 #### Most Traveled Routes
+
+<details>
+  <summary>Click to expand SQL code:</summary>
 
 ```sql
 select
@@ -3066,6 +3105,8 @@ group by
 having
     count(*) > 200;
 ```
+
+</details>
 
 + These queries retrieve data for map visualization, focusing on rides taken by 'casual' or 'member' users where the start and end coordinates are different. The count threshold of 200 rides helps identify significant biking locations, such as popular routes or commuter hubs, for visualization on the map.
 
