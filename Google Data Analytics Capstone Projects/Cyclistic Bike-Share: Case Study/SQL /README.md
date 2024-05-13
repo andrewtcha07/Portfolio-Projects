@@ -2340,100 +2340,100 @@ where
 + Performing a final check by counting rows where **start_station_name**, **start_station_id**, **end_station_name**, and **end_station_id** match specified values.
 ```sql
 select
-    count(*) as total_count, -- Select the count of all rows and alias it as 'total_count'
     'start_station_name' as station_type -- Specify the type of station
+  , count(*) as total_count -- Select the count of all rows and alias it as 'total_count'
 from
     [dbo].[2023-divvy-tripdataupdated] -- Table to count rows from
 where
     start_station_name in ( -- Filter rows where the start station name matches any of the specified values
-        'OH - BONFIRE - TESTING',
-        'Hubbard Bike-checking (LBS-WH-TEST)',
-        'chargingstx4',
-        'chargingstx2',
-        'chargingstx07',
-        'chargingstx0',
-        'chargingstx5',
-        'chargingstx3',
-        'chargingstx1',
-        'chargingstx06',
-        'OH Charging Stx - Test',
-        '2059 Hastings Warehouse Station',
-        'DIVVY CASSETTE REPAIR MOBILE STATION'
+        'OH - BONFIRE - TESTING'
+      , 'Hubbard Bike-checking (LBS-WH-TEST)'
+      , 'chargingstx4'
+      , 'chargingstx2'
+      , 'chargingstx07'
+      , 'chargingstx0'
+      , 'chargingstx5'
+      , 'chargingstx3'
+      , 'chargingstx1'
+      , 'chargingstx06'
+      , 'OH Charging Stx - Test'
+      , '2059 Hastings Warehouse Station'
+      , 'DIVVY CASSETTE REPAIR MOBILE STATION'
     )
 union all
 select
-    count(*) as total_count, -- Select the count of all rows and alias it as 'total_count'
     'start_station_id' as station_type -- Specify the type of station
+  , count(*) as total_count -- Select the count of all rows and alias it as 'total_count'
 from
     [dbo].[2023-divvy-tripdataupdated] -- Table to count rows from
 where
     start_station_id in ( -- Filter rows where the start station id matches any of the specified values
-        'OH - BONFIRE - TESTING',
-        'Hubbard Bike-checking (LBS-WH-TEST)',
-        'chargingstx4',
-        'chargingstx2',
-        'chargingstx07',
-        'chargingstx0',
-        'chargingstx5',
-        'chargingstx3',
-        'chargingstx1',
-        'chargingstx06',
-        'OH Charging Stx - Test',
-        '2059 Hastings Warehouse Station',
-        'DIVVY CASSETTE REPAIR MOBILE STATION'
+        'OH - BONFIRE - TESTING'
+      , 'Hubbard Bike-checking (LBS-WH-TEST)'
+      , 'chargingstx4'
+      , 'chargingstx2'
+      , 'chargingstx07'
+      , 'chargingstx0'
+      , 'chargingstx5'
+      , 'chargingstx3'
+      , 'chargingstx1'
+      , 'chargingstx06'
+      , 'OH Charging Stx - Test'
+      , '2059 Hastings Warehouse Station'
+      , 'DIVVY CASSETTE REPAIR MOBILE STATION'
     )
 union all
 select
-    count(*) as total_count, -- Select the count of all rows and alias it as 'total_count'
     'end_station_name' as station_type -- Specify the type of station
+  , count(*) as total_count -- Select the count of all rows and alias it as 'total_count'
 from
     [dbo].[2023-divvy-tripdataupdated] -- Table to count rows from
 where
     end_station_name in ( -- Filter rows where the end station name matches any of the specified values
-        'OH - BONFIRE - TESTING',
-        'Hubbard Bike-checking (LBS-WH-TEST)',
-        'chargingstx4',
-        'chargingstx2',
-        'chargingstx07',
-        'chargingstx0',
-        'chargingstx5',
-        'chargingstx3',
-        'chargingstx1',
-        'chargingstx06',
-        'OH Charging Stx - Test',
-        '2059 Hastings Warehouse Station',
-        'DIVVY CASSETTE REPAIR MOBILE STATION'
+        'OH - BONFIRE - TESTING'
+      , 'Hubbard Bike-checking (LBS-WH-TEST)'
+      , 'chargingstx4'
+      , 'chargingstx2'
+      , 'chargingstx07'
+      , 'chargingstx0'
+      , 'chargingstx5'
+      , 'chargingstx3'
+      , 'chargingstx1'
+      , 'chargingstx06'
+      , 'OH Charging Stx - Test'
+      , '2059 Hastings Warehouse Station'
+      , 'DIVVY CASSETTE REPAIR MOBILE STATION'
     )
 union all
 select
-    count(*) as total_count, -- Select the count of all rows and alias it as 'total_count'
     'end_station_id' as station_type -- Specify the type of station
+  , count(*) as total_count -- Select the count of all rows and alias it as 'total_count'
 from
     [dbo].[2023-divvy-tripdataupdated] -- Table to count rows from
 where
     end_station_id in ( -- Filter rows where the end station id matches any of the specified values
-        'OH - BONFIRE - TESTING',
-        'Hubbard Bike-checking (LBS-WH-TEST)',
-        'chargingstx4',
-        'chargingstx2',
-        'chargingstx07',
-        'chargingstx0',
-        'chargingstx5',
-        'chargingstx3',
-        'chargingstx1',
-        'chargingstx06',
-        'OH Charging Stx - Test',
-        '2059 Hastings Warehouse Station',
-        'DIVVY CASSETTE REPAIR MOBILE STATION'
+        'OH - BONFIRE - TESTING'
+      , 'Hubbard Bike-checking (LBS-WH-TEST)'
+      , 'chargingstx4'
+      , 'chargingstx2'
+      , 'chargingstx07'
+      , 'chargingstx0'
+      , 'chargingstx5'
+      , 'chargingstx3'
+      , 'chargingstx1'
+      , 'chargingstx06'
+      , 'OH Charging Stx - Test'
+      , '2059 Hastings Warehouse Station'
+      , 'DIVVY CASSETTE REPAIR MOBILE STATION'
     );
 ```
 
-| total_count | station_type       |
-|-------------|--------------------|
-| 0           | start_station_name |
-| 0           | start_station_id   |
-| 0           | end_station_name   |
-| 0           | end_station_id     |
+| station_type       | total_count |
+|--------------------|-------------|
+| start_station_name | 0           |
+| start_station_id   | 0           |
+| end_station_name   | 0           |
+| end_station_id     | 0           |
 
 ### Overview of Updated Data
 + The table has undergone extensive data management, adjustments, preparation, and quality assurance measures, including null value handling, outlier detection, and data reduction.
