@@ -3162,7 +3162,7 @@ This analysis serves as a foundational step towards understanding the unique cha
 The "**Hourly Trends**" visuals explore fluctuations in activity throughout the day, spotlighting:
 
 + **Casual User Key Findings**:
-   - Casual users demonstrate diverse engagement with the platform throughout the day, with ride counts peaking during late morning and early afternoon hours, notably at 11 AM through 1 PM. This suggests a preference for midday leisure activities or recreational outings, aligning with the tendency for longer average ride durations during these hours. The peak in ride counts at 5 PM further indicates the utilization of bike rides for post-work relaxation or social activities. Conversely, ride counts taper off during early morning hours, indicating a lower propensity for engagement in bike rides for commuting or early morning activities. The fluctuations in both ride counts and average ride durations throughout the day underscore the flexible and spontaneous nature of casual user behavior, with rides often being influenced by recreational opportunities and leisurely pursuits.
+   - Casual users demonstrate diverse engagement with the platform throughout the day, with ride counts peaking during late morning and early afternoon hours, notably at 11 AM through 1 PM. This suggests a preference for midday leisure activities or recreational outings, aligning with the tendency for longer average ride durations during these hours. The peak in ride counts at 5 PM further indicates the utilization of bike rides for post-work relaxation or social activities. Conversely, ride counts taper off during early morning hours, indicating a lower propensity for engagement in bike rides for commuting or early morning activities. The fluctuations in both ride counts and average ride durations throughout the day underscored the flexible and spontaneous nature of casual user behavior, with rides often being influenced by recreational opportunities and leisurely pursuits.
 + **Member User Key Findings**:
    - Member users exhibit more consistent and predictable patterns in engagement with the platform, with ride counts steadily increasing during morning hours and peaking during the evening rush hour, notably at 5 PM. This consistent trend suggests that member users predominantly utilize the platform for commuting or daily travel needs, aligning bike rides with typical workday schedules. The peak in ride counts during evening hours reflects reliance on bike-sharing services as a convenient and efficient mode of transportation for the commute home or for post-work errands and activities. Furthermore, the relatively stable average ride durations and distances throughout the day indicate a practical approach to bike rides among member users, emphasizing practicality and efficiency in transportation choices.
 
@@ -3291,7 +3291,7 @@ This analysis reveals key findings regarding the clear differences in bike prefe
 ![7  Start Station Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/18d4cf76-0c20-49bd-b51c-133c4dd2fa5b)
 
 #### **Summary of Station Trends**
-The "**Station Trends**" visuals explore usage and popularity of different start stations, spotlighting:
+The "**Station Trends**" visuals explore the usage and popularity of different start stations, spotlighting:
 
 + **Casual User Key Findings**:
    - Casual users exhibit diverse preferences for start stations, with the top station being "Streeter Dr & Grand Ave". This station's popularity suggests that casual users are often drawn to locations near waterfront areas or recreational spots, indicating a preference for leisurely rides along the lakeshore or access to nearby attractions. Other popular start stations like "DuSable Lake Shore Dr & Monroe St" and "Michigan Ave & Oak St" are situated in bustling urban areas with easy access to parks, shopping districts, and cultural landmarks, catering to casual riders interested in city exploration, sightseeing, or outdoor activities. These start stations highlight casual users' inclination towards flexible, recreational biking experiences that align with their interests and leisure pursuits.
@@ -3342,13 +3342,13 @@ This analysis reveals key findings regarding Chicago's user pathways, examining 
 
 The "**Cyclistic Bike-Share Dashboard**" provides a thorough analysis of key aspects of user behavior and engagement within the platform:
 
-+ User Segmentation: Provides insights into user demographics and usage patterns, contributing to optimizing bike availability.
-+ Hourly User Activity: Identifies peak usage periods, facilitating enhanced bike availability.
-+ Weekly Ride Duration: Highlights trends in ride duration over time, assisting in understanding user preferences and habits.
-+ Rideable Type Overview: Showcases the popularity of different bike types, supporting inventory management strategies and service optimization.
-+ Quarterly User Overviews: Tracks user growth and engagement trends, aiding in long-term strategic planning.
-+ Popular Start Station Analysis: Identifies frequently utilized start stations, aiding in station placement optimization and resource allocation.
-+ Route Analysis: Examines frequently traversed routes, deepening understanding of user preferences and popular destinations.
++ **User Segmentation**: Provides insights into user demographics and usage patterns, contributing to optimizing bike availability.
++ **Hourly User Activity**: Identifies peak usage periods, facilitating enhanced bike availability.
++ **Weekly Ride Duration**: Highlights trends in ride duration over time, assisting in understanding user preferences and habits.
++ **Rideable Type Overview**: Showcases the popularity of different bike types, supporting inventory management strategies and service optimization.
++ **Quarterly User Overview**: Tracks user growth and engagement trends, aiding in long-term strategic planning.
++ **Popular Start Station Analysis**: Identifies frequently utilized start stations, aiding in station placement optimization and resource allocation.
++ **Popular Route Analysis**: Examines frequently traversed routes, deepening understanding of user preferences and popular destinations.
 
 Through a combination of visuals, the dashboard provides stakeholders with actionable insights to craft an effective marketing strategy aimed at converting casual riders into annual members. These insights enable targeted efforts to highlight the benefits of annual memberships, tailor incentives, and attract casual riders to become long-term members, ultimately fostering growth and loyalty within the Cyclistic bike-sharing community.
 
@@ -3377,7 +3377,7 @@ Through a combination of visuals, the dashboard provides stakeholders with actio
 3. **Referral Programs**: Implement referral programs where existing members can earn rewards for successfully referring casual riders who subsequently become members. This strategy fosters community engagement, leveraging word-of-mouth marketing to attract new members while rewarding loyal users.
 
 ### **Optional Recommendation**
-4. **Engaging Content**: Create engaging content showcasing success stories from satisfied members who were once casual riders, illustrating how annual memberships enhance the biking experience. Additionally, feature popular start stations and leisurely biking routes to appeal to casual riders' interests and preferences.
+4. **Engaging Content**: Create engaging content showcasing success stories from satisfied members who were once casual riders, illustrating how annual memberships enhance the biking experience. Additionally, features popular start stations and leisurely biking routes to appeal to casual riders' interests and preferences.
 5. **Personalized Email Campaigns**: Utilize email marketing campaigns to provide personalized recommendations based on casual riders' past usage habits. Tailor messaging to highlight membership benefits that align with their specific riding behaviors, enhancing the relevance and effectiveness of communication.
 6. **Seasonal and Rideable Type Promotions**: Offer promotions or discounts on annual memberships tailored to seasonal usage patterns or preferred rideable types, such as electric bikes. Highlight these offers through digital media channels to cater to casual riders' diverse preferences and encourage membership conversion.
 
