@@ -3330,7 +3330,7 @@ The "**Map Trends**" visuals explore geographic patterns and trends in the city,
 3. **How can Cyclistic use digital media to influence casual riders to become members?**
    - Cyclistic can leverage digital media channels to target casual riders and encourage them to become members through targeted marketing campaigns and personalized incentives. Social media platforms can be utilized to showcase the benefits of annual memberships, such as unlimited access to bikes and exclusive features. Engaging content highlighting popular start stations near tourist attractions or recreational areas can appeal to casual riders' interests and preferences. Cyclistic can also offer limited-time promotions or discounts on annual memberships tailored to seasonal usage patterns, leveraging email marketing campaigns to provide personalized recommendations based on casual riders' past usage habits. Implementing referral programs where existing members can earn rewards for referring casual riders who subsequently become members can also be an effective strategy to foster membership conversion and community engagement.
 
-This map reveals key findings regarding Chicago's user pathways, examining the differentiated usage patterns, ride characteristics, and frequency of engagement between casual and member users. These insights lay the final groundwork for the development of a targeted conversion strategy aimed at transitioning casual riders into annual members. Ultimately, by delving deeper into the findings, Cyclistic can uncover valuable insights that will enable the refinement of its marketing strategies, enhancing overall effectiveness.
+This analysis reveals key findings regarding Chicago's user pathways, examining the differentiated usage patterns, ride characteristics, and frequency of engagement between casual and member users. These insights lay the final groundwork for the development of a targeted conversion strategy aimed at transitioning casual riders into annual members. Ultimately, by delving deeper into the findings, Cyclistic can uncover valuable insights that will enable the refinement of its marketing strategies, enhancing overall effectiveness.
 
 --------------------------------------
 
@@ -3375,13 +3375,13 @@ Through a combination of visuals, the dashboard provides stakeholders with actio
 1. **Tailored Digital Marketing Campaigns**: Develop targeted marketing campaigns tailored to casual riders' preferences, focusing on highlighting the benefits of annual memberships such as cost savings, convenience, and access to exclusive features. Utilize insights from their usage patterns and preferences to create personalized messaging across social media platforms, email marketing, and online advertisements.
 2. **Limited-Time Promotions and Discounts**: Offer limited-time promotions or discounts on annual memberships, strategically timed to align with casual riders' seasonal or weekly usage patterns. Highlight these offers through digital media channels to create urgency and incentivize membership conversion.
 3. **Referral Programs**: Implement referral programs where existing members can earn rewards for successfully referring casual riders who subsequently become members. This strategy fosters community engagement, leveraging word-of-mouth marketing to attract new members while rewarding loyal users.
+
 ### **Optional Recommendation**
 4. **Engaging Content**: Create engaging content showcasing success stories from satisfied members who were once casual riders, illustrating how annual memberships enhance the biking experience. Additionally, feature popular start stations and leisurely biking routes to appeal to casual riders' interests and preferences.
 5. **Personalized Email Campaigns**: Utilize email marketing campaigns to provide personalized recommendations based on casual riders' past usage habits. Tailor messaging to highlight membership benefits that align with their specific riding behaviors, enhancing the relevance and effectiveness of communication.
 6. **Seasonal and Rideable Type Promotions**: Offer promotions or discounts on annual memberships tailored to seasonal usage patterns or preferred rideable types, such as electric bikes. Highlight these offers through digital media channels to cater to casual riders' diverse preferences and encourage membership conversion.
 
 ### **Conclusion**
-
 #### **Key Takeaways**
 #### **Recommendations for Improved User Engagement**
 
