@@ -5,18 +5,18 @@
 ![RStudio](https://img.shields.io/badge/RStudio-4285F4?style=for-the-badge&logo=rstudio&logoColor=white)
 ![Microsoft PowerPoint](https://img.shields.io/badge/Microsoft_PowerPoint-B7472A?style=for-the-badge&logo=microsoft-powerpoint&logoColor=white)
 
-+ **R and RStudio:** Chosen for their extensive statistical analysis capabilities, R and RStudio facilitate sophisticated data exploration, hypothesis testing, and modeling across diverse analytical tasks.
-  - **Efficient Data Handling:** R's optimized functions and data structures like data.table and dplyr enable efficient handling of large datasets, even containing millions or billions of records, through fast data manipulation and aggregation.
-  - **Flexibility and Extensibility:** R's flexibility allows users to customize analyses to their specific needs, leveraging a wide array of packages for data manipulation, visualization, and modeling.
-  - **Data Visualization:** R excels in data visualization with powerful plotting libraries such as ggplot2 and plotly, providing customizable and publication-ready visualizations. These libraries offer extensive control over design elements, facilitating the creation of interactive and dynamic visualizations that effectively communicate insights from complex datasets.
-+ **Microsoft PowerPoint:** Utilized to create a slideshow incorporating data from RStudio and RStudio visualizations, presenting actionable insights in a visually engaging format.
++ **R and RStudio**: Chosen for their extensive statistical analysis capabilities, R and RStudio facilitate sophisticated data exploration, hypothesis testing, and modeling across diverse analytical tasks.
+  - **Efficient Data Handling**: R's optimized functions and data structures like data.table and dplyr enable efficient handling of large datasets, even containing millions or billions of records, through fast data manipulation and aggregation.
+  - **Flexibility and Extensibility**: R's flexibility allows users to customize analyses to their specific needs, leveraging a wide array of packages for data manipulation, visualization, and modeling.
+  - **Data Visualization**: R excels in data visualization with powerful plotting libraries such as ggplot2 and plotly, providing customizable and publication-ready visualizations. These libraries offer extensive control over design elements, facilitating the creation of interactive and dynamic visualizations that effectively communicate insights from complex datasets.
++ **Microsoft PowerPoint**: Utilized to create a slideshow incorporating data from RStudio and RStudio visualizations, presenting actionable insights in a visually engaging format.
 
-### Setting Up the Environment
-+ Installing R packages from the CRAN (Comprehensive R Archive Network) or other repositories.
-+ Loading packages in R to make their functions and features available for analysis.
-+ Importing the 12 CSV data files.
+### Set Up the Environment
++ Installed R packages from the **CRAN (Comprehensive R Archive Network)** or other repositories.
++ Loaded packages in R to make their functions and features available for analysis.
++ Imported the 12 CSV data files.
 
-#### Installing R Packages
+#### Install R Packages
 ```{r}
 install.packages("tidyverse")
 install.packages("janitor")
@@ -46,7 +46,7 @@ install.packages("leaflet.extras")
 > + `htmltools`: Offers utilities for working with HTML content in R.
 > + `leaflet.extras`: Extends leaflet with additional features for interactive map creation.
 
-#### Loading Packages
+#### Load Packages
 ```{r}
 library(tidyverse)
 library(janitor)
@@ -62,7 +62,7 @@ library(htmltools)
 library(leaflet.extras)
 ```
 
-#### Importing Data Files and Creating Data Frame
+#### Import Data Files and Create Data Frames
 + Importing the 12 CSV data files.
   
 **January 2023**
@@ -236,7 +236,7 @@ dttm (2): started_at, ended_at
 ### Data Exploration
 + Conducted initial data inspection of each data frame.
 + Inspected the structure, attributes, and summary statistics.
-+ Providing insights into the composition and characteristics of the data.
++ Provided insights into the composition and characteristics of the data.
 
 #### Column Names for Each Month’s Data Frame
 + Displaying the column names for each data frame using **`colnames()`** functions.
@@ -1000,7 +1000,7 @@ summary(dec2023)
 
 ### Summary of Initial Review
 + Each file consists of **13 columns**.
-+ Total number of rows across all files is **5,719,877**.
++ Total number of rows across all files equal to **5,719,877**.
 + Missing data primarily occurs in columns:
     - **start_station_name**
     - **start_station_id**
@@ -1011,10 +1011,10 @@ summary(dec2023)
 + After consolidation and further exploration, a decision will be made regarding whether to keep or drop missing data, possibly considering options to fill in missing values.
 
 ### Data Consolidation
-+ Combining data from 12 individual data frames into a single unified data frame, following the initial review.
-+ Removing the 12 individual data frames after consolidation to streamline data management.
++ Combined data from 12 individual data frames into a single unified data frame, following the initial review.
++ Removed the 12 individual data frames after consolidation to streamline data management.
 
-#### Combining All Monthly Data Frames
+#### Merging Monthly Data Frames
 + Combining all data frames into a single unified data frame.
 ```{r}
 trip_data <- bind_rows(
@@ -1035,7 +1035,7 @@ trip_data <- bind_rows(
 )
 ```
 
-#### Removing All Individual Monthly Data Frames from the Environment
+#### Clearing Monthly Data Frame from the Environment
 + Removing all individual data frames from the environment to streamline data management.
 ```{r}
 rm(
@@ -1094,6 +1094,7 @@ colnames(trip_data)
  [7] "end_station_name"   "end_station_id"     "start_lat"          "start_lng"          "end_lat"            "end_lng"           
 [13] "member_casual"     
 ```
+
 ```{r}
 names(trip_data)
 ```
@@ -1138,6 +1139,7 @@ ncol(trip_data)
 ```{r}
 head(trip_data)
 ```
+
 | ride_id <chr>    | rideable_type <chr> | started_at <S3: POSIXct> | ended_at <S3: POSIXct> | start_station_name <chr>      | start_station_id <chr> | end_station_name <chr>         | end_station_id <chr> | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | member_casual <chr> |
 |------------------|---------------------|--------------------------|------------------------|-------------------------------|------------------------|--------------------------------|----------------------|-----------------|-----------------|---------------|---------------|---------------------|
 | F96D5A74A3E41399 | electric_bike       | 2023-01-21 20:05:42      | 2023-01-21 20:16:33    | Lincoln Ave & Fullerton Ave   | TA1309000058           | Hampden Ct & Diversey Ave      | 202480.0             | 41.92407        | -87.64628       | 41.93000      | -87.64000     | member              |
@@ -1152,6 +1154,7 @@ head(trip_data)
 ```{r}
 tail(trip_data)
 ```
+
 | ride_id <chr>    | rideable_type <chr> | started_at <S3: POSIXct> | ended_at <S3: POSIXct> | start_station_name <chr> | start_station_id <chr> | end_station_name <chr>     | end_station_id <chr> | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | member_casual <chr> |
 |------------------|---------------------|--------------------------|------------------------|--------------------------|------------------------|----------------------------|----------------------|-----------------|-----------------|---------------|---------------|---------------------|
 | AB675DD0012CBD57 | electric_bike       | 2023-12-04 23:34:11      | 2023-12-04 23:39:16    | Racine Ave & 18th St     | 13164                  | Racine Ave & Congress Pkwy | TA1306000025         | 41.85824        | -87.65638       | 41.87464      | -87.65703     | member              |
@@ -1166,6 +1169,7 @@ tail(trip_data)
 ```{r}
 str(trip_data)
 ```
+
 ```{r}
 spc_tbl_ [5,719,877 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ ride_id           : chr [1:5719877] "F96D5A74A3E41399" "13CB7EB698CEDB88" "BD88A2E670661CE5" "C90792D034FED968" ...
@@ -1205,6 +1209,7 @@ spc_tbl_ [5,719,877 × 13] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ```{r}
 glimpse(trip_data)
 ```
+
 ```{r}
 Rows: 5,719,877
 Columns: 13
@@ -1229,6 +1234,7 @@ Modify Chunk OptionsRun All Chunks AboveRun Current Chunk
 ```{r}
 skim_without_charts(trip_data)
 ```
+
 ```{r}── Data Summary ────────────────────────
                            Values   
 Name                       trip_data
@@ -1270,6 +1276,7 @@ Group variables            None
 ```{r}
 summary(trip_data)
 ```
+
 ```{r}
    ride_id          rideable_type        started_at                    
  Length:5719877     Length:5719877     Min.   :2023-01-01 00:01:58.00  
@@ -1320,38 +1327,48 @@ summary(trip_data)
 ```{r}
 attach(trip_data)
 ```
+
 + **ride_id** 
 ```{r}
 trip_data[is.na(ride_id),]
 ```
+
 ```{r}
 0 rows
 ```
+
 + **rideable_type**
 ```{r}
 trip_data[is.na(rideable_type),]
 ```
+
 ```{r}
 0 rows
 ```
+
 + **started_at**
 ```{r}
 trip_data[is.na(started_at),]
 ```
+
 ```{r}
 0 rows
 ```
+
 + **ended_at**
 ```{r}
 trip_data[is.na(ended_at),]
 ```
+
 ```{r}
 0 rows
 ```
+
 + **start_station_name**
 ```{r}
 trip_data[is.na(start_station_name),]
 ```
+
 | ride_id <chr>    | rideable_type <chr> | started_at <S3: POSIXct> | ended_at <S3: POSIXct> | start_station_name <chr> | start_station_id <chr> | end_station_name <chr>    | end_station_id <chr> | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | member_casual <chr> |
 |------------------|---------------------|--------------------------|------------------------|--------------------------|------------------------|---------------------------|----------------------|-----------------|-----------------|---------------|---------------|---------------------|
 | 3F624CAD11ADC36B | electric_bike       | 2023-01-24 19:15:35      | 2023-01-24 19:21:59    | NA                       | NA                     | Greenwood Ave & 47th St   | TA1308000002         | 41.80           | -87.62          | 41.80983      | -87.59938     | member              |
@@ -1367,6 +1384,7 @@ trip_data[is.na(start_station_name),]
 ```{r}
 trip_data[is.na(start_station_id),]
 ```
+
 | ride_id <chr>    | rideable_type <chr> | started_at <S3: POSIXct> | ended_at <S3: POSIXct> | start_station_name <chr> | start_station_id <chr> | end_station_name <chr>    | end_station_id <chr> | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | member_casual <chr> |
 |------------------|---------------------|--------------------------|------------------------|--------------------------|------------------------|---------------------------|----------------------|-----------------|-----------------|---------------|---------------|---------------------|
 | 3F624CAD11ADC36B | electric_bike       | 2023-01-24 19:15:35      | 2023-01-24 19:21:59    | NA                       | NA                     | Greenwood Ave & 47th St   | TA1308000002         | 41.80           | -87.62          | 41.80983      | -87.59938     | member              |
@@ -1382,6 +1400,7 @@ trip_data[is.na(start_station_id),]
 ```{r}
 trip_data[is.na(end_station_name),]
 ```
+
 | ride_id <chr>    | rideable_type <chr> | started_at <S3: POSIXct> | ended_at <S3: POSIXct> | start_station_name <chr>   | start_station_id <chr> | end_station_name <chr> | end_station_id <chr> | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | member_casual <chr> |
 |------------------|---------------------|--------------------------|------------------------|----------------------------|------------------------|------------------------|----------------------|-----------------|-----------------|---------------|---------------|---------------------|
 | 98563E8CECC44A5B | electric_bike       | 2023-01-06 13:12:53      | 2023-01-06 13:18:54    | Broadway & Waveland Ave    | 13325                  | NA                     | NA                   | 41.94909        | -87.64857       | 41.96         | -87.65        | member              |
@@ -1397,6 +1416,7 @@ trip_data[is.na(end_station_name),]
 ```{r}
 trip_data[is.na(end_station_id),]
 ```
+
 | ride_id <chr>    | rideable_type <chr> | started_at <S3: POSIXct> | ended_at <S3: POSIXct> | start_station_name <chr>   | start_station_id <chr> | end_station_name <chr> | end_station_id <chr> | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | member_casual <chr> |
 |------------------|---------------------|--------------------------|------------------------|----------------------------|------------------------|------------------------|----------------------|-----------------|-----------------|---------------|---------------|---------------------|
 | 98563E8CECC44A5B | electric_bike       | 2023-01-06 13:12:53      | 2023-01-06 13:18:54    | Broadway & Waveland Ave    | 13325                  | NA                     | NA                   | 41.94909        | -87.64857       | 41.96         | -87.65        | member              |
@@ -1412,20 +1432,25 @@ trip_data[is.na(end_station_id),]
 ```{r}
 trip_data[is.na(start_lat),]
 ```
+
 ```{r}
 0 rows
 ```
+
 + **start_lng**
 ```{r}
 trip_data[is.na(start_lng),]
 ```
+
 ```{r}
 0 rows
 ```
+
 + **end_lat**
 ```{r}
 trip_data[is.na(end_lat),]
 ```
+
 | ride_id <chr>    | rideable_type <chr> | started_at <S3: POSIXct> | ended_at <S3: POSIXct> | start_station_name <chr>   | start_station_id <chr> | end_station_name <chr> | end_station_id <chr> | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | member_casual <chr> |
 |------------------|---------------------|--------------------------|------------------------|----------------------------|------------------------|------------------------|----------------------|-----------------|-----------------|---------------|---------------|---------------------|
 | 1FB8FE3600279846 | classic_bike        | 2023-01-01 04:45:39      | 2023-01-02 05:45:28    | State St & Van Buren St    | TA1305000035           | NA                     | NA                   | 41.87718        | -87.62784       | NA            | NA            | casual              |
@@ -1441,6 +1466,7 @@ trip_data[is.na(end_lat),]
 ```{r}
 trip_data[is.na(end_lng),]
 ```
+
 | ride_id <chr>    | rideable_type <chr> | started_at <S3: POSIXct> | ended_at <S3: POSIXct> | start_station_name <chr>   | start_station_id <chr> | end_station_name <chr> | end_station_id <chr> | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | member_casual <chr> |
 |------------------|---------------------|--------------------------|------------------------|----------------------------|------------------------|------------------------|----------------------|-----------------|-----------------|---------------|---------------|---------------------|
 | 1FB8FE3600279846 | classic_bike        | 2023-01-01 04:45:39      | 2023-01-02 05:45:28    | State St & Van Buren St    | TA1305000035           | NA                     | NA                   | 41.87718        | -87.62784       | NA            | NA            | casual              |
@@ -1456,17 +1482,21 @@ trip_data[is.na(end_lng),]
 ```{r}
 trip_data[is.na(member_casual),]
 ```
+
 ```{r}
 0 rows
 ```
+
 + Detaching the combined **`trip_data`** data frame from the search path.
 ```{r}
 detach(trip_data)
 ```
+
 + Displaying total count of missing values (**na**).
 ```{r}
 sum(is.na(trip_data))
 ```
+
 ```{r}
 [1] 3624089
 ```
@@ -1498,17 +1528,19 @@ trip_data <- rename(trip_data, "user_type" = "member_casual")
 trip_data$started_at <- ymd_hms(trip_data$started_at)
 trip_data$ended_at <- ymd_hms(trip_data$ended_at)
 ```
+
 `Warning:  23 failed to parse.Warning:  26 failed to parse.`
 
 > [!IMPORTANT]
 > + The warnings ("23 failed to parse" and "26 failed to parse") indicate issues with missing values (NAs) in the started_at and ended_at columns of trip_data. Missing values cannot be parsed into valid date-time objects, causing the warnings.
 
-#### Verifying Reason for Failed Parse
+#### Reasoning for Failed Parse
 + Verifying the integrity and consistency of the **started_at** and **ended_at** columns.
 ```{r}
 sum(is.na(trip_data$started_at))
 sum(is.na(trip_data$ended_at))
 ```
+
 ```{r}
 [1] 23
 [1] 26
@@ -1536,31 +1568,37 @@ trip_data <- trip_data %>%
 trip_data <- trip_data %>%
   mutate(date = as.Date(started_at))
 ```
+
 + Extracting month from **date** and creating a new column **month**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(month = format(date, "%B"))
 ```
+
 + Extracting day from **date** and creating a new column **day**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(day = format(date, "%d"))
 ```
+
 + Extracting year from **`date`** and creating a new column **`year`**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(year = format(date, "%Y"))
 ```
+
 + Extracting day of the week from **date** and creating a new column **day_of_week**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(day_of_week = format(date, "%A"))
 ```
+
 + Extracting hour from **started_at** and creating a new column **hour**.
 ```{r}
 trip_data <- trip_data %>%
   mutate(hour = hour(started_at))
 ```
+
 + Extracting quarterly from **started_at** and creating a new column **quarter**.
 ```{r}
 trip_data <- trip_data %>%
@@ -1579,40 +1617,51 @@ trip_data <- trip_data %>%
 ```{r}
 class(trip_data$ride_length_minute)
 ```
+
 ```{r}
 [1] "numeric"
 ```
+
 + Detecting outliers by counting duration less than (**<**) 1 minute (60 seconds) in column **ride_length_minute**.
 ```{r}
 sum(trip_data$ride_length_minute < 1, na.rm = TRUE)
 ```
+
 ```{r}
 [1] 149615
 ```
+
 + Detecting outliers by counting duration longer than (**`>`**) 24 hours (1440 minutes) in column **ride_length_minute**. 
 ```{r}
 sum(trip_data$ride_length_minute > 1440, na.rm = TRUE)
 ```
+
 ```{r}
 [1] 6418
 ```
+
 + Detecting outliers by counting non-positive duration less than or equal (**`<=`**) to 0 in column **ride_length_minute**. 
 ```{r}
 sum(trip_data$ride_length_minute <= 0, na.rm = TRUE)
 ```
+
 ```{r}
 [1] 1269
 ```
+
 + Detecting outliers by counting instances where the **started_at** occurs after **ended_at**.
 ```{r}
 sum(trip_data$started_at > trip_data$ended_at, na.rm = TRUE)
 ```
+
 ```{r}
 [1] 272
 ```
+
 ```{r}
 length(which(trip_data$started_at > trip_data$ended_at))
 ```
+
 ```{r}
 [1] 272
 ```
@@ -1628,10 +1677,12 @@ colSums(is.na(trip_data[c(
   "end_lat", 
   "end_lng")]))
 ```
+
 ```{r}
 start_station_name   start_station_id   end_station_name     end_station_id            end_lat            end_lng 
             875716             875848             929202             929343               6990               6990 
 ```
+
 + Filling missing values for **start_station_name** by grouping start latitude and longitude.
 ```{r}
 trip_data <- trip_data %>%
@@ -1639,6 +1690,7 @@ trip_data <- trip_data %>%
   fill(start_station_name, .direction = "downup") %>%
   ungroup()
 ```
+
 + Filling missing values for **end_station_name** by grouping end latitude and longitude.
 ```{r}
 trip_data <- trip_data %>%
@@ -1646,6 +1698,7 @@ trip_data <- trip_data %>%
   fill(end_station_name, .direction = "downup") %>%
   ungroup()
 ```
+
 + Filling missing values for **start_station_id** by grouping start station name.
 ```{r}
 trip_data <- trip_data %>%
@@ -1653,6 +1706,7 @@ trip_data <- trip_data %>%
   fill(start_station_id, .direction = "downup") %>%
   ungroup()
 ```
+
 + Filling missing values for **end_station_id** by grouping end station name.
 ```{r}
 trip_data <- trip_data %>%
@@ -1660,6 +1714,7 @@ trip_data <- trip_data %>%
   fill(end_station_id, .direction = "downup") %>%
   ungroup()
 ```
+
 + Re-checking missing values in specific columns after filling in values.
 ```{r}
 colSums(is.na(trip_data[c(
@@ -1670,6 +1725,7 @@ colSums(is.na(trip_data[c(
   "end_lat", 
   "end_lng")]))
 ```
+
 ```{r}
 start_station_name   start_station_id   end_station_name     end_station_id            end_lat 
              10646              10646              33105              33105               6990 
@@ -1684,10 +1740,12 @@ trip_data$ride_distance <- distGeo(
   matrix(c(trip_data$start_lng, trip_data$start_lat), ncol = 2),
   matrix(c(trip_data$end_lng, trip_data$end_lat), ncol = 2))
 ```
+
 + Converting Meters to Kilometers
 ```{r}
 trip_data$ride_distance <- trip_data$ride_distance / 1000
 ```
+
 + Converting and Updating Kilometers to Miles
 ```{r}
 trip_data$ride_distance <- trip_data$ride_distance * 0.621371
@@ -1701,16 +1759,17 @@ trip_data %>%
   count(start_station_name) %>% 
   arrange(desc(n))
 ```
-| start_station_name <chr>           | n <int> |
-|------------------------------------|---------|
-| Streeter Dr & Grand Ave            | 68074   |
-| DuSable Lake Shore Dr & North Blvd | 44024   |
-| DuSable Lake Shore Dr & Monroe St  | 42072   |
-| Michigan Ave & Oak St              | 39095   |
-| Clark St & Elm St                  | 37813   |
-| Wells St & Concord Ln              | 36950   |
-| Kingsbury St & Kinzie St           | 36251   |
-| Clark St & Lincoln Ave             | 36176   |
+
+| start_station_name <chr>           | n <int>  |
+|------------------------------------|----------|
+| Streeter Dr & Grand Ave            | 68,074   |
+| DuSable Lake Shore Dr & North Blvd | 44,024   |
+| DuSable Lake Shore Dr & Monroe St  | 42,072   |
+| Michigan Ave & Oak St              | 39,095   |
+| Clark St & Elm St                  | 37,813   |
+| Wells St & Concord Ln              | 36,950   |
+| Kingsbury St & Kinzie St           | 36,251   |
+| Clark St & Lincoln Ave             | 36,176   |
 
 `1-8 of 1,593 rows`
 
@@ -1721,18 +1780,19 @@ trip_data %>%
   count(start_station_id) %>% 
   arrange(desc(n))
 ```
-| start_station_id <chr> | n <int> |
-|------------------------|---------|
-| 13022                  | 68074   |
-| LF-005                 | 44024   |
-| 13300                  | 42072   |
-| 13042                  | 39095   |
-| TA1307000039           | 37813   |
-| TA1308000050           | 36950   |
-| KA1503000043           | 36251   |
-| 13179                  | 36176   |
-| WL-012                 | 36017   |
-| TA1308000001           | 34643   |
+
+| start_station_id <chr> | n <int>  |
+|------------------------|----------|
+| 13022                  | 68,074   |
+| LF-005                 | 44,024   |
+| 13300                  | 42,072   |
+| 13042                  | 39,095   |
+| TA1307000039           | 37,813   |
+| TA1308000050           | 36,950   |
+| KA1503000043           | 36,251   |
+| 13179                  | 36,176   |
+| WL-012                 | 36,017   |
+| TA1308000001           | 34,643   |
 
 `1-8 of 1,517 rows`
 
@@ -1743,16 +1803,17 @@ trip_data %>%
   count(end_station_name) %>% 
   arrange(desc(n))
 ```
-| end_station_name <chr>             | n <int> |
-|------------------------------------|---------|
-| Streeter Dr & Grand Ave            | 71260   |
-| DuSable Lake Shore Dr & North Blvd | 41138   |
-| Michigan Ave & Oak St              | 38720   |
-| DuSable Lake Shore Dr & Monroe St  | 38198   |
-| Millennium Park                    | 36861   |
-| Clark St & Lincoln Ave             | 36350   |
-| Clark St & Elm St                  | 35835   |
-| Kingsbury St & Kinzie St           | 35803   |
+
+| end_station_name <chr>             | n <int>  |
+|------------------------------------|----------|
+| Streeter Dr & Grand Ave            | 71,260   |
+| DuSable Lake Shore Dr & North Blvd | 41,138   |
+| Michigan Ave & Oak St              | 38,720   |
+| DuSable Lake Shore Dr & Monroe St  | 38,198   |
+| Millennium Park                    | 36,861   |
+| Clark St & Lincoln Ave             | 36,350   |
+| Clark St & Elm St                  | 35,835   |
+| Kingsbury St & Kinzie St           | 35,803   |
 
 `1-8 of 1,598 rows`
 
@@ -1763,20 +1824,21 @@ trip_data %>%
   count(end_station_id) %>% 
   arrange(desc(n))
 ```
-| end_station_id <chr> | n <int> |
-|----------------------|---------|
-| 13022                | 71260   |
-| LF-005               | 41138   |
-| 13042                | 38720   |
-| 13300                | 38198   |
-| 13008                | 36861   |
-| 13179                | 36350   |
-| TA1307000039         | 35835   |
-| KA1503000043         | 35803   |
+
+| end_station_id <chr> | n <int>  |
+|----------------------|----------|
+| 13022                | 71,260   |
+| LF-005               | 41,138   |
+| 13042                | 38,720   |
+| 13300                | 38,198   |
+| 13008                | 36,861   |
+| 13179                | 36,350   |
+| TA1307000039         | 35,835   |
+| KA1503000043         | 35,803   |
 
 `1-8 of 1,521 rows`
 
-+ Counting the number of rides for **start_station_name** containing **test**, **warehouse** , and **charging station**.
++ Counting the number of rides for **start_station_name** containing **test**, **repair**, **warehouse** , and **charging station**.
 ```{r}
 trip_data %>% filter(
   start_station_name %in% c (
@@ -1797,6 +1859,7 @@ trip_data %>% filter(
 ) %>% 
   count(start_station_name)
 ```
+
 | start_station_name <chr> | n <int> |
 |--------------------------|---------|
 | OH - BONFIRE - TESTING   | 1       |
@@ -1804,7 +1867,7 @@ trip_data %>% filter(
 
 `2 rows`
 
-+ Counting the number of rides for **start_station_id** containing **test**, **warehouse** , and **charging station**.
++ Counting the number of rides for **start_station_id** containing **test**, **repair**, **warehouse** , and **charging station**.
 ```{r}
 trip_data %>% filter(
   start_station_id %in% c (
@@ -1825,22 +1888,23 @@ trip_data %>% filter(
 ) %>% 
   count(start_station_id)
 ```
-| start_station_id <chr>              | n <int> |
-|-------------------------------------|---------|
-| Hubbard Bike-checking (LBS-WH-TEST) | 7       |
-| OH Charging Stx - Test              | 21      |
-| chargingstx0                        | 1090    |
-| chargingstx06                       | 3857    |
-| chargingstx07                       | 4260    |
-| chargingstx1                        | 13870   |
-| chargingstx2                        | 2507    |
-| chargingstx3                        | 6718    |
-| chargingstx4                        | 9644    |
-| chargingstx5                        | 8583    |
+
+| start_station_id <chr>              | n <int>  |
+|-------------------------------------|----------|
+| Hubbard Bike-checking (LBS-WH-TEST) | 7        |
+| OH Charging Stx - Test              | 21       |
+| chargingstx0                        | 1,090    |
+| chargingstx06                       | 3,857    |
+| chargingstx07                       | 4,260    |
+| chargingstx1                        | 13,870   |
+| chargingstx2                        | 2,507    |
+| chargingstx3                        | 6,718    |
+| chargingstx4                        | 9,644    |
+| chargingstx5                        | 8,583    |
 
 `10 rows`
 
-+ Counting the number of rides for **end_station_name** containing **test**, **warehouse** , and **charging station**.
++ Counting the number of rides for **end_station_name** containing **test**, **repair**, **warehouse** , and **charging station**.
 ```{r}
 trip_data %>% filter(
   end_station_name %in% c (
@@ -1861,6 +1925,7 @@ trip_data %>% filter(
 ) %>% 
   count(end_station_name)
 ```
+
 | end_station_name <chr> | n <int> |
 |------------------------|---------|
 | OH - BONFIRE - TESTING | 3       |
@@ -1868,7 +1933,7 @@ trip_data %>% filter(
 
 `2 rows`
 
-+ Counting the number of rides for **end_station_id** containing **test**, **warehouse** , and **charging station**.
++ Counting the number of rides for **end_station_id** containing **test**, **repair**, **warehouse** , and **charging station**.
 ```{r}
 trip_data %>% filter(
   end_station_id %in% c (
@@ -1889,20 +1954,21 @@ trip_data %>% filter(
 ) %>% 
   count(end_station_id)
 ```
-| end_station_id <chr>                 | n <int> |
-|--------------------------------------|---------|
-| 2059 Hastings Warehouse Station      | 256     |
-| DIVVY CASSETTE REPAIR MOBILE STATION | 2       |
-| Hubbard Bike-checking (LBS-WH-TEST)  | 309     |
-| OH Charging Stx - Test               | 477     |
-| chargingstx0                         | 2813    |
-| chargingstx06                        | 4017    |
-| chargingstx07                        | 5533    |
-| chargingstx1                         | 13447   |
-| chargingstx2                         | 1978    |
-| chargingstx3                         | 12864   |
-| chargingstx4                         | 9991    |
-| chargingstx5                         | 8741    |
+
+| end_station_id <chr>                 | n <int>  |
+|--------------------------------------|----------|
+| 2059 Hastings Warehouse Station      | 256      |
+| DIVVY CASSETTE REPAIR MOBILE STATION | 2        |
+| Hubbard Bike-checking (LBS-WH-TEST)  | 309      |
+| OH Charging Stx - Test               | 477      |
+| chargingstx0                         | 2,813    |
+| chargingstx06                        | 4,017    |
+| chargingstx07                        | 5,533    |
+| chargingstx1                         | 13,447   |
+| chargingstx2                         | 1,978    |
+| chargingstx3                         | 12,864   |
+| chargingstx4                         | 9,991    |
+| chargingstx5                         | 8,741    |
 
 `12 rows`
 
@@ -1912,11 +1978,13 @@ trip_data %>% filter(
 trip_data_updated <- trip_data %>% 
   filter(ride_length_minute >= 1 & ride_length_minute <= 1440)
 ```
+
 + Removing rows with missing end latitude and longitude.
 ```{r}
 trip_data_updated <- trip_data_updated[!is.na(trip_data_updated$end_lat) & !is.na(trip_data_updated$end_lng), ]
 ```
-+ Filtering out stations containing **test**, **warehouse** , and **charging station** from **start_station_name**.
+
++ Filtering out stations containing **test**, **repair**, **warehouse** , and **charging station** from **start_station_name**.
 ```{r}
 trip_data_updated <- trip_data_updated %>% 
   filter(!
@@ -1936,7 +2004,8 @@ trip_data_updated <- trip_data_updated %>%
     "DIVVY CASSETTE REPAIR MOBILE STATION"
   ))
 ```
-+ Filtering out stations containing **test**, **warehouse** , and **charging station** from **start_station_id**.
+
++ Filtering out stations containing **test**, **repair**, **warehouse** , and **charging station** from **start_station_id**.
 ```{r}
 trip_data_updated <- trip_data_updated %>% 
   filter(!
@@ -1956,7 +2025,8 @@ trip_data_updated <- trip_data_updated %>%
     "DIVVY CASSETTE REPAIR MOBILE STATION"
   ))
 ```
-+ Filtering out stations containing **test**, **warehouse** , and **charging station** from **end_station_name**.
+
++ Filtering out stations containing **test**, **repair**, **warehouse** , and **charging station** from **end_station_name**.
 ```{r}
 trip_data_updated <- trip_data_updated %>% 
   filter(!
@@ -1976,7 +2046,8 @@ trip_data_updated <- trip_data_updated %>%
     "DIVVY CASSETTE REPAIR MOBILE STATION"
   ))
 ```
-+ Filtering out stations containing **test**, **warehouse** , and **charging station** from **end_station_id**.
+
++ Filtering out stations containing **test**, **repair**, **warehouse** , and **charging station** from **end_station_id**.
 ```{r}
 trip_data_updated <- trip_data_updated %>% 
   filter(!
@@ -2002,24 +2073,30 @@ trip_data_updated <- trip_data_updated %>%
 ```{r}
 sum(trip_data_updated$ride_length_minute < 1)
 ```
+
 ```{r}
 [1] 0
 ```
+
 + Re-counting rides more than (**`>`**) 24 hours (1440 minutes).
 ```{r}
 sum(trip_data_updated$ride_length_minute > 1440)
 ```
+
 ```{r}
 [1] 0
 ```
+
 + Re-counting number of instances where **started_at** is after **ended_at**.
 ```{r}
 length(which(trip_data_updated$started_at > trip_data_updated$ended_at)) 
 ```
+
 ```{r}
 [1] 0
 ```
-+ Re-counting the number of rides for **start_station_name** containing **test**, **warehouse** , and **charging station**.
+
++ Re-counting the number of rides for **start_station_name** containing **test**, **repair**, **warehouse** , and **charging station**.
 ```{r}
 trip_data_updated %>% filter(
   start_station_name %in% c (
@@ -2040,10 +2117,12 @@ trip_data_updated %>% filter(
 ) %>% 
   count(start_station_name)
 ```
+
 ```{r}
 0 rows
 ```
-+ Re-counting the number of rides for **start_station_id** containing **test**, **warehouse** , and **charging station**.
+
++ Re-counting the number of rides for **start_station_id** containing **test**, **repair**, **warehouse** , and **charging station**.
 ```{r}
 trip_data_updated %>% filter(
   start_station_id %in% c (
@@ -2064,10 +2143,12 @@ trip_data_updated %>% filter(
 ) %>% 
   count(start_station_id)
 ```
+
 ```{r}
 0 rows
 ```
-+ Re-counting the number of rides for **end_station_name** containing **test**, **warehouse** , and **charging station**.
+
++ Re-counting the number of rides for **end_station_name** containing **test**, **repair**, **warehouse** , and **charging station**.
 ```{r}
 trip_data_updated %>% filter(
   end_station_name %in% c (
@@ -2088,10 +2169,12 @@ trip_data_updated %>% filter(
 ) %>% 
   count(end_station_name)
 ```
+
 ```{r}
 0 rows
 ```
-+ Re-counting the number of rides for **end_station_id** containing **test**, **warehouse** , and **charging station**.
+
++ Re-counting the number of rides for **end_station_id** containing **test**, **repair**, **warehouse** , and **charging station**.
 ```{r}
 trip_data_updated %>% filter(
   end_station_id %in% c (
@@ -2112,6 +2195,7 @@ trip_data_updated %>% filter(
 ) %>% 
   count(end_station_id)
 ```
+
 ```{r}
 0 rows
 ```
@@ -2121,20 +2205,25 @@ trip_data_updated %>% filter(
 ```{r}
 ncol(trip_data_updated)
 ```
+
 ```{r}
 [1] 22
 ```
+
 + Inspecting the new total number of rows
 ```{r}
 nrow(trip_data_updated)
 ```
+
 ```{r}
 [1] 5459091
 ```
+
 + Summarizing the structure and attributes of the newly updated data frame.
 ```{r}
 glimpse(trip_data_updated)
 ```
+
 ```{r}
 Rows: 5,459,091
 Columns: 22
@@ -2161,10 +2250,12 @@ $ quarter            <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 $ ride_length_minute <dbl> 10.85, 8.48, 13.23, 8.77, 15.32, 3.22, 14.00, 9.35, 12.45, 12.55, 9.82, 9.37, 7.67, 9.95, 4.58, 6.63, 2.50, 15.27, 16.03, 48.82, 15.03, 4.03, 7.30, 29.38, 10.15, 8.03, 7.88, 8.67, 5.32, 5.18, 8.02, 17.28, 3.00, 3.6…
 $ ride_distance      <dbl> 0.8613851, 0.8619511, 2.1335324, 0.8619511, 0.8619511, 0.0000000, 0.8619511, 0.8619511, 0.8619511, 0.8619511, 0.8619511, 0.8619511, 1.4733859, 1.4733859, 0.6901681, 1.0296212, 0.0000000, 2.1335324, 2.9469271, 7.366…
 ```
+
 + Displaying an overall summary of the newly updated data frame.
 ```{r}
 summary(trip_data_updated)
 ```
+
 ```{r}
    ride_id          rideable_type        started_at                        ended_at                      start_station_name start_station_id   end_station_name   end_station_id       start_lat       start_lng         end_lat     
  Length:5459091     Length:5459091     Min.   :2023-01-01 00:02:06.00   Min.   :2023-01-01 00:07:23.00   Length:5459091     Length:5459091     Length:5459091     Length:5459091     Min.   :41.63   Min.   :-87.94   Min.   : 0.00  
@@ -2181,10 +2272,12 @@ summary(trip_data_updated)
  3rd Qu.:-87.63                      3rd Qu.:2023-09-16                                                                               3rd Qu.:18.00   3rd Qu.:3.000   3rd Qu.:  17.20    3rd Qu.:   1.723  
  Max.   :  0.00                      Max.   :2023-12-31                                                                               Max.   :23.00   Max.   :4.000   Max.   :1439.87    Max.   :6098.520  
 ```
+
 + Calculating the total sum of missing values after cleaning and filtering.
 ```{r}
 colSums(is.na(trip_data_updated))
 ```
+
 ```{r}
            ride_id      rideable_type         started_at           ended_at start_station_name   start_station_id   end_station_name     end_station_id          start_lat          start_lng            end_lat            end_lng 
                  0                  0                  0                  0              10160              10160              31699              31699                  0                  0                  0                  0 
@@ -2201,7 +2294,7 @@ colSums(is.na(trip_data_updated))
 #### Data Transformation, Imputation, and Cleaning
 + Renamed the column **member_casual** to **user_type**.
 + Converted **started_at** and **ended_at** data type to POSIXct format to ensure consistency.
-+ Adjust start and end coordinates for accuracy.
++ Adjusted start and end coordinates for accuracy.
 + Added additional columns: **date**, **month**, **day**, **year**, **day_of_week**, **hour**, **quarter**, **ride_length_minute**, and **ride_distance**.
 + Calculated the difference in minutes between **ended_at** and **started_at**, rounding the result to two decimal places, and creating a new column.
 + Handled missing values in **start_station_name**, **start_station_id**, **end_station_name**, and **end_station_id** by filling in values based on grouping start latitude and longitude and end latitude and longitude.
@@ -2229,14 +2322,19 @@ colSums(is.na(trip_data_updated))
 ### User Trends
 
 #### User Type Overview
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
-```{r}
+```r
 trip_data_updated %>%
   group_by(user_type) %>% 
   summarise(
     ride_count = n(),
     ride_percentage = round((n() / nrow(trip_data_updated)) * 100, 2))
 ```
+
+</details>
+
 | user_type <chr> | ride_count <int> | ride_percentage <dbl> |
 |-----------------|------------------|-----------------------|
 | casual          | 1962711          | 35.95%                |
@@ -2247,6 +2345,8 @@ trip_data_updated %>%
 + In contrast, member users constitute a substantial portion, representing **64.05%** of the total rides with **3,496,380 rides**.
 
 #### Average Ride Length (minutes) by User Type
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated %>%
@@ -2254,6 +2354,8 @@ trip_data_updated %>%
   summarise(
     average_ride_length = round(mean(ride_length_minute), 2))
 ```
+
+</details>
 
 | user_type <chr> | average_ride_length <dbl> |
 |-----------------|---------------------------|
@@ -2266,6 +2368,8 @@ trip_data_updated %>%
 + This contrast suggests that casual users may utilize the bike-sharing service for longer or leisurely trips, whereas members are more inclined to use it for shorter, routine commutes.
 
 #### Average Ride Distances (miles) by User Type
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated %>% 
@@ -2275,6 +2379,8 @@ trip_data_updated %>%
     average_ride_distance = mean(ride_distance)) %>%
   mutate(average_ride_distance = round(average_ride_distance, 2))
 ```
+
+</details>
 
 | user_type <chr> | average_ride_distance <dbl> |
 |-----------------|-----------------------------|
@@ -2291,6 +2397,8 @@ trip_data_updated %>%
 ### Hourly Trends
 
 #### Hourly User Overview
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated %>% 
@@ -2299,6 +2407,8 @@ trip_data_updated %>%
     ride_count = n(), .groups = "drop") %>%
   arrange(user_type, hour)
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -2361,13 +2471,13 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table illustrates clear trends in bicycle usage among casual and member users at different times of the day.
-+ Casual users peak between 3 PM and 6 PM with the highest number of rides occurring at **5 PM (189,792 rides)**.
-+ Their usage drops during late night and early morning hours, reaching its lowest point at **4 AM (5,709 rides)**, suggesting a preference for using bikes outside of work or commuting times and for more leisure activities.
-+ Member users, peak usage occurs between 4 PM and 6 PM, with the highest number of rides at **5 PM (370,438 rides)**. They utilize the service for both commuting and non-commuting purposes throughout the day.
-+ Similar to casual users, member users also experience a drop in usage during late night and early morning hours, with the lowest point at **3 AM (7,627 rides)**. 
++ Casual users peak between 3 PM and 6 PM with the highest number of rides occurring at **5 PM (189,792 rides)**. Their usage drops during late night and early morning hours, reaching its lowest point at **4 AM (5,709 rides)**, suggesting a preference for using bikes outside of work or commuting times and for more leisure activities.
++ Member users, peak usage occurs between 4 PM and 6 PM, with the highest number of rides at **5 PM (370,438 rides)**. They utilize the service for both commuting and non-commuting purposes throughout the day. Similar to casual users, member users also experience a drop in usage during late night and early morning hours, with the lowest point at **3 AM (7,627 rides)**. 
 + Casual users tend to enjoy riding bikes for leisure during the afternoon, while member users utilize them for both commuting and leisure. Both groups ride less during the late night and early morning hours.
 
 #### Hourly Average Ride Length (minutes)
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated %>% 
@@ -2376,6 +2486,8 @@ trip_data_updated %>%
     average_ride_length = round(mean(ride_length_minute), 2), .groups="drop") %>%
   arrange(user_type, hour)
 ```
+
+</details>
 
 <table> <tr><td>
  
@@ -2443,6 +2555,8 @@ trip_data_updated %>%
 + Unlike casual users, members exhibit minimal fluctuations in ride duration, with generally shorter averages. Casual users tend to have longer durations compared to members, particularly evident during midday.
 
 #### Hourly Average Ride Distance (miles)
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated %>% 
@@ -2453,6 +2567,8 @@ trip_data_updated %>%
   ) %>%
   mutate(average_ride_distance = round(average_ride_distance, 2))
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -2524,6 +2640,8 @@ trip_data_updated %>%
 ### Weekly Trends
 
 #### Weekly User Overview
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated$day_of_week <- ordered(
@@ -2543,6 +2661,8 @@ trip_data_updated %>%
     ride_count = n(), .groups="drop") %>% 
     arrange(user_type, day_of_week)
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -2571,13 +2691,13 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table highlights intriguing patterns in user numbers for both casual and member users over the course of the week.
-+ Casual users tend to peak in rides on **Saturdays (390,879 rides)**, indicating a preference for leisure or recreational activities during weekends. 
-+ Conversely, their lowest ride count is on **Mondays (224,302 rides)**, reflecting decreased usage at the beginning of the week after the weekend rush.
-+ Member users, on the other hand, show their highest ride count on **Thursdays (562,529 rides)**, suggesting a focus on commuting during weekdays. 
-+ Similarly, their lowest ride count is on **Sundays (390,079 rides)**, following the trend of decreased usage at the end of the weekend.
++ Casual users tend to peak in rides on **Saturdays (390,879 rides)**, indicating a preference for leisure or recreational activities during weekends. Conversely, their lowest ride count is on **Mondays (224,302 rides)**, reflecting decreased usage at the beginning of the week after the weekend rush.
++ Member users, on the other hand, show their highest ride count on **Thursdays (562,529 rides)**, suggesting a focus on commuting during weekdays. Similarly, their lowest ride count is on **Sundays (390,079 rides)**, following the trend of decreased usage at the end of the weekend.
 + Both casual and member users exhibit lower usage at the beginning of the week, with casual users showing the lowest usage on Mondays and member users showing the lowest usage on Sundays. This decrease in usage could be attributed to the transition from the weekends to weekdays.
 
 #### Weekly Average Ride Length (minutes)
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated$day_of_week <- ordered(
@@ -2598,6 +2718,8 @@ trip_data_updated %>%
     average_ride_length = round(mean(ride_length_minute), 2), 
     .groups = "drop")
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -2626,13 +2748,13 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table displays the fluctuations in average ride durations according to user type and day of the week.
-+ Casual users, trend supports the notion of weekend leisure or recreational activities, with **Sundays (24.58 minutes)** recording the lengthiest rides.
-+ Transitioning from the weekends to weekdays, **Wednesdays (18.04 minutes)** mark the lowest typical ride durations for casual users, indicating a shift towards shorter trips during the middle of the week.
-+ Conversely, member users also exhibit longer rides on **Sundays (13.79 minutes)**, suggesting a potential overlap in non-commuting usage during weekends.
-+ However, member users experience their shortest rides on **Mondays (11.72 minutes)**, possibly indicating a return to routine commuting after the weekend.
++ Casual users, the trend supports the notion of weekend leisure or recreational activities, with **Sundays (24.58 minutes)** recording the lengthiest rides. Transitioning from the weekends to weekdays, **Wednesdays (18.04 minutes)** mark the lowest typical ride durations for casual users, indicating a shift towards shorter trips during the middle of the week.
++ Conversely, member users also exhibit longer rides on **Sundays (13.79 minutes)**, suggesting a potential overlap in non-commuting usage during weekends. However, member users experience their shortest rides on **Mondays (11.72 minutes)**, possibly indicating a return to routine commuting after the weekend.
 + Overall, both user groups display a pattern of shorter ride durations during weekdays, likely influenced by commuting needs or time constraints.
 
 #### Weekly Average Ride Distance (miles)
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated$day_of_week <- ordered(
@@ -2654,6 +2776,8 @@ trip_data_updated %>%
   ) %>%
   mutate(average_ride_distance = round(average_ride_distance, 2))
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -2683,8 +2807,7 @@ trip_data_updated %>%
 
 + The table provides insights into the usage patterns of casual and member users throughout the week, comparing average ride distances.
 + Casual users covering the longest distance per ride on **Saturday (1.42 miles)** wheras there shorest rides occur on **Wednesdays (1.30 miles)**.
-+ Similarly, member users longest distance per ride also falls on **Saturday(1.40 miles**) but the shortest rides occur on **Mondays (1.30 miles)**.
-+ This suggests a preference for longer rides on weekends, potentially for leisure or recreational purposes and indicating a trend towards shorter rides at the beginning of the week.
++ Similarly, member users' longest distance per ride also falls on **Saturday(1.40 miles**) but the shortest rides occur on **Mondays (1.30 miles)**. This suggests a preference for longer rides on weekends, potentially for leisure or recreational purposes, and indicates a trend towards shorter rides at the beginning of the week.
 + Casual users typically enjoy slightly longer distances per ride compared to member users throughout the week.
 + Overall, distances covered per ride remain relatively consistent during weekdays for both casual and member users, likely reflecting commuting or transportation needs.
 
@@ -2693,6 +2816,8 @@ trip_data_updated %>%
 ### Weekly Bike Demand Patterns and Hourly Usage Trends
 
 #### Monday Hourly Bike Demands
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated %>%
@@ -2702,6 +2827,8 @@ trip_data_updated %>%
     ride_count = n(), .groups = "drop") %>% 
   arrange(user_type)
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -2764,14 +2891,14 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table showcases the hourly ride frequencies for casual and member users on Mondays, revealing unique usage patterns and demand disparities between the user categories across the day.
-+ Casual users show a peak ride count at **5 PM (23,473 rides)**, indicating a preference for late afternoon rides, likely for recreation. 
-+ Conversely, their lowest ride count is at **4 AM (707 rides)**, reflecting reduced bike usage during late night and early morning hours.
-+ Member users also exhibit a peak ride count at **5 PM (56,037 rides)**, suggesting a preference for late afternoon rides, possibly for commuting. 
-+ Their lowest ride count is at **3 AM (771 rides**), aligning with the pattern of reduced usage during late night and early morning hours.
++ Casual users show a peak ride count at **5 PM (23,473 rides)**, indicating a preference for late afternoon rides, likely for recreation. Conversely, their lowest ride count is at **4 AM (707 rides)**, reflecting reduced bike usage during late night and early morning hours.
++ Member users also exhibit a peak ride count at **5 PM (56,037 rides)**, suggesting a preference for late afternoon rides, possibly for commuting. Their lowest ride count is at **3 AM (771 rides**), aligning with the pattern of reduced usage during late night and early morning hours.
 + Both casual and member users share a common trend of peak bike usage around late afternoon, indicating a universal preference for this time regardless of user type. 
 + This preference may be influenced by factors such as favorable weather conditions and leisure time post-work.
 
 #### Tuesday Hourly Bike Demands
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated %>%
@@ -2781,6 +2908,8 @@ trip_data_updated %>%
     ride_count = n(), .groups = "drop") %>% 
   arrange(user_type)
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -2843,15 +2972,15 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table illustrates the hourly ride frequencies for both casual and member users on Tuesday, highlighting distinct usage patterns and demand variances between the user categories throughout the day.
-+ Casual users show the highest ride count at **5 PM (27,417 rides)**, indicating a preference for late afternoon rides, potentially for leisure or recreation. 
-+ Conversely, their lowest ride count occurs at **3 AM (515 rides)**, suggesting a notable decline in bike usage during late night and early morning hours, as anticipated.
-+ Similarly, member users also exhibit their peak ride count at **5 PM (68,247 rides)**, echoing the trend observed among casual users and indicating a preference for late afternoon rides, likely for commuting purposes. 
-+ Their lowest ride count is recorded at **3 AM (604 rides)**, aligning with the observed pattern of reduced bike usage during late night and early morning hours.
++ Casual users show the highest ride count at **5 PM (27,417 rides)**, indicating a preference for late afternoon rides, potentially for leisure or recreation. Conversely, their lowest ride count occurs at **3 AM (515 rides)**, suggesting a notable decline in bike usage during late night and early morning hours, as anticipated.
++ Similarly, member users also exhibit their peak ride count at **5 PM (68,247 rides)**, echoing the trend observed among casual users and indicating a preference for late afternoon rides, likely for commuting purposes. Their lowest ride count is recorded at **3 AM (604 rides)**, aligning with the observed pattern of reduced bike usage during late night and early morning hours.
 + Both casual and member users demonstrate a surge in bike usage during the late afternoon, indicating a shared preference for this time regardless of user type.
 + Several factors contribute to this trend, including favorable weather conditions, leisure time post-work, and commuting needs. 
 + Reduced bike usage during late night and early morning hours persists across user types, possibly influenced by diminished visibility, maintenance schedules, and security considerations around biking at night.
 
 #### Wednesday Hourly Bike Demands
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated %>%
@@ -2861,6 +2990,8 @@ trip_data_updated %>%
     ride_count = n(), .groups = "drop") %>% 
   arrange(user_type)
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -2923,15 +3054,15 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table presents hourly ride frequencies for both casual and member users on Wednesday, highlighting distinct usage patterns and demand variations between the user categories throughout the day.
-+ Casual users demonstrate the highest ride count at **5 PM (28,554 rides)**, suggesting a preference for late afternoon rides, possibly for leisure or recreation.
-+ Their ride count drops significantly at **3 AM (565 rides)**, indicating reduced bike usage during late night and early morning hours.
-+ Member users also peak at **5 PM (68,364 rides)**, mirroring the trend seen among casual users and indicating a preference for late afternoon rides, potentially for commuting. 
-+ At **3 AM (605 rides)**, their ride count decreases aligning with the observed pattern of reduced bike usage during late night and early morning hours.
++ Casual users demonstrate the highest ride count at **5 PM (28,554 rides)**, suggesting a preference for late afternoon rides, possibly for leisure or recreation. Their ride count drops significantly at **3 AM (565 rides)**, indicating reduced bike usage during late night and early morning hours.
++ Member users also peak at **5 PM (68,364 rides)**, mirroring the trend seen among casual users and indicating a preference for late afternoon rides, potentially for commuting. At **3 AM (605 rides)**, their ride count decreases aligning with the observed pattern of reduced bike usage during late night and early morning hours.
 + Both casual and member users exhibit a peak in bike usage around late afternoon on Wednesday, emphasizing a shared preference for this time regardless of user type.
 + Contributing factors to this peak in bike usage during late afternoon hours may include favorable weather conditions, post-work leisure time, and commuting needs. 
 + Consistent with safety considerations and limited transportation options, reduced bike usage persists during late night and early morning hours across user types.
 
 #### Thursday Hourly Bike Demands
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated %>%
@@ -2941,6 +3072,8 @@ trip_data_updated %>%
     ride_count = n(), .groups = "drop") %>% 
   arrange(user_type)
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -3003,14 +3136,14 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The provided table details the hourly usage patterns of both casual and member users on Thursday, delineating notable differences in ride frequencies between the two user categories throughout the day.
-+ Casual users exhibit the highest ride count, at **5 PM (29,436 rides)**, indicating a preference for late afternoon rides, potentially for recreational purposes. 
-+ Conversely, their lowest ride count, is recorded at **4 AM (552 rides)**, implying decreased bike usage during the late night and early morning hours.
-+ Member users also peak at **5 PM (66,308 rides)**, mirroring the trend observed among casual users and suggesting a preference for late afternoon rides, likely for commuting reasons. 
-+ Their lowest ride count, is observed at **3 AM (677 rides**, aligning with the trend of reduced bike usage during late night and early morning hours.
++ Casual users exhibit the highest ride count, at **5 PM (29,436 rides)**, indicating a preference for late afternoon rides, potentially for recreational purposes. Conversely, their lowest ride count, is recorded at **4 AM (552 rides)**, implying decreased bike usage during the late night and early morning hours.
++ Member users also peak at **5 PM (66,308 rides)**, mirroring the trend observed among casual users and suggesting a preference for late afternoon rides, likely for commuting reasons. Their lowest ride count is observed at **3 AM (677 rides)**, aligning with the trend of reduced bike usage during late night and early morning hours.
 + Both casual and member users display a notable increase in bike usage during the late afternoon on Thursday, reflecting a collective preference for this time regardless of user type.
 + Consistently lower bike usage during late night and early morning hours across user types may imply a diminished demand for transportation during those specific times, possibly reflecting fewer individuals commuting or participating in leisure activities.
 
 #### Friday Hourly Bike Demands
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated %>%
@@ -3020,6 +3153,8 @@ trip_data_updated %>%
     ride_count = n(), .groups = "drop") %>% 
   arrange(user_type)
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -3082,15 +3217,15 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The provided table showcases the hourly utilization patterns of both casual and member users on Friday, revealing notable fluctuations in ride frequencies between the two user groups throughout the day.
-+ Casual users reach their peak ride count at **5 PM (29,007 rides)**, indicating a preference for late afternoon biking, possibly for recreational purposes. 
-+ Conversely, their lowest ride occurs at **4 AM (702 rides)**, suggesting decreased bike usage during the early morning hours.
-+ Similarly, member users also hit their peak at **5 PM (50,857 rides)**, echoing the trend observed among casual users and suggesting a preference for late afternoon rides, potentially for commuting. 
-+ Their lowest ride count is at **3 AM (980 rides)**, aligning with the pattern of reduced bike usage during the late night and early morning hours.
++ Casual users reach their peak ride count at **5 PM (29,007 rides)**, indicating a preference for late afternoon biking, possibly for recreational purposes. Conversely, their lowest ride occurs at **4 AM (702 rides)**, suggesting decreased bike usage during the early morning hours.
++ Similarly, member users also hit their peak at **5 PM (50,857 rides)**, echoing the trend observed among casual users and suggesting a preference for late afternoon rides, potentially for commuting. Their lowest ride count is at **3 AM (980 rides)**, aligning with the pattern of reduced bike usage during the late night and early morning hours.
 + Friday witnesses a surge in bike usage during the late afternoon for both casual and member users, underscoring a shared preference for this time slot regardless of user type.
 + Factors such as favorable weather conditions, opportunities for post-work leisure, and commuting demands likely contribute to the increase in bike usage during late afternoon hours on Fridays.
 + The consistent trend of reduced bike usage during late night and early morning hours persists across user types on Fridays, possibly due to a higher likelihood of individuals working remotely or having flexible schedules, leading to fewer commuting trips and overall outdoor activity.
 
 #### Saturday Hourly Bike Demands
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated %>%
@@ -3100,6 +3235,8 @@ trip_data_updated %>%
     ride_count = n(), .groups = "drop") %>% 
   arrange(user_type)
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -3162,15 +3299,15 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table illustrates hourly ride frequencies for casual and member users on Saturday, emphasizing significant variations throughout the day.
-+ Casual users peak at **3 PM (32,646 rides)**, implying a preference for afternoon biking, possibly for recreational purposes. 
-+ Conversely, their lowest ride count is recorded at **4 AM (1,028 rides)**, indicating a decline in bike usage during the early hours of the morning.
-+ Member users also experience their highest ride count at **12 PM (33,936 rides)**, reflecting the trend seen among casual users and indicating a preference for midday rides, potentially for leisure or commuting. 
-+ Similarly, their lowest ride count coincides with casual users at **4 AM (1,104 rides)**, aligning with the observed pattern of reduced bike usage during late-night and early morning hours.
++ Casual users peak at **3 PM (32,646 rides)**, implying a preference for afternoon biking, possibly for recreational purposes. Conversely, their lowest ride count is recorded at **4 AM (1,028 rides)**, indicating a decline in bike usage during the early hours of the morning.
++ Member users also experience their highest ride count at **12 PM (33,936 rides)**, reflecting the trend seen among casual users and indicating a preference for midday rides, potentially for leisure or commuting. Similarly, their lowest ride count coincides with casual users at **4 AM (1,104 rides)**, aligning with the observed pattern of reduced bike usage during late-night and early morning hours.
 + Both casual and member users demonstrate a peak in bike usage during Saturday afternoons, suggesting a mutual preference for this time regardless of user type.
 + Increased bike usage during Saturday afternoons may be influenced by factors such as weekend events and social gatherings.
 + The consistent decline in bike usage during late-night and early-morning hours on Saturdays suggests a widespread trend of increased reliance on alternative transportation options, potentially due to extended social engagements and late-night entertainment activities.
 
 #### Sunday Hourly Bike Demands
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated %>%
@@ -3180,6 +3317,8 @@ trip_data_updated %>%
     ride_count = n(), .groups = "drop") %>% 
   arrange(user_type)
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -3243,8 +3382,7 @@ trip_data_updated %>%
 
 + The table illustrating hourly ride usage for casual and member users on Sunday reveals distinct usage patterns, indicating significant differences in ride frequencies between the two user categories throughout the day.
 Casual users reach their highest ride count at **3 PM (29,047 rides)**, suggesting a preference for afternoon biking, potentially for leisure activities or enjoyment.
-+ Similarly, member users also reach their peak ride count at **3 PM (31,925 rides)**, echoing the trend observed among casual users and suggesting a preference for midday rides, potentially for leisurely outings or recreational purposes. 
-+ Correspondingly, their lowest ride count is at **4 AM (1,505 rides)**, aligning with the decrease in bike usage during late-night and early-morning hours.
++ Similarly, member users also reach their peak ride count at **3 PM (31,925 rides)**, echoing the trend observed among casual users and suggesting a preference for midday rides, potentially for leisurely outings or recreational purposes. Correspondingly, their lowest ride count is at **4 AM (1,505 rides)**, aligning with the decrease in bike usage during late-night and early-morning hours.
 + Both casual and member users demonstrate a peak in bike usage during Sunday afternoons, suggesting a shared preference for this time, possibly as it marks the end of the week, regardless of user type.
 + The heightened demand for bike rides on Sunday afternoons may be fueled by the necessity to run errands or participate in various activities typical of the end of the week.
 + A decline in bike usage during the late-night and early morning hours on Sundays may also stem from individuals' diverse weekend routines, which frequently involve indoor activities or engagements that do not require outdoor transportation. Additionally, people may utilize alternative modes of transportation or choose to remain indoors, contributing to the decreased demand for biking during these hours.
@@ -3254,6 +3392,8 @@ Casual users reach their highest ride count at **3 PM (29,047 rides)**, suggesti
 ### Monthly Trends
 
 #### Monthly User Overview
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated$month <- ordered(
@@ -3278,6 +3418,8 @@ trip_data_updated %>%
     ride_count = n(), .groups = "drop") %>% 
   arrange(user_type, month)
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -3316,13 +3458,13 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table depicts the monthly ride usage for casual and member users over a span of 12 months.
-+ Casual users exhibit the highest ride counts during the summer months, peaking in **July (316,555 rides)**. 
-+ While experiencing the lowest usage in **January (38,204 rides)**. This trend suggests that casual users primarily utilize the bike-sharing service for leisure or recreational purposes during warmer months, opting for alternative transportation methods during colder periods.
-+ Similarly, member users also demonstrate the highest ride counts during the summer months, reaching a peak in **August (439,658 rides)**. 
-+ The lowest ride counts occur during the winter months, in **February (140,067 rides)**. However, member users maintain relatively consistent usage throughout the year, suggesting a stable demand regardless of seasonal variations, which could indicate a diverse range of usage purposes beyond solely commuting.
++ Casual users exhibit the highest ride counts during the summer months, peaking in **July (316,555 rides)**. While experiencing the lowest usage in **January (38,204 rides)**. This trend suggests that casual users primarily utilize the bike-sharing service for leisure or recreational purposes during warmer months, opting for alternative transportation methods during colder periods.
++ Similarly, member users also demonstrate the highest ride counts during the summer months, reaching a peak in **August (439,658 rides)**. The lowest ride counts occur during the winter months, in **February (140,067 rides)**. However, member users maintain relatively consistent usage throughout the year, suggesting a stable demand regardless of seasonal variations, which could indicate a diverse range of usage purposes beyond solely commuting.
 + While both user groups display decreased usage during the winter months, member users demonstrate a higher level of usage compared to casual users throughout the months.
 
 #### Monthly Average Ride Length (minutes)
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated$month <- ordered(
@@ -3347,6 +3489,8 @@ trip_data_updated %>%
     average_ride_length = round(mean(ride_length_minute), 2), .groups = "drop") %>% 
   arrange(user_type, month)
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -3385,13 +3529,13 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table presents the monthly average ride duration for both casual and member users over the course of a year.
-+ Among casual users, the longest rides are observed during the summer months, peaking in **July (23.25 minutes)**.
-+ While the shortest rides occur in **January (13.91 minutes)** during winter. This trend highlights the preference of casual users for utilizing the service for leisure or recreational purposes more frequently in warmer months than in winter.
-+ Similarly, member users also experience longer rides during the summer months, reaching a peak in **July (13.51 minutes)**.
-+ Their shortest rides occur in **January (10.41 minutes)** during winter, mirroring the pattern observed among casual users. + This suggests that member users' riding habits may differ from casual users due to factors such as commuting needs or habit consistency, resulting in shorter average ride durations.
++ Among casual users, the longest rides are observed during the summer months, peaking in **July (23.25 minutes)**. While the shortest rides occur in **January (13.91 minutes)** during winter. This trend highlights the preference of casual users for utilizing the service for leisure or recreational purposes more frequently in warmer months than in winter.
++ Similarly, member users also experience longer rides during the summer months, reaching a peak in **July (13.51 minutes)**. Their shortest rides occur in **January (10.41 minutes)** during winter, mirroring the pattern observed among casual users. This suggests that member users' riding habits may differ from casual users due to factors such as commuting needs or habit consistency, resulting in shorter average ride durations.
 + Both user groups consistently demonstrate shorter ride durations during the winter months and longer durations in the summer months, showcasing the significant impact of weather conditions and seasonal fluctuations on their riding habits. Furthermore, casual users consistently maintain longer ride durations compared to member users across all months.
 
 #### Monthly Average Ride Distance (miles)
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated$month <- ordered(
@@ -3418,6 +3562,8 @@ trip_data_updated %>%
   ) %>%
   mutate(average_ride_distance = round(average_ride_distance, 2))
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -3456,10 +3602,8 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table presents monthly average ride distance data for casual and member users over 12 months.
-+ For casual users, the longest average ride distances occur during the summer months, peaking in **June (1.43 miles)**. 
-+ While the shortest average is recorded in **January (1.06 miles)**. This suggests that longer bike rides may be associated with leisure and recreational usage during the summer months, as warmer weather conditions are more conducive to outdoor activities.
-+ Similarly, member users also exhibit longer average ride distances during the summer months, with peaks in both **June (1.44 miles)** and **July (1.44 miles)**.
-+ The shortest average occurring in **January (1.13 miles)**. This indicates that members may take advantage of the warmer weather to embark on longer rides, potentially explore new routes or destinations, enjoy recreational outings, or participate in outdoor events.
++ For casual users, the longest average ride distances occur during the summer months, peaking in **June (1.43 miles)**. While the shortest average is recorded in **January (1.06 miles)**. This suggests that longer bike rides may be associated with leisure and recreational usage during the summer months, as warmer weather conditions are more conducive to outdoor activities.
++ Similarly, member users also exhibit longer average ride distances during the summer months, with peaks in both **June (1.44 miles)** and **July (1.44 miles)**. The shortest average occurred in **January (1.13 miles)**. This indicates that members may take advantage of the warmer weather to embark on longer rides, potentially explore new routes or destinations, enjoy recreational outings, or participate in outdoor events.
 + While both user groups generally show shorter average ride distances during the winter months, which may be attributed to weather conditions or commuting needs, member users consistently demonstrate longer average ride distances compared to casual users across most months.
 
 --------------------------------------
@@ -3467,6 +3611,8 @@ trip_data_updated %>%
 ### Quarterly Trends
 
 #### Quarterly User Overview
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated %>%
@@ -3475,6 +3621,8 @@ trip_data_updated %>%
     ride_count = n(), .groups = "drop") %>% 
   arrange(user_type)
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -3497,13 +3645,13 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + This table showcases the quarterly number of rides for casual and member users.
-+ Casual users experience the highest number of rides in the **3rd quarter (July-September)** at **861,959 rides**.
-+ While their lowest number of rides occurs in the **1st quarter (January-March)** at **138,591 rides**. These fluctuations may be influenced by weather and seasonal conditions, as the 3rd quarter falls in the summer months, while the 1st quarter corresponds to the winter months.
-+ Similarly, member users also have their highest number of rides in the **3rd quarter (July-September)**, totaling **1,245,624**. 
-+ While their lowest number occurring in the **1st quarter (January-March)** at **469,922**. This pattern aligns with casual users and may be attributed to similar seasonal factors.
++ Casual users experience the highest number of rides in the **3rd quarter (July-September)** at **861,959 rides**. While their lowest number of rides occurs in the **1st quarter (January-March)** at **138,591 rides**. These fluctuations may be influenced by weather and seasonal conditions, as the 3rd quarter falls in the summer months, while the 1st quarter corresponds to the winter months.
++ Similarly, member users also have their highest number of rides in the **3rd quarter (July-September)**, totaling **1,245,624**. While their lowest number occurred in the **1st quarter (January-March)** at **469,922**. This pattern aligns with casual users and may be attributed to similar seasonal factors.
 + Despite these similarities, member users consistently maintain higher ride numbers compared to casual users. This could be attributed to the fact that member users are more likely to use bike-sharing services for commuting purposes, which may be less affected by weather conditions compared to casual users who primarily use the service for leisure or recreational purposes.
 
 #### Quarterly Average Ride Length (minutes)
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated %>%
@@ -3512,6 +3660,8 @@ trip_data_updated %>%
     average_ride_length = round(mean(ride_length_minute), 2), .groups="drop") %>%
   arrange(user_type)
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -3534,13 +3684,13 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table presents the quarterly average ride lengths of casual and member users.
-+ Casual users experience the longest average ride length during the **3rd quarter (22.48 minutes)**.
-+ While the shortest duration occurs in the **1st quarter (15.32 minutes)**. These findings support the notion that casual users prefer the summer months, potentially indicating leisure or recreational usage during this season. Conversely, casual users tend to ride less frequently during the winter months, leading to shorter average ride durations.
-+ Similarly, member users also display a comparable pattern, with the longest average ride length observed in the **3rd quarter (13.29 minutes)**.
-+ While their shortest in the **1st quarter (10.57 minutes)**. This suggests that seasonal conditions influence ride durations for both user groups.
++ Casual users experience the longest average ride length during the **3rd quarter (22.48 minutes)**. While the shortest duration occurs in the **1st quarter (15.32 minutes)**. These findings support the notion that casual users prefer the summer months, potentially indicating leisure or recreational usage during this season. Conversely, casual users tend to ride less frequently during the winter months, leading to shorter average ride durations.
++ Similarly, member users also display a comparable pattern, with the longest average ride length observed in the **3rd quarter (13.29 minutes)**. While their shortest in the **1st quarter (10.57 minutes)**. This suggests that seasonal conditions influence ride durations for both user groups.
 + While both casual and member users exhibit similar seasonal trends, casual users consistently demonstrate higher average ride lengths across all quarters compared to members. This difference could potentially be attributed to the idea that casual users approach bike usage with a more leisurely or recreational mindset, resulting in longer rides.
 
 #### Quarterly Average Ride Distance (miles)
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated %>%
@@ -3551,6 +3701,8 @@ trip_data_updated %>%
   ) %>%
   mutate(average_ride_distance = round(average_ride_distance, 2))
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -3573,10 +3725,9 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table presents quarterly average ride distances for casual and member users.
-+ Casual users exhibit the longest average ride distance in the **3rd quarter (1.40 miles)**.
-+ While the shortest distance occurs in the **1st quarter (1.12 miles)**. These findings align with the peak summer season and favorable weather conditions, suggesting that casual users are more inclined to engage in longer rides during this period.
-+ Similarly, member users also demonstrate a comparable pattern, with the longest average ride distances observed in the **3rd quarter (1.42 miles)**. 
-+ While the shortest distances in the **1st quarter (1.16 miles)**. This further supports the notion that ride distances for both user groups are influenced by seasonal and weather conditions.
++ Casual users exhibit the longest average ride distance in the **3rd quarter (1.40 miles)**. While the shortest distance occurs in the **1st quarter (1.12 miles)**. These findings align with the peak summer season and favorable weather conditions, suggesting that casual users are more inclined to engage in longer rides during this period.
++ Similarly, member users also demonstrate a comparable pattern, with the longest average ride distances observed in the **3rd quarter (1.42 miles)**. While the shortest distances in the **1st quarter (1.16 miles)**.
++ This further supports the notion that ride distances for both user groups are influenced by seasonal and weather conditions.
 + Although both user groups show similar patterns in average ride distances, member users consistently have slightly longer averages across all quarters. This suggests that members may utilize the bike-sharing service for more practical purposes, potentially involving longer commutes or transportation needs.
 
 --------------------------------------
@@ -3584,6 +3735,8 @@ trip_data_updated %>%
 ### Rideable Trends
 
 #### Rideable Type Trends
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 trip_data_updated %>%
@@ -3591,6 +3744,8 @@ trip_data_updated %>%
   summarise(
     count = n(), .groups = "drop")
 ```
+
+</details>
 
 <table> <tr><td>
 
@@ -3610,10 +3765,8 @@ trip_data_updated %>%
 </td></tr> </table>
 
 + The table presents an analysis of bike preferences among both casual and member users.
-+ Among casual users, the most popular rideable type is the **electric_bike (1,043,904 rides)**, followed by the **classic_bike (843,957 rides)**, and then the **docked_bike (74,850 rides)**.
-+ Casual users exhibit a preference for electric bikes, possibly due to their convenience and ease of use, especially for leisure or recreational rides.
-+ Conversely, among member users, the most preferred rideable type is the **classic_bike (1,754,117 rides)**, closely followed by the **electric_bike (1,742,263 rides)**.
-+ Member users also favor both classic bikes and electric bikes, which could be attributed to their commuting needs or cost considerations, as membership plans often provide cost reductions.
++ Among casual users, the most popular rideable type is the **electric_bike (1,043,904 rides)**, followed by the **classic_bike (843,957 rides)**, and then the **docked_bike (74,850 rides)**. Casual users exhibit a preference for electric bikes, possibly due to their convenience and ease of use, especially for leisure or recreational rides.
++ Conversely, among member users, the most preferred rideable type is the **classic_bike (1,754,117 rides)**, closely followed by the **electric_bike (1,742,263 rides)**. Member users also favor both classic bikes and electric bikes, which could be attributed to their commuting needs or cost considerations, as membership plans often provide cost reductions.
 + The docked bike option seems to have the lowest preference among both user groups. This may be attributed to the hassle of returning the bike to a docking station, which might not align with the flexibility and convenience users seek.
 
 --------------------------------------
@@ -3621,6 +3774,8 @@ trip_data_updated %>%
 ### Map Trends
 
 #### User Type Quarterly Destination Interactive Map
+<details>
+  <summary><b>Click to expand R code:</b></summary>
 
 ```{r}
 mapping_data <- na.omit(trip_data_updated)
@@ -3640,6 +3795,9 @@ subset[, c("user_type", "quarter", "start_station_name", "end_station_name", "st
   filter(user_type == "member") %>% 
   arrange(quarter)
 ```
+
+</details>
+
 | user_type <chr> | quarter <chr> | start_station_name <chr>     | end_station_name <chr>      | start_lat <dbl> | start_lng <dbl> | end_lat <dbl> | end_lng <dbl> | rideable_type <chr> |
 |-----------------|---------------|------------------------------|-----------------------------|-----------------|-----------------|---------------|---------------|---------------------|
 | casual          | Q1            | Canal St & Harrison St       | State St & Harrison St      | 41.87           | -87.64          | 41.87         | -87.63        | electric_bike       |
@@ -3677,9 +3835,6 @@ subset[, c("user_type", "quarter", "start_station_name", "end_station_name", "st
 
 --------------------------------------
 
-### **Summary of the Analysis**
-This analysis provides critical insights into the behavior and preferences of Cyclistic's casual and member users. Leveraging this understanding, Cyclistic can better meet its needs and enhance its marketing strategies
-
 ### Key Tasks
 - [x]  Aggregate your data so it’s useful and accessible.
 - [x]  Organize and format your data.
@@ -3692,22 +3847,18 @@ This analysis provides critical insights into the behavior and preferences of Cy
 ## 🎁 The 'Share' Phase
 
 ### **User Type Trends**
-
 ![1 1 User Type Distribution](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/ca681f81-6c7a-4476-9648-0a8158e13d63)
-
 ![1 2 Average Ride Length (minutes) by User Type](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/3c65d509-6276-4416-8502-7b4bdc387e86)
-
 ![1 3 Average Ride Distance (miles) by User Type](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/82ebd99e-e7b2-4da0-b650-a6125ee163a4)
 
 #### **Summary of User Type Trends**
 The analysis of the "**User Type Trends**" visualizations demonstrates the ride statistics of casual and member users, highlighting:
-
 + **Casual User Key Points**:
     - Casual users comprise a smaller portion of Cyclistic's total riders. Their preference for longer rides suggests a distinct inclination toward leisure or recreational activities. This behavior indicates that casual users may use the bike-sharing platform for city exploration or relaxed outings, distinguishing them from the more utilitarian mindset of member users. Additionally, the slightly higher average ride distance among casual users suggests a propensity for exploring various locations or taking scenic routes. This behavior could be influenced by their occasional or irregular usage patterns, enabling them to seize opportunities for sightseeing or leisurely exploration.
 + **Member User Key Points**:
     - Member users constitute the majority of Cyclistic's riders. They prefer shorter rides, indicating a focus on practical commuting or transportation purposes. This behavior suggests that member users prioritize convenience, time efficiency, and cost-effectiveness in their bike-sharing usage. Additionally, their slightly lower average ride distance may be influenced by factors such as optimized routes, city familiarity, or an emphasis on efficiency. Overall, their approach reflects a utilitarian mindset, emphasizing efficiency and practicality in their bike-sharing activities.
 
-**Key Questions:**
+**Key Questions**:
 1. **How do annual members and casual riders use Cyclistic bikes differently?**
     - Annual members and casual riders exhibit different usage patterns with Cyclistic bikes. Annual members primarily use the bikes for shorter, routine commutes or transportation, as reflected in their shorter average ride lengths and distances. On the other hand, casual riders tend to opt for longer, leisure-oriented trips, resulting in longer average ride lengths and slightly greater distances.
 2. **Why would casual riders buy Cyclistic annual memberships?**
@@ -3720,16 +3871,12 @@ These insights uncover a starting point for a better understanding of the charac
 --------------------------------------
 
 ### **Hourly Trends**
-
 ![2 1 Hourly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/f58a4dc4-d8b9-44b4-b23a-410efbbf8b68)
-
 ![2 2 Hourly Average Ride Length Average (minutes)](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/635d8408-8133-4ec5-96ae-23b5e89ce0e1)
-
 ![2 3 Hourly Average Ride Distance Average (miles)](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/7b696cb6-7ce5-4b68-a57d-1fa7b8daa8df)
 
 #### **Summary of Hourly Trends**
 The analysis of the “**Hourly Trends**” visualizations demonstrates the ride statistics and usage patterns between casual and member users across different hours of the day, highlighting:
-
 + **Casual User Key Points**:
     - Casual users exhibit leisure-oriented usage patterns, with heightened activity during non-work hours, especially in the late afternoon and evening when they prefer longer rides. While their ride counts peak during morning and evening commuting hours, indicating potential usage for transportation purposes, longer average rides are also observed in mid-morning to early afternoon. Notably, 5 PM emerges as the peak usage hour, while at 11 AM, they record their longest rides, suggesting a preference for midday activities such as sightseeing or recreational biking, rather than practical commuting needs. These trends suggest that casual users leverage Cyclistic for extended leisure rides, taking advantage of flexible schedules, while occasional peaks during the late afternoon and early evening showcase their versatile usage for both practical commuting and leisurely exploration
 + **Member User Key Points**:
@@ -3748,16 +3895,12 @@ These insights uncover valuable findings into the distinct behaviors of both use
 --------------------------------------
 
 ### **Weekly Trends**
-
 ![3 1 Weekly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/2fcbbef6-db75-41f7-91d2-6b3532d5e50b)
-
 ![3 2 Weekly Ride Length Average (minutes)](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/0589f21f-a96c-447d-b46c-6584a694bb4e)
-
 ![3 3 Weekly Ride Distance Average (miles)](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/f23dd113-b152-47a9-bfa5-e60304620a36)
 
 #### **Summary of Weekly Trends**
 The analysis of the "**Weekly Trends**" visualizations demonstrates the behavior patterns and preferences between casual and member users across different days of the week, highlighting:
-
 + **Casual User Key Points**:
     - Casual users primarily engage in bike rides for leisure and recreational purposes, adopting a flexible and non-committal approach to bike-sharing. Their usage patterns indicate a preference for weekend outings or activities, with peak ride counts occurring on Saturdays and Sundays. Moreover, casual users tend to embark on longer rides, both in terms of duration and distance, during weekends, highlighting their inclination towards extended and exploratory rides. The consistently higher ride counts and longer ride durations on weekends reveal the recreational nature of their bike-sharing experiences, emphasizing Cyclistic's appeal as a platform for leisurely urban exploration and weekend getaways.
 + **Member User Key Points**:
@@ -3769,33 +3912,24 @@ The analysis of the "**Weekly Trends**" visualizations demonstrates the behavior
 2. **Why would casual riders buy Cyclistic annual memberships?**
     - Casual riders might be inclined to purchase Cyclistic annual memberships for several reasons. Despite their leisure-oriented usage during weekends, they may find the convenience and potential cost savings of annual memberships appealing, especially if they frequently use the bike-sharing service for commuting or transportation purposes. Additionally, annual memberships could offer them cost savings and convenience, even if their usage patterns differ from typical commuters. Moreover, incentives such as discounts or additional benefits could serve as further motivation for casual riders to upgrade to annual memberships.
 3. **How can Cyclistic use digital media to influence casual riders to become members?**
-    - Cyclistic can effectively utilize digital media platforms to influence casual riders to become members. By showcasing the benefits and cost-effectiveness of annual memberships for frequent users, highlighting potential savings and convenience through targeted marketing campaigns, the company can effectively sway casual riders. Personalized offers tailored to casual riders' usage patterns could further encourage membership upgrades. Moreover, emphasizing the additional features, discounts, or rewards available to members through digital channels could incentivize casual riders to consider annual memberships. Lastly, promoting the environmental and health benefits of bike-sharing, along with its convenience for commuting or transportation, could resonate with casual riders and influence their decision to become members.
+    - Cyclistic can effectively utilize digital media platforms to influence casual riders to become members. By showcasing the benefits and cost-effectiveness of annual memberships for frequent users, and highlighting potential savings and convenience through targeted marketing campaigns, the company can effectively sway casual riders. Personalized offers tailored to casual riders' usage patterns could further encourage membership upgrades. Moreover, emphasizing the additional features, discounts, or rewards available to members through digital channels could incentivize casual riders to consider annual memberships. Lastly, promoting the environmental and health benefits of bike-sharing, along with its convenience for commuting or transportation, could resonate with casual riders and influence their decision to become members.
 
-These insights uncover a clear grasp on the behavior between both types of users throughout the week, which will help develop an effective conversion strategy that aims to convert casual riders into annual members. Additionally, further analysis will provide deeper insights, enabling Cyclistic to refine its marketing strategies and enhance effectiveness even further.
+These insights uncover a clear grasp of the behavior between both types of users throughout the week, which will help develop an effective conversion strategy that aims to convert casual riders into annual members. Additionally, further analysis will provide deeper insights, enabling Cyclistic to refine its marketing strategies and enhance effectiveness even further.
 
 --------------------------------------
 
 ### **Weekly and Hourly Bike Demand Trends**
-
 ![0 1 Weekly and Hourly Bike Demands](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/4c4798ac-a290-448c-b006-f92cf2e1dac2)
-
 ![0 2 Monday Hourly Bike Demands](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/26acdbc4-fd11-4dbc-acd9-01fc2af6fe44)
-
 ![0 3 Tuesday Hourly Bike Demands](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/07176c97-893a-44b8-a24a-44f2a9aa2845)
-
 ![0 4 Wednesday Hourly Bike Demands](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/0201a2b0-3898-4993-bef5-b60e321cbc88)
-
 ![0 5 Thursday Hourly Bike Demands](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/43e1f816-6353-44b7-927d-d418cd20b43a)
-
 ![0 6 Friday Hourly Bike Demands](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/1c66c716-acaf-4536-bb9c-8f41cdf7630d)
-
 ![0 7 Saturday Hourly Bike Demands](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/fbd25a82-295f-409c-8d42-cafce4b47e6c)
-
 ![0 8 Sunday Hourly Bike Demands](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/8bd57d4f-cd2d-4c87-a626-3e7382cff76a)
 
 #### **Summary of Hourly Bike Demand Across Days of the Week Trends**
 The analysis of the “**Hourly Bike Demand Across Days of the Week Trends**” visualizations demonstrates the bike demand patterns and hourly usage between casual and member users across different days of the week, highlighting:
-
 + **Casual User Key Points**:
     - Casual users demonstrate noticeable behavior with fluctuating and diverse demand throughout the week, particularly peaking during daytime hours and weekends. Weekdays witness a surge in bike demand around mid-morning (around 10 AM) and in the afternoon (between 2 PM to 4 PM), suggesting usage for recreational purposes rather than commuting. This consistent pattern from Monday to Thursday, marked by notable spikes in demand during late afternoon hours, suggests a preference for rides possibly after work or for leisure activities. Especially on Fridays, casual users maintain elevated demand levels throughout the day, with peak ride counts observed between 3 PM and 7 PM, signaling an increased preference for leisure activities as the weekend approaches. On weekends, casual users exhibit significantly heightened demand, particularly during daytime hours on both Saturdays and Sundays (between 10 AM to 4 PM), reflecting a preference for morning and midday leisurely bike rides and recreational activities. This usage pattern suggests that casual users display flexibility in their riding habits, with peak demand occurring during non-commuting hours and on weekends, indicating a preference for leisure and recreational riding experiences.
 + **Member User Key Points**:
@@ -3814,16 +3948,12 @@ These insights uncover a comprehensive perspective on bike demand patterns and h
 --------------------------------------
 
 ### **Monthly Trends**
-
 ![4 1 Monthly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/cf7a3a83-0ac9-458b-862a-a90b1c4c8001)
-
 ![4 2 Monthly Ride Length Average (minutes)](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/34fd75f5-eb05-404f-a5c5-0e74e1df6463)
-
 ![4 3 Monthly Ride Distance Average (miles)](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/1dbd5b6d-c953-4cb1-9eb9-17e03a5771a8)
 
 #### **Summary of Monthly Trends**
 The analysis of the “**Monthly Trends**” visualizations demonstrates a comprehensive overview of bike-sharing usage among casual and member users across different months of the year, highlighting:
-
 + **Casual User Key Points**:
     - Casual users demonstrate seasonal fluctuations in bike usage, with peak rides occurring in warmer months and declining in colder ones. The highest ride count is recorded in July, while the lowest is in January. Average ride length varies throughout the year, with shorter rides in January and longer rides in July, reflecting preferences for extended rides during the summer. Similarly, average ride distance increases from January to June, indicating longer distances covered in warmer months. Casual users exhibit a preference for leisure and recreational biking, with peak usage on weekends during the summer, suggesting a seasonal pattern influenced by weather and outdoor activities.
 + **Member User Key Points**:
@@ -3842,16 +3972,12 @@ These insights uncover noteworthy trends in bike usage between casual and member
 --------------------------------------
 
 ### **Quarterly Trends**
-
 ![5 1 Quarterly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/91a5e632-8810-4c24-88a5-79069d95e5ed)
-
 ![5 2 Quarterly Ride Length Average (minutes)](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/9ef45501-2e7e-4a81-8df6-7757247650c9)
-
 ![5 3 Quarterly Ride Distance Average (miles)](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/67ca4914-45b6-4189-abdc-c35f8e056d7d)
 
 #### **Summary of Quarterly Trends**
 The analysis of the “**Quarterly Trends**” visualizations demonstrates the bike usage habits between the two user groups across different quarters of the year, highlighting:
-
 + **Casual User Key Points**:
     - Casual users exhibit a notable fluctuation in bike usage across different quarters, with ride counts peaking in the 2nd and 3rd quarters and declining in the 1st and 4th quarters. The 3rd quarter sees the highest ride count, while the lowest count occurs in the 1st quarter. This corresponds to seasonal changes, with warmer months typically seeing higher ride volumes as individuals engage in outdoor activities. Average ride length also demonstrates longer durations in the third quarter and shorter durations in the first quarter. This could be attributed to casual users opting for leisurely rides or exploring outdoor destinations, resulting in longer ride durations. Furthermore, the average ride distance follows a similar trend, with longer distances covered during the summer months compared to the colder seasons. These usage patterns suggest a seasonal trend in casual users' biking behavior, influenced by factors such as weather conditions and outdoor activities.
 + **Member User Key Points**:
@@ -3870,12 +3996,10 @@ These insights uncover an understanding of the distinct patterns of user behavio
 --------------------------------------
 
 ### **Rideable Trends**
-
 ![6 1 Rideable Type Trends](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/6ea13403-ca07-4b5a-9290-ddf3eb3420ee)
 
 #### **Summary of Rideable Trends**
 The analysis of the “**Rideable Trends**” visualizations demonstrates the popularity of different rideable types among casual and member users, highlighting:
-
 + **Casual User Key Points**:
     - Casual users clearly favor electric_bikes (1,043,904 rides), as evidenced by the significantly higher count compared to classic_bikes (843,957 rides) and docked_bikes (74,850 rides). This preference suggests a desire for convenience and flexibility, likely due to the ease of navigation and reduced physical exertion associated with electric_bikes. While classic_bikes also see considerable usage among casual users, their count is notably lower than electric_bikes, indicating a secondary preference for traditional biking experiences. Docked_bikes, however, are the least popular among casual users, suggesting limited usage of this rideable type within this user group. This may be attributed to the inconvenience of returning the bike to a docking station, which might not align with the flexibility and convenience users seek.
 + **Member User Key Points**:
@@ -3894,7 +4018,6 @@ These insights uncover the distinct preferences between the two user groups in t
 --------------------------------------
 
 ### **Map Trends**
-
 [![7 0 Interactive Map](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/ca305484-4be9-419e-bf53-c056df5755d9)](https://htmlview.glitch.me/?https://github.com/chaanalyst/Portfolio-Projects/blob/main/Google%20Data%20Analytics%20Capstone%20Projects/Cyclistic%20Bike-Share%3A%20Case%20Study/R%20/Interactive%20Map/Interactive_Map.html)
 
 > [!NOTE]
@@ -3902,7 +4025,6 @@ These insights uncover the distinct preferences between the two user groups in t
 
 #### **Summary of Map Trends**
 The analysis of the "**Map Trends**" interactive map demonstrates a key examination of popular locations in Chicago for user pathways, characterized by the dynamic interplay between start-points, end-points, and quarterly fluctuations (Q1 (January - March), Q2 (April - June), Q3 (July - September), and Q4 (October - December)), drawing insights from sample data extracted from the main dataset, highlighting:
-
 + **Casual User Key Points**:
     - Casual users exhibit a clear preference for shorter excursions, often for leisure, as evidenced by the clustering of electric_bike trips within a concise distance range of 0.51 to 5.04 miles. This inclination towards localized rides is supported by popular routes like Winthrop Ave & Lawrence Ave to Wilton Ave & Belmont Ave, indicating a preference for sightseeing or errands. Bike preferences align with this behavior, with stations like Broadway & Cornelia Ave meeting user needs due to proximity to recreational spots or tourist attractions. Geographical influences shape usage patterns, with stations near business districts experiencing heightened demand on weekdays for commuting, while those near parks observe increased usage on weekends or holidays. Seasonal variations further emphasize geographical factors. For instance, in Q1, users demonstrate lower bike usage, shorter trip durations, and a preference for traditional bikes due to colder weather. As Q2 approaches, activity increases with longer trips and a shift towards electric_bikes for comfort. Q3 sees peak activity with longer rides and sustained popularity of electric_bikes, reflecting favorable weather. However, Q4 witnessed declining usage with shorter rides and a return to traditional bikes, indicating decreased outdoor activity due to colder temperatures and reduced daylight hours. The preference for shorter excursions among casual riders, influenced by localized routes and seasonal variations, underscores the dynamic nature of behavior in bike-sharing services.
 + **Member User Key Points**:
@@ -3921,12 +4043,11 @@ The insights from the interactive map uncover a nuanced understanding of Chicago
 --------------------------------------
 
 ### **Cyclistic Bike-Share PowerPoint Presentation**
-
 ![Cyclistic Bike-Share Case Study PowerPoint Presentation](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/d62bb372-f511-489c-a052-c6529bc2aee2)
 
 #### **Summary of Cyclistic Bike-Share Program Analysis**
 
-The Cyclistic Bike-Share presentation explores data-driven insights into user behaviors, preferences, and motivations among casual and annual members. The analysis delves into seasonal and geographical influences, as well as bike type preferences, for informed decision-making. Proposed marketing strategies aim to convert casual riders into annual members, optimizing services, enhancing user experience, and foster long-term engagement within the Cyclistic community.
+The Cyclistic Bike-Share presentation explores data-driven insights into user behaviors, preferences, and motivations among casual and annual members. The analysis delves into seasonal and geographical influences, as well as bike type preferences, for informed decision-making. Proposed marketing strategies aim to convert casual riders into annual members, optimizing services, enhancing user experience, and fostering long-term engagement within the Cyclistic community.
 
 ### Key Tasks
 - [x]  Determine the best way to share your findings.
@@ -3939,7 +4060,7 @@ The Cyclistic Bike-Share presentation explores data-driven insights into user be
 
 ## 🎭 The 'Act' Phase
 
-### **Summary of Key Questions:**
+### **Summary of Key Questions**:
 1. **How do annual members and casual riders use Cyclistic bikes differently?**
     - Annual members and casual riders demonstrate distinct usage patterns with Cyclistic bikes. Annual members primarily rely on the service for shorter, routine commutes or transportation, evident in their shorter average ride lengths and distances, often peaking during typical work hours on weekdays. In contrast, casual riders tend to opt for longer, leisure-oriented trips, leading to longer average ride lengths and slightly greater distances, especially during weekends and late afternoons. While annual members exhibit stable and predictable demand patterns, reflecting a reliance on Cyclistic for daily transportation needs, casual riders display more variable usage, with fluctuations influenced by leisure and recreational activities. The choice of bike type also varies, with annual members favoring classic bikes for practical commuting, while casual riders prefer electric bikes for added convenience and comfort during their leisure rides. Despite seasonal fluctuations affecting both groups, casual riders' usage tends to be more influenced by weather conditions, peaking in warmer months for outdoor activities.
 2. **Why would casual riders buy Cyclistic annual memberships?**
@@ -3963,18 +4084,17 @@ The Cyclistic Bike-Share presentation explores data-driven insights into user be
 In conclusion, the analysis of Cyclistic's bike trip data has uncovered clear distinctions in usage patterns, preferences, and motivations between casual riders and annual members, with notable differences in bike preferences, trip durations, and seasonal trends underscoring their diverse needs. Utilizing this insight, Cyclistic can implement targeted marketing strategies to enhance conversion rates, drive growth, and increase profitability. 
 
 #### **Key Takeaways**
-+ **User Segmentation:** The analysis has uncovered distinct behavioral patterns and preferences between casual riders and annual members. This knowledge can be leveraged to tailor Cyclistic's product offerings, marketing strategies, and customer experience to cater to the specific needs of each user segment effectively.
-+ **Operations Optimization:** By leveraging the insights gained from analyzing user patterns and preferences, Cyclistic can develop strategies to optimize various aspects of its operations. This includes optimizing resource allocation, bike station placement, and infrastructure development to better align with user demand and behavior.
-+ **Membership Conversion:** Armed with a deeper understanding of user diversity, Cyclistic can now focus on developing targeted digital marketing campaigns aimed at converting casual riders into annual members. The insights from the analysis will inform the messaging and value proposition to effectively communicate the benefits of an annual membership.
++ **User Segmentation**: The analysis has uncovered distinct behavioral patterns and preferences between casual riders and annual members. This knowledge can be leveraged to tailor Cyclistic's product offerings, marketing strategies, and customer experience to cater to the specific needs of each user segment effectively.
++ **Operations Optimization**: By leveraging the insights gained from analyzing user patterns and preferences, Cyclistic can develop strategies to optimize various aspects of its operations. This includes optimizing resource allocation, bike station placement, and infrastructure development to better align with user demand and behavior.
++ **Membership Conversion**: Armed with a deeper understanding of user diversity, Cyclistic can now focus on developing targeted digital marketing campaigns aimed at converting casual riders into annual members. The insights from the analysis will inform the messaging and value proposition to effectively communicate the benefits of an annual membership.
 + **Sustainable Conversion**: Cyclistic can leverage insights from the analysis to convert casual riders into annual members and drive future growth. By showcasing the advantages of bike-sharing, including cost-effectiveness, convenience, and environmental sustainability, Cyclistic can develop a persuasive plan to encourage casual riders to become annual members, attract new users, and maintain customer loyalty. This strategic focus on sustainability reinforces Cyclistic's commitment to providing eco-conscious transportation options while advancing its business objectives.
 
 #### **Recommendations for Improved User Engagement**
 To further improve understanding and drive continuous improvement, the following actions are recommended:
-
-+ **User Feedback Analysis:** Conduct a detailed analysis of user feedback gathered through surveys, reviews, and customer support interactions. This analysis can provide valuable insights into user satisfaction, pain points, and areas for improvement in the service, allowing Cyclistic to make data-driven decisions to enhance the user experience.
-+ **Competitor Benchmarking:** Compare Cyclistic's performance metrics, service offerings, and user experience against key competitors in the bike-sharing industry. This benchmarking analysis can identify areas where Cyclistic lags behind competitors and areas of competitive advantage, informing strategic initiatives to stay ahead in the market.
-+ **Predictive Modeling:** Develop predictive models using historical data to forecast future trends in user demand, bike utilization, and membership growth. These models can help Cyclistic anticipate fluctuations in demand, optimize resource allocation, and make proactive decisions to meet user needs effectively.
-+ **A/B Testing:** Implement A/B testing experiments to evaluate the effectiveness of different marketing campaigns, pricing strategies, and product features in driving user engagement and conversion. By systematically testing and iterating on various initiatives, Cyclistic can identify what resonates most with users and optimize its approach accordingly.
++ **User Feedback Analysis**: Conduct a detailed analysis of user feedback gathered through surveys, reviews, and customer support interactions. This analysis can provide valuable insights into user satisfaction, pain points, and areas for improvement in the service, allowing Cyclistic to make data-driven decisions to enhance the user experience.
++ **Competitor Benchmarking**: Compare Cyclistic's performance metrics, service offerings, and user experience against key competitors in the bike-sharing industry. This benchmarking analysis can identify areas where Cyclistic lags behind competitors and areas of competitive advantage, informing strategic initiatives to stay ahead in the market.
++ **Predictive Modeling**: Develop predictive models using historical data to forecast future trends in user demand, bike utilization, and membership growth. These models can help Cyclistic anticipate fluctuations in demand, optimize resource allocation, and make proactive decisions to meet user needs effectively.
++ **A/B Testing**: Implement A/B testing experiments to evaluate the effectiveness of different marketing campaigns, pricing strategies, and product features in driving user engagement and conversion. By systematically testing and iterating on various initiatives, Cyclistic can identify what resonates most with users and optimize its approach accordingly.
 
 By prioritizing these recommendations and leveraging the insights gained from the analysis, Cyclistic can refine services, enhance user experiences, and foster sustained engagement with users.
 
