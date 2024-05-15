@@ -124,7 +124,7 @@ select
   , data_type
   , character_maximum_length
   , is_nullable
-  , column_default -- Default value of the column
+  , column_default 
 from
     information_schema.columns
 where
@@ -156,7 +156,7 @@ select
   , data_type
   , character_maximum_length
   , is_nullable
-  , column_default -- Default value of the column
+  , column_default 
 from
     information_schema.columns
 where
@@ -188,7 +188,7 @@ select
   , data_type
   , character_maximum_length
   , is_nullable
-  , column_default -- Default value of the column
+  , column_default 
 from
     information_schema.columns
 where
@@ -220,7 +220,7 @@ select
   , data_type
   , character_maximum_length
   , is_nullable
-  , column_default -- Default value of the column
+  , column_default 
 from
     information_schema.columns
 where
@@ -252,7 +252,7 @@ select
   , data_type
   , character_maximum_length
   , is_nullable
-  , column_default -- Default value of the column
+  , column_default 
 from
     information_schema.columns
 where
@@ -284,7 +284,7 @@ select
   , data_type
   , character_maximum_length
   , is_nullable
-  , column_default -- Default value of the column
+  , column_default 
 from
     information_schema.columns
 where
@@ -316,7 +316,7 @@ select
   , data_type
   , character_maximum_length
   , is_nullable
-  , column_default -- Default value of the column
+  , column_default 
 from
     information_schema.columns
 where
@@ -348,7 +348,7 @@ select
   , data_type
   , character_maximum_length
   , is_nullable
-  , column_default -- Default value of the column
+  , column_default 
 from
     information_schema.columns
 where
@@ -380,7 +380,7 @@ select
   , data_type
   , character_maximum_length
   , is_nullable
-  , column_default -- Default value of the column
+  , column_default 
 from
     information_schema.columns
 where
@@ -412,7 +412,7 @@ select
   , data_type
   , character_maximum_length
   , is_nullable
-  , column_default -- Default value of the column
+  , column_default 
 from
     information_schema.columns
 where
@@ -1310,7 +1310,7 @@ select
   , data_type -- Data type of the column
   , character_maximum_length -- Maximum length of character data type columns
   , is_nullable -- Indicates whether the column allows NULL values
-  , column_default -- Default value of the column
+  , column_default 
 from
     information_schema.columns
 where
