@@ -2425,7 +2425,6 @@ where
 ### User Trends
 
 #### User Type Overview
-
 <details>
   <summary>Click to expand SQL code:</summary>
 
@@ -2447,6 +2446,7 @@ group by
 order by
     user_type;
 ```
+
 </details>
 
 | user_type | ride_count | ride_count_percentage | avg_ride_length | avg_ride_distance |
@@ -2454,14 +2454,13 @@ order by
 | casual    | 1,695,628  | 35.35                 | 19.87           | 1.56              |
 | member    | 3,101,101  | 64.65                 | 12.72           | 1.52              |
 
-+ The table presents insights into the platform's ridership statistics for 2023, totaling **5,459,091 rides**.
++ The table presents insights into the platform's ridership statistics for **2023**, totaling **5,459,091 rides**.
 + Casual users accounted for **1,695,628 rides**, constituting approximately **35.35%** of the total. Their average ride duration was **19.87 minutes**, and the average distance covered was **1.56 miles** per ride.
 + On the other hand, member users contributed **3,101,101 rides**, representing about **64.65%** of the total rides. Their average ride duration was **12.72 minutes**, and the average distance covered was **1.52 miles** per ride. 
 
 ### Hourly Trends
 
 #### Hourly Overview
-
 <details>
   <summary>Click to expand SQL code:</summary>
   
@@ -2553,7 +2552,6 @@ order by
 | member    | 10 PM | 74,243     | 12.67           | 1.57              |
 | member    | 11 PM | 47,463     | 12.51           | 1.56              |
 
-
 </td></tr> </table>
 
 + The table reveals insights into the platform's ridership statistics across different times of the day.
@@ -2563,7 +2561,6 @@ order by
 ### Weekly Trends
 
 #### Weekly Overview
-
 <details>
   <summary>Click to expand SQL code:</summary>
 
@@ -2629,7 +2626,6 @@ order by
 ### Monthly Trends
 
 #### Monthly Overview
-
 <details>
   <summary>Click to expand SQL code:</summary>
   
@@ -2710,7 +2706,6 @@ order by
 ### Quarterly Trends
 
 #### Quarterly Overview
-
 <details>
   <summary>Click to expand SQL code:</summary>
   
@@ -2762,7 +2757,6 @@ order by
 ### Rideable Trends
 
 #### Rideable Type Overview
-
 <details>
   <summary>Click to expand SQL code:</summary>
 
@@ -2808,64 +2802,13 @@ order by
 + Casual users embarked on a combined total of **1,695,628 bike rides** across three categories. **Classic_bikes (716,056 rides)** saw the highest uptake, averaging a duration of **24.35 minutes** and covering a distance of **1.54 miles** per ride. **Docked_bikes (57,108 rides)** exhibited longer rides, averaging **45.90 minutes** and covering **1.77 miles**, despite being fewer in number. **Electric_bikes (922,464 rides)** were the most popular among casual users, featuring shorter but more frequent trips, averaging **14.77 minutes** in duration and covering **1.57 miles** per ride.
 + Member users engaged in a total of **3,101,101 bike rides** across two categories. **Classic_bikes (1,521,033 rides)** had an average ride duration of **13.61 minutes** and covered **1.39 miles** per ride. **Electric_bikes (1,580,068 rides)** emerged as the preferred choice for members, characterized by shorter durations averaging **11.86 minutes** and covering slightly longer distances, averaging **1.64 miles per ride**.
 
-### Station Trends
+### Station Trend
 
 #### Most Popular Start Stations
-
 <details>
   <summary>Click to expand SQL code:</summary>
   
 ```sql
-select
-    user_type
-  , start_station_name
-  , start_station_trips
-from
-    (
-        select
-            'casual' as user_type
-          , start_station_name
-          , count(*) as start_station_trips
-        from
-            [dbo].[2023-divvy-tripdataupdated]
-        where
-            start_station_name is not null
-            and user_type = 'casual'
-        group by
-            start_station_name
-        order by
-            start_station_trips desc
-        offset
-            0 rows
-        fetch first
-            20 rows only
-    ) as TopCasualStations;
-
-select
-    user_type
-  , start_station_name
-  , start_station_trips
-from
-    (
-        select
-            'member' as user_type
-          , start_station_name
-          , count(*) as start_station_trips
-        from
-            [dbo].[2023-divvy-tripdataupdated]
-        where
-            start_station_name is not null
-            and user_type = 'member'
-        group by
-            start_station_name
-        order by
-            start_station_trips desc
-        offset
-            0 rows
-        fetch first
-            20 rows only
-    ) as TopMemberStations;
-
 select
     user_type
   , start_station_name
@@ -2913,7 +2856,7 @@ from
         offset
             0 rows
         fetch first
-            10 rows onlybn  
+            10 rows only
     ) as TopMemberStations;
 ```
 
@@ -2972,13 +2915,12 @@ from
 </td></tr> </table>
 
 + The table provides insights into the platform's most popular start stations for both casual and member users.
-+ The top start station for casual users is **"Streeter Dr & Grand Ave" (39,395 trips)**. Other popular start stations include **"DuSable Lake Shore Dr & Monroe St" (22,840 trips)**, **"Michigan Ave & Oak St" (19,924 trips)**, and **"DuSable Lake Shore Dr & North Blvd" (19,477 trips)**. Some of these stations are situated near popular tourist attractions, shopping areas, or recreational spots, making them attractive destinations for casual riders interested in leisurely rides, city exploration, shopping, dining, or outdoor activities. Overall, these start stations reflect the diverse preferences and interests among casual users.
++ The top start station for casual users is **"Streeter Dr & Grand Ave" (39,395 trips)**. Other popular start stations include **"DuSable Lake Shore Dr & Monroe St" (22,840 trips)**, **"Michigan Ave & Oak St" (19,924 trips)**, and **"DuSable Lake Shore Dr & North Blvd" (19,477 trips)**. Some of these stations are situated near popular tourist attractions, shopping areas, or recreational spots, making them attractive destinations for casual riders interested in leisurely rides, city exploration, shopping, dining, or outdoor activities. Overall, these start stations reflect the diverse preferences and interests of casual users.
 + For member users, the top start station is **"Clinton St & Washington Blvd" (24,587 trips)**. Other frequently used start stations include **"Clark St & Elm St" (23,908 trips)**, **"Kingsbury St & Kinzie St" (23,224 trips)**, and **"Wells St & Concord Ln" (22,228 trips)**. These stations are located in various neighborhoods, catering to member users residing in or commuting to the respective areas. Some stations may be conveniently located near popular attractions, office buildings, restaurants, or nightlife spots, making them suitable for commuting or social activities. Overall, these start stations fulfill a variety of needs for member users across different neighborhoods.
 
-### Map Trends
+### Map Trend
 
 #### Most Traveled Routes
-
 <details>
   <summary>Click to expand SQL code:</summary>
 
@@ -3002,7 +2944,7 @@ where
     )
     and user_type = 'casual'
     and start_station_name is not null
-    and end_station_name is not null -- Ensure start and end station names are not null
+    and end_station_name is not null
 group by
     user_type
   , start_station_name
@@ -3034,7 +2976,7 @@ where
     )
     and user_type = 'member'
     and start_station_name is not null
-    and end_station_name is not null -- Ensure start and end station names are not null
+    and end_station_name is not null
 group by
     user_type
   , start_station_name
@@ -3064,16 +3006,12 @@ having
 ## 🎁 The 'Share' Phase
 
 ### **User Type Trends**
-
 ![1  User Type Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/48f259a7-0401-4b63-9f41-1a6cb5eab885)
-
 ![1 1 Average Ride Length](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/53ca7851-509e-4620-b2c4-5376fe4bcd13)
-
 ![1 2 Average Ride Distance](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/579c7ffa-c166-4fe1-9779-a53d1889a52f)
 
 #### **Summary of User Trends**
 The "**User Trends**" visuals explore user behavior, preferences, and demographics between casual and member users in the year 2023, spotlighting:
-
 + **Casual User Key Findings**:
   - Casual users, comprising a significant portion of the total rides, exhibit behavior patterns characterized by longer average ride durations and slightly longer distances covered per ride compared to member users. These behavior patterns suggest a habit among casual users for more extended and exploratory rides, perhaps to enjoy leisurely experiences while navigating through the city. The preference for leisurely rides implies a focus on recreational or occasional transportation needs rather than the functional necessity of commuting, indicating a desire for flexibility in transportation choices. The inclination towards leisurely exploration aligns with the idea of using bike rides as a means of experiencing the city's ambiance or enjoying outdoor activities.
 + **Member User Key Findings**:
@@ -3092,16 +3030,12 @@ This analysis serves as a foundational step towards understanding the unique cha
 --------------------------------------
 
 ### **Hourly Trends**
-
 ![2  Hourly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/f7a88658-5576-4842-9097-50bcd887187d)
-
 ![2 1 Hourly Average Ride Length](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/6825cffb-45ac-4584-a777-bf8b430996dd)
-
 ![2 2 Hourly Average Ride Distance](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/751a11be-a0ef-435a-8962-2ad42e6e7439)
 
 #### **Summary of Hourly Trends**
 The "**Hourly Trends**" visuals explore fluctuations in activity throughout the day, spotlighting:
-
 + **Casual User Key Findings**:
    - Casual users demonstrate diverse engagement with the platform throughout the day, with ride counts peaking during late morning and early afternoon hours, notably at 11 AM through 1 PM. This suggests a preference for midday leisure activities or recreational outings, aligning with the tendency for longer average ride durations during these hours. The peak in ride counts at 5 PM further indicates the utilization of bike rides for post-work relaxation or social activities. Conversely, ride counts taper off during early morning hours, indicating a lower propensity for engagement in bike rides for commuting or early morning activities. The fluctuations in both ride counts and average ride durations throughout the day underscored the flexible and spontaneous nature of casual user behavior, with rides often being influenced by recreational opportunities and leisurely pursuits.
 + **Member User Key Findings**:
@@ -3120,16 +3054,12 @@ This analysis reveals significant findings regarding the behaviors of both casua
 --------------------------------------
 
 ### **Weekly Trends**
-
 ![3  Weekly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/d9091b6f-42ab-423b-a8ca-5a975eb0a320)
-
 ![3 1 Weekly Average Ride Length](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/2fd0be1f-6b95-411d-b5eb-4b110390fa1c)
-
 ![3 2 Weekly Average Ride Distance](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/c3b13c5c-f844-49da-9f27-827dc9c6f3d8)
 
 #### **Summary of Weekly Trends**
 The "**Weekly Trends**" visuals explore recurring patterns on a weekly basis, spotlighting:
-
 + **Casual User Key Findings**:
    - Casual users exhibit notable fluctuations in ride counts across different days of the week, with the highest count observed on Sundays and the lowest on Tuesdays. This pattern suggests that casual users may prefer weekend rides, possibly for recreational or leisure purposes, while engagement drops during weekdays, possibly due to work or other commitments. Moreover, the average ride length for casual users remains relatively consistent throughout the week, reaching its peak on Mondays and its lowest on Thursdays. This indicates a preference for longer rides at the beginning of the week, possibly for weekend outings or leisure activities, while ride durations shorten towards the end of the week. Similarly, casual users' average ride distances fluctuate across different days, with Sundays recording the highest distances and Thursdays the lowest, reflecting the varying intensity of recreational activities or leisurely exploration across the week.
 + **Member User Key Findings**:
@@ -3148,16 +3078,12 @@ This analysis reveals key findings regarding the patterns of both user categorie
 --------------------------------------
 
 ### **Monthly Trends**
-
 ![4  Monthly User Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/87aea40a-3e1e-4996-a900-35d9c4bd6b94)
-
 ![4 1 Monthly Average Ride Length](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/290f2377-7511-4648-b346-addf21c9f0eb)
-
 ![4 2 Monthly Average Ride Distance](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/20009d99-155d-49dc-8eb3-f232688f58a4)
 
 #### **Summary of Monthly Trends**
 The "**Monthly Trends**" visuals explore trends and changes over each month, spotlighting:
-
 + **Casual User Key Findings**:
    - Casual users exhibit fluctuations in ride counts throughout the year, with peaks observed during summer months, particularly in July, and lows during winter months, notably in January. This pattern suggests a seasonal trend in casual user engagement, with higher activity levels during warmer months conducive to outdoor activities. The fluctuations in ride counts are likely influenced by factors such as weather conditions and the availability of outdoor recreational opportunities. Moreover, the average ride length for casual users follows a similar pattern, peaking in July and declining in January, indicating variations in ride durations across seasons. These variations may be due to changes in weather conditions and the desire for longer rides during more pleasant outdoor conditions. The average ride distances for casual users also fluctuate throughout the year, with peaks observed in summer months like June and July and lows in winter months like January and December, reflecting seasonal preferences for longer recreational rides during warmer weather.
 + **Member User Key Findings**:
@@ -3176,16 +3102,12 @@ This analysis reveals key findings regarding the fluctuations in bike usage patt
 --------------------------------------
 
 ### **Quarterly Trends**
-
 ![5  Quarterly Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/e46a9129-f0a8-40a7-a420-f8ad91c18a83)
-
 ![5 1 Quarterly Average Ride Length](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/28d437ae-d905-4735-848f-1098e1c33671)
-
 ![5 2 Quarterly Average Ride Distance](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/67720bde-f717-4ec2-92b6-ae21f576fc0a)
 
 #### **Summary of Quarterly Trends**
 The "**Quarterly Trends**" visuals explore broader trends across quarters, spotlighting:
-
 + **Casual User Key Findings**:
    - Casual users demonstrate fluctuations in ride counts across quarters, with the highest activity observed in Q3 and the lowest in Q1. This pattern suggests a seasonal trend in casual user engagement, with peak usage during warmer months conducive to outdoor activities. For example, during Q3, which typically encompasses the summer months, casual users are more likely to engage in recreational biking due to favorable weather conditions and vacation periods. Moreover, the average ride length for casual users follows a similar pattern, peaking in Q3 and declining in Q1, indicating variations in ride durations across quarters. The average ride distances for casual users also fluctuate throughout the year, with peaks observed in Q2 and Q3 and lows in Q1, reflecting seasonal preferences for longer recreational rides during warmer weather.
 + **Member User Key Findings**:
@@ -3204,12 +3126,10 @@ This analysis reveals key findings regarding the identification of specific beha
 --------------------------------------
 
 ### **Rideable Trends**
-
 ![6  Rideable Type Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/71a536c4-04bc-4094-a3e8-1b703818a810)
 
 #### **Summary of Rideable Trends**
 The "**Rideable Trends**" visuals explore usage patterns of different types of rideable bikes, spotlighting:
-
 + **Casual User Key Findings**:
    - Casual users demonstrate diverse preferences for rideable types, with **electric_bikes** being the most popular choice, accounting for the majority of their rides. Despite shorter average ride durations, electric_bikes are favored for their convenience and ease of use, enabling users to cover moderate distances efficiently. **Classic_bikes** also attract a significant number of casual users, offering longer rides with leisurely pacing, ideal for exploring urban areas or enjoying recreational outings. In contrast, **docked_bikes** exhibit the longest average ride durations and cover the longest distances per ride, suggesting their usage for more extensive excursions or leisurely rides.
 + **Member User Key Findings**:
@@ -3228,12 +3148,10 @@ This analysis reveals key findings regarding the clear differences in bike prefe
 --------------------------------------
 
 ### **Station Trends**
-
 ![7  Start Station Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/18d4cf76-0c20-49bd-b51c-133c4dd2fa5b)
 
 #### **Summary of Station Trends**
 The "**Station Trends**" visuals explore the usage and popularity of different start stations, spotlighting:
-
 + **Casual User Key Findings**:
    - Casual users exhibit diverse preferences for start stations, with the top station being "Streeter Dr & Grand Ave". This station's popularity suggests that casual users are often drawn to locations near waterfront areas or recreational spots, indicating a preference for leisurely rides along the lakeshore or access to nearby attractions. Other popular start stations like "DuSable Lake Shore Dr & Monroe St" and "Michigan Ave & Oak St" are situated in bustling urban areas with easy access to parks, shopping districts, and cultural landmarks, catering to casual riders interested in city exploration, sightseeing, or outdoor activities. These start stations highlight casual users' inclination towards flexible, recreational biking experiences that align with their interests and leisure pursuits.
 + **Member User Key Findings**:
@@ -3252,12 +3170,10 @@ This analysis reveals key findings regarding the top choice of start stations be
 --------------------------------------
 
 ### **Map Trends**
-
 ![8  Map Overview](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/e663af14-3892-41d4-b0b3-d520b2959157)
 
 #### **Summary of Map Trends**
 The "**Map Trends**" visuals explore geographic patterns and trends in the city, spotlighting:
-
 + **Casual User Key Findings**:
    - Casual users exhibit several notable behavior patterns, such as preferring short-distance trips, as evidenced by the relatively low average distance traveled per ride. Favored start stations are often situated near popular tourist attractions, recreational areas, and shopping districts, indicating a preference for leisurely rides focused on sightseeing or exploring the city. Additionally, casual users show variability in riding habits, with certain stations experiencing significantly higher ride volumes than others. This variability may be influenced by factors such as weather conditions, special events, or seasonal tourism patterns. These observations highlight the recreational nature of casual bike riding, with users frequently opting for convenient, short-distance trips to explore urban environments or partake in leisure activities.
 + **Member User Key Findings**:
@@ -3276,13 +3192,10 @@ This analysis reveals key findings regarding Chicago's user pathways, examining 
 --------------------------------------
 
 ### **Cyclistic Bike-Share Interactive Dashboard**
-
 ![Cyclistic Dashboard](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/0f0e2353-580a-4806-a237-098e3cd19f3d)
 
 #### **Summary of Cyclistic Bike-Share Program Analysis**
-
 The "**Cyclistic Bike-Share Dashboard**" provides a thorough analysis of key aspects of user behavior and engagement within the platform:
-
 + **User Segmentation**: Provides insights into user demographics and usage patterns, contributing to optimizing bike availability.
 + **Hourly User Activity**: Identifies peak usage periods, facilitating enhanced bike availability.
 + **Weekly Ride Duration**: Highlights trends in ride duration over time, assisting in understanding user preferences and habits.
@@ -3334,7 +3247,6 @@ In conclusion, the analysis of “Cyclistic's Bike-Share Trip Data” unveils cl
 
 #### **Recommendations for Improved User Engagement**
 For increased clarity and ongoing development, consider adopting the following strategies:
-
 + **Customer Feedback Integration**: By integrating customer feedback data into the analysis to gain insights into user satisfaction, preferences, and pain points. This qualitative data can complement quantitative findings and inform strategic decision-making and service improvements.
 + **Competitive Benchmarking**: Through conducting competitive benchmarking to compare Cyclistic's performance and offerings with other bike-sharing services in similar urban environments. This analysis can identify strengths, weaknesses, and opportunities for differentiation or improvement.
 + **Predictive Modeling**: By implementing predictive modeling techniques to forecast future ride demand, enabling Cyclistic to optimize bike distribution, staffing, and resource allocation, thus improving operational efficiency and customer satisfaction.
