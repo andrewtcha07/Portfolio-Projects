@@ -1,6 +1,6 @@
 ## About This Portfolio:
 
-**Welcome to my Data Analysis Portfolio!** 📊 
+### **Welcome to my Data Analysis Portfolio!** 📊 
 
 Here, I showcase my passion for unraveling insights hidden within complex datasets and presenting them in a clear, compelling manner. Whether you're a fellow data enthusiast, a potential collaborator, or simply curious about the power of data, I invite you to explore the projects housed within this repository.
 
@@ -11,6 +11,20 @@ Here, I showcase my passion for unraveling insights hidden within complex datase
 📈 **Interactive Visualizations:** Experience the stories behind the data through interactive visualizations crafted to illuminate trends, patterns, and correlations. From dynamic dashboards to interactive plots, these visualizations bring the data to life.
 
 🔧 **Tools and Technologies:** Discover the tools and technologies I leverage to extract insights from data, including Excel, R, SQL, Tableau, and more. Each project demonstrates my proficiency in utilizing these tools to tackle real-world challenges.
+
+## My Projects:
+
+### [COVID-19 Data Analysis: Infections, Mortality, and Vaccinations](https://github.com/chaanalyst/Portfolio-Projects/tree/7213791585d891aeff42966dff0bb26ad7d06f5b/SQL%20Projects%20/Project%201%3A%20COVID19%20Data%20-%20Infections%2C%20Deaths%2C%20and%20Vaccinations%20#covid-19-data-infections-mortality-and-vaccinations)
+
+**Description**: This dataset delves into the impact of COVID-19 across different countries and continents, providing insights into cases, deaths, and vaccinations from 2020 to 2024. The analysis explores various aspects of the dataset, shedding light on the spread of the virus, mortality rates, and the progress of vaccination campaigns.
+
+**Skills**:
+  - MySQL
+  - Microsoft Excel
+  - Azure Data Studio
+  - Tableau
+
+### 
 
 ## My Approach:
 
@@ -23,3 +37,6 @@ Here, I showcase my passion for unraveling insights hidden within complex datase
 ## Get in Touch:
 
 If you're interested in learning more about my work, discussing potential collaborations, or have any questions, don't hesitate to reach out. I'm excited to connect and explore the boundless possibilities of data together!
+
++ Email: `andrewtcha07@gmail.com`
++ LinkedIn: `linkedin.com/in/andrew-cha`
