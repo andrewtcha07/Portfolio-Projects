@@ -126,6 +126,6 @@ The analysis will address these key questions:
 
 ### Tools
 To see the remaining steps of the process, please visit the following pages:
-+ **Microsoft Excel**
-+ **R**
-+ **SQL**
++ [**Microsoft Excel**](https://github.com/chaanalyst/Portfolio-Projects/tree/bc8a0fc3cd483d102b137af66724584887b24edf/Google%20Data%20Analytics%20Capstone%20Projects/Cyclistic%20Bike-Share%3A%20Case%20Study/Microsoft%20Excel%20)
++ [**R**](https://github.com/chaanalyst/Portfolio-Projects/tree/bc8a0fc3cd483d102b137af66724584887b24edf/Google%20Data%20Analytics%20Capstone%20Projects/Cyclistic%20Bike-Share%3A%20Case%20Study/R%20)
++ [**SQL**](https://github.com/chaanalyst/Portfolio-Projects/tree/bc8a0fc3cd483d102b137af66724584887b24edf/Google%20Data%20Analytics%20Capstone%20Projects/Cyclistic%20Bike-Share%3A%20Case%20Study/SQL%20)
