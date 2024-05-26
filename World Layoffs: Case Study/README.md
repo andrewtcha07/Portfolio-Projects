@@ -1050,7 +1050,7 @@ limit
 
 ## Exploratory Data Analysis
 
-### Max Layoffs Metrics
+### Layoffs Metrics
 ```sql
 select
     max(total_laid_off) as max_total
