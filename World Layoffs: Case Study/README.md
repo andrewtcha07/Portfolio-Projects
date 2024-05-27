@@ -1,15 +1,15 @@
 # World Layoffs: Case Study 💼
 
-## Introduction
+## ℹ️ Introduction
 The global pandemic has profoundly impacted economies worldwide, triggering a significant economic downturn. Factors such as decreased consumer spending and heightened central bank interest rates have fueled concerns about an impending recession. Consequently, this turmoil has resulted in significant layoffs within the technology industry. Amidst these challenges, there arises the need for a thorough examination.
 
-## Objectives
+## 📑 Objectives
 This analysis will delve into the challenges faced by the tech sector, offering insights from the onset of COVID-19 to the present day, exploring:
 + Identify trends and patterns in layoffs within the technology sector.
 + Assess the impact of COVID-19 on employment within the tech industry.
 + Explore factors contributing to layoffs in specific technology subfields.
 
-## Data Information
+## 🗃 Data Information
 This dataset is available on [Kaggle](https://www.kaggle.com/datasets/swaptr/layoffs-2022/data), credited to [Roger Lee](https://www.rogerlee.com/).
 Tech layoffs were reported by:
 + Bloomberg
