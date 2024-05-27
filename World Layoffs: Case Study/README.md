@@ -52,7 +52,7 @@ The dataset covers the period from **March 2020**, when COVID-19 was declared a 
 > + **`Post-IPO`**: Companies at this stage have gone public through an initial public offering (IPO). Post-IPO funding may involve additional rounds of financing or strategic investments after the company has become publicly traded.
 > + **`Unknown`**: This category may include cases where the stage of funding or development is not specified or is vague.
 
-## Analysis Method - Introduction
+## ☝ Analysis Method - Introduction
 
 ### Creation of Database / Schema
 ```sql
@@ -150,7 +150,7 @@ from
 
 `3225 row(s) affected Records: 3225  Duplicates: 0  Warnings: 0`
 
-## Analysis Method - Remove Duplicates
+## 🧹 Analysis Method - Remove Duplicates
 
 ### Assign Row Numbers
 ```sql
@@ -341,7 +341,7 @@ where
 
 `0 row(s) returned`
 
-## Analysis Method - NULL and Blank Values
+## 🚫 Analysis Method - NULL and Blank Values
 
 ### Identify NULL or Empty "industry"
 ```sql
@@ -538,9 +538,9 @@ where
 
 `0 row(s) returned`
 
-## Analysis Method - Standardized Data
+## ✏️ Analysis Method - Standardized Data
 
-### Re-view Updated Table
+### Review Updated Table
 ```sql
 select
     *
@@ -570,7 +570,7 @@ limit
 
 </details>
 
-### Identify White Spaces in "company" Column
+### Identify Whitespaces in "company" Column
 ```sql
 select
     company
@@ -608,7 +608,7 @@ set
 
 `10 row(s) affected Rows matched: 2706  Changed: 10  Warnings: 0`
 
-### Re-Check For White Spaces in Trimmed "company" Column
+### Re-Check For Whitespaces in Trimmed "company" Column
 ```sql
 select
     company
@@ -637,7 +637,7 @@ from
 
 </details>
 
-### Check "industry" Column
+### Review "industry" Column
 ```sql
 select distinct
     industry
@@ -686,7 +686,7 @@ order by
 
 </details>
 
-### Check "location" Column
+### Review "location" Column
 ```sql
 select distinct
 	location
@@ -892,7 +892,7 @@ order by
 
 </details>
 
-### Check "country" Column
+### Review "country" Column
 ```sql
 select distinct
 	country
@@ -1013,7 +1013,7 @@ modify column `date` date;
 
 `2706 row(s) affected Records: 2706  Duplicates: 0  Warnings: 0`
 
-## Analysis Method - Removal of Columns
+## 🗑️ Analysis Method - Removal of Columns
 
 ### Drop "row_num" Column
 ```sql
@@ -1049,9 +1049,9 @@ limit
 
 </details>
 
-## Exploratory Data Analysis
+## 🔍 Exploratory Data Analysis
 
-### Layoffs Metrics
+### Layoff Metrics
 ```sql
 select
     max(total_laid_off) as max_total
@@ -1069,10 +1069,10 @@ from
 
 </details>
 
-+ The maximum number of layoffs in the dataset is 14,000.
-+ The maximum percentage of layoffs in the dataset is 100%.
++ The maximum number of layoffs in the dataset is **14,000 employees**.
++ The maximum percentage of layoffs in the dataset is **100% of the company's workforce**.
 
-### Total Count for 100% Layoffs Metric
+### Total Count for Complete Layoffs Metrics
 ```sql
 select
     *
@@ -1144,10 +1144,10 @@ order by
 
 </details>
 
-+ The company "Katerra" had the highest number of layoffs among all companies, with a total of 2,432 employees laid off, representing 100% of its workforce, on June 1st, 2023.
-+ The company "TutorMundi", despite having the fewest employees, laid off all 4 of them, resulting in a 100% turnover, on April 23rd, 2020, during the Series A stage.
++ "**Katerra**" had the highest number of layoffs among all companies, with a total of **2,432 employees** laid off, representing **100% of its workforce**, on **June 1st, 2023**.
++ "**TutorMundi**", despite having the fewest employees, laid off all **4** of them, resulting in a **100% turnover**, on **April 23rd, 2020**, during the **Series A stage**.
 
-### 100% Layoffs by Funds Raised Metric
+### Complete Layoffs by Funds Raised Metrics
 ```sql
 select
     *
@@ -1219,10 +1219,10 @@ order by
 
 </details>
 
-+ "The company "Britishvolt" had the most funds when the company fully turned over, with a total of 206 employees laid off, representing 100% of its workforce, on January 12th, 2023. The stage of the company at the time of layoffs is unknown, and it had $2,400 millions in funds.
-+ The company "SuperLearn" had the lowest funds, and although there is no information available about the total number of layoffs, a 100% layoff percentage is presented. The layoffs occurred on June 21st, 2022, during the Seed stage, and the company had $0 in funds.
++ "**Britishvolt**" had the most funds when the company fully turned over, with a total of **206 employees** laid off, representing **100% of its workforce**, on **January 12th, 2023**. The stage of the company at the time of layoffs is **unknown**, and it had **$2,400 million in funds**.
++ "**SuperLearn**" had the lowest funds, and although there is no information available about the total number of layoffs, a **100% layoff** percentage is presented. The layoffs occurred on **June 21st, 2022**, during the **Seed stage**, and the company had **$0 in funds**.
 
-### Total Layoffs by Company Metric
+### Total Layoffs by Company Metrics
 ```sql
 select
     company
@@ -1255,10 +1255,10 @@ order by
 
 </details>
 
-+ The company "Amazon" has the highest sum of total laid off, with a total of 27,840 employees affected.
-+ The company "Flytedesk" has the lowest sum of total laid off, with only 4 employees affected.
++ "Amazon" has the highest sum of total laid off, with a total of **27,840 employees** affected.
++ "Flytedesk" has the lowest sum of total laid off, with only **4 employees** affected.
 
-### Start and End Dates of Layoffs Metrics
+### Start and End Date of Layoffs Metrics
 ```sql
 select
     min(`date`) as min_date
@@ -1276,7 +1276,7 @@ from
 
 </details>
 
-+ The earliest date of layoffs is "2020-03-11", and the latest date of layoffs is "2024-05-16".
++ The earliest date of layoffs is "**2020-03-11**", and the latest date of layoffs is "**2024-05-16**".
 + The earliest data represents the beginning of the COVID-19 pandemic by the World Health Organization, and the latest date represents the present day.
 
 ### Total Layoffs by Industry Metrics
@@ -1331,8 +1331,8 @@ order by
 
 </details>
 
-+ The "Retail" industry has the highest number of total layoffs, totaling 67,368.
-+ On the other hand, the "AI" industry has the lowest number of total layoffs, with only 262.
++ The "**Retail**" industry has the highest number of total layoffs, totaling **67,368 employees**.
++ On the other hand, the "**AI**" industry has the lowest number of total layoffs, with only **262 employees**.
 
 ### Total Layoffs by Country Metrics
 ```sql
@@ -1409,8 +1409,8 @@ order by
 
 </details>
 
-+ The country "United States" had the highest total number of layoffs, amounting to 365,527.
-+ Conversely, "Ukraine" had the lowest total number of layoffs, with only 50.
++ The country "**United States**" had the highest total number of layoffs, amounting to **365,527 employees**.
++ Conversely, "**Ukraine**" had the lowest total number of layoffs, with only **50 employees**.
 
 ### Total Layoffs by Yearly Metrics
 ```sql
@@ -1438,8 +1438,8 @@ order by
 
 </details>
 
-+ The year 2023 had the highest total number of layoffs, totaling 212,585.
-+ Conversely, the year 2020 had the lowest total number of layoffs, with only 70,755.
++ The year **2023** had the highest total number of layoffs, totaling **212,585 employees**.
++ Conversely, the year **2020** had the lowest total number of layoffs, with only **70,755 employees**.
 
 ### Total Layoffs by Stage Metrics
 ```sql
@@ -1478,10 +1478,10 @@ order by
 
 </details>
 
-+ "Post-IPO" stage had the highest total number of layoffs, totaling 287,864.
-+ Conversely, the "Subsidiary" stage had the lowest total number of layoffs, with only 1,094.
++ "**Post-IPO**" stage had the highest total number of layoffs, totaling **287,864 employees**.
++ Conversely, the "**Subsidiary**" stage had the lowest total number of layoffs, with only **1,094 employees**.
 
-### Monthly Total Layoffs with Rolling Total Metric
+### Monthly Total Layoffs with Rolling Total Metrics
 ```sql
 with
     rolling_total as (
@@ -1588,13 +1588,14 @@ from
 </td></tr> </table>
 </details>
 
-+ In 2020, the highest total layoffs occurred in April, with 25,271, while the lowest total layoffs were recorded in November, with only 219.
-+ For 2021, January saw the highest total layoffs, reaching 6,813, whereas October had the lowest, with only 22.
-+ In 2022, the highest total layoffs were reported in November, totaling 52,390, while January had the lowest, with 510.
-+ Moving to 2023, January marked the highest total layoffs at 70,935, while September had the lowest, at 4,425.
-+ Lastly, in 2024, April experienced the highest total layoffs, reaching 21,923, while March had the lowest, with 1,127.
++ In **2020**, "**April**" had the highest total layoffs, reaching **25,271 employees**, while "**November**" had the lowest, with only **219 employees**.
++ For **2021**, "**January**" saw the highest total layoffs at **6,813 employees**, whereas "**October**" had the lowest, with only **22 employees**.
++ In **2022**, "**November**" recorded the highest total layoffs, totaling **52,390 employees**, while "**January**" had the lowest, with **510 employees**.
++ Moving to **2023**, "**January**" marked the highest total layoffs at **70,935 employees**, while "**September**" had the lowest, at **4,425 employees**.
++ Lastly, in **2024**, "**April**" experienced the highest total layoffs, reaching **21,923 employees**, while "**March**" had the lowest, with **1,127 employees**.
 
-### Top 5 Companies with Highest Total Layoffs by Year Metric
+
+### Top 5 Companies with Highest Total Layoffs by Yearly Metrics
 ```sql
 with
     company_year (company, years, total_laid_off) as (
@@ -1686,13 +1687,13 @@ where
 </td></tr> </table>
 </details>
 
-+ In 2020, "Uber" ranks 1st with the highest total of 7,525 layoffs, while "PaisaBazaar" ranks 5th with the lowest total of 1,500 layoffs.
-+ In 2021, "Bytedance" ranks 1st with the highest total of 3,600 layoffs, while "WhiteHat Jr" ranks 5th with the lowest total of 1,800 layoffs.
-+ In 2022, "Meta" ranks 1st with the highest total of 11,000 layoffs, while "Carvana" ranks 5th with the lowest total of 4,000 layoffs.
-+ In 2023, "Amazon" ranks 1st with the highest total of 17,260 layoffs, while "Ericsson" ranks 5th with the lowest total of 8,500 layoffs.
-+ In 2024, "Tesla" ranks 1st with the highest total of 14,500 layoffs, while "Xerox" ranks 5th with the lowest total of 3,000 layoffs.
++ In **2020**, "**Uber**" ranked 1st with the highest total of **7,525** layoffs, while "**PaisaBazaar**" ranked 5th with the lowest total of **1,500 layoffs**.
++ For **2021**, "**Bytedance**" ranked 1st with the highest total of **3,600** layoffs, while "**WhiteHat Jr**" ranked 5th with the lowest total of **1,800 layoffs**.
++ In **2022**, "**Meta**" ranked 1st with the highest total of **11,000** layoffs, while "**Carvana**" ranked 5th with the lowest total of **4,000 layoffs**.
++ Moving to **2023**, "**Amazon**" ranked 1st with the highest total of **17,260** layoffs, while "**Ericsson**" ranked 5th with the lowest total of **8,500 layoffs**.
++ Lastly, in **2024**, "**Tesla**" ranked 1st with the highest total of **14,500** layoffs, while "**Xerox**" ranked 5th with the lowest total of **3,000 layoffs**.
 
-### Top 5 Industries with Highest Total Layoffs by Year Metrics
+### Top 5 Industries with Highest Total Layoffs by Yearly Metrics
 ```sql
 with
     industry_year (industry, years, total_laid_off) as (
@@ -1784,13 +1785,13 @@ where
 </td></tr> </table>
 </details>
 
-+ In 2020, "Transportation" industry ranks 1st with the highest total of 14,628 layoffs, while the "Food" industry ranks 5th with the lowest total of 5,968 layoffs.
-+ In 2021, "Consumer" industry ranks 1st with the highest total of 3,600 layoffs, while the "Education" industry ranks 5th with the lowest total of 1,943 layoffs.
-+ In 2022, "Retail" industry ranks 1st with the highest total of 20,447 layoffs, while the "Food" industry ranks 5th with the lowest total of 11,288 layoffs.
-+ In 2023, "Other" industry ranks 1st with the highest total of 35,809 layoffs, while the "Finance" industry ranks 5th with the lowest total of 13,276 layoffs.
-+ In 2024, "Transportation" industry ranks 1st with the highest total of 16,637 layoffs, while the "Infrastructure" industry ranks 5th with the lowest total of 5,330 layoffs.
++ In **2020**, the "**Transportation**" industry ranked 1st with the highest total of **14,628 layoffs**, while the "**Food**" industry ranked 5th with the lowest total of **5,968 layoffs**.
++ For **2021**, the "**Consumer**" industry ranked 1st with the highest total of **3,600 layoffs**, while the "**Education**" industry ranked 5th with the lowest total of **1,943 layoffs**.
++ In **2022**, the "**Retail**" industry ranked 1st with the highest total of **20,447 layoffs**, while the "**Food**" industry ranked 5th with the lowest total of **11,288 layoffs**.
++ Moving to **2023**, the "**Other**" industry ranked 1st with the highest total of **35,809 layoffs**, while the "**Finance**" industry ranked 5th with the lowest total of **13,276 layoffs**.
++ Lastly, in **2024**, the "**Transportation**" industry ranked 1st once again with the highest total of **16,637 layoffs**, while the "**Infrastructure**" industry ranked 5th with the lowest total of **5,330 layoffs**.
 
-### Top 5 Countries with Highest Total Layoffs by Year Metrics
+### Top 5 Countries with Highest Total Layoffs by Yearly Metrics
 ```sql
 with
     country_year (country, years, total_laid_off) as (
@@ -1882,17 +1883,17 @@ where
 </td></tr> </table>
 </details>
 
-+ In 2020, "United States" ranks 1st with the highest total of 48,964 layoffs, while "Canada" ranks 5th with the lowest total of 1,083 layoffs.
-+ In 2021, "United States" ranks 1st with the highest total of 9,457 layoffs, while "Canada" ranks 5th with the lowest total of 45 layoffs.
-+ In 2022, "United States" ranks 1st with the highest total of 104,245 layoffs, while "Germany" ranks 5th with the lowest total of 3,431 layoffs.
-+ In 2023, "United States" ranks 1st with the highest total of 149,090 layoffs, while "United Kingdom" ranks 5th with the lowest total of 7,220 layoffs.
-+ In 2024, "United States" ranks 1st with the highest total of 53,771 layoffs, while "Israel" ranks 5th with the lowest total of 1,070 layoffs.
-+ Incomplete 2024 Data: The dataset for the year 2024 may not be complete as the year is not yet over, potentially leading to gaps or inaccuracies in the analysis of layoffs for that year.
++ In **2020**, "**United States**" ranked 1st with the highest total of **48,964 layoffs**, while "**Canada**" ranked 5th with the lowest total of **1,083 layoffs**.
++ For **2021**, "**United States**" ranked 1st with the highest total of **9,457 layoffs**, while "**Canada**" ranked 5th with the lowest total of **45 layoffs**.
++ In **2022**, "**United States**" ranked 1st with the highest total of **104,245 layoffs**, while "**Germany**" ranked 5th with the lowest total of **3,431 layoffs**.
++ Moving to **2023**, "**United States**" ranked 1st with the highest total of **149,090 layoffs**, while "**United Kingdom**" ranked 5th with the lowest total of **7,220 layoffs**.
++ Lastly, in **2024**, "**United States**" ranked 1st with the highest total of **53,771 layoffs**, while "**Israel**" ranked 5th with the lowest total of **1,070 layoffs**.
 
 ### Data Visualizations
 
 
 ## Limitations
++ **Incomplete Data**: The dataset for both the years 2020 and 2024 may be incomplete. In 2020, data collection began in March when the COVID-19 pandemic was declared, potentially missing layoffs that occurred earlier in the year. Similarly, for 2024, as the year is not yet over, the dataset may lack complete information, leading to gaps or inaccuracies in the analysis of layoffs for that year.
 + **Limited Context**: The dataset provides information about the company, location, industry, and date of layoffs, but lacks additional context regarding the reasons behind the layoffs, such as economic factors, company performance, or specific events.
 + **Incomplete Company Information**: Detailed information about each company beyond its name, such as size, revenue, or market position, is not available in the dataset. This lack of detail hinders a comprehensive understanding of the layoffs.
 + **Funds Raised**: While funds raised may serve as an indicator of company financial health, it may not provide a complete picture. Factors such as profitability, cash flow, and debt levels are also crucial considerations for understanding a company's financial situation.
