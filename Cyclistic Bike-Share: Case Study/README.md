@@ -1,5 +1,5 @@
 # Cyclistic Bike-Share: Case Study 🚲
-Welcome to my journey through the Cyclistic Bike-Share Case Study, a pivotal capstone project for my Google Data Analytics Professional Certificate! As I delve into this project, I assume the role of a team member at Cyclistic, a fictional company. My mission is to embark on a data-driven adventure, addressing business inquiries through the Ask, Prepare, Process, Analyze, Share, and Act phases of the data analysis process. Join me as we uncover insights and drive actionable outcomes!
+Welcome to my journey through the **Cyclistic Bike-Share Case Study**, a capstone project for my **Google Data Analytics Professional Certificate**! As I delve into this project, I assume the role of a team member at Cyclistic, a fictional company. My mission is to embark on a data-driven adventure, addressing business inquiries through the **Ask**, **Prepare**, **Process**, **Analyze**, **Share**, and **Act** phases of the data analysis process. Join me as we uncover insights and drive actionable outcomes!
 
 ## 📽️ Scenario
 + I am a Junior Data Analyst in the Marketing Analyst Team at Cyclistic, a bike-share company in Chicago.
