@@ -1,0 +1,1380 @@
+####################
+# The 'Share' Phase
+####################
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Title: User Type Trends
+
+# -----------------------
+# User Type Distribution
+# -----------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Create a data frame for donut chart
+donut_data <- trip_data_updated %>%
+  group_by(user_type) %>% 
+  summarise(
+    ride_count = n(), # Count number of rides for each user type
+    ride_percentage = paste0("(", round((n() / nrow(trip_data_updated)) * 100, 2), "%)") # Calculate ride percentage for each user type
+  )
+
+# Compute percentages
+donut_data$fraction <- donut_data$ride_count / sum(donut_data$ride_count)
+
+# Compute the cumulative percentages (top of each rectangle)
+donut_data$ymax <- cumsum(donut_data$fraction)
+
+# Compute the bottom of each rectangle
+donut_data$ymin <- c(0, head(donut_data$ymax, n=-1))
+
+# Compute label position
+donut_data$labelPosition <- (donut_data$ymax + donut_data$ymin) / 2
+
+# Compute a good label
+donut_data$label <- paste(donut_data$user_type, "\n", donut_data$ride_count, " ", donut_data$ride_percentage, sep = "")
+
+# Adjust label position
+donut_data$labelPosition <- donut_data$labelPosition + 0.05
+
+# Create a donut plot to visualize user type distribution
+ggplot(donut_data, aes(ymax=ymax, ymin=ymin, x=3.5, y=labelPosition, label=paste(user_type, ride_count, ride_percentage, sep = "\n"), fill=user_type)) +
+  geom_rect(aes(xmax=4, xmin=3)) + # Add rectangles
+  geom_text(color="black", size=3.5, fontface = "bold", vjust = 0) + # Add text labels
+  scale_fill_manual(values = c("#f8766d", "#00bfc4")) + # Set color palette for user types
+  coord_polar(theta="y") + # Set polar coordinates
+  xlim(c(2, 4)) + # Set x-axis limits
+  theme_void() + # Remove background and grid lines
+  theme(
+    axis.title.x = element_blank(),  # Remove x-axis label
+    axis.title.y = element_blank(),  # Remove y-axis label
+    axis.text.y = element_blank(),   # Remove y-axis tick labels
+    plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm"), # Set plot margin
+    plot.title = element_text(hjust = 0.5, size = 16, face = "bold") # Set plot title properties
+  ) +
+  ggtitle("User Type Distribution") # Add plot title
+
+# ------------------------------------------
+# Average Ride Length (minutes) by User Type
+# ------------------------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Create a bar plot to visualize
+trip_data_updated %>% 
+  group_by(user_type) %>% 
+  drop_na() %>% # Drop rows with missing values
+  summarise(
+    average_ride_length = round(mean(ride_length_minute), 2)) %>% # Calculate the average ride length for each user type
+  ggplot() + 
+  geom_col(mapping = aes(x = user_type, y = average_ride_length, fill = user_type), show.legend = TRUE) + # Create the bar plot
+  labs(
+    x = "User Types", 
+    y = "Durations (in minutes)",
+    title = "Average Ride Length (minutes) by User Type") + # Set axis labels and plot title
+  annotate("text", x = 1, y = 20, label = "21.09 minutes", color = "black", size = 3.5, fontface = "bold") + # Add annotation for the first bar
+  annotate("text", x = 2, y = 11.2, label = "12.35 minutes", color = "black", size = 3.5, fontface = "bold") + # Add annotation for the second bar
+  theme(
+    axis.title.x = element_text(vjust = - 0.1), # Adjust x-axis title position
+    axis.title.y = element_text(vjust = 3.0), # Adjust y-axis title position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16)) # Adjust plot title properties
+
+# ------------------------------------------
+# Average Ride Distance (miles) by User Type
+# ------------------------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Create a bar plot to visualize
+trip_data_updated %>% 
+  group_by(user_type) %>% 
+  drop_na() %>% # Drop rows with missing values
+  summarise(
+    average_ride_distance = mean(ride_distance)) %>% # Calculate the average ride distance for each user type
+  mutate(average_ride_distance = round(average_ride_distance, 2)) %>% # Round the average ride distance to two decimal places
+  ggplot() + 
+  geom_col(mapping = aes(x = user_type, y = average_ride_distance, fill = user_type), show.legend = TRUE) + # Create the bar plot
+  labs(
+    x = "User Types", 
+    y = "Distances (in miles)",
+    title = "Average Ride Distance (miles) by User Type") + # Set axis labels and plot title
+  annotate("text", x = 1, y = 1.25, label = "1.35 miles", color = "black", size = 3.5, fontface = "bold") + # Add annotation for the first bar
+  annotate("text", x = 2, y = 1.25, label = "1.34 miles", color = "black", size = 3.5, fontface = "bold") + # Add annotation for the second bar
+  theme(
+    axis.title.x = element_text(vjust = - 0.1), # Adjust x-axis title position
+    axis.title.y = element_text(vjust = 3.0), # Adjust y-axis title position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16)) # Adjust plot title properties
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Title: Hourly Trends
+
+# --------------------
+# Hourly User Overview
+# --------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Create a bar plot to visualize
+trip_data_updated %>% 
+  group_by(user_type, hour) %>% # Group data by user type and hour of the day
+  summarise(
+    count = n(), .groups = "drop") %>% # Calculate the count of rides for each user type and hour of the day
+  arrange(user_type, hour) %>% # Arrange the results by user type and hour of the day
+  ggplot(aes(x = factor(hour, levels = c(0:23)), y = count, fill = user_type)) + # Create a ggplot object
+  geom_col(position = "dodge") + # Add columns to the plot
+  scale_y_continuous(labels = function(x) format(x, scientific = FALSE)) + # Set y-axis labels
+  labs(
+    x = "Hours",  # Set x-axis label
+    y = "Number of Riders",  # Set y-axis label
+    title = "Hourly User Overview") +  # Set plot title
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),  # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),  # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))  # Set plot title properties
+
+# ------------------------------------
+# Hourly Average Ride Length (minutes)
+# ------------------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Create a grouped bar plot to visualize
+trip_data_updated %>% 
+  group_by(user_type, hour) %>%  # Group the data by user_type and hour
+  summarise(
+    average_ride_length = round(mean(ride_length_minute), 2), .groups="drop") %>%  # Calculate the average ride length in each group
+  arrange(user_type, hour) %>%  # Arrange the results by user_type and hour
+  ggplot(aes(x = factor(hour, levels = c(0:23)), y = average_ride_length, fill = user_type)) +  # Set aesthetics
+  geom_col(position = position_dodge(width = 0.8), width = 0.8) +  # Create grouped bar plot
+  labs(
+    x = "Hours",  # Set x-axis label
+    y = "Durations (in minutes)",  # Set y-axis label
+    title = "Hourly Average Ride Length (minutes)") +  # Set plot title
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),  # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),  # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))  # Set plot title properties
+
+# ------------------------------------
+# Hourly Average Ride Distance (miles)
+# ------------------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Create a grouped bar plot to visualize
+trip_data_updated %>% 
+  group_by(user_type, hour) %>%  # Group the data by user_type and hour
+  summarise(
+    average_ride_distance = mean(ride_distance),  # Calculate the average ride distance in each group
+    .groups = "drop"  # Drop the grouping information from the output
+  ) %>%
+  mutate(average_ride_distance = round(average_ride_distance, 2)) %>%  # Round the average ride distance to two decimal places
+  ggplot(aes(x = factor(hour, levels = c(0:23)), y = average_ride_distance, fill = user_type)) +  # Set aesthetics
+  geom_col(position = position_dodge(width = 0.8), width = 0.8) +  # Create grouped bar plot with adjusted width and dodge width
+  labs(
+    x = "Hours",  # Set x-axis label
+    y = "Distance (in miles)",  # Set y-axis label
+    title = "Hourly Average Ride Distance (miles)") +  # Set plot title
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),  # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),  # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16)  # Set plot title properties
+  )
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Title: Weekly Trends
+
+# --------------------
+# Weekly User Overview
+# --------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Ensure 'day_of_week' is ordered correctly
+trip_data_updated$day_of_week <- ordered(
+  trip_data_updated$day_of_week, 
+  levels = c(
+    "Monday", 
+    "Tuesday", 
+    "Wednesday", 
+    "Thursday", 
+    "Friday", 
+    "Saturday", 
+    "Sunday"))
+
+# Create a bar plot to visualize
+trip_data_updated %>%  
+  group_by(user_type, day_of_week) %>%  # Group the data by user_type and day_of_week
+  summarise(
+    number_of_rides = n(), .groups = "drop") %>%  # Calculate the number of rides in each group
+  arrange(user_type, day_of_week)  %>%  # Arrange the results by user_type and day_of_week
+  ggplot(aes(x = day_of_week, y = number_of_rides, fill = user_type)) +  # Set aesthetics
+  labs(
+    x = "Days of Week",  # Set x-axis label
+    y = "Number of Riders",  # Set y-axis label
+    title = "Weekly User Overview") +  # Set plot title
+  geom_col(position = "dodge", width = 0.5) +  # Create grouped bar plot
+  scale_y_continuous(labels = function(x) format(x, scientific = FALSE)) +  # Format y-axis labels
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),  # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),  # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))  # Set plot title properties
+
+# ------------------------------------
+# Weekly Average Ride Length (minutes)
+# ------------------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Ensure 'day_of_week' is ordered correctly
+trip_data_updated$day_of_week <- ordered(
+  trip_data_updated$day_of_week, 
+  levels = c(
+    "Monday", 
+    "Tuesday", 
+    "Wednesday", 
+    "Thursday", 
+    "Friday", 
+    "Saturday", 
+    "Sunday"))
+
+# Create a bar plot to visualize
+trip_data_updated %>% 
+  group_by(user_type, day_of_week) %>%  # Group the data by user_type and day_of_week
+  summarise(
+    count = n(),  # Calculate the count of rides in each group
+    average_ride_length = mean(ride_length_minute), .groups = "drop") %>%  # Calculate the average ride length in each group
+  ggplot(aes(x = day_of_week, y = average_ride_length, fill = user_type)) +  # Set aesthetics
+  geom_col(position = "dodge", width = 0.4) +  # Create grouped bar plot
+  labs(
+    x = "Days of Week",  # Set x-axis label
+    y = "Durations (in minutes)",  # Set y-axis label
+    title = "Weekly Average Ride Length (minutes)") +  # Set plot title
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),  # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),  # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))  # Set plot title properties
+
+# ------------------------------------
+# Weekly Average Ride Distance (miles)
+# ------------------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Ensure 'day_of_week' is ordered correctly
+trip_data_updated$day_of_week <- ordered(
+  trip_data_updated$day_of_week, 
+  levels = c(
+    "Monday", 
+    "Tuesday", 
+    "Wednesday", 
+    "Thursday", 
+    "Friday", 
+    "Saturday", 
+    "Sunday"))
+
+# Create a bar plot to visualize
+trip_data_updated %>% 
+  group_by(user_type, day_of_week) %>%  # Group the data by user_type and day_of_week
+  summarise(
+    average_ride_distance = mean(ride_distance),  # Calculate the average ride distance in each group
+    .groups = "drop"  # Drop the grouping information from the output
+  ) %>%
+  mutate(average_ride_distance = round(average_ride_distance, 2)) %>%  # Round the average ride distance to two decimal places
+  ggplot(aes(x = day_of_week, y = average_ride_distance, fill = user_type)) +  # Set aesthetics
+  geom_col(position = "dodge", width = 0.4) +  # Create grouped bar plot
+  labs(
+    x = "Days of Week",  # Set x-axis label
+    y = "Distance (in miles)",  # Set y-axis label
+    title = "Weekly Average Ride Distance (miles)"  # Set plot title
+  ) +
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),  # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 1.0),  # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))  # Set plot title properties
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Title: Weekly Bike Demands Patterns and Hourly Usage Trends
+
+# ------------------------------
+# Weekly and Hourly Bike Demands
+# ------------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Create a plot to visualize
+trip_data_updated %>%
+  group_by(day_of_week, hour, user_type) %>%  # Group the data by day_of_week, hour, and user_type
+  summarise(
+    count = n(), .groups = "drop") %>%  # Calculate the count of rides in each group
+  ggplot(aes(x = hour, y = count, fill = user_type)) +  # Set aesthetics
+  geom_col(position = position_dodge(width = 0.8), width = 0.8) +  # Create grouped bar plot
+  labs(
+    x = "Hours",   # Set x-axis label
+    y = "Number of Riders",   # Set y-axis label
+    title = "Weekly and Hourly Bike Demands") +   # Set plot title
+  facet_wrap(~ day_of_week) +   # Wrap facets by day_of_week
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),   # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),   # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))   # Set plot title properties
+
+# --------------------------
+# Monday Hourly Bike Demands
+# --------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Create a plot to visualize
+trip_data_updated %>%
+  filter(day_of_week == "Monday") %>%  # Filter data for Monday
+  group_by(hour, user_type) %>%  # Group the data by hour and user_type
+  summarise(
+    count = n(), .groups = "drop") %>%  # Calculate the count of rides in each group
+  ggplot(aes(x = factor(hour, levels = c(0:23)), y = count, fill = user_type)) +  # Set aesthetics
+  geom_col(position = position_dodge(width = 0.8), width = 0.8) +  # Create grouped bar plot
+  labs(
+    x = "Hours",   # Set x-axis label
+    y = "Number of Riders",   # Set y-axis label
+    title = "Monday Hourly Bike Demands") +   # Set plot title
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),   # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),   # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))   # Set plot title properties
+
+# ---------------------------
+# Tuesday Hourly Bike Demands
+# ---------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Create a plot to visualize
+trip_data_updated %>%
+  filter(day_of_week == "Tuesday") %>%  # Filter data for Tuesday
+  group_by(hour, user_type) %>%  # Group the data by hour and user_type
+  summarise(
+    count = n(), .groups = "drop") %>%  # Calculate the count of rides in each group
+  ggplot(aes(x = factor(hour, levels = c(0:23)), y = count, fill = user_type)) +  # Set aesthetics
+  geom_col(position = position_dodge(width = 0.8), width = 0.8) +  # Create grouped bar plot
+  labs(
+    x = "Hours",   # Set x-axis label
+    y = "Number of Riders",   # Set y-axis label
+    title = "Tuesday Hourly Bike Demands") +   # Set plot title
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),   # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),   # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))   # Set plot title properties
+
+# -----------------------------
+# Wednesday Hourly Bike Demands
+# -----------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Create a plot to visualize
+trip_data_updated %>%
+  filter(day_of_week == "Wednesday") %>%  # Filter data for Wednesday
+  group_by(hour, user_type) %>%  # Group the data by hour and user_type
+  summarise(
+    count = n(), .groups = "drop") %>%  # Calculate the count of rides in each group
+  ggplot(aes(x = factor(hour, levels = c(0:23)), y = count, fill = user_type)) +  # Set aesthetics
+  geom_col(position = position_dodge(width = 0.8), width = 0.8) +  # Create grouped bar plot
+  labs(
+    x = "Hours",   # Set x-axis label
+    y = "Number of Riders",   # Set y-axis label
+    title = "Wednesday Hourly Bike Demands") +   # Set plot title
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),   # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),   # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))   # Set plot title properties
+
+# ----------------------------
+# Thursday Hourly Bike Demands
+# ----------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Create a plot to visualize
+trip_data_updated %>%
+  filter(day_of_week == "Thursday") %>%  # Filter data for Thursday
+  group_by(hour, user_type) %>%  # Group the data by hour and user_type
+  summarise(
+    count = n(), .groups = "drop") %>%  # Calculate the count of rides in each group
+  ggplot(aes(x = factor(hour, levels = c(0:23)), y = count, fill = user_type)) +  # Set aesthetics
+  geom_col(position = position_dodge(width = 0.8), width = 0.8) +  # Create grouped bar plot
+  labs(
+    x = "Hours",   # Set x-axis label
+    y = "Number of Riders",   # Set y-axis label
+    title = "Thursday Hourly Bike Demands") +   # Set plot title
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),   # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),   # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))   # Set plot title properties
+
+# --------------------------
+# Friday Hourly Bike Demands
+# --------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Create a plot to visualize
+trip_data_updated %>%
+  filter(day_of_week == "Friday") %>%  # Filter data for Friday
+  group_by(hour, user_type) %>%  # Group the data by hour and user_type
+  summarise(
+    count = n(), .groups = "drop") %>%  # Calculate the count of rides in each group
+  ggplot(aes(x = factor(hour, levels = c(0:23)), y = count, fill = user_type)) +  # Set aesthetics
+  geom_col(position = position_dodge(width = 0.8), width = 0.8) +  # Create grouped bar plot
+  labs(
+    x = "Hours",   # Set x-axis label
+    y = "Number of Riders",   # Set y-axis label
+    title = "Friday Hourly Bike Demands") +   # Set plot title
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),   # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),   # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))   # Set plot title properties
+
+# ----------------------------
+# Saturday Hourly Bike Demands
+# ----------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Create a plot to visualize
+trip_data_updated %>%
+  filter(day_of_week == "Saturday") %>%  # Filter data for Saturday
+  group_by(hour, user_type) %>%  # Group the data by hour and user_type
+  summarise(
+    count = n(), .groups = "drop") %>%  # Calculate the count of rides in each group
+  ggplot(aes(x = factor(hour, levels = c(0:23)), y = count, fill = user_type)) +  # Set aesthetics
+  geom_col(position = position_dodge(width = 0.8), width = 0.8) +  # Create grouped bar plot
+  labs(
+    x = "Hours",   # Set x-axis label
+    y = "Number of Riders",   # Set y-axis label
+    title = "Saturday Hourly Bike Demands") +   # Set plot title
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),   # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),   # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))   # Set plot title properties
+
+# --------------------------
+# Sunday Hourly Bike Demands
+# --------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Create a plot to visualize
+trip_data_updated %>%
+  filter(day_of_week == "Sunday") %>%  # Filter data for Sunday
+  group_by(hour, user_type) %>%  # Group the data by hour and user_type
+  summarise(
+    count = n(), .groups = "drop") %>%  # Calculate the count of rides in each group
+  ggplot(aes(x = factor(hour, levels = c(0:23)), y = count, fill = user_type)) +  # Set aesthetics
+  geom_col(position = position_dodge(width = 0.8), width = 0.8) +  # Create grouped bar plot
+  labs(
+    x = "Hours",   # Set x-axis label
+    y = "Number of Riders",   # Set y-axis label
+    title = "Sunday Hourly Bike Demands") +   # Set plot title
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),   # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),   # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))   # Set plot title properties
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Title: Monthly Trends
+
+# ---------------------
+# Monthly User Overview
+# ---------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Ensure proper ordering of months
+trip_data_updated$month <- ordered(
+  trip_data_updated$month, 
+  levels=c(
+    "January", 
+    "February", 
+    "March", 
+    "April", 
+    "May", 
+    "June", 
+    "July", 
+    "August", 
+    "September", 
+    "October", 
+    "November", 
+    "December"))
+
+# Create a line plot to visualize
+trip_data_updated %>%  
+  group_by(user_type, month) %>% 
+  summarise(
+    number_of_rides = n(), .groups = "drop") %>% 
+  arrange(user_type, month) %>% 
+  ggplot(aes(x = month, y = number_of_rides, color = user_type, group = user_type)) +  # Set aesthetics
+  labs(
+    x = "Months",   # Set x-axis label
+    y = "Number of Riders",   # Set y-axis label
+    title = "Monthly User Overview") +   # Set plot title
+  geom_line() +   # Add lines
+  geom_point() +   # Add points
+  scale_y_continuous(labels = function(x) format(x, scientific = FALSE)) +   # Adjust y-axis labels
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),   # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),   # Adjust y-axis label position
+    axis.text.x = element_text(angle = 45, hjust = 1),   # Rotate x-axis labels
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))   # Set plot title properties
+
+# -------------------------------------
+# Monthly Average Ride Length (minutes)
+# -------------------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Ensure proper ordering of months
+trip_data_updated$month <- ordered(
+  trip_data_updated$month, 
+  levels=c(
+    "January", 
+    "February", 
+    "March", 
+    "April", 
+    "May", 
+    "June", 
+    "July", 
+    "August", 
+    "September", 
+    "October", 
+    "November", 
+    "December"))
+
+# Create a bar plot to visualize 
+trip_data_updated %>% 
+  group_by(user_type, month) %>%
+  summarise(
+    average_ride_length = round(mean(ride_length_minute), 2), .groups = "drop") %>% 
+  arrange(user_type, month) %>% 
+  ggplot(aes(x = month, y = average_ride_length, fill = user_type)) +   # Set aesthetics
+  labs(
+    x = "Months",   # Set x-axis label
+    y = "Durations (in minutes)",   # Set y-axis label
+    title = "Monthly Average Ride Length (minutes)") +   # Set plot title
+  geom_col(position = "dodge", width = 0.5) +   # Add bars with dodge position
+  scale_y_continuous(labels = function(x) format(x, scientific = FALSE)) +   # Adjust y-axis labels
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),   # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),   # Adjust y-axis label position
+    axis.text.x = element_text(angle = 45, hjust = 1),   # Rotate x-axis labels
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))   # Set plot title properties
+
+# -------------------------------------
+# Monthly Average Ride Distance (miles)
+# -------------------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Ensure proper ordering of months
+trip_data_updated$month <- ordered(
+  trip_data_updated$month, 
+  levels=c(
+    "January", 
+    "February", 
+    "March", 
+    "April", 
+    "May", 
+    "June", 
+    "July", 
+    "August", 
+    "September", 
+    "October", 
+    "November", 
+    "December"))
+
+# Create a bar plot to visualize
+trip_data_updated %>% 
+  group_by(user_type, month) %>% 
+  summarise(
+    average_ride_distance = mean(ride_distance),
+    .groups = "drop"
+  ) %>%
+  mutate(average_ride_distance = round(average_ride_distance, 2)) %>%
+  ggplot(aes(x = month, y = average_ride_distance, fill = user_type)) +   # Set aesthetics
+  labs(
+    x = "Months",   # Set x-axis label
+    y = "Distance (in miles)",   # Set y-axis label
+    title = "Monthly Average Ride Distance (miles)") +   # Set plot title
+  geom_col(position = "dodge", width = 0.5) +   # Add bars with dodge position
+  scale_y_continuous(labels = function(x) format(x, scientific = FALSE)) +   # Adjust y-axis labels
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),   # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),   # Adjust y-axis label position
+    axis.text.x = element_text(angle = 45, hjust = 1),   # Rotate x-axis labels
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))   # Set plot title properties
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Title: Quarterly Trends
+
+# -----------------------
+# Quarterly User Overview
+# -----------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Creating a stacked line plot to visualize
+trip_data_updated %>%
+  group_by(quarter, user_type) %>%
+  summarise(number_of_users = n(), .groups = "drop") %>%
+  ggplot(aes(x = quarter, y = number_of_users, color = user_type)) +   # Set aesthetics
+  geom_line() +   # Add lines
+  geom_point() +   # Add points
+  labs(
+    x = "Quarters",   # Set x-axis label
+    y = "Number of Riders",   # Set y-axis label
+    title = "Quarterly User Overview") +   # Set plot title
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),   # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),   # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))   # Set plot title properties
+
+# ---------------------------------------
+# Quarterly Average Ride Length (minutes)
+# ---------------------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Creating a bar plot to visualize
+trip_data_updated %>%
+  group_by(quarter, user_type) %>%
+  summarise(
+    average_ride_length = round(mean(ride_length_minute), 2), .groups="drop") %>%
+  arrange(quarter, user_type) %>%
+  ggplot(aes(x = quarter, y = average_ride_length, fill = user_type)) +   # Set aesthetics
+  labs(
+    x = "Quarters",   # Set x-axis label
+    y = "Durations (in minutes)",   # Set y-axis label
+    title = "Quarterly Average Ride Length (minutes)") +   # Set plot title
+  geom_col(position = "dodge", width = 0.5) +   # Add bars
+  scale_y_continuous(labels = function(x) format(x, scientific = FALSE)) +   # Format y-axis labels
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),   # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),   # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))   # Set plot title properties
+
+# ---------------------------------------
+# Quarterly Average Ride Distance (miles)
+# ---------------------------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Create a plot to visualize
+trip_data_updated %>%
+  group_by(quarter, user_type) %>%
+  summarise(
+    average_ride_distance = mean(ride_distance),
+    .groups = "drop"
+  ) %>%
+  mutate(average_ride_distance = round(average_ride_distance, 2)) %>%
+  ggplot(aes(x = quarter, y = average_ride_distance, fill = user_type)) +   # Set aesthetics
+  labs(
+    x = "Quarters",   # Set x-axis label
+    y = "Distance (in miles)",   # Set y-axis label
+    title = "Quarterly Average Ride Distance (miles)") +   # Set plot title
+  geom_col(position = "dodge", width = 0.5) +   # Add bars
+  scale_y_continuous(labels = function(x) format(x, scientific = FALSE)) +   # Format y-axis labels
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),   # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),   # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))   # Set plot title properties
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Title: Rideable Trends
+
+# --------------------
+# Rideable Type Trends
+# --------------------
+
+# library(dplyr)
+# library(ggplot2)
+
+# Create a plot to visualize
+trip_data_updated %>%
+  group_by(user_type, rideable_type) %>%
+  summarise(
+    count = n(), .groups = "drop") %>%
+  ggplot(aes(x = rideable_type, y = count, fill = user_type)) +   # Set aesthetics
+  labs(
+    x = "Rideable Types",    # Set x-axis label
+    y = "Number of Riders",    # Set y-axis label
+    title = "Rideable Type Trends") +    # Set plot title
+  geom_col(position = "dodge") +    # Add bars
+  theme(
+    axis.title.x = element_text(vjust = - 1.0),    # Adjust x-axis label position
+    axis.title.y = element_text(vjust = 3.0),    # Adjust y-axis label position
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16))    # Set plot title properties
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Title: Map Trends
+
+# -----------------------------------------------
+# User Type Quarterly Destination Interactive Map
+# -----------------------------------------------
+
+# library(dplyr)
+# library(leaflet)
+# library(htmltools)
+# library(leaflet.extras)
+
+## Create data frames for each quarter from the subset
+
+# Subset for casual users in each quarter
+casual_q1 <- subset %>% filter(user_type == "casual", quarter == "Q1")
+casual_q2 <- subset %>% filter(user_type == "casual", quarter == "Q2")
+casual_q3 <- subset %>% filter(user_type == "casual", quarter == "Q3")
+casual_q4 <- subset %>% filter(user_type == "casual", quarter == "Q4")
+
+# Subset for member users in each quarter
+member_q1 <- subset %>% filter(user_type == "member", quarter == "Q1")
+member_q2 <- subset %>% filter(user_type == "member", quarter == "Q2")
+member_q3 <- subset %>% filter(user_type == "member", quarter == "Q3")
+member_q4 <- subset %>% filter(user_type == "member", quarter == "Q4")
+
+# Separate start and end points for each quarter and user type and filtering
+
+## For casual users
+casual_q1_starts <- casual_q1[c("start_lng", "start_lat")]  # Start points for Q1 casual
+casual_q1_ends <- casual_q1[c("end_lng", "end_lat")]        # End points for Q1 casual
+
+casual_q2_starts <- casual_q2[c("start_lng", "start_lat")]  # Start points for Q2 casual
+casual_q2_ends <- casual_q2[c("end_lng", "end_lat")]        # End points for Q2 casual
+
+casual_q3_starts <- casual_q3[c("start_lng", "start_lat")]  # Start points for Q3 casual
+casual_q3_ends <- casual_q3[c("end_lng", "end_lat")]        # End points for Q3 casual
+
+casual_q4_starts <- casual_q4[c("start_lng", "start_lat")]  # Start points for Q4 casual
+casual_q4_ends <- casual_q4[c("end_lng", "end_lat")]        # End points for Q4 casual
+
+## For member users
+member_q1_starts <- member_q1[c("start_lng", "start_lat")]  # Start points for Q1 member
+member_q1_ends <- member_q1[c("end_lng", "end_lat")]        # End points for Q1 member
+
+member_q2_starts <- member_q2[c("start_lng", "start_lat")]  # Start points for Q2 member
+member_q2_ends <- member_q2[c("end_lng", "end_lat")]        # End points for Q2 member
+
+member_q3_starts <- member_q3[c("start_lng", "start_lat")]  # Start points for Q3 member
+member_q3_ends <- member_q3[c("end_lng", "end_lat")]        # End points for Q3 member
+
+member_q4_starts <- member_q4[c("start_lng", "start_lat")]  # Start points for Q4 member
+member_q4_ends <- member_q4[c("end_lng", "end_lat")]        # End points for Q4 member
+
+# Calculate distance function
+calculate_distance <- function(start_lng, start_lat, end_lng, end_lat) {
+  # Convert latitude and longitude to radians
+  start_lng_rad <- start_lng * pi / 180                    # Convert start longitude to radians
+  start_lat_rad <- start_lat * pi / 180                    # Convert start latitude to radians
+  end_lng_rad <- end_lng * pi / 180                        # Convert end longitude to radians
+  end_lat_rad <- end_lat * pi / 180                        # Convert end latitude to radians
+  
+  # Calculate differences
+  d_lng <- end_lng_rad - start_lng_rad                     # Calculate difference in longitude
+  d_lat <- end_lat_rad - start_lat_rad                     # Calculate difference in latitude
+  
+  # Calculate distance using Haversine formula
+  a <- sin(d_lat / 2)^2 + cos(start_lat_rad) * cos(end_lat_rad) * sin(d_lng / 2)^2  # Calculate a
+  c <- 2 * atan2(sqrt(a), sqrt(1 - a))                     # Calculate c
+  R <- 6371                                                # Earth radius in kilometers
+  distance <- R * c                                        # Distance in kilometers
+  
+  return(distance)                                         # Return calculated distance
+}
+
+# Casual Text Tooltip
+
+## Preparing the text for the tooltip for Q1 start (Casual)
+tooltip_casual_q1_start <- paste0(
+  "<b>User Type:</b> ", casual_q1$user_type, "<br>",
+  "<b>Quarter:</b> ", casual_q1$quarter, "<br>",
+  "<b>Start Location:</b> ", casual_q1$start_station_name, "<br>",
+  "<b>Rideable Type:</b> ", casual_q1$rideable_type, "<br>") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q1 start (Casual)
+
+## Preparing the text for the tooltip for Q1 end (Casual)
+tooltip_casual_q1_end <- paste0(
+  "<b>User Type:</b> ", casual_q1$user_type, "<br>",
+  "<b>Quarter:</b> ", casual_q1$quarter, "<br>",
+  "<b>End Location:</b> ", casual_q1$end_station_name, "<br>",
+  "<b>Rideable Type:</b> ", casual_q1$rideable_type, "<br>") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q1 end (Casual)
+
+## Preparing the text for the tooltip for Q2 start (Casual)
+tooltip_casual_q2_start <- paste0(
+  "<b>User Type:</b> ", casual_q2$user_type, "<br>",
+  "<b>Quarter:</b> ", casual_q2$quarter, "<br>",
+  "<b>Start Location:</b> ", casual_q2$start_station_name, "<br>",
+  "<b>Rideable Type:</b> ", casual_q2$rideable_type, "<br>") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q2 start (Casual)
+
+## Preparing the text for the tooltip for Q2 end (Casual)
+tooltip_casual_q2_end <- paste0(
+  "<b>User Type:</b> ", casual_q2$user_type, "<br>",
+  "<b>Quarter:</b> ", casual_q2$quarter, "<br>",
+  "<b>End Location:</b> ", casual_q2$end_station_name, "<br>",
+  "<b>Rideable Type:</b> ", casual_q2$rideable_type, "<br>") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q2 end (Casual)
+
+## Preparing the text for the tooltip for Q3 start (Casual)
+tooltip_casual_q3_start <- paste0(
+  "<b>User Type:</b> ", casual_q3$user_type, "<br>",
+  "<b>Quarter:</b> ", casual_q3$quarter, "<br>",
+  "<b>Start Location:</b> ", casual_q3$start_station_name, "<br>",
+  "<b>Rideable Type:</b> ", casual_q3$rideable_type, "<br>") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q3 start (Casual)
+
+## Preparing the text for the tooltip for Q3 end (Casual)
+tooltip_casual_q3_end <- paste0(
+  "<b>User Type:</b> ", casual_q3$user_type, "<br>",
+  "<b>Quarter:</b> ", casual_q3$quarter, "<br>",
+  "<b>End Location:</b> ", casual_q3$end_station_name, "<br>",
+  "<b>Rideable Type:</b> ", casual_q3$rideable_type, "<br>") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q3 end (Casual)
+
+## Preparing the text for the tooltip for Q4 start (Casual)
+tooltip_casual_q4_start <- paste0(
+  "<b>User Type:</b> ", casual_q4$user_type, "<br>",
+  "<b>Quarter:</b> ", casual_q4$quarter, "<br>",
+  "<b>Start Location:</b> ", casual_q4$start_station_name, "<br>",
+  "<b>Rideable Type:</b> ", casual_q4$rideable_type, "<br>") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q4 start (Casual)
+
+## Preparing the text for the tooltip for Q4 end (Casual)
+tooltip_casual_q4_end <- paste0(
+  "<b>User Type:</b> ", casual_q4$user_type, "<br>",
+  "<b>Quarter:</b> ", casual_q4$quarter, "<br>",
+  "<b>End Location:</b> ", casual_q4$end_station_name, "<br>",
+  "<b>Rideable Type:</b> ", casual_q4$rideable_type, "<br>") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q4 end (Casual)
+
+# Member Text Tooltip
+
+## Preparing the text for the tooltip for Q1 start (Member)
+tooltip_member_q1_start <- paste0(
+  "<b>User Type:</b> ", member_q1$user_type, "<br>",
+  "<b>Quarter:</b> ", member_q1$quarter, "<br>",
+  "<b>Start Location:</b> ", member_q1$start_station_name, "<br>",
+  "<b>Rideable Type:</b> ", member_q1$rideable_type, "<br>") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q1 start (Member)
+
+## Preparing the text for the tooltip for Q1 end (Member)
+tooltip_member_q1_end <- paste0(
+  "<b>User Type:</b> ", member_q1$user_type, "<br>",
+  "<b>Quarter:</b> ", member_q1$quarter, "<br>",
+  "<b>End Location:</b> ", member_q1$end_station_name, "<br>",
+  "<b>Rideable Type:</b> ", member_q1$rideable_type, "<br>") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q1 end (Member)
+
+## Preparing the text for the tooltip for Q2 start (Member)
+tooltip_member_q2_start <- paste0(
+  "<b>User Type:</b> ", member_q2$user_type, "<br>",
+  "<b>Quarter:</b> ", member_q2$quarter, "<br>",
+  "<b>Start Location:</b> ", member_q2$start_station_name, "<br>",
+  "<b>Rideable Type:</b> ", member_q2$rideable_type, "<br>") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q2 start (Member)
+
+## Preparing the text for the tooltip for Q2 end (Member)
+tooltip_member_q2_end <- paste0(
+  "<b>User Type:</b> ", member_q2$user_type, "<br>",
+  "<b>Quarter:</b> ", member_q2$quarter, "<br>",
+  "<b>End Location:</b> ", member_q2$end_station_name, "<br>",
+  "<b>Rideable Type:</b> ", member_q2$rideable_type, "<br>") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q2 end (Member)
+
+## Preparing the text for the tooltip for Q3 start (Member)
+tooltip_member_q3_start <- paste0(
+  "<b>User Type:</b> ", member_q3$user_type, "<br>",
+  "<b>Quarter:</b> ", member_q3$quarter, "<br>",
+  "<b>Start Location:</b> ", member_q3$start_station_name, "<br>",
+  "<b>Rideable Type:</b> ", member_q3$rideable_type, "<br>") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q3 start (Member)
+
+## Preparing the text for the tooltip for Q3 end (Member)
+tooltip_member_q3_end <- paste0(
+  "<b>User Type:</b> ", member_q3$user_type, "<br>",
+  "<b>Quarter:</b> ", member_q3$quarter, "<br>",
+  "<b>End Location:</b> ", member_q3$end_station_name, "<br>",
+  "<b>Rideable Type:</b> ", member_q3$rideable_type, "<br>") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q3 end (Member)
+
+## Preparing the text for the tooltip for Q4 start (Member)
+tooltip_member_q4_start <- paste0(
+  "<b>User Type:</b> ", member_q4$user_type, "<br>",
+  "<b>Quarter:</b> ", member_q4$quarter, "<br>",
+  "<b>Start Location:</b> ", member_q4$start_station_name, "<br>",
+  "<b>Rideable Type:</b> ", member_q4$rideable_type, "<br>") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q4 start (Member)
+
+## Preparing the text for the tooltip for Q4 end (Member)
+tooltip_member_q4_end <- paste0(
+  "<b>User Type:</b> ", member_q4$user_type, "<br>",
+  "<b>Quarter:</b> ", member_q4$quarter, "<br>",
+  "<b>End Location:</b> ", member_q4$end_station_name, "<br>",
+  "<b>Rideable Type:</b> ", member_q4$rideable_type, "<br>") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q4 end (Member)
+
+# Define tooltip content for each quarter
+tooltip_content_casual_q1 <- paste0(
+  "<b>Start:</b> ", casual_q1$start_station_name, "<br>",
+  "<b>End:</b> ", casual_q1$end_station_name, "<br>",
+  "<b>Distance:</b> ", round(calculate_distance(casual_q1$start_lng, casual_q1$start_lat, casual_q1$end_lng, casual_q1$end_lat), 2), "km") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q1 (Casual)
+
+tooltip_content_casual_q2 <- paste0(
+  "<b>Start:</b> ", casual_q2$start_station_name, "<br>",
+  "<b>End:</b> ", casual_q2$end_station_name, "<br>",
+  "<b>Distance:</b> ", round(calculate_distance(casual_q2$start_lng, casual_q2$start_lat, casual_q2$end_lng, casual_q2$end_lat), 2), "km") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q2 (Casual)
+
+tooltip_content_casual_q3 <- paste0(
+  "<b>Start:</b> ", casual_q3$start_station_name, "<br>",
+  "<b>End:</b> ", casual_q3$end_station_name, "<br>",
+  "<b>Distance:</b> ", round(calculate_distance(casual_q3$start_lng, casual_q3$start_lat, casual_q3$end_lng, casual_q3$end_lat), 2), "km") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q3 (Casual)
+
+tooltip_content_casual_q4 <- paste0(
+  "<b>Start:</b> ", casual_q4$start_station_name, "<br>",
+  "<b>End:</b> ", casual_q4$end_station_name, "<br>",
+  "<b>Distance:</b> ", round(calculate_distance(casual_q4$start_lng, casual_q4$start_lat, casual_q4$end_lng, casual_q4$end_lat), 2), "km") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q4 (Casual)
+
+tooltip_content_member_q1 <- paste0(
+  "<b>Start:</b> ", member_q1$start_station_name, "<br>",
+  "<b>End:</b> ", member_q1$end_station_name, "<br>",
+  "<b>Distance:</b> ", round(calculate_distance(member_q1$start_lng, member_q1$start_lat, member_q1$end_lng, member_q1$end_lat), 2), "km") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q1 (Member)
+
+tooltip_content_member_q2 <- paste0(
+  "<b>Start:</b> ", member_q2$start_station_name, "<br>",
+  "<b>End:</b> ", member_q2$end_station_name, "<br>",
+  "<b>Distance:</b> ", round(calculate_distance(member_q2$start_lng, member_q2$start_lat, member_q2$end_lng, member_q2$end_lat), 2), "km") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q2 (Member)
+
+tooltip_content_member_q3 <- paste0(
+  "<b>Start:</b> ", member_q3$start_station_name, "<br>",
+  "<b>End:</b> ", member_q3$end_station_name, "<br>",
+  "<b>Distance:</b> ", round(calculate_distance(member_q3$start_lng, member_q3$start_lat, member_q3$end_lng, member_q3$end_lat), 2), "km") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q3 (Member)
+
+tooltip_content_member_q4 <- paste0(
+  "<b>Start:</b> ", member_q4$start_station_name, "<br>",
+  "<b>End:</b> ", member_q4$end_station_name, "<br>",
+  "<b>Distance:</b> ", round(calculate_distance(member_q4$start_lng, member_q4$start_lat, member_q4$end_lng, member_q4$end_lat), 2), "km") %>% 
+  lapply(htmltools::HTML)                                  # Prepare tooltip content for Q4 (Member)
+
+# Create a map centered around Chicago
+chicago_map <- leaflet() %>%
+  setView(lng = -87.6298, lat = 41.8781, zoom = 12) %>% # Set the center and zoom level of the map
+  addTiles() # Add default map tiles
+
+chicago_map <- chicago_map %>%
+  # Add circle markers for Q1 casual starts
+  addCircleMarkers(data = casual_q1, 
+                   lng = ~start_lng, # Longitude column for start points
+                   lat = ~start_lat, # Latitude column for start points
+                   fillColor = "#FF0000", # Fill color for markers (red)
+                   fillOpacity = 0.7, # Opacity of fill color
+                   color = "white", # Border color of markers
+                   radius = 6, # Radius of markers
+                   stroke = FALSE, # No stroke around markers
+                   label = ~tooltip_casual_q1_start,
+                   labelOptions = labelOptions(style = list("font-weight" = "normal", # Styling for tooltip
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"), # Text size of tooltip & Direction of tooltip
+                   group = "Casual Q1") %>% # Grouping of markers
+  # Add circle markers for Q1 casual ends
+  addCircleMarkers(data = casual_q1,
+                   lng = ~end_lng, # Longitude column for end points
+                   lat = ~end_lat, # Latitude column for end points
+                   fillColor = "#0000FF", # Fill color for markers (blue)
+                   fillOpacity = 0.7, # Opacity of fill color
+                   color = "white", # Border color of markers
+                   radius = 6, # Radius of markers
+                   stroke = FALSE, # No stroke around markers
+                   label = ~tooltip_casual_q1_end,
+                   labelOptions = labelOptions(style = list("font-weight" = "normal", # Styling for tooltip
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"), # Text size of tooltip & Direction of tooltip
+                   group = "Casual Q1") %>% # Grouping of markers
+  # Add polylines for Q1 casual
+  addPolylines(data = casual_q1,
+               lng = c(casual_q1$start_lng, casual_q1$end_lng), # Longitude coordinates for polyline
+               lat = c(casual_q1$start_lat, casual_q1$end_lat), # Latitude coordinates for polyline
+               color = "#000044", # Color of polyline (dark blue)
+               weight = 2.5, # Thickness of polyline
+               opacity = 0.4,  # Opacity of polyline
+               label = tooltip_content_casual_q1,
+               labelOptions = labelOptions(style = list("font-weight" = "normal", # Styling for tooltip
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"), # Text size of tooltip & Direction of tooltip
+               group = "Casual Q1") %>% # Grouping of polylines
+  # Add circle markers for Q2 casual starts
+  addCircleMarkers(data = casual_q2,
+                   lng = ~start_lng, 
+                   lat = ~start_lat,
+                   fillColor = "#FF0000",
+                   fillOpacity = 0.7,
+                   color = "white",
+                   radius = 6,
+                   stroke = FALSE,
+                   label = ~tooltip_casual_q2_start,
+                   labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+                   group = "Casual Q2") %>%
+  # Add circle markers for Q2 casual ends
+  addCircleMarkers(data = casual_q2,
+                   lng = ~end_lng, 
+                   lat = ~end_lat,
+                   fillColor = "#0000FF",
+                   fillOpacity = 0.7,
+                   color = "white",
+                   radius = 6,
+                   stroke = FALSE,
+                   label = ~tooltip_casual_q2_end,
+                   labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+                   group = "Casual Q2") %>%
+  # Add polylines for Q2 casual
+  addPolylines(data = casual_q2,
+               lng = c(casual_q2$start_lng, casual_q2$end_lng),
+               lat = c(casual_q2$start_lat, casual_q2$end_lat),
+               color = "#228B22", 
+               weight = 2.5, 
+               opacity = 0.4,
+               label = tooltip_content_casual_q2,
+               labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+               group = "Casual Q2") %>%
+  # Add circle markers for Q3 casual starts
+  addCircleMarkers(data = casual_q3,
+                   lng = ~start_lng, 
+                   lat = ~start_lat,
+                   fillColor = "#FF0000",
+                   fillOpacity = 0.7,
+                   color = "white",
+                   radius = 6,
+                   stroke = FALSE,
+                   label = ~tooltip_casual_q3_start,
+                   labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+                   group = "Casual Q3") %>%
+  # Add circle markers for Q3 casual ends
+  addCircleMarkers(data = casual_q3,
+                   lng = ~end_lng, 
+                   lat = ~end_lat,
+                   fillColor = "#0000FF",
+                   fillOpacity = 0.7,
+                   color = "white",
+                   radius = 6,
+                   stroke = FALSE,
+                   label = ~tooltip_casual_q3_end,
+                   labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+                   group = "Casual Q3") %>%
+  # Add polylines for Q3 casual
+  addPolylines(data = casual_q3,
+               lng = c(casual_q3$start_lng, casual_q3$end_lng),
+               lat = c(casual_q3$start_lat, casual_q3$end_lat),
+               color =  "#B8860B", 
+               weight = 2.5, 
+               opacity = 0.4,
+               label = tooltip_content_casual_q3,
+               labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+               group = "Casual Q3") %>%
+  # Add circle markers for Q4 casual starts
+  addCircleMarkers(data = casual_q4,
+                   lng = ~start_lng, 
+                   lat = ~start_lat,
+                   fillColor = "#FF0000",
+                   fillOpacity = 0.7,
+                   color = "white",
+                   radius = 6,
+                   stroke = FALSE,
+                   label = ~tooltip_casual_q4_start,
+                   labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+                   group = "Casual Q4") %>%
+  # Add circle markers for Q4 casual ends
+  addCircleMarkers(data = casual_q4,
+                   lng = ~end_lng, 
+                   lat = ~end_lat,
+                   fillColor = "#0000FF",
+                   fillOpacity = 0.7,
+                   color = "white",
+                   radius = 6,
+                   stroke = FALSE,
+                   label = ~tooltip_casual_q4_end,
+                   labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+                   group = "Casual Q4") %>%
+  # Add polylines for Q4 casual
+  addPolylines(data = casual_q4,
+               lng = c(casual_q4$start_lng, casual_q4$end_lng),
+               lat = c(casual_q4$start_lat, casual_q4$end_lat),
+               color = "#FF0440", 
+               weight = 2.5, 
+               opacity = 0.4,
+               label = tooltip_content_casual_q4,
+               labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+               group = "Casual Q4") %>%
+  # Add circle markers for Q1 member starts
+  addCircleMarkers(data = member_q1,
+                   lng = ~start_lng, 
+                   lat = ~start_lat,
+                   fillColor = "#FF0000",
+                   fillOpacity = 0.7,
+                   color = "white",
+                   radius = 6,
+                   stroke = FALSE,
+                   label = ~tooltip_member_q1_start,
+                   labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+                   group = "Member Q1") %>%
+  # Add circle markers for Q1 member ends
+  addCircleMarkers(data = member_q1,
+                   lng = ~end_lng, 
+                   lat = ~end_lat,
+                   fillColor = "#0000FF",
+                   fillOpacity = 0.7,
+                   color = "white",
+                   radius = 6,
+                   stroke = FALSE,
+                   label = ~tooltip_member_q1_end,
+                   labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+                   group = "Member Q1") %>%
+  # Add polylines for Q1 member
+  addPolylines(data = member_q1,
+               lng = c(member_q1$start_lng, member_q1$end_lng),
+               lat = c(member_q1$start_lat, member_q1$end_lat),
+               color = "#FF8C00", 
+               weight = 2.5, 
+               opacity = 0.5,
+               label = tooltip_content_member_q1,
+               labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+               group = "Member Q1") %>%
+  # Add circle markers for Q2 member starts
+  addCircleMarkers(data = member_q2,
+                   lng = ~start_lng, 
+                   lat = ~start_lat,
+                   fillColor = "#FF0000",
+                   fillOpacity = 0.7,
+                   color = "white",
+                   radius = 6,
+                   stroke = FALSE,
+                   label = ~tooltip_member_q2_start,
+                   labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+                   group = "Member Q2") %>%
+  # Add circle markers for Q2 member ends
+  addCircleMarkers(data = member_q2,
+                   lng = ~end_lng, 
+                   lat = ~end_lat,
+                   fillColor = "#0000FF",
+                   fillOpacity = 0.7,
+                   color = "white",
+                   radius = 6,
+                   stroke = FALSE,
+                   label = ~tooltip_member_q2_end,
+                   labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+                   group = "Member Q2") %>%
+  # Add polylines for Q2 member
+  addPolylines(data = member_q2,
+               lng = c(member_q2$start_lng, member_q2$end_lng),
+               lat = c(member_q2$start_lat, member_q2$end_lat),
+               color = "#708090", 
+               weight = 2.5, 
+               opacity = 0.4,
+               label = tooltip_content_member_q2,
+               labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+               group = "Member Q2") %>% 
+  # Add circle markers for Q3 member starts
+  addCircleMarkers(data = member_q3,
+                   lng = ~start_lng, 
+                   lat = ~start_lat,
+                   fillColor = "#FF0000",
+                   fillOpacity = 0.7,
+                   color = "white",
+                   radius = 6,
+                   stroke = FALSE,
+                   label = ~tooltip_member_q3_start,
+                   labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+                   group = "Member Q3") %>%
+  # Add circle markers for Q3 member ends
+  addCircleMarkers(data = member_q3,
+                   lng = ~end_lng, 
+                   lat = ~end_lat,
+                   fillColor = "#0000FF",
+                   fillOpacity = 0.7,
+                   color = "white",
+                   radius = 6,
+                   stroke = FALSE,
+                   label = ~tooltip_member_q3_end,
+                   labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+                   group = "Member Q3") %>%
+  # Add polylines for Q3 member
+  addPolylines(data = member_q3,
+               lng = c(member_q3$start_lng, member_q3$end_lng),
+               lat = c(member_q3$start_lat, member_q3$end_lat),
+               color =  "#800080", 
+               weight = 2.5, 
+               opacity = 0.4,
+               label = tooltip_content_member_q3,
+               labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+               group = "Member Q3") %>%
+  # Add circle markers for Q4 member starts
+  addCircleMarkers(data = member_q4,
+                   lng = ~start_lng, 
+                   lat = ~start_lat,
+                   fillColor = "#FF0000",
+                   fillOpacity = 0.7,
+                   color = "white",
+                   radius = 6,
+                   stroke = FALSE,
+                   label = ~tooltip_member_q4_start,
+                   labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+                   group = "Member Q4") %>%
+  # Add circle markers for Q4 member ends
+  addCircleMarkers(data = member_q4,
+                   lng = ~end_lng, 
+                   lat = ~end_lat,
+                   fillColor = "#0000FF",
+                   fillOpacity = 0.7,
+                   color = "white",
+                   radius = 6,
+                   stroke = FALSE,
+                   label = ~tooltip_member_q4_end,
+                   labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+                   group = "Member Q4") %>%
+  # Add polylines for Q4 member
+  addPolylines(data = member_q4,
+               lng = c(member_q4$start_lng, member_q4$end_lng),
+               lat = c(member_q4$start_lat, member_q4$end_lat),
+               color = "#008080", 
+               weight = 2.5, 
+               opacity = 0.4,
+               label = tooltip_content_member_q4,
+               labelOptions = labelOptions(style = list("font-weight" = "normal",
+                                                            padding = "3px 8px"),
+                                               textsize = "12px", direction = "auto"),
+               group = "Member Q4")
+
+# Add legends for users and quarters, and start/end locations
+chicago_map <- chicago_map %>% 
+  addLegend(
+    colors = c("#000044", "#228B22", "#B8860B", "#FF0440", "#FF8C00", "#708090","#800080","#008080"),  # Colors for quarters
+    values = c("Q1", "Q2", "Q3", "Q4"),  # Values for quarters
+    labels = c("Casual Q1", "Casual Q2", "Casual Q3", "Casual Q4", "Member Q1", "Member Q2", "Member Q3", "Member Q4"),  # Labels for quarters
+    opacity = 0.7,  # Opacity of legend
+    title = "Users and Quarters",  # Title of legend
+    position = "bottomleft"  # Position of legend
+  ) %>%
+  addLegend(
+    colors = c("#FF0000", "#0000FF"),  # Colors for start and end locations
+    labels = c("Start Location", "End Location"),  # Labels for start and end locations
+    opacity = 0.7,  # Opacity of legend
+    title = "Destinations",  # Title of legend
+    position = "bottomleft"  # Position of legend
+  )
+
+# Define the base layers
+base_layers <- list(
+  "Map" = chicago_map
+)
+
+# Define the overlay layers for toggling visibility
+overlay_layers <- list(
+  "Casual Q1" = chicago_map %>% leaflet:::clearGroup("Member Q1"),  # Toggle visibility of Casual Q1 vs. Member Q1
+  "Casual Q2" = chicago_map %>% leaflet:::clearGroup("Member Q2"),  # Toggle visibility of Casual Q2 vs. Member Q2
+  "Casual Q3" = chicago_map %>% leaflet:::clearGroup("Member Q3"),  # Toggle visibility of Casual Q3 vs. Member Q3
+  "Casual Q4" = chicago_map %>% leaflet:::clearGroup("Member Q4"),  # Toggle visibility of Casual Q4 vs. Member Q4
+  "Member Q1" = chicago_map %>% leaflet:::clearGroup("Casual Q1"),  # Toggle visibility of Member Q1 vs. Casual Q1
+  "Member Q2" = chicago_map %>% leaflet:::clearGroup("Casual Q2"),  # Toggle visibility of Member Q2 vs. Casual Q2
+  "Member Q3" = chicago_map %>% leaflet:::clearGroup("Casual Q3"),  # Toggle visibility of Member Q3 vs. Casual Q3
+  "Member Q4" = chicago_map %>% leaflet:::clearGroup("Casual Q4")   # Toggle visibility of Member Q4 vs. Casual Q4
+)
+
+# Create the layer control for toggling visibility
+chicago_map <- chicago_map %>%
+  leaflet::addLayersControl(
+    baseGroups = c("Map"),
+    overlayGroups = c("Casual Q1", "Casual Q2", "Casual Q3", "Casual Q4", 
+                      "Member Q1", "Member Q2", "Member Q3", "Member Q4"),
+    options = leaflet::layersControlOptions(collapsed = TRUE),  # Options for layer control
+    position = "topright"  # Position of layer control
+  )
+
+# Add reset map button for resetting the map view
+chicago_map <- chicago_map %>% 
+  leaflet.extras::addResetMapButton()
+
+# Display and Print the map
+chicago_map
