@@ -19,15 +19,16 @@ Tech layoffs were reported by:
 The dataset covers the period from **March 2020**, when COVID-19 was declared a pandemic, through **May 2024** present time.
 
 > [!NOTE]
-> Please be aware that this dataset may not include all available information, such as the sources, list of laid-off employees, and date of addition. For the full dataset with additional details, please visit Layoffs.fyi, as referenced by the Kaggle dataset description (Kaggle).
+> + Please be aware that this dataset may not include all available information, such as the sources, list of laid-off employees, and date of addition. 
+> + For the full dataset with additional details, please visit Layoffs.fyi, as referenced by the Kaggle dataset description (Kaggle).
 
-## Data Organization
+## 🗄 Data Organization
 + **File Format**: The provided dataset is labeled as “layoffs”, in a CSV format.
 + **File Size**: The CSV file size is 5.96 MB.
 + **Columns**: The dataset contains 9 columns.
 + **Rows**: The dataset comprises 3,225 rows.
 
-## Data Dictionary
+## 📋 Data Dictionary
 | No. | Column Name         | Description                                                                                                                                                         |
 |-----|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1   | company             | The column contains the names of companies or organizations involved in the layoffs.                                                                                |
@@ -42,14 +43,14 @@ The dataset covers the period from **March 2020**, when COVID-19 was declared a 
 
 > [!IMPORTANT]
 > **Stages**
-> + `Seed`: This is typically the earliest stage of funding for a startup. It's the initial capital raised to prove a concept or build a prototype.
-> + `Series A`: This stage comes after seed funding. Series A funding is used to help companies with proven concepts and initial traction to scale their operations.
-> + `Series B`: Companies at this stage have already developed a product or service and have demonstrated market fit. Series B funding is often used to accelerate growth and expand operations.
-> + `Series C, D, E, etc.`: These stages represent subsequent rounds of funding as the company continues to grow. Each subsequent round usually indicates increasing valuation and expansion into new markets or products.
-> + `Private Equity`: This stage typically involves larger investments made by private equity firms in more established companies. Private equity investments are often used for acquisitions, restructuring, or expansion.
-> + `Acquired`: This stage indicates that the company has been acquired by another company.
-> + `Post-IPO`: Companies at this stage have gone public through an initial public offering (IPO). Post-IPO funding may involve additional rounds of financing or strategic investments after the company has become publicly traded.
-> + `Unknown`: This category may include cases where the stage of funding or development is not specified or is vague.
+> + **`Seed`**: This is typically the earliest stage of funding for a startup. It's the initial capital raised to prove a concept or build a prototype.
+> + **`Series A`**: This stage comes after seed funding. Series A funding is used to help companies with proven concepts and initial traction to scale their operations.
+> + **`Series B`**: Companies at this stage have already developed a product or service and have demonstrated market fit. Series B funding is often used to accelerate growth and expand operations.
+> + **`Series C, D, E, etc.`**: These stages represent subsequent rounds of funding as the company continues to grow. Each subsequent round usually indicates increasing valuation and expansion into new markets or products.
+> + **`Private Equity`**: This stage typically involves larger investments made by private equity firms in more established companies. Private equity investments are often used for acquisitions, restructuring, or expansion.
+> + **`Acquired`**: This stage indicates that the company has been acquired by another company.
+> + **`Post-IPO`**: Companies at this stage have gone public through an initial public offering (IPO). Post-IPO funding may involve additional rounds of financing or strategic investments after the company has become publicly traded.
+> + **`Unknown`**: This category may include cases where the stage of funding or development is not specified or is vague.
 
 ## Analysis Method - Introduction
 
