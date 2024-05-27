@@ -1,0 +1,1954 @@
+/*
+===================
+The 'Process' Phase
+===================
+*/
+
+---------------------
+-- Build the Database
+---------------------
+
+-- Create a new database named cyclisticproject
+create database
+    cyclisticproject;
+
+--------------------------
+-- Import the 12 CSV files
+--------------------------
+
+-- Import CSV files via (Import Flat Files) into new database
+/*
+202301-divvy-tripdata
+202302-divvy-tripdata
+202303-divvy-tripdata
+202304-divvy-tripdata
+202305-divvy-tripdata
+202306-divvy-tripdata
+202307-divvy-tripdata
+202308-divvy-tripdata
+202309-divvy-tripdata
+202310-divvy-tripdata
+202311-divvy-tripdata
+202312-divvy-tripdata
+*/
+
+-----------------------------
+-- Column Metadata Extraction
+-----------------------------
+
+-- Retrieve column information from the INFORMATION_SCHEMA.COLUMNS view for January 2023
+select
+    table_name -- Name of the table
+  , column_name -- Name of the column
+  , data_type -- Data type of the column
+  , character_maximum_length -- Maximum length of character data type columns
+  , is_nullable -- Indicates whether the column allows NULL values
+  , column_default -- Default value of the column
+from
+    information_schema.columns
+where
+    table_name = '202301-divvy-tripdata' -- Filtering by a single table
+    and table_schema = 'dbo'; -- Filter by the schema 'dbo'
+
+-- Retrieve column information from the INFORMATION_SCHEMA.COLUMNS view for February 2023
+select
+    table_name -- Name of the table
+  , column_name -- Name of the column
+  , data_type -- Data type of the column
+  , character_maximum_length -- Maximum length of character data type columns
+  , is_nullable -- Indicates whether the column allows NULL values
+  , column_default -- Default value of the column
+from
+    information_schema.columns
+where
+    table_name = '202302-divvy-tripdata' -- Filtering by a single table
+    and table_schema = 'dbo'; -- Filter by the schema 'dbo'
+
+-- Retrieve column information from the INFORMATION_SCHEMA.COLUMNS view for March 2023
+select
+    table_name -- Name of the table
+  , column_name -- Name of the column
+  , data_type -- Data type of the column
+  , character_maximum_length -- Maximum length of character data type columns
+  , is_nullable -- Indicates whether the column allows NULL values
+  , column_default -- Default value of the column
+from
+    information_schema.columns
+where
+    table_name = '202303-divvy-tripdata' -- Filtering by a single table
+    and table_schema = 'dbo'; -- Filter by the schema 'dbo'
+
+-- Retrieve column information from the INFORMATION_SCHEMA.COLUMNS view for April 2023
+select
+    table_name -- Name of the table
+  , column_name -- Name of the column
+  , data_type -- Data type of the column
+  , character_maximum_length -- Maximum length of character data type columns
+  , is_nullable -- Indicates whether the column allows NULL values
+  , column_default -- Default value of the column
+from
+    information_schema.columns
+where
+    table_name = '202304-divvy-tripdata' -- Filtering by a single table
+    and table_schema = 'dbo'; -- Filter by the schema 'dbo'
+
+-- Retrieve column information from the INFORMATION_SCHEMA.COLUMNS view for May 2023
+select
+    table_name -- Name of the table
+  , column_name -- Name of the column
+  , data_type -- Data type of the column
+  , character_maximum_length -- Maximum length of character data type columns
+  , is_nullable -- Indicates whether the column allows NULL values
+  , column_default -- Default value of the column
+from
+    information_schema.columns
+where
+    table_name = '202305-divvy-tripdata' -- Filtering by a single table
+    and table_schema = 'dbo'; -- Filter by the schema 'dbo'
+
+-- Retrieve column information from the INFORMATION_SCHEMA.COLUMNS view for June 2023
+select
+    table_name -- Name of the table
+  , column_name -- Name of the column
+  , data_type -- Data type of the column
+  , character_maximum_length -- Maximum length of character data type columns
+  , is_nullable -- Indicates whether the column allows NULL values
+  , column_default -- Default value of the column
+from
+    information_schema.columns
+where
+    table_name = '202306-divvy-tripdata' -- Filtering by a single table
+    and table_schema = 'dbo'; -- Filter by the schema 'dbo'
+
+-- Retrieve column information from the INFORMATION_SCHEMA.COLUMNS view for July 2023
+select
+    table_name -- Name of the table
+  , column_name -- Name of the column
+  , data_type -- Data type of the column
+  , character_maximum_length -- Maximum length of character data type columns
+  , is_nullable -- Indicates whether the column allows NULL values
+  , column_default -- Default value of the column
+from
+    information_schema.columns
+where
+    table_name = '202307-divvy-tripdata' -- Filtering by a single table
+    and table_schema = 'dbo'; -- Filter by the schema 'dbo'
+
+-- Retrieve column information from the INFORMATION_SCHEMA.COLUMNS view for August 2023
+select
+    table_name -- Name of the table
+  , column_name -- Name of the column
+  , data_type -- Data type of the column
+  , character_maximum_length -- Maximum length of character data type columns
+  , is_nullable -- Indicates whether the column allows NULL values
+  , column_default -- Default value of the column
+from
+    information_schema.columns
+where
+    table_name = '202308-divvy-tripdata' -- Filtering by a single table
+    and table_schema = 'dbo'; -- Filter by the schema 'dbo'
+
+-- Retrieve column information from the INFORMATION_SCHEMA.COLUMNS view for September 2023
+select
+    table_name -- Name of the table
+  , column_name -- Name of the column
+  , data_type -- Data type of the column
+  , character_maximum_length -- Maximum length of character data type columns
+  , is_nullable -- Indicates whether the column allows NULL values
+  , column_default -- Default value of the column
+from
+    information_schema.columns
+where
+    table_name = '202309-divvy-tripdata' -- Filtering by a single table
+    and table_schema = 'dbo'; -- Filter by the schema 'dbo'
+
+-- Retrieve column information from the INFORMATION_SCHEMA.COLUMNS view for October 2023
+select
+    table_name -- Name of the table
+  , column_name -- Name of the column
+  , data_type -- Data type of the column
+  , character_maximum_length -- Maximum length of character data type columns
+  , is_nullable -- Indicates whether the column allows NULL values
+  , column_default -- Default value of the column
+from
+    information_schema.columns
+where
+    table_name = '202310-divvy-tripdata' -- Filtering by a single table
+    and table_schema = 'dbo'; -- Filter by the schema 'dbo'
+
+-- Retrieve column information from the INFORMATION_SCHEMA.COLUMNS view for November 2023
+select
+    table_name -- Name of the table
+  , column_name -- Name of the column
+  , data_type -- Data type of the column
+  , character_maximum_length -- Maximum length of character data type columns
+  , is_nullable -- Indicates whether the column allows NULL values
+  , column_default -- Default value of the column
+from
+    information_schema.columns
+where
+    table_name = '202311-divvy-tripdata' -- Filtering by a single table
+    and table_schema = 'dbo'; -- Filter by the schema 'dbo'
+
+-- Retrieve column information from the INFORMATION_SCHEMA.COLUMNS view for December 2023
+select
+    table_name -- Name of the table
+  , column_name -- Name of the column
+  , data_type -- Data type of the column
+  , character_maximum_length -- Maximum length of character data type columns
+  , is_nullable -- Indicates whether the column allows NULL values
+  , column_default -- Default value of the column
+from
+    information_schema.columns
+where
+    table_name = '202312-divvy-tripdata' -- Filtering by a single table
+    and table_schema = 'dbo'; -- Filter by the schema 'dbo'
+
+------------------------
+-- Table Size Assessment
+------------------------
+
+-- Retrieve the table name and row count for each user-defined table in the current database
+select
+    t.name as table_name, -- Alias the name column from the sys.tables view as TableName
+    p.rows as row_counts -- Alias the rows column from the sys.partitions view as RowCounts
+from
+    sys.tables t -- Get information about tables from the sys.tables system catalog view
+    inner join sys.partitions p on t.object_id = p.object_id -- Join the sys.tables and sys.partitions views based on object_id
+where
+    t.is_ms_shipped = 0 -- Filter out system tables (is_ms_shipped = 0 indicates user-defined tables)
+    and p.index_id in (1, 0); -- Filter partitions based on index ID (1 for clustered index, 0 for heap)
+
+--------------------------------
+-- Complete Data Row Calculation
+--------------------------------
+
+-- Calculate the total sum of row counts for all user-defined tables in the current database
+select
+    sum(p.rows) as total_row_count -- Calculate the sum of rows from the sys.partitions view and alias it as total_row_count
+from
+    sys.tables as t -- Get information about tables from the sys.tables system catalog view
+  , sys.partitions as p -- Get information about partitions from the sys.partitions system catalog view
+where
+    t.object_id = p.object_id -- Join the sys.tables and sys.partitions views based on object_id
+    and t.is_ms_shipped = 0 -- Filter out system tables (is_ms_shipped = 0 indicates user-defined tables)
+    and p.index_id in (1, 0); -- Filter partitions based on index ID (1 for clustered index, 0 for heap)
+
+----------------------------
+-- NULL Value Identification
+----------------------------
+
+-- Count NULL values for each column and the total number of null values for January 2023
+select
+    -- Count NULL values for each column
+    sum(case when ride_id is null then 1 else 0 end) as ride_id_null
+  , sum(case when rideable_type is null then 1 else 0 end) as rideable_type_null
+  , sum(case when started_at is null then 1 else 0 end) as started_at_null
+  , sum(case when ended_at is null then 1 else 0 end) as ended_at_null
+  , sum(case when start_station_name is null then 1 else 0 end) as start_station_name_null
+  , sum(case when start_station_id is null then 1 else 0 end) as start_station_id_null
+  , sum(case when end_station_name is null then 1 else 0 end) as end_station_name_null
+  , sum(case when end_station_id is null then 1 else 0 end) as end_station_id_null
+  , sum(case when start_lat is null then 1 else 0 end) as start_lat_null
+  , sum(case when start_lng is null then 1 else 0 end) as start_lng_null
+  , sum(case when end_lat is null then 1 else 0 end) as end_lat_null
+  , sum(case when end_lng is null then 1 else 0 end) as end_lng_null
+  , sum(case when member_casual is null then 1 else 0 end) as member_casual_null
+  -- count total number of NULL values
+  , sum(
+        case when ride_id is null then 1 else 0 end +
+        case when rideable_type is null then 1 else 0 end +
+        case when started_at is null then 1 else 0 end +
+        case when ended_at is null then 1 else 0 end +
+        case when start_station_name is null then 1 else 0 end +
+        case when start_station_id is null then 1 else 0 end +
+        case when end_station_name is null then 1 else 0 end +
+        case when end_station_id is null then 1 else 0 end +
+        case when start_lat is null then 1 else 0 end +
+        case when start_lng is null then 1 else 0 end +
+        case when end_lat is null then 1 else 0 end +
+        case when end_lng is null then 1 else 0 end +
+        case when member_casual is null then 1 else 0 end
+      ) as totalnullcount
+from
+    [dbo].[202301-divvy-tripdata];
+
+-- Count NULL values for each column and the total number of null values for February 2023
+select
+    -- Count NULL values for each column
+    sum(case when ride_id is null then 1 else 0 end) as ride_id_null
+  , sum(case when rideable_type is null then 1 else 0 end) as rideable_type_null
+  , sum(case when started_at is null then 1 else 0 end) as started_at_null
+  , sum(case when ended_at is null then 1 else 0 end) as ended_at_null
+  , sum(case when start_station_name is null then 1 else 0 end) as start_station_name_null
+  , sum(case when start_station_id is null then 1 else 0 end) as start_station_id_null
+  , sum(case when end_station_name is null then 1 else 0 end) as end_station_name_null
+  , sum(case when end_station_id is null then 1 else 0 end) as end_station_id_null
+  , sum(case when start_lat is null then 1 else 0 end) as start_lat_null
+  , sum(case when start_lng is null then 1 else 0 end) as start_lng_null
+  , sum(case when end_lat is null then 1 else 0 end) as end_lat_null
+  , sum(case when end_lng is null then 1 else 0 end) as end_lng_null
+  , sum(case when member_casual is null then 1 else 0 end) as member_casual_null
+  -- Count total number of NULL values
+  , sum(
+        case when ride_id is null then 1 else 0 end +
+        case when rideable_type is null then 1 else 0 end +
+        case when started_at is null then 1 else 0 end +
+        case when ended_at is null then 1 else 0 end +
+        case when start_station_name is null then 1 else 0 end +
+        case when start_station_id is null then 1 else 0 end +
+        case when end_station_name is null then 1 else 0 end +
+        case when end_station_id is null then 1 else 0 end +
+        case when start_lat is null then 1 else 0 end +
+        case when start_lng is null then 1 else 0 end +
+        case when end_lat is null then 1 else 0 end +
+        case when end_lng is null then 1 else 0 end +
+        case when member_casual is null then 1 else 0 end
+      ) as totalnullcount
+from
+    [dbo].[202302-divvy-tripdata];
+
+-- Count NULL values for each column and the total number of null values for March 2023
+select
+    -- Count NULL values for each column
+    sum(case when ride_id is null then 1 else 0 end) as ride_id_null
+  , sum(case when rideable_type is null then 1 else 0 end) as rideable_type_null
+  , sum(case when started_at is null then 1 else 0 end) as started_at_null
+  , sum(case when ended_at is null then 1 else 0 end) as ended_at_null
+  , sum(case when start_station_name is null then 1 else 0 end) as start_station_name_null
+  , sum(case when start_station_id is null then 1 else 0 end) as start_station_id_null
+  , sum(case when end_station_name is null then 1 else 0 end) as end_station_name_null
+  , sum(case when end_station_id is null then 1 else 0 end) as end_station_id_null
+  , sum(case when start_lat is null then 1 else 0 end) as start_lat_null
+  , sum(case when start_lng is null then 1 else 0 end) as start_lng_null
+  , sum(case when end_lat is null then 1 else 0 end) as end_lat_null
+  , sum(case when end_lng is null then 1 else 0 end) as end_lng_null
+  , sum(case when member_casual is null then 1 else 0 end) as member_casual_null
+  -- Count total number of NULL values
+  , sum(
+        case when ride_id is null then 1 else 0 end +
+        case when rideable_type is null then 1 else 0 end +
+        case when started_at is null then 1 else 0 end +
+        case when ended_at is null then 1 else 0 end +
+        case when start_station_name is null then 1 else 0 end +
+        case when start_station_id is null then 1 else 0 end +
+        case when end_station_name is null then 1 else 0 end +
+        case when end_station_id is null then 1 else 0 end +
+        case when start_lat is null then 1 else 0 end +
+        case when start_lng is null then 1 else 0 end +
+        case when end_lat is null then 1 else 0 end +
+        case when end_lng is null then 1 else 0 end +
+        case when member_casual is null then 1 else 0 end
+      ) as totalnullcount
+from
+    [dbo].[202303-divvy-tripdata];
+
+-- Count NULL values for each column and the total number of null values for April 2023
+select
+    -- Count NULL values for each column
+    sum(case when ride_id is null then 1 else 0 end) as ride_id_null
+  , sum(case when rideable_type is null then 1 else 0 end) as rideable_type_null
+  , sum(case when started_at is null then 1 else 0 end) as started_at_null
+  , sum(case when ended_at is null then 1 else 0 end) as ended_at_null
+  , sum(case when start_station_name is null then 1 else 0 end) as start_station_name_null
+  , sum(case when start_station_id is null then 1 else 0 end) as start_station_id_null
+  , sum(case when end_station_name is null then 1 else 0 end) as end_station_name_null
+  , sum(case when end_station_id is null then 1 else 0 end) as end_station_id_null
+  , sum(case when start_lat is null then 1 else 0 end) as start_lat_null
+  , sum(case when start_lng is null then 1 else 0 end) as start_lng_null
+  , sum(case when end_lat is null then 1 else 0 end) as end_lat_null
+  , sum(case when end_lng is null then 1 else 0 end) as end_lng_null
+  , sum(case when member_casual is null then 1 else 0 end) as member_casual_null
+  -- Count total number of NULL values
+  , sum(
+        case when ride_id is null then 1 else 0 end +
+        case when rideable_type is null then 1 else 0 end +
+        case when started_at is null then 1 else 0 end +
+        case when ended_at is null then 1 else 0 end +
+        case when start_station_name is null then 1 else 0 end +
+        case when start_station_id is null then 1 else 0 end +
+        case when end_station_name is null then 1 else 0 end +
+        case when end_station_id is null then 1 else 0 end +
+        case when start_lat is null then 1 else 0 end +
+        case when start_lng is null then 1 else 0 end +
+        case when end_lat is null then 1 else 0 end +
+        case when end_lng is null then 1 else 0 end +
+        case when member_casual is null then 1 else 0 end
+      ) as totalnullcount
+from
+    [dbo].[202304-divvy-tripdata];
+
+-- Count NULL values for each column and the total number of null values for May 2023
+select
+    -- Count NULL values for each column
+    sum(case when ride_id is null then 1 else 0 end) as ride_id_null
+  , sum(case when rideable_type is null then 1 else 0 end) as rideable_type_null
+  , sum(case when started_at is null then 1 else 0 end) as started_at_null
+  , sum(case when ended_at is null then 1 else 0 end) as ended_at_null
+  , sum(case when start_station_name is null then 1 else 0 end) as start_station_name_null
+  , sum(case when start_station_id is null then 1 else 0 end) as start_station_id_null
+  , sum(case when end_station_name is null then 1 else 0 end) as end_station_name_null
+  , sum(case when end_station_id is null then 1 else 0 end) as end_station_id_null
+  , sum(case when start_lat is null then 1 else 0 end) as start_lat_null
+  , sum(case when start_lng is null then 1 else 0 end) as start_lng_null
+  , sum(case when end_lat is null then 1 else 0 end) as end_lat_null
+  , sum(case when end_lng is null then 1 else 0 end) as end_lng_null
+  , sum(case when member_casual is null then 1 else 0 end) as member_casual_null
+  -- Count total number of NULL values
+  , sum(
+        case when ride_id is null then 1 else 0 end +
+        case when rideable_type is null then 1 else 0 end +
+        case when started_at is null then 1 else 0 end +
+        case when ended_at is null then 1 else 0 end +
+        case when start_station_name is null then 1 else 0 end +
+        case when start_station_id is null then 1 else 0 end +
+        case when end_station_name is null then 1 else 0 end +
+        case when end_station_id is null then 1 else 0 end +
+        case when start_lat is null then 1 else 0 end +
+        case when start_lng is null then 1 else 0 end +
+        case when end_lat is null then 1 else 0 end +
+        case when end_lng is null then 1 else 0 end +
+        case when member_casual is null then 1 else 0 end
+      ) as totalnullcount
+from
+    [dbo].[202305-divvy-tripdata];
+
+-- Count NULL values for each column and the total number of null values for June 2023
+select
+    -- Count NULL values for each column
+    sum(case when ride_id is null then 1 else 0 end) as ride_id_null
+  , sum(case when rideable_type is null then 1 else 0 end) as rideable_type_null
+  , sum(case when started_at is null then 1 else 0 end) as started_at_null
+  , sum(case when ended_at is null then 1 else 0 end) as ended_at_null
+  , sum(case when start_station_name is null then 1 else 0 end) as start_station_name_null
+  , sum(case when start_station_id is null then 1 else 0 end) as start_station_id_null
+  , sum(case when end_station_name is null then 1 else 0 end) as end_station_name_null
+  , sum(case when end_station_id is null then 1 else 0 end) as end_station_id_null
+  , sum(case when start_lat is null then 1 else 0 end) as start_lat_null
+  , sum(case when start_lng is null then 1 else 0 end) as start_lng_null
+  , sum(case when end_lat is null then 1 else 0 end) as end_lat_null
+  , sum(case when end_lng is null then 1 else 0 end) as end_lng_null
+  , sum(case when member_casual is null then 1 else 0 end) as member_casual_null
+  -- Count total number of NULL values
+  , sum(
+        case when ride_id is null then 1 else 0 end +
+        case when rideable_type is null then 1 else 0 end +
+        case when started_at is null then 1 else 0 end +
+        case when ended_at is null then 1 else 0 end +
+        case when start_station_name is null then 1 else 0 end +
+        case when start_station_id is null then 1 else 0 end +
+        case when end_station_name is null then 1 else 0 end +
+        case when end_station_id is null then 1 else 0 end +
+        case when start_lat is null then 1 else 0 end +
+        case when start_lng is null then 1 else 0 end +
+        case when end_lat is null then 1 else 0 end +
+        case when end_lng is null then 1 else 0 end +
+        case when member_casual is null then 1 else 0 end
+      ) as totalnullcount
+from
+    [dbo].[202306-divvy-tripdata];
+
+-- Count NULL values for each column and the total number of null values for July 2023
+select
+    -- Count NULL values for each column
+    sum(case when ride_id is null then 1 else 0 end) as ride_id_null
+  , sum(case when rideable_type is null then 1 else 0 end) as rideable_type_null
+  , sum(case when started_at is null then 1 else 0 end) as started_at_null
+  , sum(case when ended_at is null then 1 else 0 end) as ended_at_null
+  , sum(case when start_station_name is null then 1 else 0 end) as start_station_name_null
+  , sum(case when start_station_id is null then 1 else 0 end) as start_station_id_null
+  , sum(case when end_station_name is null then 1 else 0 end) as end_station_name_null
+  , sum(case when end_station_id is null then 1 else 0 end) as end_station_id_null
+  , sum(case when start_lat is null then 1 else 0 end) as start_lat_null
+  , sum(case when start_lng is null then 1 else 0 end) as start_lng_null
+  , sum(case when end_lat is null then 1 else 0 end) as end_lat_null
+  , sum(case when end_lng is null then 1 else 0 end) as end_lng_null
+  , sum(case when member_casual is null then 1 else 0 end) as member_casual_null
+  -- Count total number of NULL values
+  , sum(
+        case when ride_id is null then 1 else 0 end +
+        case when rideable_type is null then 1 else 0 end +
+        case when started_at is null then 1 else 0 end +
+        case when ended_at is null then 1 else 0 end +
+        case when start_station_name is null then 1 else 0 end +
+        case when start_station_id is null then 1 else 0 end +
+        case when end_station_name is null then 1 else 0 end +
+        case when end_station_id is null then 1 else 0 end +
+        case when start_lat is null then 1 else 0 end +
+        case when start_lng is null then 1 else 0 end +
+        case when end_lat is null then 1 else 0 end +
+        case when end_lng is null then 1 else 0 end +
+        case when member_casual is null then 1 else 0 end
+      ) as totalnullcount
+from
+    [dbo].[202307-divvy-tripdata];
+
+-- Count NULL values for each column and the total number of null values for August 2023
+select
+    -- Count NULL values for each column
+    sum(case when ride_id is null then 1 else 0 end) as ride_id_null
+  , sum(case when rideable_type is null then 1 else 0 end) as rideable_type_null
+  , sum(case when started_at is null then 1 else 0 end) as started_at_null
+  , sum(case when ended_at is null then 1 else 0 end) as ended_at_null
+  , sum(case when start_station_name is null then 1 else 0 end) as start_station_name_null
+  , sum(case when start_station_id is null then 1 else 0 end) as start_station_id_null
+  , sum(case when end_station_name is null then 1 else 0 end) as end_station_name_null
+  , sum(case when end_station_id is null then 1 else 0 end) as end_station_id_null
+  , sum(case when start_lat is null then 1 else 0 end) as start_lat_null
+  , sum(case when start_lng is null then 1 else 0 end) as start_lng_null
+  , sum(case when end_lat is null then 1 else 0 end) as end_lat_null
+  , sum(case when end_lng is null then 1 else 0 end) as end_lng_null
+  , sum(case when member_casual is null then 1 else 0 end) as member_casual_null
+  -- Count total number of NULL values
+  , sum(
+        case when ride_id is null then 1 else 0 end +
+        case when rideable_type is null then 1 else 0 end +
+        case when started_at is null then 1 else 0 end +
+        case when ended_at is null then 1 else 0 end +
+        case when start_station_name is null then 1 else 0 end +
+        case when start_station_id is null then 1 else 0 end +
+        case when end_station_name is null then 1 else 0 end +
+        case when end_station_id is null then 1 else 0 end +
+        case when start_lat is null then 1 else 0 end +
+        case when start_lng is null then 1 else 0 end +
+        case when end_lat is null then 1 else 0 end +
+        case when end_lng is null then 1 else 0 end +
+        case when member_casual is null then 1 else 0 end
+      ) as totalnullcount
+from
+    [dbo].[202308-divvy-tripdata];
+
+-- Count NULL values for each column and the total number of null values for September 2023
+select
+    -- Count NULL values for each column
+    sum(case when ride_id is null then 1 else 0 end) as ride_id_null
+  , sum(case when rideable_type is null then 1 else 0 end) as rideable_type_null
+  , sum(case when started_at is null then 1 else 0 end) as started_at_null
+  , sum(case when ended_at is null then 1 else 0 end) as ended_at_null
+  , sum(case when start_station_name is null then 1 else 0 end) as start_station_name_null
+  , sum(case when start_station_id is null then 1 else 0 end) as start_station_id_null
+  , sum(case when end_station_name is null then 1 else 0 end) as end_station_name_null
+  , sum(case when end_station_id is null then 1 else 0 end) as end_station_id_null
+  , sum(case when start_lat is null then 1 else 0 end) as start_lat_null
+  , sum(case when start_lng is null then 1 else 0 end) as start_lng_null
+  , sum(case when end_lat is null then 1 else 0 end) as end_lat_null
+  , sum(case when end_lng is null then 1 else 0 end) as end_lng_null
+  , sum(case when member_casual is null then 1 else 0 end) as member_casual_null
+  -- Count total number of NULL values
+  , sum(
+        case when ride_id is null then 1 else 0 end +
+        case when rideable_type is null then 1 else 0 end +
+        case when started_at is null then 1 else 0 end +
+        case when ended_at is null then 1 else 0 end +
+        case when start_station_name is null then 1 else 0 end +
+        case when start_station_id is null then 1 else 0 end +
+        case when end_station_name is null then 1 else 0 end +
+        case when end_station_id is null then 1 else 0 end +
+        case when start_lat is null then 1 else 0 end +
+        case when start_lng is null then 1 else 0 end +
+        case when end_lat is null then 1 else 0 end +
+        case when end_lng is null then 1 else 0 end +
+        case when member_casual is null then 1 else 0 end
+      ) as totalnullcount
+from
+    [dbo].[202309-divvy-tripdata];
+
+-- Count NULL values for each column and the total number of null values for October 2023
+select
+    -- Count NULL values for each column
+    sum(case when ride_id is null then 1 else 0 end) as ride_id_null
+  , sum(case when rideable_type is null then 1 else 0 end) as rideable_type_null
+  , sum(case when started_at is null then 1 else 0 end) as started_at_null
+  , sum(case when ended_at is null then 1 else 0 end) as ended_at_null
+  , sum(case when start_station_name is null then 1 else 0 end) as start_station_name_null
+  , sum(case when start_station_id is null then 1 else 0 end) as start_station_id_null
+  , sum(case when end_station_name is null then 1 else 0 end) as end_station_name_null
+  , sum(case when end_station_id is null then 1 else 0 end) as end_station_id_null
+  , sum(case when start_lat is null then 1 else 0 end) as start_lat_null
+  , sum(case when start_lng is null then 1 else 0 end) as start_lng_null
+  , sum(case when end_lat is null then 1 else 0 end) as end_lat_null
+  , sum(case when end_lng is null then 1 else 0 end) as end_lng_null
+  , sum(case when member_casual is null then 1 else 0 end) as member_casual_null
+  -- Count total number of NULL values
+  , sum(
+        case when ride_id is null then 1 else 0 end +
+        case when rideable_type is null then 1 else 0 end +
+        case when started_at is null then 1 else 0 end +
+        case when ended_at is null then 1 else 0 end +
+        case when start_station_name is null then 1 else 0 end +
+        case when start_station_id is null then 1 else 0 end +
+        case when end_station_name is null then 1 else 0 end +
+        case when end_station_id is null then 1 else 0 end +
+        case when start_lat is null then 1 else 0 end +
+        case when start_lng is null then 1 else 0 end +
+        case when end_lat is null then 1 else 0 end +
+        case when end_lng is null then 1 else 0 end +
+        case when member_casual is null then 1 else 0 end
+      ) as totalnullcount
+from
+    [dbo].[202310-divvy-tripdata];
+
+-- Count-- Count NULL values for each column and the total number of null values for November 2023
+select
+    -- Count NULL values for each column
+    sum(case when ride_id is null then 1 else 0 end) as ride_id_null
+  , sum(case when rideable_type is null then 1 else 0 end) as rideable_type_null
+  , sum(case when started_at is null then 1 else 0 end) as started_at_null
+  , sum(case when ended_at is null then 1 else 0 end) as ended_at_null
+  , sum(case when start_station_name is null then 1 else 0 end) as start_station_name_null
+  , sum(case when start_station_id is null then 1 else 0 end) as start_station_id_null
+  , sum(case when end_station_name is null then 1 else 0 end) as end_station_name_null
+  , sum(case when end_station_id is null then 1 else 0 end) as end_station_id_null
+  , sum(case when start_lat is null then 1 else 0 end) as start_lat_null
+  , sum(case when start_lng is null then 1 else 0 end) as start_lng_null
+  , sum(case when end_lat is null then 1 else 0 end) as end_lat_null
+  , sum(case when end_lng is null then 1 else 0 end) as end_lng_null
+  , sum(case when member_casual is null then 1 else 0 end) as member_casual_null
+  -- Count total number of NULL values
+  , sum(
+        case when ride_id is null then 1 else 0 end +
+        case when rideable_type is null then 1 else 0 end +
+        case when started_at is null then 1 else 0 end +
+        case when ended_at is null then 1 else 0 end +
+        case when start_station_name is null then 1 else 0 end +
+        case when start_station_id is null then 1 else 0 end +
+        case when end_station_name is null then 1 else 0 end +
+        case when end_station_id is null then 1 else 0 end +
+        case when start_lat is null then 1 else 0 end +
+        case when start_lng is null then 1 else 0 end +
+        case when end_lat is null then 1 else 0 end +
+        case when end_lng is null then 1 else 0 end +
+        case when member_casual is null then 1 else 0 end
+      ) as totalnullcount
+from
+    [dbo].[202311-divvy-tripdata];
+
+-- Count NULL values for each column and the total number of null values for December 2023
+select
+    -- Count NULL values for each column
+    sum(case when ride_id is null then 1 else 0 end) as ride_id_null
+  , sum(case when rideable_type is null then 1 else 0 end) as rideable_type_null
+  , sum(case when started_at is null then 1 else 0 end) as started_at_null
+  , sum(case when ended_at is null then 1 else 0 end) as ended_at_null
+  , sum(case when start_station_name is null then 1 else 0 end) as start_station_name_null
+  , sum(case when start_station_id is null then 1 else 0 end) as start_station_id_null
+  , sum(case when end_station_name is null then 1 else 0 end) as end_station_name_null
+  , sum(case when end_station_id is null then 1 else 0 end) as end_station_id_null
+  , sum(case when start_lat is null then 1 else 0 end) as start_lat_null
+  , sum(case when start_lng is null then 1 else 0 end) as start_lng_null
+  , sum(case when end_lat is null then 1 else 0 end) as end_lat_null
+  , sum(case when end_lng is null then 1 else 0 end) as end_lng_null
+  , sum(case when member_casual is null then 1 else 0 end) as member_casual_null
+  -- Count total number of NULL values
+  , sum(
+        case when ride_id is null then 1 else 0 end +
+        case when rideable_type is null then 1 else 0 end +
+        case when started_at is null then 1 else 0 end +
+        case when ended_at is null then 1 else 0 end +
+        case when start_station_name is null then 1 else 0 end +
+        case when start_station_id is null then 1 else 0 end +
+        case when end_station_name is null then 1 else 0 end +
+        case when end_station_id is null then 1 else 0 end +
+        case when start_lat is null then 1 else 0 end +
+        case when start_lng is null then 1 else 0 end +
+        case when end_lat is null then 1 else 0 end +
+        case when end_lng is null then 1 else 0 end +
+        case when member_casual is null then 1 else 0 end
+      ) as totalnullcount
+from
+    [dbo].[202312-divvy-tripdata];
+
+-----------------------------
+-- Blank Value Identification
+-----------------------------
+
+-- Count the total number of blank values in each table
+select
+    '202301-divvy-tripdata' as table_name -- January 2023
+  , count(*) as totalblankcount
+from
+    [dbo].[202301-divvy-tripdata]
+where
+    -- Check if each column is blank using COALESCE and NULLIF functions
+    coalesce(nullif(ride_id, ''), '') = ''
+    and coalesce(nullif(rideable_type, ''), '') = ''
+    and coalesce(nullif(started_at, ''), '') = ''
+    and coalesce(nullif(ended_at, ''), '') = ''
+    and coalesce(nullif(start_station_name, ''), '') = ''
+    and coalesce(nullif(start_station_id, ''), '') = ''
+    and coalesce(nullif(end_station_name, ''), '') = ''
+    and coalesce(nullif(end_station_id, ''), '') = ''
+    and coalesce(nullif(member_casual, ''), '') = ''
+    -- Combine the results with the results from other tables using UNION ALL
+union all
+select
+    '202302-divvy-tripdata' as table_name -- February 2023
+  , count(*) as totalblankcount
+from
+    [dbo].[202302-divvy-tripdata]
+where
+    coalesce(nullif(ride_id, ''), '') = ''
+    and coalesce(nullif(rideable_type, ''), '') = ''
+    and coalesce(nullif(started_at, ''), '') = ''
+    and coalesce(nullif(ended_at, ''), '') = ''
+    and coalesce(nullif(start_station_name, ''), '') = ''
+    and coalesce(nullif(start_station_id, ''), '') = ''
+    and coalesce(nullif(end_station_name, ''), '') = ''
+    and coalesce(nullif(end_station_id, ''), '') = ''
+    and coalesce(nullif(member_casual, ''), '') = ''
+union all
+select
+    '202303-divvy-tripdata' as table_name -- March 2023
+  , count(*) as totalblankcount
+from
+    [dbo].[202303-divvy-tripdata]
+where
+    coalesce(nullif(ride_id, ''), '') = ''
+    and coalesce(nullif(rideable_type, ''), '') = ''
+    and coalesce(nullif(started_at, ''), '') = ''
+    and coalesce(nullif(ended_at, ''), '') = ''
+    and coalesce(nullif(start_station_name, ''), '') = ''
+    and coalesce(nullif(start_station_id, ''), '') = ''
+    and coalesce(nullif(end_station_name, ''), '') = ''
+    and coalesce(nullif(end_station_id, ''), '') = ''
+    and coalesce(nullif(member_casual, ''), '') = ''
+union all
+select
+    '202304-divvy-tripdata' as table_name -- April 2023
+  , count(*) as totalblankcount
+from
+    [dbo].[202304-divvy-tripdata]
+where
+    coalesce(nullif(ride_id, ''), '') = ''
+    and coalesce(nullif(rideable_type, ''), '') = ''
+    and coalesce(nullif(started_at, ''), '') = ''
+    and coalesce(nullif(ended_at, ''), '') = ''
+    and coalesce(nullif(start_station_name, ''), '') = ''
+    and coalesce(nullif(start_station_id, ''), '') = ''
+    and coalesce(nullif(end_station_name, ''), '') = ''
+    and coalesce(nullif(end_station_id, ''), '') = ''
+    and coalesce(nullif(member_casual, ''), '') = ''
+union all
+select
+    '202305-divvy-tripdata' as table_name -- May 2023
+  , count(*) as totalblankcount
+from
+    [dbo].[202305-divvy-tripdata]
+where
+    coalesce(nullif(ride_id, ''), '') = ''
+    and coalesce(nullif(rideable_type, ''), '') = ''
+    and coalesce(nullif(started_at, ''), '') = ''
+    and coalesce(nullif(ended_at, ''), '') = ''
+    and coalesce(nullif(start_station_name, ''), '') = ''
+    and coalesce(nullif(start_station_id, ''), '') = ''
+    and coalesce(nullif(end_station_name, ''), '') = ''
+    and coalesce(nullif(end_station_id, ''), '') = ''
+    and coalesce(nullif(member_casual, ''), '') = ''
+union all
+select
+    '202306-divvy-tripdata' as table_name -- June 2023
+  , count(*) as totalblankcount
+from
+    [dbo].[202306-divvy-tripdata]
+where
+    coalesce(nullif(ride_id, ''), '') = ''
+    and coalesce(nullif(rideable_type, ''), '') = ''
+    and coalesce(nullif(started_at, ''), '') = ''
+    and coalesce(nullif(ended_at, ''), '') = ''
+    and coalesce(nullif(start_station_name, ''), '') = ''
+    and coalesce(nullif(start_station_id, ''), '') = ''
+    and coalesce(nullif(end_station_name, ''), '') = ''
+    and coalesce(nullif(end_station_id, ''), '') = ''
+    and coalesce(nullif(member_casual, ''), '') = ''
+union all
+select
+    '202307-divvy-tripdata' as table_name -- July 2023
+  , count(*) as totalblankcount
+from
+    [dbo].[202307-divvy-tripdata]
+where
+    coalesce(nullif(ride_id, ''), '') = ''
+    and coalesce(nullif(rideable_type, ''), '') = ''
+    and coalesce(nullif(started_at, ''), '') = ''
+    and coalesce(nullif(ended_at, ''), '') = ''
+    and coalesce(nullif(start_station_name, ''), '') = ''
+    and coalesce(nullif(start_station_id, ''), '') = ''
+    and coalesce(nullif(end_station_name, ''), '') = ''
+    and coalesce(nullif(end_station_id, ''), '') = ''
+    and coalesce(nullif(member_casual, ''), '') = ''
+union all
+select
+    '202308-divvy-tripdata' as table_name -- August 2023
+  , count(*) as totalblankcount
+from
+    [dbo].[202308-divvy-tripdata]
+where
+    coalesce(nullif(ride_id, ''), '') = ''
+    and coalesce(nullif(rideable_type, ''), '') = ''
+    and coalesce(nullif(started_at, ''), '') = ''
+    and coalesce(nullif(ended_at, ''), '') = ''
+    and coalesce(nullif(start_station_name, ''), '') = ''
+    and coalesce(nullif(start_station_id, ''), '') = ''
+    and coalesce(nullif(end_station_name, ''), '') = ''
+    and coalesce(nullif(end_station_id, ''), '') = ''
+    and coalesce(nullif(member_casual, ''), '') = ''
+union all
+select
+    '202309-divvy-tripdata' as table_name -- September 2023
+  , count(*) as totalblankcount
+from
+    [dbo].[202309-divvy-tripdata]
+where
+    coalesce(nullif(ride_id, ''), '') = ''
+    and coalesce(nullif(rideable_type, ''), '') = ''
+    and coalesce(nullif(started_at, ''), '') = ''
+    and coalesce(nullif(ended_at, ''), '') = ''
+    and coalesce(nullif(start_station_name, ''), '') = ''
+    and coalesce(nullif(start_station_id, ''), '') = ''
+    and coalesce(nullif(end_station_name, ''), '') = ''
+    and coalesce(nullif(end_station_id, ''), '') = ''
+    and coalesce(nullif(member_casual, ''), '') = ''
+union all
+select
+    '202310-divvy-tripdata' as table_name -- October 2023
+  , count(*) as totalblankcount
+from
+    [dbo].[202310-divvy-tripdata]
+where
+    coalesce(nullif(ride_id, ''), '') = ''
+    and coalesce(nullif(rideable_type, ''), '') = ''
+    and coalesce(nullif(started_at, ''), '') = ''
+    and coalesce(nullif(ended_at, ''), '') = ''
+    and coalesce(nullif(start_station_name, ''), '') = ''
+    and coalesce(nullif(start_station_id, ''), '') = ''
+    and coalesce(nullif(end_station_name, ''), '') = ''
+    and coalesce(nullif(end_station_id, ''), '') = ''
+    and coalesce(nullif(member_casual, ''), '') = ''
+union all
+select
+    '202311-divvy-tripdata' as table_name -- November 2023
+  , count(*) as totalblankcount
+from
+    [dbo].[202311-divvy-tripdata]
+where
+    coalesce(nullif(ride_id, ''), '') = ''
+    and coalesce(nullif(rideable_type, ''), '') = ''
+    and coalesce(nullif(started_at, ''), '') = ''
+    and coalesce(nullif(ended_at, ''), '') = ''
+    and coalesce(nullif(start_station_name, ''), '') = ''
+    and coalesce(nullif(start_station_id, ''), '') = ''
+    and coalesce(nullif(end_station_name, ''), '') = ''
+    and coalesce(nullif(end_station_id, ''), '') = ''
+    and coalesce(nullif(member_casual, ''), '') = ''
+union all
+select
+    '202312-divvy-tripdata' as table_name -- December 2023
+  , count(*) as totalblankcount
+from
+    [dbo].[202312-divvy-tripdata]
+where
+    coalesce(nullif(ride_id, ''), '') = ''
+    and coalesce(nullif(rideable_type, ''), '') = ''
+    and coalesce(nullif(started_at, ''), '') = ''
+    and coalesce(nullif(ended_at, ''), '') = ''
+    and coalesce(nullif(start_station_name, ''), '') = ''
+    and coalesce(nullif(start_station_id, ''), '') = ''
+    and coalesce(nullif(end_station_name, ''), '') = ''
+    and coalesce(nullif(end_station_id, ''), '') = ''
+    and coalesce(nullif(member_casual, ''), '') = ''
+-- Order the final results by table name
+order by
+    table_name;
+
+-----------------------------
+-- Aggregating Monthly Tables
+-----------------------------
+
+-- Select all columns from various monthly tables for the year 2023 and insert into a new table named '2023-divvy-tripdata'
+select
+    *
+into
+    [2023-divvy-tripdata]
+from -- Select all columns from the 12 tables and union them into a single table
+    (
+        select
+            *
+        from
+            [dbo].[202301-divvy-tripdata]
+        union all
+        select
+            *
+        from
+            [dbo].[202302-divvy-tripdata]
+        union all
+        select
+            *
+        from
+            [dbo].[202303-divvy-tripdata]
+        union all
+        select
+            *
+        from
+            [dbo].[202304-divvy-tripdata]
+        union all
+        select
+            *
+        from
+            [dbo].[202305-divvy-tripdata]
+        union all
+        select
+            *
+        from
+            [dbo].[202306-divvy-tripdata]
+        union all
+        select
+            *
+        from
+            [dbo].[202307-divvy-tripdata]
+        union all
+        select
+            *
+        from
+            [dbo].[202308-divvy-tripdata]
+        union all
+        select
+            *
+        from
+            [dbo].[202309-divvy-tripdata]
+        union all
+        select
+            *
+        from
+            [dbo].[202310-divvy-tripdata]
+        union all
+        select
+            *
+        from
+            [dbo].[202311-divvy-tripdata]
+        union all
+        select
+            *
+        from
+            [dbo].[202312-divvy-tripdata]
+    ) as tripdata; -- Alias for the subquery
+
+----------------------------------
+-- Purging Separate Monthly Tables
+----------------------------------
+
+-- Drop tables if they exist for each month of Divvy trip data in the year 2023
+drop table if exists 
+    [dbo].[202301-divvy-tripdata] -- Drop table for January 2023 trip data
+  , [dbo].[202302-divvy-tripdata] -- Drop table for February 2023 trip data
+  , [dbo].[202303-divvy-tripdata] -- Drop table for March 2023 trip data
+  , [dbo].[202304-divvy-tripdata] -- Drop table for April 2023 trip data
+  , [dbo].[202305-divvy-tripdata] -- Drop table for May 2023 trip data
+  , [dbo].[202306-divvy-tripdata] -- Drop table for June 2023 trip data
+  , [dbo].[202307-divvy-tripdata] -- Drop table for July 2023 trip data
+  , [dbo].[202308-divvy-tripdata] -- Drop table for August 2023 trip data
+  , [dbo].[202309-divvy-tripdata] -- Drop table for September 2023 trip data
+  , [dbo].[202310-divvy-tripdata] -- Drop table for October 2023 trip data
+  , [dbo].[202311-divvy-tripdata] -- Drop table for November 2023 trip data
+  , [dbo].[202312-divvy-tripdata]; -- Drop table for December 2023 trip data
+
+------------------------------
+-- Table Structure Enhancement
+------------------------------
+
+-- Alter table [dbo].[2023-divvy-tripdata] to modify column attributes
+alter table [dbo].[2023-divvy-tripdata] alter column ride_id nvarchar(255) not null; -- Modify 'ride_id' column to not allow NULL values and set the data type to nvarchar(255)
+alter table [dbo].[2023-divvy-tripdata] alter column rideable_type nvarchar(50) not null; -- Modify 'rideable_type' column to not allow NULL values and set the data type to nvarchar(50)
+alter table [dbo].[2023-divvy-tripdata] alter column started_at datetime2(0) not null; -- Modify 'started_at' column to not allow NULL values and set the data type to datetime2(0)
+alter table [dbo].[2023-divvy-tripdata] alter column ended_at datetime2(0) not null; -- Modify 'ended_at' column to not allow NULL values and set the data type to datetime2(0)
+alter table [dbo].[2023-divvy-tripdata] alter column start_station_name nvarchar(100) null; -- Modify 'start_station_name' column to allow NULL values and set the data type to nvarchar(100)
+alter table [dbo].[2023-divvy-tripdata] alter column start_station_id nvarchar(100) null; -- Modify 'start_station_id' column to allow NULL values and set the data type to nvarchar(100)
+alter table [dbo].[2023-divvy-tripdata] alter column end_station_name nvarchar(100) null; -- Modify 'end_station_name' column to allow NULL values and set the data type to nvarchar(100)
+alter table [dbo].[2023-divvy-tripdata] alter column end_station_id nvarchar(100) null; -- Modify 'end_station_id' column to allow NULL values and set the data type to nvarchar(100)
+alter table [dbo].[2023-divvy-tripdata] alter column start_lat decimal(18, 2) null; -- Modify 'start_lat' column to allow NULL values and set the data type to decimal(18, 2)
+alter table [dbo].[2023-divvy-tripdata] alter column start_lng decimal(18, 2) null; -- Modify 'start_lng' column to allow NULL values and set the data type to decimal(18, 2)
+alter table [dbo].[2023-divvy-tripdata] alter column end_lat decimal(18, 2) null; -- Modify 'end_lat' column to allow NULL values and set the data type to decimal(18, 2)
+alter table [dbo].[2023-divvy-tripdata] alter column end_lng decimal(18, 2) null; -- Modify 'end_lng' column to allow NULL values and set the data type to decimal(18, 2)
+alter table [dbo].[2023-divvy-tripdata] alter column member_casual nvarchar(50) not null; -- Modify 'member_casual' column to not allow NULL values and set the data type to nvarchar(50)
+
+--------------------------
+-- Key Constraint Addition
+--------------------------
+
+-- Add a primary key constraint to table [dbo].[2023-divvy-tripdata]
+alter table [dbo].[2023-divvy-tripdata] add constraint PK_2023_divvy_tripdata primary key (ride_id); -- Add a primary key constraint named 'PK_2023_divvy_tripdata' to the 'ride_id' column
+
+--------------------------------------
+-- Verifying Schema of Combined Tables
+--------------------------------------
+
+-- Check the new combined tables schema
+select
+    table_name -- Name of the table
+  , column_name -- Name of the column
+  , data_type -- Data type of the column
+  , character_maximum_length -- Maximum length of character data type columns
+  , is_nullable -- Indicates whether the column allows NULL values
+  , column_default -- Default value of the column
+from
+    information_schema.columns
+where
+    table_name = '2023-divvy-tripdata'
+    and
+    table_schema = 'dbo';
+
+------------------------
+-- Extracting Top 5 Rows
+------------------------
+
+-- Selecting the top 5 rows from the specified table
+select top (5) *
+from [dbo].[2023-divvy-tripdata];
+
+---------------------------------------
+-- Checking Row Count of Combined Table
+---------------------------------------
+
+-- Retrieves information about the tables' name and row count
+declare @schemaName nvarchar(128) = 'dbo';
+-- Specify the schema name here
+declare @tableName nvarchar(128) = '2023-divvy-tripdata'; 
+
+-- Specify the table name here
+select
+    t.name as table_name -- Alias the name column from the sys.tables view as table_name
+  , p.rows as row_counts -- Alias the rows column from the sys.partitions view as row_counts
+from
+    sys.tables t -- Get information about tables from the sys.tables system catalog view
+    inner join sys.partitions p on t.object_id = p.object_id -- Join the sys.tables and sys.partitions views based on object_id
+    inner join sys.schemas s on t.schema_id = s.schema_id -- Join to sys.schemas to get schema information
+where
+    s.name = @schemaName -- Filter by schema name
+    and t.name = @tableName -- Filter by table name
+    and t.is_ms_shipped = 0 -- Filter out system tables (is_ms_shipped = 0 indicates user-defined tables)
+    and p.index_id in (1, 0); -- Filter partitions based on index ID (1 for clustered index, 0 for heap)
+
+-------------------------
+-- Column Name Adjustment
+-------------------------
+
+-- Rename column 'member_casual' to 'user_type' in table [dbo].[2023-divvy-tripdata]
+EXEC sp_rename 'dbo.2023-divvy-tripdata.member_casual', 'user_type', 'COLUMN';
+
+--------------------------
+-- Introducing New Columns
+--------------------------
+
+-- Add 'month' column
+alter table [dbo].[2023-divvy-tripdata]
+add month nvarchar(20);
+
+-- Update the 'month' column based on the 'started_at' datetime column
+update [dbo].[2023-divvy-tripdata]
+set
+    month = case month(started_at) -- Extract month from 'started_at' datetime column
+        when 1 then 'Jan' -- If the month is 1, set it to 'Jan'
+        when 2 then 'Feb' -- If the month is 2, set it to 'Feb'
+        when 3 then 'Mar' -- If the month is 3, set it to 'Mar'
+        when 4 then 'Apr' -- If the month is 4, set it to 'Apr'
+        when 5 then 'May' -- If the month is 5, set it to 'May'
+        when 6 then 'Jun' -- If the month is 6, set it to 'Jun'
+        when 7 then 'Jul' -- If the month is 7, set it to 'Jul'
+        when 8 then 'Aug' -- If the month is 8, set it to 'Aug'
+        when 9 then 'Sep' -- If the month is 9, set it to 'Sep'
+        when 10 then 'Oct' -- If the month is 10, set it to 'Oct'
+        when 11 then 'Nov' -- If the month is 11, set it to 'Nov'
+        else 'Dec' -- For any other month (12), set it to 'Dec'
+    end;
+
+-- Add 'day_of_week' column
+alter table [dbo].[2023-divvy-tripdata]
+add day_of_week nvarchar(20);
+
+-- Update the 'day_of_week' column based on the 'started_at' datetime column
+update [dbo].[2023-divvy-tripdata]
+set
+    day_of_week = case datepart(WEEKDAY, started_at) -- Extract the day of the week from the 'started_at' datetime column
+        when 1 then 'Mon' -- If the day is 1 (Sunday), set it to 'Mon'
+        when 2 then 'Tue' -- If the day is 2 (Monday), set it to 'Tue'
+        when 3 then 'Wed' -- If the day is 3 (Tuesday), set it to 'Wed'
+        when 4 then 'Thu' -- If the day is 4 (Wednesday), set it to 'Thu'
+        when 5 then 'Fri' -- If the day is 5 (Thursday), set it to 'Fri'
+        when 6 then 'Sat' -- If the day is 6 (Friday), set it to 'Sat'
+        else 'Sun' -- For any other day (7, Saturday), set it to 'Sun'
+    end;
+
+-- Add 'hour' column
+alter table [dbo].[2023-divvy-tripdata]
+add hour nvarchar(10);
+
+-- Update the 'hour' column based on the 'started_at' column
+update [dbo].[2023-divvy-tripdata]
+set
+    hour = case
+    -- If the hour is less than 12, convert it to AM format
+        when datepart(hour, started_at) < 12 then convert(nvarchar(2), datepart(hour, started_at)) + ' AM'
+        -- If the hour is 12, it's noon
+        when datepart(hour, started_at) = 12 then '12 PM'
+        -- For other hours, convert them to PM format
+        else convert(nvarchar(2), datepart(hour, started_at) - 12) + ' PM'
+    end;
+
+-- Add 'quarter' column
+alter table [dbo].[2023-divvy-tripdata]
+add quarter nvarchar(2);
+
+-- Update the 'quarter' column based on the 'started_at' datetime column
+update [dbo].[2023-divvy-tripdata]
+set
+    quarter = case
+        -- Determine the quarter based on the month of the 'started_at' datetime column
+        when month(started_at) between 1
+        and 3 then 'Q1' -- If the month is between January and March, set it to 'Q1'
+        when month(started_at) between 4
+        and 6 then 'Q2' -- If the month is between April and June, set it to 'Q2'
+        when month(started_at) between 7
+        and 9 then 'Q3' -- If the month is between July and September, set it to 'Q3'
+        else 'Q4' -- For any other month (October to December), set it to 'Q4'
+    end;
+
+-- Add 'ride_length_minute' column
+alter table [dbo].[2023-divvy-tripdata]
+add ride_length_minute as
+-- Convert the difference in seconds between 'started_at' and 'ended_at' to minutes
+    convert(decimal(10, 2)
+    , datediff(second, started_at, ended_at) / 60.0);
+
+-- Add 'ride_distance' column
+alter table [dbo].[2023-divvy-tripdata]
+add ride_distance decimal(10, 2);
+
+-- Update the newly added ride_distance column with calculated values
+update [dbo].[2023-divvy-tripdata]
+set ride_distance = (
+    -- Use the Haversine formula to calculate the distance between start and end points
+    3959 * acos(
+        cos(radians(start_lat)) * cos(radians(end_lat)) * cos(radians(end_lng) - radians(start_lng)) +
+        sin(radians(start_lat)) * sin(radians(end_lat))
+    )
+);
+
+---------------------------
+-- Generating Updated Table
+---------------------------
+
+-- Copy all columns into a new table named '2023-divvy-tripdataupdated'
+select
+    * -- Select all columns
+into
+    [2023-divvy-tripdataupdated] -- Insert into a new table named '2023-divvy-tripdataupdated'
+from
+    [dbo].[2023-divvy-tripdata]; -- Select data from the table '2023-divvy-tripdata'
+
+-------------------------
+-- Null Value Examination
+-------------------------
+
+-- Calculate the count of NULL values for each column in the table [dbo].[2023-divvy-tripdataupdated]
+select
+    count(*) - count(start_station_name) as start_station_name_null -- Count of NULL values in 'start_station_name' column
+  , count(*) - count(start_station_id) as start_station_id_null -- Count of NULL values in 'start_station_id' column
+  , count(*) - count(end_station_name) as end_station_name_null -- Count of NULL values in 'end_station_name' column
+  , count(*) - count(end_station_id) as end_station_id_null -- Count of NULL values in 'end_station_id' column
+  , count(*) - count(end_lat) as end_lat_null -- Count of NULL values in 'end_lat' column
+  , count(*) - count(end_lng) as end_lng_null -- Count of NULL values in 'end_lng' column
+  , count(*) - count(user_type) as user_type_null -- Count of NULL values in 'user_type' column
+  , count(*) - count(month) as month_null -- Count of NULL values in 'month' column
+  , count(*) - count(day_of_week) as day_of_week_null -- Count of NULL values in 'day_of_week' column
+  , count(*) - count(hour) as hour_null -- Count of NULL values in 'hour' column
+  , count(*) - count(quarter) as quarter_null -- Count of NULL values in 'quarter' column
+  , count(*) - count(ride_length_minute) as ride_length_minute_null -- Count of NULL values in 'ride_length_minute' column
+  , count(*) - count(ride_distance) as ride_distance_null -- Count of NULL values in 'ride_distance' column
+from
+    [dbo].[2023-divvy-tripdataupdated]; -- Select data from the table [dbo].[2023-divvy-tripdataupdated]
+
+-- Count the total number of null values
+select
+    count(*) as totalnullcount -- Total count of rows with NULL values in any of the specified columns
+from
+    (
+        select
+            *
+        from
+            [dbo].[2023-divvy-tripdataupdated] -- Select data from the table [dbo].[2023-divvy-tripdataupdated]
+        where
+            start_station_name is null -- Check for NULL values in 'start_station_name' column
+            or start_station_id is null -- Check for NULL values in 'start_station_id' column
+            or end_station_name is null -- Check for NULL values in 'end_station_name' column
+            or end_station_id is null -- Check for NULL values in 'end_station_id' column
+            or end_lat is null -- Check for NULL values in 'end_lat' column
+            or end_lng is null -- Check for NULL values in 'end_lng' column
+            or user_type is null -- Check for NULL values in 'user_type' column
+			or month is null -- Check for NULL values in 'month' column
+			or day_of_week is null -- Check for NULL values in 'day_of_week' column
+			or hour is null -- Check for NULL values in 'hour' column
+			or quarter is null -- Check for NULL values in 'quarter' column
+			or ride_length_minute is null -- Check for NULL values in 'ride_length_minute' column
+			or ride_distance is null -- Check for NULL values in 'ride_distance' column
+    ) as nullvalues; -- Subquery to filter rows with NULL values in any of the specified columns
+
+----------------------
+-- Null Value Handling
+----------------------
+
+-- Add calculated columns 'start_coordinates' and 'end_coordinates' to table [dbo].[2023-divvy-tripdataupdated]
+alter table [dbo].[2023-divvy-tripdataupdated]
+add start_coordinates as concat(start_lat, ',', start_lng) -- Add 'start_coordinates' column combining 'start_lat' and 'start_lng'
+  , end_coordinates as concat(end_lat, ',', end_lng); -- Add 'end_coordinates' column combining 'end_lat' and 'end_lng'
+
+-- Use a Common Table Expression (CTE) to prepare data for updating NULL start_station_name values based on lag and lead values
+with
+    CTE as (
+        select
+            start_coordinates
+          , start_station_name
+          , lag(start_station_name) over (
+                partition by
+                    start_coordinates
+                order by
+                    started_at
+            ) as lag_start_station_name
+          , lead(start_station_name) over (
+                partition by
+                    start_coordinates
+                order by
+                    started_at
+            ) as lead_start_station_name
+        from
+            [dbo].[2023-divvy-tripdataupdated]
+    )
+    -- Update NULL start_station_name values based on lag and lead values
+update CTE
+-- Set start_station_name to the first non-NULL value from lag and lead columns
+set
+    start_station_name = coalesce(lag_start_station_name, lead_start_station_name)
+    -- Update only rows where start_station_name is NULL
+where
+    start_station_name is null;
+
+-- Use a Common Table Expression (CTE) to prepare data for updating NULL end_station_name values based on lag and lead values
+with
+    CTE as (
+        select
+            end_lat
+          , end_lng
+          , end_station_name
+          , lag(end_station_name) over (
+                partition by
+                    end_lat
+                  , end_lng
+                order by
+                    ended_at
+            ) as lag_end_station_name
+          , lead(end_station_name) over (
+                partition by
+                    end_lat
+                  , end_lng
+                order by
+                    ended_at
+            ) as lead_end_station_name
+        from
+            [dbo].[2023-divvy-tripdataupdated]
+    )
+    -- Update NULL end_station_name values based on lag and lead values
+update CTE
+-- Set end_station_name to the first non-NULL value from lag and lead columns
+set
+    end_station_name = coalesce(lag_end_station_name, lead_end_station_name)
+    -- Update only rows where end_station_name is NULL
+where
+    end_station_name is null;
+
+-- Use a Common Table Expression (CTE) to prepare data for updating NULL start_station_id values based on lag and lead values
+with
+    CTE as (
+        select
+            start_station_name
+          , start_station_id
+          , lag(start_station_id) over (
+                partition by
+                    start_station_name
+                order by
+                    started_at
+            ) as lag_start_station_id
+          , lead(start_station_id) over (
+                partition by
+                    start_station_name
+                order by
+                    started_at
+            ) as lead_start_station_id
+        from
+            [dbo].[2023-divvy-tripdataupdated]
+    )
+    -- Update NULL start_station_id values based on lag and lead values
+update CTE
+-- Set start_station_id to the first non-NULL value from lag and lead columns
+set
+    start_station_id = coalesce(lag_start_station_id, lead_start_station_id)
+    -- Update only rows where start_station_id is NULL
+where
+    start_station_id is null;
+
+-- Use a Common Table Expression (CTE) to prepare data for updating NULL end_station_id values based on lag and lead values
+with
+    CTE as (
+        select
+            end_station_name
+          , end_station_id
+          , lag(end_station_id) over (
+                partition by
+                    end_station_name
+                order by
+                    ended_at
+            ) as lag_end_station_id
+          , lead(end_station_id) over (
+                partition by
+                    end_station_name
+                order by
+                    ended_at
+            ) as lead_end_station_id
+        from
+            [dbo].[2023-divvy-tripdataupdated]
+    )
+    -- Update NULL end_station_id values based on lag and lead values
+update CTE
+-- Set end_station_id to the first non-NULL value from lag and lead columns
+set
+    end_station_id = coalesce(lag_end_station_id, lead_end_station_id)
+    -- Update only rows where end_station_id is NULL
+where
+    end_station_id is null;
+
+-- Count the number of NULL values for each column in the table [dbo].[2023-divvy-tripdataupdated]
+select
+    count(*) - count(start_station_name) as start_station_name_null -- Count of NULL values in 'start_station_name' column
+  , count(*) - count(start_station_id) as start_station_id_null -- Count of NULL values in 'start_station_id' column
+  , count(*) - count(end_station_name) as end_station_name_null -- Count of NULL values in 'end_station_name' column
+  , count(*) - count(end_station_id) as end_station_id_null -- Count of NULL values in 'end_station_id' column
+  , count(*) - count(end_lat) as end_lat_null -- Count of NULL values in 'end_lat' column
+  , count(*) - count(end_lng) as end_lng_null -- Count of NULL values in 'end_lng' column
+  , count(*) - count(user_type) as user_type_null -- Count of NULL values in 'user_type' column
+  , count(*) - count(month) as month_null -- Count of NULL values in 'month' column
+  , count(*) - count(day_of_week) as day_of_week_null -- Count of NULL values in 'day_of_week' column
+  , count(*) - count(hour) as hour_null -- Count of NULL values in 'hour' column
+  , count(*) - count(quarter) as quarter_null -- Count of NULL values in 'quarter' column
+  , count(*) - count(ride_length_minute) as ride_length_minute_null -- Count of NULL values in 'ride_length_minute' column
+  , count(*) - count(ride_distance) as ride_distance_null -- Count of NULL values in 'ride_distance' column
+from
+    [dbo].[2023-divvy-tripdataupdated]; -- Select data from the table [dbo].[2023-divvy-tripdataupdated]
+
+-- Count the total number of rows with NULL values in any of the specified columns in the table [dbo].[2023-divvy-tripdataupdated]
+select
+    count(*) as totalnullcount -- Total count of rows with NULL values in any of the specified columns
+from
+    (
+        select
+            *
+        from
+            [dbo].[2023-divvy-tripdataupdated] -- Select data from the table [dbo].[2023-divvy-tripdataupdated]
+        where
+            start_station_name is null -- Check for NULL values in 'start_station_name' column
+            or start_station_id is null -- Check for NULL values in 'start_station_id' column
+            or end_station_name is null -- Check for NULL values in 'end_station_name' column
+            or end_station_id is null -- Check for NULL values in 'end_station_id' column
+            or end_lat is null -- Check for NULL values in 'end_lat' column
+            or end_lng is null -- Check for NULL values in 'end_lng' column
+            or user_type is null -- Check for NULL values in 'user_type' column
+            or month is null -- Check for NULL values in 'month' column
+            or day_of_week is null -- Check for NULL values in 'day_of_week' column
+            or hour is null -- Check for NULL values in 'hour' column
+            or quarter is null -- Check for NULL values in 'quarter' column
+            or ride_length_minute is null -- Check for NULL values in 'ride_length_minute' column
+            or ride_distance is null -- Check for NULL values in 'ride_distance' column
+    ) as nullvalues; -- Subquery to filter rows with NULL values in any of the specified columns
+
+--------------------
+-- Outlier Detection
+--------------------
+
+-- Count the total number of rows in the table where ride_length_minute is less than 1 minute (60 seconds)
+select
+    count(*) as total_count -- Total count of rows
+from
+    [dbo].[2023-divvy-tripdataupdated] -- Select data from the table [dbo].[2023-divvy-tripdataupdated]
+where
+    ride_length_minute < 1; -- Filter rows where ride_length_minute is less than 1 minute (60 seconds)
+
+-- Count the total number of rows in the table where ride_length_minute is greater than 1440 (24 hours)
+select
+    count(*) as total_count -- Total count of rows
+from
+    [dbo].[2023-divvy-tripdataupdated] -- Select data from the table [dbo].[2023-divvy-tripdataupdated]
+where
+    ride_length_minute > 1440; -- Filter rows where ride_length_minute is greater than 1440 (24 hours)
+
+-- Count the total number of rows in the table where ride_length_minute is less than or equal to 0
+select
+    count(*) as total_count -- Total count of rows
+from
+    [dbo].[2023-divvy-tripdataupdated] -- Select data from the table [dbo].[2023-divvy-tripdataupdated]
+where
+    ride_length_minute <= 0; -- Filter rows where ride_length_minute is less than or equal to 0
+
+-- Count the total number of rows in the table where started_at is greater than ended_at
+select
+    count(*) as total_count -- Total count of rows
+from
+    [dbo].[2023-divvy-tripdataupdated] -- Select data from the table [dbo].[2023-divvy-tripdataupdated]
+where
+    started_at > ended_at; -- Filter rows where started_at is greater than ended_at
+
+-- Count the total number of rows in the table where ride_distance is equal to 0.00 miles
+select
+    count(*) as total_count -- Total count of rows
+from
+    [dbo].[2023-divvy-tripdataupdated] -- Select data from the table [dbo].[2023-divvy-tripdataupdated]
+where
+    ride_distance = 0.00; -- Filter rows where ride_distance is equal to 0.00
+
+-- Count the NULL values in the 'end_lat' and 'end_lng' columns
+select
+    count(
+        case
+            when end_lat is null then 1
+        end
+    ) as endlat_nullcount -- Count the NULL values in the 'end_lat' column and alias the count as 'endlat_nullcount'
+  , count(
+        case
+            when end_lng is null then 1
+        end
+    ) as endlng_nullcount -- Count the NULL values in the 'end_lng' column and alias the count as 'endlng_nullcount'
+from
+    [dbo].[2023-divvy-tripdataupdated]; -- Select data from the table [dbo].[2023-divvy-tripdataupdated]
+
+-- Count the NULL values in the 'ride_distance' column
+select
+    count(
+        case
+            when ride_distance is null then 1
+        end
+    ) as rd_nullcount -- Count the NULL values in the 'ride_distance' column and alias the count as 'rd_nullcount'
+from
+    [dbo].[2023-divvy-tripdataupdated]; -- Select data from the table [dbo].[2023-divvy-tripdataupdated]
+
+-- Count the number of trips for each start station name and include a summary row for the total count
+select
+    coalesce(start_station_name, 'total') as start_station_name -- Handle NULL start_station_name values and alias the column as 'start_station_name'
+  , count(*) as start_station_name_count -- Count the number of trips for each start station name and alias the count as 'start_station_name_count'
+from
+    [dbo].[2023-divvy-tripdataupdated] -- Select data from the updated table
+where
+    start_station_name in (
+        'OH - BONFIRE - TESTING'
+      , 'Hubbard Bike-checking (LBS-WH-TEST)'
+      , 'chargingstx4'
+      , 'chargingstx2'
+      , 'chargingstx07'
+      , 'chargingstx0'
+      , 'chargingstx5'
+      , 'chargingstx3'
+      , 'chargingstx1'
+      , 'chargingstx06'
+      , 'OH Charging Stx - Test'
+      , '2059 Hastings Warehouse Station'
+      , 'DIVVY CASSETTE REPAIR MOBILE STATION'
+    ) -- Filter the data for specified start station names
+group by
+    rollup (start_station_name); -- Perform a rollup operation to include a summary row for the total count
+
+-- Count the number of trips for each start station ID and include a summary row for the total count
+select
+    coalesce(start_station_id, 'total') as start_station_id -- Handle NULL start_station_id values and alias the column as 'start_station_id'
+  , count(*) as start_station_id_count -- Count the number of trips for each start station ID and alias the count as 'start_station_id_count'
+from
+    [dbo].[2023-divvy-tripdataupdated] -- Select data from the updated table
+where
+    start_station_id in (
+        'OH - BONFIRE - TESTING'
+      , 'Hubbard Bike-checking (LBS-WH-TEST)'
+      , 'chargingstx4'
+      , 'chargingstx2'
+      , 'chargingstx07'
+      , 'chargingstx0'
+      , 'chargingstx5'
+      , 'chargingstx3'
+      , 'chargingstx1'
+      , 'chargingstx06'
+      , 'OH Charging Stx - Test'
+      , '2059 Hastings Warehouse Station'
+      , 'DIVVY CASSETTE REPAIR MOBILE STATION'
+    ) -- Filter the data for specified start station IDs
+group by
+    rollup (start_station_id); -- Perform a rollup operation to include a summary row for the total count
+
+-- Count the number of trips for each end station name and include a summary row for the total count
+select
+    coalesce(end_station_name, 'total') as end_station_name -- Handle NULL end_station_name values and alias the column as 'end_station_name'
+  , count(*) as end_station_name_count -- Count the number of trips for each end station name and alias the count as 'end_station_name_count'
+from
+    [dbo].[2023-divvy-tripdataupdated] -- Select data from the updated table
+where
+    end_station_name in (
+        'OH - BONFIRE - TESTING'
+      , 'Hubbard Bike-checking (LBS-WH-TEST)'
+      , 'chargingstx4'
+      , 'chargingstx2'
+      , 'chargingstx07'
+      , 'chargingstx0'
+      , 'chargingstx5'
+      , 'chargingstx3'
+      , 'chargingstx1'
+      , 'chargingstx06'
+      , 'OH Charging Stx - Test'
+      , '2059 Hastings Warehouse Station'
+      , 'DIVVY CASSETTE REPAIR MOBILE STATION'
+    ) -- Filter the data for specified end station names
+group by
+    rollup (end_station_name); -- Perform a rollup operation to include a summary row for the total count
+
+-- Count the number of trips for each end station ID and include a summary row for the total count
+select
+    coalesce(end_station_id, 'total') as end_station_id -- Handle NULL end_station_id values and alias the column as 'end_station_id'
+  , count(*) as end_station_id_count -- Count the number of trips for each end station ID and alias the count as 'end_station_id_count'
+from
+    [dbo].[2023-divvy-tripdataupdated] -- Select data from the updated table
+where
+    end_station_id in (
+        'OH - BONFIRE - TESTING'
+      , 'Hubbard Bike-checking (LBS-WH-TEST)'
+      , 'chargingstx4'
+      , 'chargingstx2'
+      , 'chargingstx07'
+      , 'chargingstx0'
+      , 'chargingstx5'
+      , 'chargingstx3'
+      , 'chargingstx1'
+      , 'chargingstx06'
+      , 'OH Charging Stx - Test'
+      , '2059 Hastings Warehouse Station'
+      , 'DIVVY CASSETTE REPAIR MOBILE STATION'
+    ) -- Filter the data for specified end station IDs
+group by
+    rollup (end_station_id); -- Perform a rollup operation to include a summary row for the total count
+
+-----------------
+-- Data Reduction
+-----------------
+
+-- Trim leading and trailing spaces from columns in the table
+update [dbo].[2023-divvy-tripdataupdated] -- Update data in the table [dbo].[2023-divvy-tripdataupdated]
+set
+    ride_id = ltrim(rtrim(ride_id)) -- Trim leading and trailing spaces from 'ride_id' column
+  , rideable_type = ltrim(rtrim(rideable_type)) -- Trim leading and trailing spaces from 'rideable_type' column
+  , start_station_name = ltrim(rtrim(start_station_name)) -- Trim leading and trailing spaces from 'start_station_name' column
+  , start_station_id = ltrim(rtrim(start_station_id)) -- Trim leading and trailing spaces from 'start_station_id' column
+  , end_station_name = ltrim(rtrim(end_station_name)) -- Trim leading and trailing spaces from 'end_station_name' column
+  , end_station_id = ltrim(rtrim(end_station_id)) -- Trim leading and trailing spaces from 'end_station_id' column
+  , user_type = ltrim(rtrim(user_type)) -- Trim leading and trailing spaces from 'user_type' column
+  , quarter = ltrim(rtrim(quarter)) -- Trim leading and trailing spaces from 'quarter' column
+  , month = ltrim(rtrim(month)) -- Trim leading and trailing spaces from 'month' column
+  , day_of_week = ltrim(rtrim(day_of_week)); -- Trim leading and trailing spaces from 'day_of_week' column
+
+-- Delete rows from the table where ride_length_minute is less than or equal to 1 or greater than or equal to 1440
+delete from [dbo].[2023-divvy-tripdataupdated] -- Delete rows from the table [dbo].[2023-divvy-tripdataupdated]
+where
+    ride_length_minute <= 1 -- Delete rows where ride_length_minute is less than or equal to 1
+    or ride_length_minute >= 1440; -- Delete rows where ride_length_minute is greater than or equal to 1440
+
+-- Delete rows from the table where both end_lat and end_lng are NULL
+delete from [dbo].[2023-divvy-tripdataupdated] -- Delete rows from the table [dbo].[2023-divvy-tripdataupdated]
+where
+    end_lat is null -- Check if end_lat is NULL
+    and end_lng is null; -- Check if end_lng is NULL
+
+-- Delete rows from the table where ride_distance is equal to 0
+delete from [dbo].[2023-divvy-tripdataupdated] -- Delete rows from the table [dbo].[2023-divvy-tripdataupdated]
+where
+    ride_distance = 0; -- Filter rows where ride_distance is equal to 0
+
+-- Delete rows from the table where start_station_name matches specified values
+delete from [dbo].[2023-divvy-tripdataupdated] -- Delete rows from the table [dbo].[2023-divvy-tripdataupdated]
+where
+    start_station_name in ( -- Check if start_station_name matches specified values
+        'OH - BONFIRE - TESTING' -- Specify the start station name values to match
+      , 'Hubbard Bike-checking (LBS-WH-TEST)'
+      , 'chargingstx4'
+      , 'chargingstx2'
+      , 'chargingstx07'
+      , 'chargingstx0'
+      , 'chargingstx5'
+      , 'chargingstx3'
+      , 'chargingstx1'
+      , 'chargingstx06'
+      , 'OH Charging Stx - Test'
+      , '2059 Hastings Warehouse Station'
+      , 'DIVVY CASSETTE REPAIR MOBILE STATION'
+    );
+
+-- Delete rows from the table where start_station_id matches specified values
+delete from [dbo].[2023-divvy-tripdataupdated] -- Delete rows from the table [dbo].[2023-divvy-tripdataupdated]
+where
+    start_station_id in ( -- Check if start_station_id matches specified values
+        'OH - BONFIRE - TESTING' -- Specify the start_station_id values to match
+      , 'Hubbard Bike-checking (LBS-WH-TEST)'
+      , 'chargingstx4'
+      , 'chargingstx2'
+      , 'chargingstx07'
+      , 'chargingstx0'
+      , 'chargingstx5'
+      , 'chargingstx3'
+      , 'chargingstx1'
+      , 'chargingstx06'
+      , 'OH Charging Stx - Test'
+      , '2059 Hastings Warehouse Station'
+      , 'DIVVY CASSETTE REPAIR MOBILE STATION'
+    );
+
+-- Delete rows from the table where end_station_name matches specified values
+delete from [dbo].[2023-divvy-tripdataupdated] -- Delete rows from the table [dbo].[2023-divvy-tripdataupdated]
+where
+    end_station_name in ( -- Check if end_station_name matches specified values
+        'OH - BONFIRE - TESTING' -- Specify the end_station_name values to match
+      , 'Hubbard Bike-checking (LBS-WH-TEST)'
+      , 'chargingstx4'
+      , 'chargingstx2'
+      , 'chargingstx07'
+      , 'chargingstx0'
+      , 'chargingstx5'
+      , 'chargingstx3'
+      , 'chargingstx1'
+      , 'chargingstx06'
+      , 'OH Charging Stx - Test'
+      , '2059 Hastings Warehouse Station'
+      , 'DIVVY CASSETTE REPAIR MOBILE STATION'
+    );
+
+-- Delete rows from the table where end_station_id matches specified values
+delete from [dbo].[2023-divvy-tripdataupdated] -- Delete rows from the table [dbo].[2023-divvy-tripdataupdated]
+where
+    end_station_id in ( -- Check if end_station_id matches specified values
+        'OH - BONFIRE - TESTING' -- Specify the end_station_id values to match
+      , 'Hubbard Bike-checking (LBS-WH-TEST)'
+      , 'chargingstx4'
+      , 'chargingstx2'
+      , 'chargingstx07'
+      , 'chargingstx0'
+      , 'chargingstx5'
+      , 'chargingstx3'
+      , 'chargingstx1'
+      , 'chargingstx06'
+      , 'OH Charging Stx - Test'
+      , '2059 Hastings Warehouse Station'
+      , 'DIVVY CASSETTE REPAIR MOBILE STATION'
+    );
+
+-------------------------------
+-- Pre-analysis Data Validation
+-------------------------------
+
+-- Count the total number of columns in the table '2023-divvy-tripdataupdated' in the schema 'dbo'
+select
+    count(*) as total_column -- Count the total number of columns and alias the count as 'total_column'
+from
+    information_schema.columns -- Select metadata from the information_schema.columns view
+where
+    table_name = '2023-divvy-tripdataupdated' -- Filter by table_name '2023-divvy-tripdataupdated'
+    and table_schema = 'dbo'; -- Filter by table_schema 'dbo'
+
+-- Count the total number of rows in the table
+select
+    count(*) as total_count -- Select the count of all rows and alias the count as 'total_count'
+from
+    [dbo].[2023-divvy-tripdataupdated]; -- Select data from the updated table
+
+-- Count NULL values for each column and the total number of NULL values
+select
+    -- Count NULL values for each column
+    sum(
+        case
+            when ride_id is null then 1
+            else 0
+        end
+    ) as ride_id_null -- Count NULL values in the 'ride_id' column
+  , sum(
+        case
+            when rideable_type is null then 1
+            else 0
+        end
+    ) as rideable_type_null -- Count NULL values in the 'rideable_type' column
+  , sum(
+        case
+            when started_at is null then 1
+            else 0
+        end
+    ) as started_at_null -- Count NULL values in the 'started_at' column
+  , sum(
+        case
+            when ended_at is null then 1
+            else 0
+        end
+    ) as ended_at_null -- Count NULL values in the 'ended_at' column
+  , sum(
+        case
+            when start_station_name is null then 1
+            else 0
+        end
+    ) as start_station_name_null -- Count NULL values in the 'start_station_name' column
+  , sum(
+        case
+            when start_station_id is null then 1
+            else 0
+        end
+    ) as start_station_id_null -- Count NULL values in the 'start_station_id' column
+  , sum(
+        case
+            when end_station_name is null then 1
+            else 0
+        end
+    ) as end_station_name_null -- Count NULL values in the 'end_station_name' column
+  , sum(
+        case
+            when end_station_id is null then 1
+            else 0
+        end
+    ) as end_station_id_null -- Count NULL values in the 'end_station_id' column
+  , sum(
+        case
+            when start_lat is null then 1
+            else 0
+        end
+    ) as start_lat_null -- Count NULL values in the 'start_lat' column
+  , sum(
+        case
+            when start_lng is null then 1
+            else 0
+        end
+    ) as start_lng_null -- Count NULL values in the 'start_lng' column
+  , sum(
+        case
+            when end_lat is null then 1
+            else 0
+        end
+    ) as end_lat_null -- Count NULL values in the 'end_lat' column
+  , sum(
+        case
+            when end_lng is null then 1
+            else 0
+        end
+    ) as end_lng_null -- Count NULL values in the 'end_lng' column
+  , sum(
+        case
+            when user_type is null then 1
+            else 0
+        end
+    ) as user_type_null -- Count NULL values in the 'user_type' column
+  , sum(
+        case
+            when month is null then 1
+            else 0
+        end
+    ) as month_null -- Count NULL values in the 'month' column
+  , sum(
+        case
+            when day_of_week is null then 1
+            else 0
+        end
+    ) as day_of_week_null -- Count NULL values in the 'day_of_week' column
+  , sum(
+        case
+            when hour is null then 1
+            else 0
+        end
+    ) as hour_null -- Count NULL values in the 'hour' column
+  , sum(
+        case
+            when quarter is null then 1
+            else 0
+        end
+    ) as quarter_null -- Count NULL values in the 'quarter' column
+  , sum(
+        case
+            when ride_length_minute is null then 1
+            else 0
+        end
+    ) as ride_length_minute_null -- Count NULL values in the 'ride_length_minute' column
+  , sum(
+        case
+            when ride_distance is null then 1
+            else 0
+        end
+    ) as ride_distance_null -- Count NULL values in the 'ride_distance' column
+  , -- Count total number of NULL values
+    sum(
+        case
+            when ride_id is null then 1
+            else 0
+        end + case
+            when rideable_type is null then 1
+            else 0
+        end + case
+            when started_at is null then 1
+            else 0
+        end + case
+            when ended_at is null then 1
+            else 0
+        end + case
+            when start_station_name is null then 1
+            else 0
+        end + case
+            when start_station_id is null then 1
+            else 0
+        end + case
+            when end_station_name is null then 1
+            else 0
+        end + case
+            when end_station_id is null then 1
+            else 0
+        end + case
+            when start_lat is null then 1
+            else 0
+        end + case
+            when start_lng is null then 1
+            else 0
+        end + case
+            when end_lat is null then 1
+            else 0
+        end + case
+            when end_lng is null then 1
+            else 0
+        end + case
+            when user_type is null then 1
+            else 0
+        end + case
+            when month is null then 1
+            else 0
+        end + case
+            when day_of_week is null then 1
+            else 0
+        end + case
+            when hour is null then 1
+            else 0
+        end + case
+            when quarter is null then 1
+            else 0
+        end + case
+            when ride_length_minute is null then 1
+            else 0
+        end + case
+            when ride_distance is null then 1
+            else 0
+        end
+    ) as totalnullcount -- Count the total number of NULL values
+from
+    [dbo].[2023-divvy-tripdataupdated]; -- Select data from the updated table
+
+-- Count the total number of rows where ride_length_minute falls outside the valid range
+select
+    count(*) as total_count -- Count the total number of rows
+from
+    [dbo].[2023-divvy-tripdataupdated] -- Select data from the updated table
+where
+    ride_length_minute <= 1 -- Filter rows where ride_length_minute is less than or equal to 1
+    or ride_length_minute >= 1440 -- Filter rows where ride_length_minute is greater than or equal to 1440
+    or ride_length_minute <= 0; -- Filter rows where ride_length_minute is less than or equal to 0
+
+-- Count the total number of rows where ride_distance is equal to 0
+select
+    count(*) as total_count -- Count the total number of rows
+from
+    [dbo].[2023-divvy-tripdataupdated] -- Select data from the updated table
+where
+    ride_distance = 0; -- Filter rows where ride_distance is equal to 0
+
+-- Count the total number of rows where the specified stations match the given values
+select
+    'start_station_name' as station_type -- Specify the type of station
+  , count(*) as total_count -- Select the count of all rows and alias it as 'total_count'
+from
+    [dbo].[2023-divvy-tripdataupdated] -- Select data from the updated table
+where
+    start_station_name in ( -- Filter rows where the start station name matches any of the specified values
+        'OH - BONFIRE - TESTING'
+      , 'Hubbard Bike-checking (LBS-WH-TEST)'
+      , 'chargingstx4'
+      , 'chargingstx2'
+      , 'chargingstx07'
+      , 'chargingstx0'
+      , 'chargingstx5'
+      , 'chargingstx3'
+      , 'chargingstx1'
+      , 'chargingstx06'
+      , 'OH Charging Stx - Test'
+      , '2059 Hastings Warehouse Station'
+      , 'DIVVY CASSETTE REPAIR MOBILE STATION'
+    )
+union all
+select
+    'start_station_id' as station_type -- Specify the type of station
+  , count(*) as total_count -- Select the count of all rows and alias it as 'total_count'
+from
+    [dbo].[2023-divvy-tripdataupdated] -- Select data from the updated table
+where
+    start_station_id in ( -- Filter rows where the start station id matches any of the specified values
+        'OH - BONFIRE - TESTING'
+      , 'Hubbard Bike-checking (LBS-WH-TEST)'
+      , 'chargingstx4'
+      , 'chargingstx2'
+      , 'chargingstx07'
+      , 'chargingstx0'
+      , 'chargingstx5'
+      , 'chargingstx3'
+      , 'chargingstx1'
+      , 'chargingstx06'
+      , 'OH Charging Stx - Test'
+      , '2059 Hastings Warehouse Station'
+      , 'DIVVY CASSETTE REPAIR MOBILE STATION'
+    )
+union all
+select
+    'end_station_name' as station_type -- Specify the type of station
+  , count(*) as total_count -- Select the count of all rows and alias it as 'total_count'
+from
+    [dbo].[2023-divvy-tripdataupdated] -- Select data from the updated table
+where
+    end_station_name in ( -- Filter rows where the end station name matches any of the specified values
+        'OH - BONFIRE - TESTING'
+      , 'Hubbard Bike-checking (LBS-WH-TEST)'
+      , 'chargingstx4'
+      , 'chargingstx2'
+      , 'chargingstx07'
+      , 'chargingstx0'
+      , 'chargingstx5'
+      , 'chargingstx3'
+      , 'chargingstx1'
+      , 'chargingstx06'
+      , 'OH Charging Stx - Test'
+      , '2059 Hastings Warehouse Station'
+      , 'DIVVY CASSETTE REPAIR MOBILE STATION'
+    )
+union all
+select
+    'end_station_id' as station_type -- Specify the type of station
+  , count(*) as total_count -- Select the count of all rows and alias it as 'total_count'
+from
+    [dbo].[2023-divvy-tripdataupdated] -- Select data from the updated table
+where
+    end_station_id in ( -- Filter rows where the end station id matches any of the specified values
+        'OH - BONFIRE - TESTING'
+      , 'Hubbard Bike-checking (LBS-WH-TEST)'
+      , 'chargingstx4'
+      , 'chargingstx2'
+      , 'chargingstx07'
+      , 'chargingstx0'
+      , 'chargingstx5'
+      , 'chargingstx3'
+      , 'chargingstx1'
+      , 'chargingstx06'
+      , 'OH Charging Stx - Test'
+      , '2059 Hastings Warehouse Station'
+      , 'DIVVY CASSETTE REPAIR MOBILE STATION'
+    );
