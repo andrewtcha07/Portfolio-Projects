@@ -20,7 +20,7 @@ The dataset covers the period from **March 2020**, when COVID-19 was declared a 
 
 > [!NOTE]
 > + Please be aware that this dataset may not include all available information, such as the sources, list of laid-off employees, and date of addition. 
-> + For the full dataset with additional details, please visit Layoffs.fyi, as referenced by the Kaggle dataset description (Kaggle).
+> + For the full dataset with additional details, please visit [Layoffs.fyi](https://layoffs.fyi/), as referenced by the Kaggle dataset description ([Kaggle](https://www.kaggle.com/datasets/swaptr/layoffs-2022/data)).
 
 ## 🗄 Data Organization
 + **File Format**: The provided dataset is labeled as “layoffs”, in a CSV format.
