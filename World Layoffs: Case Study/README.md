@@ -42,7 +42,7 @@ The dataset covers the period from **March 2020**, when COVID-19 was declared a 
 | 9   | funds_raised        | This column contains information about the amount of funding (in Millions $) raised by each company, which could be relevant context for understanding the layoffs. |
 
 > [!IMPORTANT]
-> **Stages**
+> **Stages of Funding**
 > + **`Seed`**: This is typically the earliest stage of funding for a startup. It's the initial capital raised to prove a concept or build a prototype.
 > + **`Series A`**: This stage comes after seed funding. Series A funding is used to help companies with proven concepts and initial traction to scale their operations.
 > + **`Series B`**: Companies at this stage have already developed a product or service and have demonstrated market fit. Series B funding is often used to accelerate growth and expand operations.
