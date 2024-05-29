@@ -1701,7 +1701,7 @@ where
 </td></tr> </table>
 </details>
 
-![9  Top 5 Companies with Highest Total Layoffs by Yearly](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/fe77d783-4df2-4387-8be8-0f57f5b38f39)
+![9  Top 5 Companies with Highest Total Layoffs by Yearly](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/8daf5fd0-ff71-4801-8979-aa5be9aa20d0)
 
 + In **2020**, "**Uber**" ranked 1st with the highest total of **7,525** layoffs, while "**PaisaBazaar**" ranked 5th with the lowest total of **1,500 layoffs**.
 + For **2021**, "**Bytedance**" ranked 1st with the highest total of **3,600** layoffs, while "**WhiteHat Jr**" ranked 5th with the lowest total of **1,800 layoffs**.
