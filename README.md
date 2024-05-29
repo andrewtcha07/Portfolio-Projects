@@ -44,9 +44,9 @@ Here, I showcase my passion for unraveling insights hidden within complex datase
   - SQL Server
   - Tableau
 
-### World Layoffs: Case Study
+### [World Layoffs: Case Study](https://github.com/chaanalyst/Portfolio-Projects/tree/edbd6e1c0dc0a6163a9218e3a4fc4b5657bf9a2a/World%20Layoffs%3A%20Case%20Study)
 
-**Description**:
+**Description**: This project focuses on conducting a comprehensive examination of the impact of the global pandemic on the technology sector, particularly in terms of layoffs. In light of the economic downturn triggered by COVID-19, the study aims to identify trends and patterns in layoffs within the technology industry, ranging from the onset of the pandemic to the present day. By delving into the challenges faced by tech companies amidst the crisis, the analysis seeks to assess the impact of COVID-19 on employment within the tech sector.
 
 **Skills**
   - SQL Server
