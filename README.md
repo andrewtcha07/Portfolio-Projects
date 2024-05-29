@@ -14,7 +14,7 @@ Here, I showcase my passion for unraveling insights hidden within complex datase
 
 ## My Projects:
 
-### COVID-19 - Infections, Mortality, and Vaccinations: Case Study
+### [COVID-19 - Infections, Mortality, and Vaccinations: Case Study](https://github.com/chaanalyst/Portfolio-Projects/tree/b960483915ba580e468250a707d88cf2c421357e/COVID19%20-%20Infections%2C%20Deaths%2C%20and%20Vaccinations%3A%20Case%20Study)
 
 **Description**: This project focuses on the impact of COVID-19 across different countries and continents, analyzing data on cases, deaths, and vaccinations from 2020 to 2024. Through comprehensive analysis, it explores various aspects of the dataset, providing insights into the spread of the virus, mortality rates, and the progress of vaccination campaigns, contributing to a deeper understanding of the global response to the pandemic.
 
