@@ -1072,7 +1072,7 @@ from
 + The maximum number of layoffs in the dataset is **14,000 employees**.
 + The maximum percentage of layoffs in the dataset is **100% of the company's workforce**.
 
-### Total Count for Complete Layoffs Metrics
+### Total Company Layoffs Metrics
 ```sql
 select
     *
@@ -1147,7 +1147,7 @@ order by
 + "**Katerra**" had the highest number of layoffs among all companies, with a total of **2,432 employees** laid off, representing **100% of its workforce**, on **June 1st, 2023**.
 + "**TutorMundi**", despite having the fewest employees, laid off all **4** of them, resulting in a **100% turnover**, on **April 23rd, 2020**, during the **Series A stage**.
 
-### Complete Layoffs by Funds Raised Metrics
+### Complete Company Layoffs by Funding Stage Metrics
 ```sql
 select
     *
@@ -1222,7 +1222,7 @@ order by
 + "**Britishvolt**" had the most funds when the company fully turned over, with a total of **206 employees** laid off, representing **100% of its workforce**, on **January 12th, 2023**. The stage of the company at the time of layoffs is **unknown**, and it had **$2,400 million in funds**.
 + "**SuperLearn**" had the lowest funds, and although there is no information available about the total number of layoffs, a **100% layoff** percentage is presented. The layoffs occurred on **June 21st, 2022**, during the **Seed stage**, and the company had **$0 in funds**.
 
-### Total Layoffs by Company Metrics
+### Company Layoffs Metric
 ```sql
 select
     company
@@ -1279,7 +1279,7 @@ from
 + The earliest date of layoffs is "**2020-03-11**", and the latest date of layoffs is "**2024-05-16**".
 + The earliest data represents the beginning of the COVID-19 pandemic by the World Health Organization, and the latest date represents the present day.
 
-### Total Layoffs by Industry Metrics
+### Industry Layoffs Metrics
 ```sql
 select
     industry
@@ -1334,7 +1334,7 @@ order by
 + The "**Retail**" industry has the highest number of total layoffs, totaling **67,368 employees**.
 + On the other hand, the "**AI**" industry has the lowest number of total layoffs, with only **262 employees**.
 
-### Total Layoffs by Country Metrics
+### Country Layoffs Metrics
 ```sql
 select
     country
@@ -1412,7 +1412,7 @@ order by
 + The country "**United States**" had the highest total number of layoffs, amounting to **365,527 employees**.
 + Conversely, "**Ukraine**" had the lowest total number of layoffs, with only **50 employees**.
 
-### Total Layoffs by Yearly Metrics
+### Yearly Layoffs Metrics
 ```sql
 select
     year(`date`) as years
@@ -1441,7 +1441,7 @@ order by
 + The year **2023** had the highest total number of layoffs, totaling **212,585 employees**.
 + Conversely, the year **2020** had the lowest total number of layoffs, with only **70,755 employees**.
 
-### Total Layoffs by Stage Metrics
+### Layoffs by Stage Metrics
 ```sql
 select
     stage
@@ -1481,7 +1481,7 @@ order by
 + "**Post-IPO**" stage had the highest total number of layoffs, totaling **287,864 employees**.
 + Conversely, the "**Subsidiary**" stage had the lowest total number of layoffs, with only **1,094 employees**.
 
-### Monthly Total Layoffs with Rolling Total Metrics
+### Monthly Layoffs with Rolling Total Metrics
 ```sql
 with
     rolling_total as (
@@ -1895,8 +1895,8 @@ where
 ## Limitations
 + **Incomplete Data**: The dataset for both the years 2020 and 2024 may be incomplete. In 2020, data collection began in March when the COVID-19 pandemic was declared, potentially missing layoffs that occurred earlier in the year. Similarly, for 2024, as the year is not yet over, the dataset may lack complete information, leading to gaps or inaccuracies in the analysis of layoffs for that year.
 + **Limited Context**: The dataset provides information about the company, location, industry, and date of layoffs, but lacks additional context regarding the reasons behind the layoffs, such as economic factors, company performance, or specific events.
-+ **Incomplete Company Information**: Detailed information about each company beyond its name, such as size, revenue, or market position, is not available in the dataset. This lack of detail hinders a comprehensive understanding of the layoffs.
-+ **Funds Raised**: While funds raised may serve as an indicator of company financial health, it may not provide a complete picture. Factors such as profitability, cash flow, and debt levels are also crucial considerations for understanding a company's financial situation.
++ **Incomplete Company Information**: Detailed information about each company beyond its names, such as size, revenue, or market position, is not available in the dataset. This lack of detail hinders a comprehensive understanding of the layoffs.
++ **Funds Raised**: While funds raised may serve as an indicator of the company's financial health, it may not provide a complete picture. Factors such as profitability, cash flow, and debt levels are also crucial considerations for understanding a company's financial situation.
 + **Limited Historical Data**: The dataset covers a specific timeframe, but does not include historical data on layoffs before that period. This limitation restricts the ability to analyze trends and patterns over time.
 
 ## Licensing
