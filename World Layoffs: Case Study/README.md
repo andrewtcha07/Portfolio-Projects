@@ -1801,7 +1801,7 @@ where
 </td></tr> </table>
 </details>
 
-![10  Top 5 Industries with Highest Total Layoffs by Yearly](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/8ade1601-2a58-463f-bdfe-2d202cb3bb79)
+![10  Top 5 Industries with Highest Total Layoffs by Yearly](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/f7bd96aa-63d2-4d08-bc26-9d8b336da92c)
 
 + In **2020**, the "**Transportation**" industry ranked 1st with the highest total of **14,628 layoffs**, while the "**Food**" industry ranked 5th with the lowest total of **5,968 layoffs**.
 + For **2021**, the "**Consumer**" industry ranked 1st with the highest total of **3,600 layoffs**, while the "**Education**" industry ranked 5th with the lowest total of **1,943 layoffs**.
@@ -1901,7 +1901,7 @@ where
 </td></tr> </table>
 </details>
 
-![11  Top 5 Countries with Highest Total Layoffs by Yearly](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/24a1392a-7830-43fd-b09d-14148fbc9092)
+![11  Top 5 Countries with Highest Total Layoffs by Yearly](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/158bd3be-2991-4dd7-97ea-0e7f16df893c)
 
 + In **2020**, "**United States**" ranked 1st with the highest total of **48,964 layoffs**, while "**Canada**" ranked 5th with the lowest total of **1,083 layoffs**.
 + For **2021**, "**United States**" ranked 1st with the highest total of **9,457 layoffs**, while "**Canada**" ranked 5th with the lowest total of **45 layoffs**.
