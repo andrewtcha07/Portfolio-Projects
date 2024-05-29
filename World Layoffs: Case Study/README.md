@@ -1801,7 +1801,7 @@ where
 </td></tr> </table>
 </details>
 
-![10  Top 5 Industries with Highest Total Layoffs by Yearly](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/f7bd96aa-63d2-4d08-bc26-9d8b336da92c)
+![10  Top 5 Industries with Highest Total Layoffs by Yearly](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/834e0121-ef86-43be-8a9d-d495b774c454)
 
 + In **2020**, the "**Transportation**" industry ranked 1st with the highest total of **14,628 layoffs**, while the "**Food**" industry ranked 5th with the lowest total of **5,968 layoffs**.
 + For **2021**, the "**Consumer**" industry ranked 1st with the highest total of **3,600 layoffs**, while the "**Education**" industry ranked 5th with the lowest total of **1,943 layoffs**.
