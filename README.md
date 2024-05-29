@@ -23,7 +23,7 @@ Here, I showcase my passion for unraveling insights hidden within complex datase
   - Microsoft Excel
   - Tableau
 
-### Nashville Housing Market: Case Study
+### [Nashville Housing Market: Case Study](https://github.com/chaanalyst/Portfolio-Projects/tree/edbd6e1c0dc0a6163a9218e3a4fc4b5657bf9a2a/Nashville%20Housing%20Market%3A%20Case%20Study)
 
 **Description**: This project focuses on property sales data in Nashville, aiming to refine and standardize the dataset for a deeper exploration of the Nashville housing market. Through a meticulous data cleaning and transformation process, it addresses issues such as inconsistent date formats, missing address details, and duplicate records. By enhancing the quality and structure of the dataset, this analysis ensures a more reliable foundation for gaining insights into the dynamics of the Nashville real estate market.
 
