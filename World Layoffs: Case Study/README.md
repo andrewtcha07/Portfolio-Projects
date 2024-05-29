@@ -33,7 +33,7 @@ The dataset covers the period from **March 2020**, when COVID-19 was declared a 
 | 2   | location            | This column indicates the geographical location where the layoffs occurred such as cities and region.                                                               |
 | 3   | industry            | This column specifics the industry or sector to which the affected companies belong, such as technology, finance, healthcare, etc.                                  |
 | 4   | total_laid_off      | This column represents the total number of employees laid off by each company.                                                                                      |
-| 5   | percentage_laid_off | This column show the percentage of employees laid off relative to the total workforce of each company.                                                              |
+| 5   | percentage_laid_off | This column shows the percentage of employees laid off relative to the total workforce of each company.                                                              |
 | 6   | date                | This column indicates the date, including the year, month, and day, when the layoffs occurred or when the data was reported.                                        |
 | 7   | stage               | This column indicates the stage of business or development at which the layoffs occurred, such as startup funding rounds (Seed, Series A, etc.) or post-IPO.        |
 | 8   | country             | This column specifies the country where each affected company is headquartered or where the layoffs primarily occurred.                                             |
@@ -50,7 +50,7 @@ The dataset covers the period from **March 2020**, when COVID-19 was declared a 
 > + **`Post-IPO`**: Companies at this stage have gone public through an initial public offering (IPO). Post-IPO funding may involve additional rounds of financing or strategic investments after the company has become publicly traded.
 > + **`Unknown`**: This category may include cases where the stage of funding or development is not specified or is vague.
 
-## 🚫 Limitations
+## 🛑 Limitations
 + **Incomplete Data**: The dataset for both the years 2020 and 2024 may be incomplete. In 2020, data collection began in March when the COVID-19 pandemic was declared, potentially missing layoffs that occurred earlier in the year. Similarly, for 2024, as the year is not yet over, the dataset may lack complete information, leading to gaps or inaccuracies in the analysis of layoffs for that year.
 + **Limited Context**: The dataset provides information about the company, location, industry, and date of layoffs, but lacks additional context regarding the reasons behind the layoffs, such as economic factors, company performance, or specific events.
 + **Incomplete Company Information**: Detailed information about each company beyond its names, such as size, revenue, or market position, is not available in the dataset. This lack of detail hinders a comprehensive understanding of the layoffs.
