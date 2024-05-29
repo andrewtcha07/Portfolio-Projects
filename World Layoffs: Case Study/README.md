@@ -1072,7 +1072,7 @@ from
 + The maximum number of layoffs in the dataset is **14,000 employees**.
 + The maximum percentage of layoffs in the dataset is **100% of the company's workforce**.
 
-### Total Company Layoffs Metrics
+### Total Company Layoffs
 ```sql
 select
     *
@@ -1144,10 +1144,12 @@ order by
 
 </details>
 
+![1  Total Company Layoffs](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/0b67fc7f-dd36-4868-9993-715c4f9e7e19)
+
 + "**Katerra**" had the highest number of layoffs among all companies, with a total of **2,432 employees** laid off, representing **100% of its workforce**, on **June 1st, 2023**.
 + "**TutorMundi**", despite having the fewest employees, laid off all **4** of them, resulting in a **100% turnover**, on **April 23rd, 2020**, during the **Series A stage**.
 
-### Complete Company Layoffs by Funding Stage Metrics
+### Complete Company Layoffs by Funding Stage
 ```sql
 select
     *
@@ -1219,10 +1221,12 @@ order by
 
 </details>
 
+![2  Complete Company Layoffs by Funding Stage](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/b6c1b873-e8d7-4c72-b4cb-65bbd4d81d5c)
+
 + "**Britishvolt**" had the most funds when the company fully turned over, with a total of **206 employees** laid off, representing **100% of its workforce**, on **January 12th, 2023**. The stage of the company at the time of layoffs is **unknown**, and it had **$2,400 million in funds**.
 + "**SuperLearn**" had the lowest funds, and although there is no information available about the total number of layoffs, a **100% layoff** percentage is presented. The layoffs occurred on **June 21st, 2022**, during the **Seed stage**, and the company had **$0 in funds**.
 
-### Company Layoffs Metric
+### Company Layoffs
 ```sql
 select
     company
@@ -1255,6 +1259,8 @@ order by
 
 </details>
 
+![3  Company Layoffs](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/8fa29b2b-ec1a-4c43-b991-f80890ba84cc)
+
 + "Amazon" has the highest sum of total laid off, with a total of **27,840 employees** affected.
 + "Flytedesk" has the lowest sum of total laid off, with only **4 employees** affected.
 
@@ -1279,7 +1285,7 @@ from
 + The earliest date of layoffs is "**2020-03-11**", and the latest date of layoffs is "**2024-05-16**".
 + The earliest data represents the beginning of the COVID-19 pandemic by the World Health Organization, and the latest date represents the present day.
 
-### Industry Layoffs Metrics
+### Industry Layoffs
 ```sql
 select
     industry
@@ -1331,10 +1337,12 @@ order by
 
 </details>
 
+![4  Industry Layoffs](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/765bc347-a632-47d7-92d7-116b1acc6e29)
+
 + The "**Retail**" industry has the highest number of total layoffs, totaling **67,368 employees**.
 + On the other hand, the "**AI**" industry has the lowest number of total layoffs, with only **262 employees**.
 
-### Country Layoffs Metrics
+### Country Layoffs
 ```sql
 select
     country
@@ -1409,10 +1417,12 @@ order by
 
 </details>
 
+![5  Country Layoffs](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/822400ed-cfb6-4dbc-8a3d-241de4a12d4c)
+
 + The country "**United States**" had the highest total number of layoffs, amounting to **365,527 employees**.
 + Conversely, "**Ukraine**" had the lowest total number of layoffs, with only **50 employees**.
 
-### Yearly Layoffs Metrics
+### Yearly Layoffs
 ```sql
 select
     year(`date`) as years
@@ -1438,10 +1448,12 @@ order by
 
 </details>
 
+![6  Yearly Layoffs](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/57f91081-24e7-44e0-b657-b22775ab5659)
+
 + The year **2023** had the highest total number of layoffs, totaling **212,585 employees**.
 + Conversely, the year **2020** had the lowest total number of layoffs, with only **70,755 employees**.
 
-### Layoffs by Stage Metrics
+### Layoffs by Stages
 ```sql
 select
     stage
@@ -1478,10 +1490,12 @@ order by
 
 </details>
 
+![7  Layoffs by Stages](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/720c8942-2474-456b-962d-32ca8c26b8b4)
+
 + "**Post-IPO**" stage had the highest total number of layoffs, totaling **287,864 employees**.
 + Conversely, the "**Subsidiary**" stage had the lowest total number of layoffs, with only **1,094 employees**.
 
-### Monthly Layoffs with Rolling Total Metrics
+### Monthly Layoffs with Rolling Total
 ```sql
 with
     rolling_total as (
@@ -1588,6 +1602,8 @@ from
 </td></tr> </table>
 </details>
 
+![8  Monthly Layoffs with Rolling Total](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/06e2f3d9-3343-4a0d-b05a-eb62339dbb0a)
+
 + In **2020**, "**April**" had the highest total layoffs, reaching **25,271 employees**, while "**November**" had the lowest, with only **219 employees**.
 + For **2021**, "**January**" saw the highest total layoffs at **6,813 employees**, whereas "**October**" had the lowest, with only **22 employees**.
 + In **2022**, "**November**" recorded the highest total layoffs, totaling **52,390 employees**, while "**January**" had the lowest, with **510 employees**.
@@ -1595,7 +1611,7 @@ from
 + Lastly, in **2024**, "**April**" experienced the highest total layoffs, reaching **21,923 employees**, while "**March**" had the lowest, with **1,127 employees**.
 
 
-### Top 5 Companies with Highest Total Layoffs by Yearly Metrics
+### Top 5 Companies with Highest Total Layoffs by Yearly
 ```sql
 with
     company_year (company, years, total_laid_off) as (
@@ -1687,13 +1703,15 @@ where
 </td></tr> </table>
 </details>
 
+![9  Top 5 Companies with Highest Total Layoffs by Yearly](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/fe77d783-4df2-4387-8be8-0f57f5b38f39)
+
 + In **2020**, "**Uber**" ranked 1st with the highest total of **7,525** layoffs, while "**PaisaBazaar**" ranked 5th with the lowest total of **1,500 layoffs**.
 + For **2021**, "**Bytedance**" ranked 1st with the highest total of **3,600** layoffs, while "**WhiteHat Jr**" ranked 5th with the lowest total of **1,800 layoffs**.
 + In **2022**, "**Meta**" ranked 1st with the highest total of **11,000** layoffs, while "**Carvana**" ranked 5th with the lowest total of **4,000 layoffs**.
 + Moving to **2023**, "**Amazon**" ranked 1st with the highest total of **17,260** layoffs, while "**Ericsson**" ranked 5th with the lowest total of **8,500 layoffs**.
 + Lastly, in **2024**, "**Tesla**" ranked 1st with the highest total of **14,500** layoffs, while "**Xerox**" ranked 5th with the lowest total of **3,000 layoffs**.
 
-### Top 5 Industries with Highest Total Layoffs by Yearly Metrics
+### Top 5 Industries with Highest Total Layoffs by Yearly
 ```sql
 with
     industry_year (industry, years, total_laid_off) as (
@@ -1791,7 +1809,7 @@ where
 + Moving to **2023**, the "**Other**" industry ranked 1st with the highest total of **35,809 layoffs**, while the "**Finance**" industry ranked 5th with the lowest total of **13,276 layoffs**.
 + Lastly, in **2024**, the "**Transportation**" industry ranked 1st once again with the highest total of **16,637 layoffs**, while the "**Infrastructure**" industry ranked 5th with the lowest total of **5,330 layoffs**.
 
-### Top 5 Countries with Highest Total Layoffs by Yearly Metrics
+### Top 5 Countries with Highest Total Layoffs by Yearly
 ```sql
 with
     country_year (country, years, total_laid_off) as (
@@ -1888,9 +1906,6 @@ where
 + In **2022**, "**United States**" ranked 1st with the highest total of **104,245 layoffs**, while "**Germany**" ranked 5th with the lowest total of **3,431 layoffs**.
 + Moving to **2023**, "**United States**" ranked 1st with the highest total of **149,090 layoffs**, while "**United Kingdom**" ranked 5th with the lowest total of **7,220 layoffs**.
 + Lastly, in **2024**, "**United States**" ranked 1st with the highest total of **53,771 layoffs**, while "**Israel**" ranked 5th with the lowest total of **1,070 layoffs**.
-
-### Data Visualizations
-
 
 ## Limitations
 + **Incomplete Data**: The dataset for both the years 2020 and 2024 may be incomplete. In 2020, data collection began in March when the COVID-19 pandemic was declared, potentially missing layoffs that occurred earlier in the year. Similarly, for 2024, as the year is not yet over, the dataset may lack complete information, leading to gaps or inaccuracies in the analysis of layoffs for that year.
