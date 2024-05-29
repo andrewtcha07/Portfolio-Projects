@@ -1934,7 +1934,12 @@ where
 I would like to extend my gratitude to **[Alex Freberg](https://www.alextheanalyst.com/)** ([Alex The Analyst](https://www.youtube.com/@AlexTheAnalyst)) for his invaluable help. His step-by-step guidance on YouTube and the presentation of this dataset through his video greatly assisted me in this project.
 
 ## 📜 Source Citations
-+ Alex The Analyst. (2024a, April 16). Data Cleaning in MySQL | Full Project. Retrieved May 29, 2024, from YouTube website: https://www.youtube.com/watch?v=4UltKCnnnTA&t=131s
-+ Alex The Analyst. (2024b, April 23). MySQL Exploratory Data Analysis | Full Project. Retrieved May 29, 2024, from YouTube website: https://www.youtube.com/watch?v=QYd-RtK58VQ
-+ Open Data Commons Open Database License (ODbL) v1.0 — Open Data Commons: legal tools for open data. (n.d.). Retrieved from opendatacommons.org website: https://opendatacommons.org/licenses/odbl/1-0/
-+ swaptr. (n.d.). Layoffs Dataset. Retrieved May 29, 2024, from www.kaggle.com website: https://www.kaggle.com/datasets/swaptr/layoffs-2022/data
+Certainly! Here are the citations in a Markdown-friendly format for the additional sources:
++ **YouTube Video: "How To Use GitHub"**
+   *YouTube*. (n.d.). [How To Use GitHub](https://www.youtube.com/watch?v=4UltKCnnnTA&t=131s)
++ **YouTube Video: "Introduction to Markdown"**
+   *YouTube*. (n.d.). [Introduction to Markdown](https://www.youtube.com/watch?v=QYd-RtK58VQ)
++ **Kaggle Dataset: Layoffs 2022**
+   *Kaggle*. (n.d.). [Layoffs 2022](https://www.kaggle.com/datasets/swaptr/layoffs-2022/data)
++ **Open Data Commons: Open Database License (ODbL) 1.0**
+   *Open Data Commons*. (n.d.). [Open Database License (ODbL) 1.0](https://opendatacommons.org/licenses/odbl/1-0/)
