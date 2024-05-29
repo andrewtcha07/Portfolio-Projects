@@ -50,7 +50,7 @@ The dataset covers the period from **March 2020**, when COVID-19 was declared a 
 > + **`Post-IPO`**: Companies at this stage have gone public through an initial public offering (IPO). Post-IPO funding may involve additional rounds of financing or strategic investments after the company has become publicly traded.
 > + **`Unknown`**: This category may include cases where the stage of funding or development is not specified or is vague.
 
-## Limitations
+## 🚫 Limitations
 + **Incomplete Data**: The dataset for both the years 2020 and 2024 may be incomplete. In 2020, data collection began in March when the COVID-19 pandemic was declared, potentially missing layoffs that occurred earlier in the year. Similarly, for 2024, as the year is not yet over, the dataset may lack complete information, leading to gaps or inaccuracies in the analysis of layoffs for that year.
 + **Limited Context**: The dataset provides information about the company, location, industry, and date of layoffs, but lacks additional context regarding the reasons behind the layoffs, such as economic factors, company performance, or specific events.
 + **Incomplete Company Information**: Detailed information about each company beyond its names, such as size, revenue, or market position, is not available in the dataset. This lack of detail hinders a comprehensive understanding of the layoffs.
@@ -1916,7 +1916,7 @@ where
 + Moving to **2023**, "**United States**" ranked 1st with the highest total of **149,090 layoffs**, while "**United Kingdom**" ranked 5th with the lowest total of **7,220 layoffs**.
 + Lastly, in **2024**, "**United States**" ranked 1st with the highest total of **53,771 layoffs**, while "**Israel**" ranked 5th with the lowest total of **1,070 layoffs**.
 
-## Summary
+## 💡 Summary
 + **COVID-19 Impact:** The dataset captures the pandemic's profound effects on global employment, with layoffs surging in 2020 due to lockdowns. Despite a gradual recovery, ongoing economic challenges persist.
 + **Industry Disparities:** Industries reliant on physical presence, like Retail and Transportation, saw the highest layoffs. In contrast, sectors like AI and remote-based roles demonstrated resilience due to their reliance on digital services.
 + **Funding Stage:** Layoff percentages were consistent across funding stages, suggesting financial resources alone may not prevent workforce restructuring. More investigation is needed into Subsidiary stage dynamics.
@@ -1926,8 +1926,8 @@ where
 + **Implications:** Comprehensive labor market policies are crucial for supporting affected workers and fostering resilience in uncertain economic climates.
 + In conclusion, analyzing worldwide layoff data aids in understanding how economic, social, and organizational factors interact. This understanding supports policymakers, businesses, and workers in preparing for future challenges and fostering fair job markets.
 
-## Licensing
+## 🔐 Licensing
 + The dataset provided is licensed under the [Open Data Commons Open Database License (ODbL)](https://opendatacommons.org/licenses/odbl/1-0/).
 
-## Acknowledgement
+## ⚠ Acknowledgement
 I would like to extend my gratitude to **[Alex Freberg](https://www.alextheanalyst.com/)** ([Alex The Analyst](https://www.youtube.com/@AlexTheAnalyst)) for his invaluable help. His step-by-step guidance on YouTube and the presentation of this dataset through his video greatly assisted me in this project.
