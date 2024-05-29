@@ -1335,7 +1335,7 @@ order by
 
 </details>
 
-![4  Industry Layoffs](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/765bc347-a632-47d7-92d7-116b1acc6e29)
+![4  Industry Layoffs](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/ebaec3e7-e29d-4065-b145-b7e884b1abef)
 
 + The "**Retail**" industry has the highest number of total layoffs, totaling **67,368 employees**.
 + On the other hand, the "**AI**" industry has the lowest number of total layoffs, with only **262 employees**.
