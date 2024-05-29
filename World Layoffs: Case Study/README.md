@@ -1600,7 +1600,7 @@ from
 </td></tr> </table>
 </details>
 
-![8  Monthly Layoffs with Rolling Total](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/06e2f3d9-3343-4a0d-b05a-eb62339dbb0a)
+![8  Monthly Layoffs with Rolling Total](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/17a1b927-db54-4ba3-820f-3af6cccbeca4)
 
 + In **2020**, "**April**" had the highest total layoffs, reaching **25,271 employees**, while "**November**" had the lowest, with only **219 employees**.
 + For **2021**, "**January**" saw the highest total layoffs at **6,813 employees**, whereas "**October**" had the lowest, with only **22 employees**.
