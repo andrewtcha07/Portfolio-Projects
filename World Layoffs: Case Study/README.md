@@ -1144,8 +1144,8 @@ order by
 
 ![1  Total Company Layoffs](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/0b67fc7f-dd36-4868-9993-715c4f9e7e19)
 
-+ "**Katerra**" had the highest number of layoffs among all companies, with a total of **2,432 employees** laid off, representing **100% of its workforce**, on **June 1st, 2023**.
-+ "**TutorMundi**", despite having the fewest employees, laid off all **4** of them, resulting in a **100% turnover**, on **April 23rd, 2020**, during the **Series A stage**.
++ "**Katerra**" had the highest number of layoffs among all companies, with a total of **2,432 employees** laid off, representing **100% of its workforce**, on **June 1st, 2021**.
++ "**TutorMundi**", despite having the fewest employees, laid off all **4** of them, resulting in a **100% turnover**, on **April 24rd, 2020**, during the **Series A stage**.
 
 ### Complete Company Layoffs by Funding Stage
 ```sql
@@ -1221,7 +1221,7 @@ order by
 
 ![2  Complete Company Layoffs by Funding Stage](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/b6c1b873-e8d7-4c72-b4cb-65bbd4d81d5c)
 
-+ "**Britishvolt**" had the most funds when the company fully turned over, with a total of **206 employees** laid off, representing **100% of its workforce**, on **January 12th, 2023**. The stage of the company at the time of layoffs is **unknown**, and it had **$2,400 million in funds**.
++ "**Britishvolt**" had the most funds when the company fully turned over, with a total of **206 employees** laid off, representing **100% of its workforce**, on **January 17th, 2023**. The stage of the company at the time of layoffs is **unknown**, and it had **$2,400 million in funds**.
 + "**SuperLearn**" had the lowest funds, and although there is no information available about the total number of layoffs, a **100% layoff** percentage is presented. The layoffs occurred on **June 21st, 2022**, during the **Seed stage**, and the company had **$0 in funds**.
 
 ### Company Layoffs
@@ -1259,8 +1259,8 @@ order by
 
 ![3  Company Layoffs](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/8fa29b2b-ec1a-4c43-b991-f80890ba84cc)
 
-+ "Amazon" has the highest sum of total laid off, with a total of **27,840 employees** affected.
-+ "Flytedesk" has the lowest sum of total laid off, with only **4 employees** affected.
++ "**Amazon**" has the highest sum of total laid off, with a total of **27,840 employees** affected.
++ "**Flytedesk**" has the lowest sum of total laid off, with only **4 employees** affected.
 
 ### Start and End Date of Layoffs Metrics
 ```sql
@@ -1335,7 +1335,7 @@ order by
 
 </details>
 
-![4  Industry Layoffs](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/c6241970-6c76-4c3f-941f-dc8364a18a05)
+![4  Industry Layoffs](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/765bc347-a632-47d7-92d7-116b1acc6e29)
 
 + The "**Retail**" industry has the highest number of total layoffs, totaling **67,368 employees**.
 + On the other hand, the "**AI**" industry has the lowest number of total layoffs, with only **262 employees**.
