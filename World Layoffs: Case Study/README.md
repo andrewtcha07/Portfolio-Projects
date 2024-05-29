@@ -14,6 +14,7 @@ Tech layoffs were reported by:
 + San Francisco Business Times
 + TechCrunch
 + The New York Times
+
 The dataset covers the period from **March 2020**, when COVID-19 was declared a pandemic, through **May 2024** present time.
 
 > [!NOTE]
