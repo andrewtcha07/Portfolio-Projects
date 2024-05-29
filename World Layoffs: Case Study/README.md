@@ -1,6 +1,4 @@
 # World Layoffs: Case Study 💼
-
-## ℹ️ Introduction
 The global pandemic has profoundly impacted economies worldwide, triggering a significant economic downturn. Factors such as decreased consumer spending and heightened central bank interest rates have fueled concerns about an impending recession. Consequently, this turmoil has resulted in significant layoffs within the technology industry. Amidst these challenges, there arises the need for a thorough examination.
 
 ## 📑 Objectives
@@ -1803,6 +1801,8 @@ where
 </td></tr> </table>
 </details>
 
+![10  Top 5 Industries with Highest Total Layoffs by Yearly](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/8ade1601-2a58-463f-bdfe-2d202cb3bb79)
+
 + In **2020**, the "**Transportation**" industry ranked 1st with the highest total of **14,628 layoffs**, while the "**Food**" industry ranked 5th with the lowest total of **5,968 layoffs**.
 + For **2021**, the "**Consumer**" industry ranked 1st with the highest total of **3,600 layoffs**, while the "**Education**" industry ranked 5th with the lowest total of **1,943 layoffs**.
 + In **2022**, the "**Retail**" industry ranked 1st with the highest total of **20,447 layoffs**, while the "**Food**" industry ranked 5th with the lowest total of **11,288 layoffs**.
@@ -1900,6 +1900,8 @@ where
 
 </td></tr> </table>
 </details>
+
+![11  Top 5 Countries with Highest Total Layoffs by Yearly](https://github.com/chaanalyst/Portfolio-Projects/assets/154933301/24a1392a-7830-43fd-b09d-14148fbc9092)
 
 + In **2020**, "**United States**" ranked 1st with the highest total of **48,964 layoffs**, while "**Canada**" ranked 5th with the lowest total of **1,083 layoffs**.
 + For **2021**, "**United States**" ranked 1st with the highest total of **9,457 layoffs**, while "**Canada**" ranked 5th with the lowest total of **45 layoffs**.
