@@ -1,4 +1,4 @@
-# COVID-19 Data: Infections, Mortality, and Vaccinations
+# COVID-19 - Infections, Mortality, and Vaccinations: Case Study
 
 created by: Andrew Cha
 
