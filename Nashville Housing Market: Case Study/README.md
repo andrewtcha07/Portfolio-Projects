@@ -1,4 +1,4 @@
-# Nashville Housing Market Analysis: Comprehensive Data Transformation
+# Nashville Housing Market: Case Study - Comprehensive Data Transformation
 
 created by: Andrew Cha
 
