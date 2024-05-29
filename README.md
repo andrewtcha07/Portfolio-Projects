@@ -14,7 +14,7 @@ Here, I showcase my passion for unraveling insights hidden within complex datase
 
 ## My Projects:
 
-### [COVID-19 Data Analysis: Infections, Mortality, and Vaccinations](https://github.com/chaanalyst/Portfolio-Projects/tree/c5fa4c6ee71f6decc381f4fe39deda27cc896e8e/COVID19%20-%20Infections%2C%20Deaths%2C%20and%20Vaccinations%3A%20Case%20Study)
+### [COVID-19 - Infections, Mortality, and Vaccinations: Case Study](https://github.com/chaanalyst/Portfolio-Projects/tree/c5fa4c6ee71f6decc381f4fe39deda27cc896e8e/COVID19%20-%20Infections%2C%20Deaths%2C%20and%20Vaccinations%3A%20Case%20Study)
 
 **Description**: This project focuses on the impact of COVID-19 across different countries and continents, analyzing data on cases, deaths, and vaccinations from 2020 to 2024. Through comprehensive analysis, it explores various aspects of the dataset, providing insights into the spread of the virus, mortality rates, and the progress of vaccination campaigns, contributing to a deeper understanding of the global response to the pandemic.
 
@@ -23,7 +23,7 @@ Here, I showcase my passion for unraveling insights hidden within complex datase
   - Microsoft Excel
   - Tableau
 
-### [Nashville Housing Market Analysis: Comprehensive Data Transformation](https://github.com/chaanalyst/Portfolio-Projects/tree/c5fa4c6ee71f6decc381f4fe39deda27cc896e8e/Nashville%20Housing%3A%20Case%20Study)
+### [Nashville Housing Market: Case Study: Comprehensive Data Transformation](https://github.com/chaanalyst/Portfolio-Projects/tree/c5fa4c6ee71f6decc381f4fe39deda27cc896e8e/Nashville%20Housing%3A%20Case%20Study)
 
 **Description**: This project focuses on property sales data in Nashville, aiming to refine and standardize the dataset for a deeper exploration of the Nashville housing market. Through a meticulous data cleaning and transformation process, it addresses issues such as inconsistent date formats, missing address details, and duplicate records. By enhancing the quality and structure of the dataset, this analysis ensures a more reliable foundation for gaining insights into the dynamics of the Nashville real estate market.
 
@@ -32,7 +32,7 @@ Here, I showcase my passion for unraveling insights hidden within complex datase
   - Microsoft Excel
   - Tableau
 
-### [Cyclistic Bike-Share Case Study](https://github.com/chaanalyst/Portfolio-Projects/tree/c5fa4c6ee71f6decc381f4fe39deda27cc896e8e/Cyclistic%20Bike-Share%3A%20Case%20Study)
+### [Cyclistic Bike-Share: Case Study](https://github.com/chaanalyst/Portfolio-Projects/tree/c5fa4c6ee71f6decc381f4fe39deda27cc896e8e/Cyclistic%20Bike-Share%3A%20Case%20Study)
 
 **Description**: This project focuses on utilizing Cyclistic's historical bike trip data for a comprehensive analysis of the distinct usage behaviors between casual riders and annual members. The insights derived from this analysis are leveraged to craft an effective marketing strategy aimed at converting casual riders into annual members for Cyclistic, with the overarching goal of driving future growth and profitability for the company.
 
